@@ -7,24 +7,18 @@ categories:
 tags:
   - 算法
   - 数论
-description: 解决一类形如 x^2==n(mod p) 的问题。
-reference:
-  - title: 模平方根_百度百科
-    url: 'http://baike.baidu.com/view/4075762.htm'
-  - title: Tonelli–Shanks Algorithm 二次剩余系解法 (Ural 1132. Square Root) - AC_Von
-    url: 'http://www.cnblogs.com/vongang/archive/2012/11/01/2749871.html'
-  - title: 'Tonelli–Shanks algorithm - Wikipedia, the free encyclopedia'
-    url: 'http://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm'
-  - title: 二次剩余(quadratic residue) - 冷镜瘦朱颜的日志
-    url: 'http://blog.163.com/yuhc123@126/blog/static/3982949720082810566615/'
 ---
 
-# 定义
+# 模平方根的解法——托内利－尚克斯算法（Tonelli–Shanks algorithm）
+
+> 解决一类形如 x^2==n(mod p) 的问题。
+
+## 定义
 
 给定奇素数p和正整数x（1<=x<=p-1）, 如果存在一个整数y，1<=y<=p-1, 使得x ≡ y * y (mod p) ，则称y是x的模p平方根。
 **举例说明：** 63是55的模103平方根，因为有：63 * 63 ≡ 3969 ≡ 55 (mod 103)。
 
-# 算法
+## 算法
 
 托内利－尚克斯算法（Tonelli–Shanks algorithm）可以解决这一类问题。算法流程如下：
 
@@ -43,7 +37,7 @@ reference:
 
 托内利－尚克斯算法是概率算法，返回正确解的概率为1/2。算法的渐进时间复杂度为O((log p)^4)。
 
-# 代码
+## 代码
 
 给出一个代码加深一下理解。[ural1132](http://acm.timus.ru/problem.aspx?space=1&num=1132)
 
@@ -132,11 +126,11 @@ int main()
 }
 ```
 
-# 勒让德符号
+## 勒让德符号
 
 **勒让德符号** 是一个形如这样的分段函数：
 
-{% asset_img 1.gif %}
+![勒让德符号分段函数](./1.gif)
 
 若 a 是 p 的二次剩余，则返回 1 ; a 是模 p 的二次非剩余，返回 -1 ; a 是 p 的公约数，返回 0 。
 
@@ -145,3 +139,10 @@ int main()
 **欧拉（Euler）判别法：**
 若 a 是模 p 的平方剩余， 则 $a^{(p-1)/2} = 1 \pmod{p}$
 若 a 是模 p 的平方非剩余， 则 $a^{(p-1)/2} = -1 \pmod{p}$
+
+## 参考内容
+
++ [模平方根_百度百科](http://baike.baidu.com/view/4075762.htm)
++ [Tonelli–Shanks Algorithm 二次剩余系解法 (Ural 1132. Square Root) - AC_Von](http://www.cnblogs.com/vongang/archive/2012/11/01/2749871.html)
++ [Tonelli–Shanks algorithm - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm)
++ [二次剩余(quadratic residue) - 冷镜瘦朱颜的日志](http://blog.163.com/yuhc123@126/blog/static/3982949720082810566615/)

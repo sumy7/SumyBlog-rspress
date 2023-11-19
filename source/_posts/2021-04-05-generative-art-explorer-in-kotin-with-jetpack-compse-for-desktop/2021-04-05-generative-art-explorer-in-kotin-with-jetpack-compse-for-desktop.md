@@ -96,7 +96,7 @@ LaunchedEffect(Unit) {
 
 于是每个Arts就要出现三个生命周期，onInit、onUpdate和onDraw。在这三个生命周期里onInit完成变量的初始化，onUpdate对关键属性进行更新，onDraw描绘单次绘制的方法。而动画Arts和普通Arts差异仅仅体现在onUpdate是否会进行调用。
 
-![从svg+js迁移的动画](:/a7ec6e4380a04d05948110c9b67688b6)
+![从svg+js迁移的动画](./Hearts.png)
 
 有了动画Arts类型之后，我又尝试收集一些动画效果进行实现，其中不乏对svg和javascript动画效果的迁移。
 

@@ -8,27 +8,25 @@ tags:
   - 算法
   - 计算几何
   - 姿势
-description: 通过一个简单的排序算法，从不同角度解决问题。
-reference:
-  - title: '演算法筆記 - Point, Line, Plane'
-    url: 'http://www.csie.ntnu.edu.tw/~u91029/PointLinePlane2.html'
-  - title: POJ 2007(计算几何初步——极角排序) - Dev-T
-    url: 'http://www.cnblogs.com/devtang/archive/2012/02/01/2334977.html'
 ---
+
+# 极角排序
+
+> 通过一个简单的排序算法，从不同角度解决问题。
 
 *今天第一次接触到几何类的问题，看到了一个极角排序，感觉很有用处。*
 
-# 定义
+## 定义
 
 我们平常所使用的坐标系都是直角坐标系，而极角排序是在极坐标系下进行的。
 这里首先要选取一个点，然后其它点根据与参考点的连线与x轴所成的夹角的大小进行排序的。
 这里我们可以简单理解为绕着一个点逆时针转圈访问。
 
-{% asset_img 1.png 极角排序 %}
+![极角排序](./1.png)
 
 盗一下别人家的图来用一下。。。
 
-# 代码
+## 代码
 
 对于计较排序来说，最重要的还是cmp函数的书写，这里有一下几种书写方式：
 
@@ -135,3 +133,8 @@ int cmp(point a, point b)
     return 0;
 }
 ```
+
+## 参考内容
+
++ [演算法筆記 - Point, Line, Plane](http://www.csie.ntnu.edu.tw/~u91029/PointLinePlane2.html)
++ [POJ 2007(计算几何初步——极角排序) - Dev-T](http://www.cnblogs.com/devtang/archive/2012/02/01/2334977.html)
