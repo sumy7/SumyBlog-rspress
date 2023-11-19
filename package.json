@@ -1,0 +1,20 @@
+{
+  "name": "sumy-blog-rspress",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "rspress preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "rspress": "^1.0.0"
+  },
+  "devDependencies": {
+    "@rspress/shared": "^1.6.2",
+    "@types/node": "^16",
+    "@types/react": "^18.2.37",
+    "hexo-util": "^3.1.0"
+  }
+}
