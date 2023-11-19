@@ -21,6 +21,11 @@ export default defineConfig({
     prevPageText: '上一页',
     nextPageText: '下一页',
   },
+  globalUIComponents: [
+    [path.join(__dirname, './theme', 'GoogleAnalytics.tsx'), {
+      id: 'UA-69760423-1'
+    }]
+  ],
   mediumZoom: {
     selector: '.rspress-doc img',
   },
