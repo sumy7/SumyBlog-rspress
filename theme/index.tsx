@@ -1,6 +1,9 @@
 import Theme from 'rspress/theme';
+import GisusComments from './GiscusComments'
 
-const Layout = () => <Theme.Layout />;
+const Layout = () => <Theme.Layout beforeDocFooter={
+  <GisusComments />
+} />;
 
 export default {
   ...Theme,

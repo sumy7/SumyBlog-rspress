@@ -8,6 +8,7 @@
     "preview": "rspress preview"
   },
   "dependencies": {
+    "@giscus/react": "^2.3.0",
     "react": "^18.2.0",
     "rspress": "^1.0.0"
   },

@@ -20,6 +20,7 @@ export default defineConfig({
     lastUpdatedText: '最后更新时间',
     prevPageText: '上一页',
     nextPageText: '下一页',
+    outlineTitle: '目录'
   },
   globalUIComponents: [
     [path.join(__dirname, './theme', 'GoogleAnalytics.tsx'), {
