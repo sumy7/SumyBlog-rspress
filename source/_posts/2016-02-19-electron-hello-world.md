@@ -9,11 +9,13 @@ tags:
   - nodejs
 ---
 
+# 体验Electron之Hello World
+
 从Electron简单起步之后，接下来应该就是写Hello World了。但是Hello World已经包含在Quick Start程序里了，怎么办呢？
 
 所以接下来先来看一看Quick Start中的Hello World是怎么写的吧。
 
-# electron-quick-start
+## electron-quick-start
 
 首先进入Quick Start的文件夹，可以发现其中包含了以下文件：
 

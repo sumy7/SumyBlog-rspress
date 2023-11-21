@@ -9,23 +9,25 @@ tags:
   - 教程
 ---
 
+# 人人都懂的Docker简明教程
+
 很早之前就听过 **Docker** ，前几天写一个程序的时候想要用 **mongo** ，于是就想不如从 Docker 里弄一个吧，于是就这样跌跌撞撞的走上了 _使用_ Docker之路。
 
 本文不对Docker做深入的了解，只是根据实际使用中遇到的情况，所谓遇到什么问题解决什么问题。
 
 另，本文为**Windows下使用Docker**，如果你使用其它操作系统请谷歌其它文章。
 
-# 什么是Docker
+## 什么是Docker
 
 一般一个事务，都要按照“是什么”、“为什么”、“怎么用”的角度来说明，但是至于 _Docker是什么这个问题_ ，我的理解Docker就是一个很大的软件仓库，可以从里面下载别人做好的软件来使用。
 
 但是，Docker是一个生态，不可能几句话说清楚，而且Docker生态里大部分内容都是平常用不到的。
 
-# 教练，我想用Docker
+## 教练，我想用Docker
 
 如何使用Docker？4步走。下载Docker安装，下载镜像，从镜像构建容器，关闭容器及再次运行容器。这里有两个名词 **镜像** 和 **容器**，这里先不做解释。根据顺序先从下载Docker开始。
 
-## 下载Docker
+### 下载Docker
 
 打开Docker的官网TODO，这是我们遇到的第一个难题，应该如何下载Docker软件？
 
@@ -39,7 +41,7 @@ tags:
 
 鱼和熊掌不能兼得，在Windows中不能同时使用Hyper-V和Virtualbox，强行使用会出现“绿屏”错误。如果不能割舍基于Virtualbox的模拟器（如Genymotion Android模拟器），可以通过启动菜单切换是否在系统中启用Hyper-V虚拟化功能。
 
-## 下载镜像
+### 下载镜像
 
 选定好了Docker的版本，就需要使用Docker了。先从Docker最基本的**镜像**开始。
 
@@ -47,7 +49,7 @@ tags:
 
 Docker有一个专门的镜像应用市场叫[Docker Hub](https://hub.docker.com/)，在其中可以浏览Docker查找其它人构建的镜像，并将其下载下来使用。Docker下载镜像有几种方式：
 
-### docker pull
+#### docker pull
 
 `docker pull` 是docker的一个子命令，只需向命令提供组织名/镜像名，docker就会自动将镜像下载到本地。如，下载mysql的镜像。
 
@@ -86,15 +88,15 @@ redis               latest              45c3ea2cecac        7 weeks ago         
 mongo               latest              0dffc7177b06        7 weeks ago         402 MB
 ```
 
-### docker镜像管理 GUI
+#### docker镜像管理 GUI
 
 照顾一些不会使用命令行的人士，docker也有一些GUI管理工具，官方提供的是 **Kitematic**。
 
-{% asset_img 1.png Kitematic界面 %}
+![Kitematic界面](./1.png)
 
 使用Kitematic需要注册一个Docker Hub账号，由此可以浏览Docker Hub上的镜像，下载并运行这些镜像。
 
-## 镜像到容器
+#### 镜像到容器
 
 **容器**是由镜像构建而成的运行环境。如果把镜像比作光盘，容器就是光盘里媒体运行的一系列环境。接下来，要运行我们的第一个容器。从镜像执行容器需要的命令参数可以从Docker Hub相应镜像的页面说明里查到，这里以mysql为例：
 
@@ -120,11 +122,11 @@ bdb4df466deb        mongo                     "/entrypoint.sh mo..."   5 weeks a
 
 如此，就创建了一个运行了mysql的容器，并且可以通过本机的3306连接到这个容器。
 
-{% asset_img 2.jpg 使用Navicat连接容器中的mysql %}
+![使用Navicat连接容器中的mysql](./2.jpg)
 
 这里使用了 `docker run` 的命令，不同的镜像有不同的启动方式，可以使用 `docker help` 或 Docker官方文档 来了解 docker run 详细的使用说明。
 
-## 再次运行容器
+### 再次运行容器
 
 每次执行 `docker run` 都会生成一个新容器，新生成的容器与原本运行的容器完全独立。如果需要之前运行的某个容器，通过容器的NAMES可以操作容器的启动和关闭。这里用到的两个命令是 `docker start` 和 `docker stop` 。
 
@@ -132,7 +134,7 @@ bdb4df466deb        mongo                     "/entrypoint.sh mo..."   5 weeks a
 
 比如要启动和关闭上面创建的mysql容器，只需要执行 `docker start mysql` 和 `docker stop mysql` 即可。
 
-# 其它一些废话
+## 其它一些废话
 
 Docker在镜像仓库的协助下变得非常简单易用，通过下载其他人制作的镜像，可以快速创建和使用我们需要的容器。镜像仓库中的镜像有的时候可能不满足我们的需求，这时候可以通过自定义方式来创建容器，然后将其编译成镜像供他人使用。
 

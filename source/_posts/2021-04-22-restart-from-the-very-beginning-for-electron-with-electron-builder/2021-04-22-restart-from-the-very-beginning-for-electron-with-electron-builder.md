@@ -4,10 +4,9 @@ title: 再次从零开始捣鼓一个Electron应用——使用electron-builder
 date: 2021-04-22 23:05:51
 categories: 体验Electron
 tags: [electron, vue, vue-cli, electron-builder]
-reference:
-  - url: https://blog.csdn.net/etherealsymbol/article/details/107403317
-    title: Electron+vue-cli3开发跨平台桌面应用
 ---
+
+# 再次从零开始捣鼓一个Electron应用——使用electron-builder
 
 自从17年接触过electron后，不知过了多久就弃坑，实在想不到会重起这个系列。
 
@@ -15,7 +14,7 @@ reference:
 
 考虑到一个一个的适配版本太麻烦，而且当时使用的一些内容也过时了，所以想着不如推倒再次从零开始捣鼓一个Electron应用。希望这次能够顺利按照思路走下去，不要再无缘无故鸽了。
 
-# 新建的思路
+## 新建的思路
 
 要新建一个electron项目，按照3年前的思路是，首先新建一个空白的electron工程，然后想办法在渲染层引入vue进行构建。
 
@@ -23,7 +22,7 @@ reference:
 
 然后我们就按照这次的思路走下去。
 
-# 新建一个Vue3项目
+## 新建一个Vue3项目
 
 本次我们使用的是最新的Vue3作为基础，需要先检查一下目前的vue-cli版本。
 
@@ -48,7 +47,7 @@ reference:
 > yarn run serve
 ```
 
-# 增加electron-builder构建
+## 增加electron-builder构建
 
 electron-builder 是一个vue-cli插件，帮助我们在原来的vue-cli基础上增加electron打包功能。
 
@@ -66,7 +65,7 @@ electron-builder 会在原有项目里增加一些内容：
 + 主进程启动方法
 + vue.config.js相关配置
 
-# 基本操作
+## 基本操作
 
 在上面的一系列操作之后，一个简单的electron+Vue构建的项目就完成了。electron-builder已经在package.json中注入了一部分操作，可以使用这些命令进行本地的调试工作。
 
@@ -79,3 +78,7 @@ yarn run electron:build
 ```
 
 现在项目已经重新搭建完毕了，可以再次愉快的编码了。
+
+## 参考内容
+
++ [Electron+vue-cli3开发跨平台桌面应用](https://blog.csdn.net/etherealsymbol/article/details/107403317)

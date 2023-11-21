@@ -4,16 +4,15 @@ title: 再次从零开始捣鼓一个Electron应用——菜单和再次发布
 date: 2021-05-09 18:35:17
 categories: 体验Electron
 tags: [electron, release, github-actions]
-reference:
-  - url: https://www.electron.build/multi-platform-build
-    title: "Multi Platform Build - electron-builder"
 ---
+
+# 再次从零开始捣鼓一个Electron应用——菜单和再次发布
 
 时隔一段时间，其实每天还是在断断续续的“水”Electron的功能，本次在菜单和构建问题上又进了一步。i18n功能需要一个切换语言的位置，由于没有设置专门的设置窗口，就把切换语言放置在菜单栏中。Electron默认已经有一部分菜单了，这次就需要在菜单上加上语言列表。另一项任务是发布，每次手动发布也好麻烦（其实也就手动发布了一次而已），这次看看能不能利用Github Actions功能将构建和发布自动化。
 
 <!-- more -->
 
-# 菜单
+## 菜单
 
 Electron的菜单通过一个`(MenuItemConstructorOptions | MenuItem)[]`类型数组进行声明，然后在窗口的ready事件后才能执行修改菜单的命令。
 
@@ -55,7 +54,7 @@ Menu.setApplicationMenu(menu)
 
 使用了自定义菜单之后，会丢失默认菜单的配置，如果还想保留默认菜单，建议将默认菜单项重新拷贝一遍，与新菜单合并放置在一起。可以使用[https://github.com/carter-thaxton/electron-default-menu/blob/master/index.js](https://github.com/carter-thaxton/electron-default-menu/blob/master/index.js)提供的模板稍加修改。
 
-# 发布
+## 发布
 
 上篇文章之后，就一直在捣鼓怎么进行更有效的发布操作，初步想法是用Github Actions在push tags操作后，触发构建然后推送将成品推送到release中，以此来替代手动构建上传的操作。
 
@@ -72,7 +71,8 @@ vue-cli-service electron:build --mac --win --linux deb tar.xz -p always
 
 除了在本地操作，还可以将这个步骤整理成一个Github Actions，在push的时候自动进行。新建.github/workflows/build.yml文件，并输入以下内容。
 
-{% codeblock .github/workflows/build.yml lang:yaml %}
+.github/workflows/build.yml
+```yaml
 name: Build/release
 
 on: push
@@ -100,8 +100,7 @@ jobs:
         run: |
           yarn install
           yarn run electron:release-${{ matrix.os }}
-
-{% endcodeblock %}
+```
 
 步骤就是用macos、ubuntu和windows这三个操作系统，分别去构建成品。如果存在GH_TOKEN环境变量，会自动触发上传操作。当然这个GH_TOKEN也不需要配置和填写，执行的时候Github会自动生成token并进行替换。
 
@@ -121,3 +120,7 @@ jobs:
 ```
 
 然后将文件push到仓库里，就自动创建Github Actions了。以后有push操作的时候，都会自动构建。还会根据当前最新的tag创建版本号，但是这样自动创建的releases是一个草稿状态，还需要手动编辑然后进行发布操作。
+
+## 参考内容
+
++ [Multi Platform Build - electron-builder](https://www.electron.build/multi-platform-build)

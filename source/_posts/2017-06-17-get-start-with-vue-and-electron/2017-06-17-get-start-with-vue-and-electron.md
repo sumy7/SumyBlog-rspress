@@ -7,10 +7,9 @@ categories:
 tags:
   - electron
   - vue
-reference:
-  - url: 'https://github.com/SimulatedGREG/electron-vue'
-    title: SimulatedGREG/electron-vue
 ---
+
+# 使用electron-vue搭建脚手架
 
 是的，最近无聊，打算开个新坑，想用Electron做点东西。涉及前端的东西总是有好多选择，也就有好多组合。
 
@@ -75,6 +74,10 @@ Next Steps:
 
 最后的步骤使用 `npm install` 的时候报错了，安装和使用 `yarn` 就没出现报错的问题。之后运行 `yarn` 和 `yarn run dev` 出来如下界面：
 
-{% asset_img 1.png 测试 %}
+![测试](./1.png)
 
 感觉还不错，也支持修改自动加载啥的。。。本来还想试试sass，结果不太懂，还是放弃吧，就这样开坑挺好的:joy:。。。
+
+## 参考内容
+
++ [SimulatedGREG/electron-vue](https://github.com/SimulatedGREG/electron-vue)
