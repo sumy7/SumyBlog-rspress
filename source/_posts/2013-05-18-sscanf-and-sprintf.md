@@ -7,16 +7,14 @@ categories:
 tags:
   - c/c++
   - 姿势
-description: sscanf与sprintf将字符串与其它类型连接起来，在一定程度上方便了字符串的处理。
-reference:
-  - title: sscanf - C++ Reference
-    url: 'http://www.cplusplus.com/reference/cstdio/sscanf/'
-  - title: sprintf - C++ Reference
-    url: 'http://www.cplusplus.com/reference/cstdio/sprintf/'
 ---
+# sscanf与sprintf
+
+> sscanf与sprintf将字符串与其它类型连接起来，在一定程度上方便了字符串的处理。
+
 这两个函数所需要的头文件都包含在`#include<cstdio>`（C++）或者`#include<stdio.h>`（C）。
 
-# sscanf函数
+## sscanf函数
 
 **函数原型：**`int sscanf ( const char * s, const char * format, ...);`
 
@@ -51,7 +49,7 @@ Output:
 
 > Rudolph -> 12
 
-# sprintf函数
+## sprintf函数
 
 **函数原型：**`int sprintf ( char * str, const char * format, ... );`
 
@@ -82,3 +80,8 @@ int main ()
 Output:
 
 > [5 plus 3 is 8] is a string 13 chars long
+
+## 参考内容
+
++ [sscanf - C++ Reference](http://www.cplusplus.com/reference/cstdio/sscanf/)
++ [sprintf - C++ Reference](http://www.cplusplus.com/reference/cstdio/sprintf/)

@@ -8,16 +8,13 @@ tags:
   - java
   - annotation
   - 注解
-reference:
-  - url: 'http://www.importnew.com/14479.html'
-    title: Java注解教程：自定义注解示例，利用反射进行解析
 ---
 
 # 注解进阶：解析注解
 
 上篇介绍了注解的基本知识和自定义注解，这篇文章来介绍如何在运行时解析注解。通过反射可以获得一些注解的信息，根据这些信息就可以进行一些操作。
 
-## 注解定义
+# 注解定义
 
 要在运行时获得注解的信息，需要将注解的保留策略设置为`RUNTIME`。首先写一个测试用例。
 
@@ -39,8 +36,7 @@ public @interface Info {
 
 然后需要一个被注解标注的类：
 
-<!-- ```java
-todo 无法使用
+```java
 @Info(name = "class-InfoClass", author = { "sumy",
         "noclyt" }, comment = "Use to holding username")
 public class InfoClass {
@@ -59,11 +55,11 @@ public class InfoClass {
         return name;
     }
 }
-``` -->
+```
 
 定义了一个类，并用注解为类和类中的成员标注了信息。
 
-## 解析注解
+# 解析注解
 
 上面已经定义好了注解和使用注解的类，下面尝试获取注解的信息。
 
@@ -113,3 +109,7 @@ method getName's author(s) is/are [noclyt]
 ```
 
 这样就通过基本的反射方法获取了注解信息。注解API非常强大，被广泛应用于各种Java框架，如Spring，Hibernate，JUnit等。
+
+## 参考内容
+
++ [Java注解教程：自定义注解示例，利用反射进行解析](http://www.importnew.com/14479.html)

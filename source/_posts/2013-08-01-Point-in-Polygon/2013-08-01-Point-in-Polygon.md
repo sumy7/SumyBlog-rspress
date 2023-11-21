@@ -7,45 +7,37 @@ categories:
 tags:
   - 算法
   - 计算几何
-description: 判断一个点是否在凸包内是比较常用的一个算法。
-reference:
-  - title: 演算法筆記 - Polygon
-    url: 'http://www.csie.ntnu.edu.tw/~u91029/Polygon.html#3'
-  - title: URAL/1215 - NOCOW
-    url: 'http://www.nocow.cn/index.php/URAL/1215'
-  - title: 【SGU 253】【Theodore Roosevelt】【快速判定点是否在凸包内】_AekdyCoin的空间
-    url: 'http://hi.baidu.com/aekdycoin/item/2d54f9c0fef55457ad00efd6'
-  - title: CodeForces 166B Polygons_银白之翼
-    url: 'http://hi.baidu.com/lycanlancelot/item/dd2f8bb4ee5a6a9f18469753'
-  - title: Codeforces 166B - Polygons - Join Hands
-    url: 'http://blog.csdn.net/wsniyufang/article/details/7494697'
 ---
+
+# 判断一个点是否在凸包（多边形）内
+
+> 判断一个点是否在凸包内是比较常用的一个算法。
 
 判断一个点是否在凸包（多边形）内是比较常用的一个算法，总结了一下出现的方法，主要找到了下面的几种。
 
-# 方法一：外积计算法（只适用于凸多边形）
+## 方法一：外积计算法（只适用于凸多边形）
 
 简单来说就是将点到凸多边形的顶点的各条向量，通过外积运算判断是否都往同一方向旋转，如果都是往同一方向旋转，则表示点在凸多边形的内部；如果中途出现反方向旋转，则说明点在凸多边形的外部；如果中途出现为零的情况，表示点在凸多边形上，而且就在对应的边上。
 
 时间复杂度为O(N)
 
-{% asset_img 1.png 点位置判断1 %}
+![点位置判断1](./1.png)
 
-# 方法二：区域判别法
+## 方法二：区域判别法
 
 这种方法适用于快速判断多个点是否在一个凸多边形内。
 
-{% asset_img 2-1.jpg 点位置判断1-1 %}
+![点位置判断1-1](./2-1.jpg)
 
 首先，将一个凸多边形划分为 N 个三角形的区域。
 
-{% asset_img 2-2.jpg 点位置判断1-2 %}
+![点位置判断1-2](./2-2.jpg)
 
 对于某一个点，如果不在这些三角形区域内，则必不在凸包内。否则就能通过二分的方法得到点所在的三角形区间。
 
 最后只需判断点与原凸包边的关系即可。
 
-{% asset_img 2-3.jpg 点位置判断1-3 %}
+![点位置判断1-3](./2-3.jpg)
 
 假设我们查询绿色的点是否在凸包内，我们首先二分得到了它所在的区间，然后判断它和绿色的向量的关系，蓝色和紫色的点类似，蓝色的点在边界上，紫色的点在边界右边。
 
@@ -289,7 +281,7 @@ int main()
 }
 ```
 
-# 方法三：射线相交法
+## 方法三：射线相交法
 
 从给定的点开始，往随便一个方向（习惯水平向右）引一条无限长的射线，看看穿过多少条边。如果穿过偶数条边，说明点在多边形外；穿过奇数条边，说明点在多边形内。
 
@@ -297,7 +289,8 @@ int main()
 
 时间复杂度为O(N)
 
-{% asset_img 3.png 点位置判断3 %}
+![点位置判断3](./3.png)
+
 
 ```cpp
 struct Point {float x, y;} p[10];
@@ -395,7 +388,7 @@ bool In_Polygon(point p[],point cen)
 }
 ```
 
-# 方法四：面积比较法
+## 方法四：面积比较法
 
 我们知道计算面积有两种方法（具体可以参考【计算多边形的面积】），而两种方法的区别是关于有没有使用基点。
 
@@ -449,7 +442,7 @@ int inpolygon(node st)//点在多边形内判断，st 为基点
 }
 ```
 
-# 方法五：共求凸包法
+## 方法五：共求凸包法
 
 在codeforces的一道题目里看到的这种方法，适用于点比较多的情况。
 
@@ -487,7 +480,7 @@ Test: #42
 
 可以看出，这两组测试数据形式上差不多，关键在于共线点存在的位置。这里为了使共线点出现在最后的凸包上，我们把最左上角的点和最右下角的点的连线作为参考线。在参考线右边的可以考虑按距离近的先排序，在参考线左边的可以考虑按距离远的先排序，这样的目的是为了保证真正的极角排序是按照逆时针（或顺时针） 形成的。这就有了下面代码的 cmp 函数。
 
-{% asset_img 5.jpg 点位置判断5 %}
+![点位置判断5](./5.jpg)
 
 图片中点极角序是 S->C->J->D->E->T->I->F->G->H->K
 
@@ -712,3 +705,11 @@ int main()
     scanf(" ");
 }
 ```
+
+## 参考内容
+
++ [演算法筆記 - Polygon](http://www.csie.ntnu.edu.tw/~u91029/Polygon.html#3)
++ [URAL/1215 - NOCOW](http://www.nocow.cn/index.php/URAL/1215)
++ [【SGU 253】【Theodore Roosevelt】【快速判定点是否在凸包内】_AekdyCoin的空间](http://hi.baidu.com/aekdycoin/item/2d54f9c0fef55457ad00efd6)
++ [CodeForces 166B Polygons_银白之翼](http://hi.baidu.com/lycanlancelot/item/dd2f8bb4ee5a6a9f18469753)
++ [Codeforces 166B - Polygons - Join Hands](http://blog.csdn.net/wsniyufang/article/details/7494697)

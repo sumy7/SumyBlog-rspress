@@ -8,18 +8,15 @@ tags:
   - url
   - 库
   - c/c++
-reference:
-  - url: 'http://blog.csdn.net/foruok/article/details/8954726'
-    title: 使用http_parser解析URL
-  - url: 'http://blog.rootk.com/post/tutorial-for-http-parser.html'
-    title: http-parser使用简介
 ---
+
+# 使用http_parser解析URL
 
 解析URL是个烦心事，尤其是还要使用C语言来解析。写Java写习惯了，好多C的东西都不太会用了。最近的一次作业中需要用到URL的解析，查找了一番就找到了这个开源库。
 
 [http-parser](https://github.com/nodejs/http-parser)由[nodejs](https://github.com/nodejs)项目组开源，具体简介可以去参考主页README。
 
-# http-parser优点
+## http-parser优点
 
 + 无依赖性
 + 可以处理持久消息(keep-alive)
@@ -27,7 +24,7 @@ reference:
 + 支持Upgrade协议升级(如无例外就是WebSocket)
 + 可以防御缓冲区溢出攻击
 
-# 解析函数原型
+## 解析函数原型
 
 库的主要功能是解析HTTP头的，而解析URL使用的则是库中的一个函数方法`http_parser_parse_url()`：
 
@@ -55,7 +52,7 @@ struct http_parser_url {
 
 结构体未进行任何的内存拷贝，只记录了位置、长度信息等，效率上还是很不错的。目前支持SCHEMA、PORT、HOST、PATH、QUERY、USERINFO、FRAGMENT七种信息的提取。
 
-# 示例代码
+## 示例代码
 
 被解析的URL至少需要包含UF_SCHEMA和UF_HOST，否则在解析的时候会发生错误。
 
@@ -113,3 +110,8 @@ enum http_parser_url_fields
   , UF_MAX              = 7
   };
 ```
+
+## 参考内容
+
++ [使用http_parser解析URL](http://blog.csdn.net/foruok/article/details/8954726)
++ [http-parser使用简介](http://blog.rootk.com/post/tutorial-for-http-parser.html)

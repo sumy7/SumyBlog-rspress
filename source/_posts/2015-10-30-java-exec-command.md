@@ -8,12 +8,9 @@ tags:
   - java
   - shell
   - cmd
-reference:
-  - title: Java运行命令行并获取返回值
-    url: 'http://accptlq.iteye.com/blog/1490890'
-  - title: JAVA调用系统命令或可执行程序
-    url: 'http://wuhongyu.iteye.com/blog/461477/'
 ---
+
+# Java调用外部命令
 
 Java调用外部命令的基本方法是：通过`Runtime.getRuntime()`返回一个当前环境的运行时，通过运行时来调用外部的命令。
 
@@ -78,3 +75,8 @@ Runtime.getRuntime.exec(new String[]{"ping", "127.0.0.1"});
 ```java
 Runtime.getRuntime.exec(new String[]{"/bin/sh","-c","echo 'hello' > 1.txt"});
 ```
+
+## 参考内容
+
++ [Java运行命令行并获取返回值](http://accptlq.iteye.com/blog/1490890)
++ [JAVA调用系统命令或可执行程序](http://wuhongyu.iteye.com/blog/461477/)

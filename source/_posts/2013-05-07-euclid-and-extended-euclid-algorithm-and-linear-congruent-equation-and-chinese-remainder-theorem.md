@@ -8,19 +8,11 @@ tags:
   - 数论
   - 算法
   - acm
-description: 欧几里得、扩展的欧几里得算法、线性同余方程、中国剩余定理，这几个都是好重要的算法呀。
-reference:
-  - title: 欧几里得+扩展的欧几里得算法+线性同余方程+中国剩余定理 - lhfight的专栏
-    url: 'http://blog.csdn.net/lhfight/article/details/7755994'
-  - title: 辗转相除法 - 维基百科，自由的百科全书
-    url: >-
-      https://zh.wikipedia.org/wiki/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95
-  - title: 线性同余方程 - 维基百科，自由的百科全书
-    url: >-
-      https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B
 ---
 
 # 欧几里得+扩展的欧几里得算法+线性同余方程+中国剩余定理
+
+> 欧几里得、扩展的欧几里得算法、线性同余方程、中国剩余定理，这几个都是好重要的算法呀。
 
 ## 欧几里得算法
 
@@ -280,3 +272,9 @@ __int64 work(int n)
     }
 }
 ```
+
+## 参考内容
+
++ [欧几里得+扩展的欧几里得算法+线性同余方程+中国剩余定理 - lhfight的专栏](http://blog.csdn.net/lhfight/article/details/7755994)
++ [辗转相除法 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95)
++ [线性同余方程 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E7%BA%BF%E6%80%A7%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B)

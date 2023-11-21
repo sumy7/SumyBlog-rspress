@@ -8,18 +8,11 @@ tags:
   - java
   - thread
   - 线程
-reference:
-  - url: >-
-      http://stackoverflow.com/questions/10961714/how-to-properly-stop-the-thread-in-java
-    title: multithreading - How to properly stop the Thread in Java? - Stack Overflow
-  - url: 'http://zguide.zeromq.org/java:mspoller'
-    title: Multiple socket poller in Java
-  - url: >-
-      http://stackoverflow.com/questions/2983835/how-can-i-interrupt-a-serversocket-accept-method
-    title: How can I interrupt a ServerSocket accept() method?
 ---
 
-# 含有死循环的线程是无法知道自己该什么时候结束的
+# 如何在Java中正确的终止一个线程
+
+## 含有死循环的线程是无法知道自己该什么时候结束的
 
 一个工作线程需要不断接受外部的消息，这样的线程内部通常有一个死循环 `while(true){}` 。因为死循环的存在，该线程自己无法知道何时才能停止循环，只能通过外部线程通知该线程的结束。
 
@@ -27,7 +20,7 @@ reference:
 
 那么如何才能更好的结束一个线程？
 
-# 这里有两种方法可以让外部线程结束一个线程
+## 这里有两种方法可以让外部线程结束一个线程
 
 我们需要给线程处理善后工作的机会，一般来说就是给线程一个信号，希望线程能尽快完善工作，然后**跳出**死循环。
 
@@ -54,7 +47,7 @@ public class Thread1 extends Thread {
 
 这里增加一个`volatile`标注的变量isStop来记录是否需要结束线程，`run()`中的死循环也由isStop变量操控。通过调用stopMe()方法改变变量的值，使死循环可以自行退出。
 
-## 捕获线程中断
+### 捕获线程中断
 
 关于线程中断有Thread中有几个方法：
 
@@ -85,7 +78,7 @@ public class Thread2 extends Thread {
 
 需要注意的是一些阻塞方法像`sleep()`等会清除中断标志，所以在catch的时候需要重新设置一下中断标志。
 
-# 太忙的线程无法及时听到撤退的号角
+## 太忙的线程无法及时听到撤退的号角
 
 如果线程阻塞在一个事件上，那么给线程发送关闭消息，线程也无法及时的收到，只能等到事件出现，线程退出阻塞状态的时候才能接着进行下一步操作。
 
@@ -139,3 +132,9 @@ public class MSPoller {
 ```
 
 总的来说，尽量通知线程自己去结束自己的任务，由此可以尽量避免一些意外情况的发生。
+
+## 参考内容
+
++ [multithreading - How to properly stop the Thread in Java? - Stack Overflow](http://stackoverflow.com/questions/10961714/how-to-properly-stop-the-thread-in-java)
++ [Multiple socket poller in Java](http://zguide.zeromq.org/java:mspoller)
++ [How can I interrupt a ServerSocket accept() method?](http://stackoverflow.com/questions/2983835/how-can-i-interrupt-a-serversocket-accept-method)

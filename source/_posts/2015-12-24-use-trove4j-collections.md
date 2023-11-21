@@ -8,19 +8,14 @@ tags:
   - java
   - collections
   - 库
-reference:
-  - url: 'https://greatpowerlaw.wordpress.com/2012/09/29/trove4j-2/'
-    title: 'trove4j:大数据下的轻量Java Collections库'
-  - url: 'https://greatpowerlaw.wordpress.com/2013/04/08/fastutil-vs-trove4j/'
-    title: Fastutil vs. Trove4j
-  - url: 'http://www.javamex.com/tutorials/memory/object_memory_usage.shtml'
-    title: 'Memory usage of Java objects: general guide'
 ---
+
+# trove4j大数据环境下的Collections库
 
 平安夜快乐。。。今天在写词分析的器的时候，发现了一个问题。由于要计算两个词之间的cos距离，需要保存向量，于是将数据结构设计成`Map<Stirng, Set<Integer>>`。数据结构问题解决了，但是数据文本有2G多，程序加载数据到一半就GC了。
 刚开始还以为是数据太大的原因，之后去StackOverflow上稍微搜索了一下，有人提到了一种[答案](http://stackoverflow.com/a/10634926/3671444)，感觉比较靠谱，尝试了一下果然可以。
 
-# trove4j
+## trove4j
 
 根据上面回答中提到的内容，按图索骥找到了这个库。trove4j支持原生类型，这与Java的Collections只能使用包装类型不同。原生类型比包装类型更节省空间。这在大数据环境下是很必要的。
 例如，上面的`Map<Stirng, Set<Integer>>`就可以写成
@@ -42,7 +37,7 @@ while(iter.hasNext()){
 
 这样可以让迭代器更好的返回原生类型。
 
-# 为什么
+## 为什么
 
 Java默认的Collections为什么消耗内存，这就需要从Java的Class结构开始说起。
 这里简单说一下Class各部分的内存占用大小（以32位为例）：
@@ -74,6 +69,12 @@ Java默认的Collections为什么消耗内存，这就需要从Java的Class结�
 
 这里只是大体看了一下，具体计算方法还要继续研究。
 
-# 其它
+## 其它
 
 在文章中还提到了一个叫Fastutil的库，似乎比trove4j更好，但是trove4j更轻量级，有空再看看。
+
+## 参考内容
+
++ [trove4j:大数据下的轻量Java Collections库](https://greatpowerlaw.wordpress.com/2012/09/29/trove4j-2/)
++ [Fastutil vs. Trove4j](https://greatpowerlaw.wordpress.com/2013/04/08/fastutil-vs-trove4j/)
++ [Memory usage of Java objects: general guide](http://www.javamex.com/tutorials/memory/object_memory_usage.shtml)

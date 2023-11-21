@@ -7,30 +7,13 @@ categories:
 tags:
   - java
   - 泛型
-reference:
-  - url: 'http://www.cnblogs.com/lwbqqyumidi/p/3837629.html'
-    title: Java总结篇系列：Java泛型
-  - url: 'http://blog.csdn.net/jinuxwu/article/details/6771121'
-    title: Java泛型详解
-  - url: 'http://www.tutorialspoint.com/java/java_generics.htm'
-    title: Java - Generics
-  - url: 'http://www.cnblogs.com/anrainie/archive/2012/03/09/2387272.html'
-    title: 学习：Java泛型之二（泛型方法）
-  - url: 'https://docs.oracle.com/javase/tutorial/java/generics/index.html'
-    title: 'Lesson: Generics'
-  - url: 'http://segmentfault.com/a/1190000002646193'
-    title: Java泛型：泛型类、泛型接口和泛型方法
-  - url: 'http://blog.csdn.net/chenlycly/article/details/25561029'
-    title: Java泛型中E、T、K、V等的含义
-  - url: 'http://www.importnew.com/13907.html'
-    title: Java泛型与类型擦除
-  - url: 'http://docs.oracle.com/javase/tutorial/java/generics/restrictions.html'
-    title: Restrictions on Generics
 ---
+
+# Java泛型二三事
 
 泛型（Generic Type）是Java中重要的一部分。在使用Java标准库中的内容的时候，经常会遇到泛型。这里将知道的泛型部分内容总结一下。以后遇到新的内容还会继续补充。
 
-# 什么是泛型
+## 什么是泛型
 
 讨论一个内容的时候，首先会来说什么是什么。在官方的文档中说到
 > A *generic type* is a generic class or interface that is parameterized over types.
@@ -44,9 +27,9 @@ reference:
 
 有了泛型之后，可以将逻辑相同类型不同的代码独立出来，由编译器负责进行类型转换。
 
-# 泛型的声明
+## 泛型的声明
 
-## 泛型方法（Generic Method）
+### 泛型方法（Generic Method）
 
 泛型方法是在普通方法声明上加入了泛型。
 
@@ -121,7 +104,7 @@ Map<String, List<String>> m = newInstance();
 编译器在编译代码的时候推导出了`K, V`分别对应的类型。当然，编译器的推导能力也是有限的，这里也就不过多讨论了。
 **~~指定类型~~**
 
-## 泛型类（Generic Class）
+### 泛型类（Generic Class）
 
 泛型类和普通类的声明一样，只是在类名后面加上了类型表示。就像泛型方法，泛型类可以有一个或多个类型表示，用逗号进行分隔。
 
@@ -166,7 +149,7 @@ List<String> list = new ArrayList<String>(); // 普通的写法
 List<String> list = new ArrayList<>(); // 省略的写法
 ```
 
-## 泛型接口（Generic Interface）
+### 泛型接口（Generic Interface）
 
 泛型接口是在声明接口的时候指定，类在继承接口的时候需要补充泛型类型。
 
@@ -203,7 +186,7 @@ public InfoImp<T> implements Info<T> {
 }
 ```
 
-# 泛型标识与泛型通配符
+## 泛型标识与泛型通配符
 
 理论上泛型标识可以使用任意的字母或字母序列，可以考虑以下的例子，但是不推荐这样使用
 
@@ -215,7 +198,7 @@ public static <STRING> STRING sayHello(STRING word){
 ```
 
 但是Java内部有一套自己的规范，这样在阅读JDK代码的时候会更加明确泛型标识的含义。
-{% blockquote %}
+```
 E - Element (在集合中使用，因为集合中存放的是元素)
 T - Type（Java 类）
 K - Key（键）
@@ -223,7 +206,7 @@ V - Value（值）
 N - Number（数值类型）
 ? -  表示不确定的java类型
 S、U、V - 2nd、3rd、4th types
-{% endblockquote %}
+```
 
 说到泛型标识符，再说一说泛型通配符。常用的泛型通配符有三种。
 
@@ -242,7 +225,7 @@ public static <?> void sayHello(? helloString) {} //错误的泛型方法定义
 interface Box<?> {} //错误的泛型接口定义
 ```
 
-**上限类型 - <? extends 类>**
+**上限类型 - &lt;? extends 类>**
 `<? extends 类>` 表示泛型只能使用这个`类`或这个`类`的**子类**。举个例子
 
 ```java
@@ -262,13 +245,13 @@ public static void printList(List<? extends String> list){
 
 这个例子指定了泛型类的具体类型的范围。在JDK中经常可以看到这样的使用方法。
 
-**下限类型 - <? super 类>**
+**下限类型 - &lt;? super 类>**
 同上限方法，`<? super 类>` 表示泛型只能使用这个`类`或这个`类`的**父类**。
 这里就不再举例子了。
 
-# 泛型二三事
+## 泛型二三事
 
-## 类型擦除
+### 类型擦除
 
 泛型只在编译时有效，编译成字节码的过程中会进行**类型擦除**的操作。当然并不是所有的泛型类型都被擦除，有些也会保留下来。
 一个简单的类型擦除的例子：
@@ -300,7 +283,7 @@ while (iterator.hasNext()) {
 + 为了确保类型安全，必要时插入强制类型转换
 + 生成桥接方法保持扩展泛型类型中的多态性
 
-## 可变参数
+### 可变参数
 
 使用泛型方法可以使用可变参数：
 
@@ -321,7 +304,7 @@ public class Main {
 
 可以发现编译器很好的处理了这些，里面的具体原理还有待继续研究。
 
-## new T()?
+### new T()?
 
 你可能会很好奇，能不能在泛型方法（类）中创建泛型类型的实例呢？
 答案是不可以的
@@ -347,7 +330,7 @@ append(ls, String.class);
 
 因为类型擦除的缘故，部分类型信息会丢失，我们在运行时不会获取到相应的类型，所以也就无法将该类型实例化成对象。
 
-## 泛型和数组
+### 泛型和数组
 
 在Java中，直接创建泛型数组是非法的。泛型设计的初衷是为了简化程序员类型转换的操作，保证类型安全。数组是**协变**的，如果Sub为Super的子类型，那么数组Sub[]就是Super[]的子类型。这样做就很难保证存储上的安全。
 
@@ -427,3 +410,15 @@ public class Stack<E> {
 ```
 
 数组和泛型有着不同的规则和特性，一般来说不能很好的混用。如果混合起来的时候，请注意编译器的警告和错误，保证在类型问题上不要出现问题。
+
+## 参考内容
+
++ [Java总结篇系列：Java泛型](http://www.cnblogs.com/lwbqqyumidi/p/3837629.html)
++ [Java泛型详解](http://blog.csdn.net/jinuxwu/article/details/6771121)
++ [Java - Generics](http://www.tutorialspoint.com/java/java_generics.htm)
++ [学习：Java泛型之二（泛型方法）](http://www.cnblogs.com/anrainie/archive/2012/03/09/2387272.html)
++ [Lesson: Generics](https://docs.oracle.com/javase/tutorial/java/generics/index.html)
++ [Java泛型：泛型类、泛型接口和泛型方法](http://segmentfault.com/a/1190000002646193)
++ [Java泛型中E、T、K、V等的含义](http://blog.csdn.net/chenlycly/article/details/25561029)
++ [Java泛型与类型擦除](http://www.importnew.com/13907.html)
++ [Restrictions on Generics](http://docs.oracle.com/javase/tutorial/java/generics/restrictions.html)

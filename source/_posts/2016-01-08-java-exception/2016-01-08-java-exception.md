@@ -8,14 +8,13 @@ tags:
   - java
   - 异常
   - exception
-reference:
-  - url: 'http://www.importnew.com/14688.html'
-    title: 深入理解java异常处理机制
 ---
+
+# 由一个小例子引出的Java异常处理机制
 
 大家对java异常处理可能再熟悉不过了，java很大一部分就是在与异常打交道，`try...catch...finally`再熟悉不过了。但是之前遇到了一个例子发现，原来异常处理并不是如我们想象那样如线性那么简单。
 
-# 引例
+## 引例
 
 想过没有，如果在`catch`之后，`throw`与`return`的逻辑是怎样的？
 
@@ -145,9 +144,9 @@ testEx1, finally; return value=false
 testEx, finally; return value=false
 ```
 
-# Java异常
+## Java异常
 
-{% asset_img 1.jpg Java异常 %}
+![Java异常](./1.jpg)
 Java中所有的异常都有一个共同的祖先`Throwable`，从这个祖先分出两个大分支`Error`和`Exception`。
 
 + **Error**：是程序无法处理的错误，表示运行应用程序中较严重问题。大多数错误与代码编写者执行的操作无关，而表示代码运行时 JVM（Java 虚拟机）出现的问题。例如，Java虚拟机运行错误（Virtual MachineError），当 JVM 不再有继续执行操作所需的内存资源时，将出现 OutOfMemoryError。这些异常发生时，Java虚拟机（JVM）一般会选择线程终止。
@@ -155,13 +154,13 @@ Java中所有的异常都有一个共同的祖先`Throwable`，从这个祖先�
     + `RuntimeException`是运行时异常，如NullPointerException(空指针异常)、IndexOutOfBoundsException(下标越界异常)等。这些异常在编码阶段无法检查，只有在运行时才能发现。一般这类异常都是由于逻辑错误引起的，Java编译器不会检查它，所以说不需要用`try-catch`对其进行捕获，编译器也能编译通过。
     + 其它是那些非运行时异常，这些异常都是在编码阶段需要考虑到的，如果没有正确处理，编译不会通过。
 
-# Java异常处理机制
+## Java异常处理机制
 
 Java异常处理机制为：抛出异常、捕获异常。当异常发生时，运行时系统会寻找异常的解决方案，若当前方法没有能力解决该异常，异常会被抛向上一级继续寻找，直到找到该异常的解决方案或者异常到达了Java虚拟机。此时Java虚拟机会终止程序的运行，并打印异常的堆栈信息。
 
 > 一个方法所能捕捉的异常，一定是Java代码在某处所抛出的异常。简单地说，异常总是先被抛出，后被捕捉的。
 
-## 抛出异常
+### 抛出异常
 
 当一个方法出现错误的时候就会抛出异常，产生异常通常有两种方式：手动生成异常对象，通过`throw`方法交付运行时系统；由运行时系统自动生成并交付异常。
 
@@ -186,7 +185,7 @@ methodname throws Exception1,Exception2,..,ExceptionN (...){
 
 多个异常之间使用逗号分隔，用`throws`关键字声明。
 
-## 捕获异常
+### 捕获异常
 
 在java中通过`try-catch`捕获异常，一般语法形式为：
 
@@ -267,9 +266,13 @@ try、catch、finally语句块的执行顺序：
 2. 当try捕获到异常，catch语句块里没有处理此异常的情况：当try语句块里的某条语句出现异常时，而没有处理此异常的catch语句块时，此异常将会抛给JVM处理，finally语句块里的语句还是会被执行，但finally语句块后的语句不会被执行；
 3. 当try捕获到异常，catch语句块里有处理此异常的情况：在try语句块中是按照顺序来执行的，当执行到某一条语句出现异常时，程序将跳到catch语句块，并与catch语句块逐一匹配，找到与之对应的处理程序，其他的catch语句块将不会被执行，而try语句块中，出现异常之后的语句也不会被执行，catch语句块执行完后，执行finally语句块里的语句，最后执行finally语句块后的语句；
 
-{% asset_img 2.jpg  图示try、catch、finally语句块的执行 %}
+![图示try、catch、finally语句块的执](./2.jpg)
 
 # 自定义异常类
 
 Java包含了一些内置的异常类，可以用来表示内部出现的异常。除了使用Java内置的异常类，也可以自定义自己的异常类。
 自定义的异常类需要继承Exception或RuntimeException，然后在相应位置抛出自定义异常类的对象；可以在当前位置使用`try-catch`处理异常，或者不处理用`throws`关键字声明需要调用者处理；调用者需要根据声明处理异常。
+
+## 参考内容
+
++ [深入理解java异常处理机制](http://www.importnew.com/14688.html)

@@ -7,15 +7,11 @@ categories:
 tags:
   - java
   - 姿势
-description: 看起来 StringTokenizer 类好神奇的样子，不管有没有用先了解了解再说。
-reference:
-  - title: StringTokenizer类的使用 - riyunzhu的专栏
-    url: 'http://blog.csdn.net/riyunzhu/article/details/7989145'
-  - title: 类 StringTokenizer - Rollen Holt
-    url: 'http://www.cnblogs.com/rollenholt/articles/2033801.html'
 ---
 
 # Java类StringTokenizer的说明
+
+> 看起来 StringTokenizer 类好神奇的样子，不管有没有用先了解了解再说。
 
 ## 声明
 
@@ -42,7 +38,7 @@ public StringTokenizer(String str, String delim)
 public StringTokenizer(String str, String delim, boolean returnDelims)
 ```
 
-第一个参数就是要分隔的 String ，第二个是分隔字符集合，第三个参数表示分隔符号是否作为标记返回，如果不指定分隔字符，默认的是：”\t\n\r\f”
+第一个参数就是要分隔的 String ，第二个是分隔字符集合，第三个参数表示分隔符号是否作为标记返回，如果不指定分隔字符，默认的是：`\t\n\r\f`
 
 ### 核心方法
 
@@ -80,9 +76,7 @@ public boolean hasMoreElements()
 1. 所有方法均为 public；
 2. 书写格式 Style：`［修饰符］　<返回类型><方法名（［参数列表］）>`
 
-如：
-
-static int parseInt(String s)表示：此方法（parseInt）为类方法（static），返回类型为（int），方法所需参数为String类型。
+如：`static int parseInt(String s)` 表示：此方法（parseInt）为类方法（static），返回类型为（int），方法所需参数为String类型。
 
 1. `int countTokens()`：返回nextToken方法被调用的次数。如果采用构造函数1和2，返回的就是分隔符数量(例2)。
 2. `boolean hasMoreTokens()` ：返回是否还有分隔符。
@@ -106,50 +100,59 @@ while( st.hasMoreElements() ){
 
 结果为：
 
-> Token Total: 10
-> The
-> Java
-> platform
-> is
-> the
-> ideal
-> platform
-> for
-> network
-> computing
+```text
+Token Total: 10
+The
+Java
+platform
+is
+the
+ideal
+platform
+for
+network
+computing
+```
 
 例2:
 
 代码:
 
 ```java
-    String s = new String("The=Java=platform=is=the=ideal=platform=for=network=computing");
-    StringTokenizer st = new StringTokenizer(s,"=",true);
-    System.out.println( "Token Total: " + st.countTokens() );
-    while( st.hasMoreElements() ){
-        System.out.println( st.nextToken() );
-    }
+String s = new String("The=Java=platform=is=the=ideal=platform=for=network=computing");
+StringTokenizer st = new StringTokenizer(s,"=",true);
+System.out.println( "Token Total: " + st.countTokens() );
+while( st.hasMoreElements() ){
+	System.out.println( st.nextToken() );
+}
 ```
 
 结果为：
 
-> Token Total: 19
-> The
->  =
-> Java
->  =
-> platform
->  =
-> is
->  =
-> the
->  =
-> ideal
->  =
-> platform
->  =
-> for
->  =
-> network
->  =
-> computing
+```text
+Token Total: 19
+The
+=
+Java
+=
+platform
+=
+is
+=
+the
+=
+ideal
+=
+platform
+=
+for
+=
+network
+=
+computing
+```
+
+## 参考内容
+
++ [StringTokenizer类的使用 - riyunzhu的专栏](http://blog.csdn.net/riyunzhu/article/details/7989145)
++ [类 StringTokenizer - Rollen Holt](http://www.cnblogs.com/rollenholt/articles/2033801.html)

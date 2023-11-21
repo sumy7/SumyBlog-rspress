@@ -8,23 +8,17 @@ tags:
   - java
   - 设计模式
   - 单例模式
-reference:
-  - url: 'http://callmegod.iteye.com/blog/1474441'
-    title: 枚举类型的单例模式(java)
-  - url: >-
-      http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/
-    title: 如何正确地写出单例模式
-  - url: 'http://www.cnblogs.com/aigongsi/archive/2012/04/01/2429166.html'
-    title: java中volatile关键字的含义
 ---
+
+# 单例模式及单例模式实践
 
 单例模式应用广泛，而且是我最喜欢的模式。简单介绍一下单例模式吧。
 
 单例模式保证只有一个实例，每次取到的都是同一个实例。基本方法是将构造函数设为私有，并导出公有的静态成员。
 
-# 标准单例
+## 标准单例
 
-## 懒汉式
+### 懒汉式
 
 `懒汉式`在类初始化时就实例化一个对象。
 
@@ -40,7 +34,7 @@ public class Singleton {
 }
 ```
 
-## 饿汉式
+### 饿汉式
 
 `饿汉式`只有真正需要对象的时候才开始实例化对象。
 
@@ -59,11 +53,11 @@ public class Singleton {
 }
 ```
 
-# 单例的线程安全
+## 单例的线程安全
 
 上面的两种写法对于普通情况下就挺好的，但是在复杂情况下，容易出现一些问题。下面考虑多线程情况下如何进行。
 
-## 懒汉式，线程安全
+### 懒汉式，线程安全
 
 对于懒汉式，只要保证`getInstance()`方法是线程安全的即可。
 
@@ -134,15 +128,15 @@ public class Singleton {
 
 所以，对于关键字`volatile`的具体使用有待深入研究，这里也不过多讨论了。
 
-## 饿汉式，线程安全
+### 饿汉式，线程安全
 
 饿汉式由于是静态变量形式，本来就是线程安全的。
 
-# 复杂单例
+## 复杂单例
 
 除了上面的通常写法，这里还有一些复杂的写法，主要是通过Java数据结构的特性来保证单例的正常实现。
 
-## 静态内部类
+### 静态内部类
 
 静态内部类的线程安全是通过JVM本身的机制来保证的。
 
@@ -160,7 +154,7 @@ public class Singleton {
 
 > 由于 SingletonHolder 是私有的，除了 getInstance() 之外没有办法访问它，因此它是懒汉式的；同时读取实例的时候不会进行同步，没有性能缺陷；也不依赖 JDK 版本。
 
-## 单元素枚举型单例
+### 单元素枚举型单例
 
 通常使用下面的方式声明
 
@@ -179,3 +173,9 @@ public enum EasySingleton{
 3. 防止反射攻击
 
 可以说：**单元素的枚举类型已经成为实现Singleton的最佳方法**。
+
+## 参考内容
+
++ [枚举类型的单例模式(java)](http://callmegod.iteye.com/blog/1474441)
++ [如何正确地写出单例模式](http://wuchong.me/blog/2014/08/28/how-to-correctly-write-singleton-pattern/)
++ [java中volatile关键字的含义](http://www.cnblogs.com/aigongsi/archive/2012/04/01/2429166.html)

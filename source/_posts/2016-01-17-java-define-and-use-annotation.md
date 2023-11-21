@@ -8,12 +8,9 @@ tags:
   - java
   - 注解
   - annotation
-reference:
-  - url: 'http://www.importnew.com/17413.html'
-    title: Java注解教程及自定义注解
-  - url: 'http://www.importnew.com/10294.html'
-    title: Java中的注解是如何工作的？
 ---
+
+# Java注解及自定义注解入门
 
 在编写Java代码中，我们可以经常可以看到注解的身影，常用的注解如`@Override` `@Deprecated`都不会太陌生。但是注解内部是如何工作的，这部分内容需要进一步去探究。
 
@@ -110,3 +107,8 @@ public class AnnotationExample {
 ```
 
 这里使用注解的方式只是让方法带上了数据，而这些数据具体有什么用，带上数据的方法需要怎么处理还需要另外的代码逻辑来实现。
+
+## 参考内容
+
++ [Java注解教程及自定义注解](http://www.importnew.com/17413.html)
++ [Java中的注解是如何工作的？](http://www.importnew.com/10294.html)
