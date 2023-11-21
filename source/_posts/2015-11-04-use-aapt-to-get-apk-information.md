@@ -8,22 +8,19 @@ tags:
   - android
   - aapt
   - apk
-reference:
-  - url: 'http://elinux.org/Android_aapt'
-    title: Android aapt
-  - url: 'http://blog.csdn.net/electricity/article/details/6540247'
-    title: android aapt用法
 ---
+
+# 使用aapt获取apk的基本信息
 
 `aapt`全称是android assert packaging tool。在编写android程序的时候，IDE会使用这个工具将程序资源打包成apk文件。
 前几天有获取apk包图标的需求，几番求证发现可以使用这个工具得到icon资源在apk包中的路径，通过处理aapt的输出，进而可以获取到图标。
 这里只简单记录一下aapt获取apk基本信息的方法，对于打包方法不做介绍了。
 
-# 它在哪里
+## 它在哪里
 
-如果你有安装android的sdk工具包，那么就可以在sdk目录下$ANDROID_HOME/build-tools/$SDK目录下找到它（$SDK为sdk的版本）。
+如果你有安装android的sdk工具包，那么就可以在sdk目录下`$ANDROID_HOME/build-tools/$SDK`目录下找到它（$SDK为sdk的版本）。
 
-# 命令行
+## 命令行
 
 ```bash
 $ aapt.exe
@@ -204,9 +201,9 @@ Usage:
 
 ```
 
-# 获取信息
+## 获取信息
 
-## list
+### list
 
 ```
 aapt l[ist] [-v] [-a] file.{zip,jar,apk}
@@ -378,7 +375,7 @@ N: android=http://schemas.android.com/apk/res/android
             A: android:name(0x01010003)="com.example.hello.BroadcastReceiverTest" (Raw: "com.example.hello.BroadcastReceiverTest")
 ```
 
-## dump
+### dump
 
 ```
 aapt d[ump] [--values] [--include-meta-data] WHAT file.{apk} [asset [asset ...]]
@@ -631,3 +628,8 @@ N: android=http://schemas.android.com/apk/res/android
           E: action (line=27)
             A: android:name(0x01010003)="com.example.hello.BroadcastReceiverTest" (Raw: "com.example.hello.BroadcastReceiverTest")
 ```
+
+## 参考内容
+
++ [Android aapt](http://elinux.org/Android_aapt)
++ [android aapt用法](http://blog.csdn.net/electricity/article/details/6540247)

@@ -9,10 +9,9 @@ tags:
   - linux
   - sdk
   - 解决问题
-reference:
-  - url: 'http://www.phperz.com/article/14/1212/40796.html'
-    title: 64位linux无法运行Android sdk的adb和aapt，提示No such file or directory的错误解决办法
 ---
+
+# 使用aapt出现No such file or directory错误
 
 在Linux环境下运行aapt的时候出现：
 
@@ -34,3 +33,7 @@ sudo apt-get install lib32z1 lib32z1-dev
 ```
 
 即可运行aapt。
+
+## 参考内容
+
++ [64位linux无法运行Android sdk的adb和aapt，提示No such file or directory的错误解决办法](http://www.phperz.com/article/14/1212/40796.html)

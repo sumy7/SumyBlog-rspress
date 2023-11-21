@@ -8,20 +8,13 @@ tags:
   - nodejs
   - mongodb
   - python
-reference:
-  - url: 'http://www.cnblogs.com/kgdxpr/p/3519352.html'
-    title: CentOS6.4 安装MongoDB
-  - url: 'http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/'
-    title: >-
-      THE DEAD-SIMPLE STEP-BY-STEP GUIDE FOR FRONT-END DEVELOPERS TO GETTING UP
-      AND RUNNING WITH NODE.JS, EXPRESS, JADE, AND MONGODB
-  - url: 'http://steamtuhao.com/'
-    title: 买下 Steam 所有游戏要花多少钱？
 ---
+
+# 使用Python+Mongodb+NodeJS实现一个票数记录网站
 
 之前刷微博的时候看过一个网站[买下 Steam 所有游戏要花多少钱？](http://steamtuhao.com/)，发现它的实现使用的是 **Python后台** 加 **NodeJS展示** 。前几天 _天二_ 发来了一个投票网站，在研究了一番之后找到了刷票的方法。再加上想用NodeJS干点事情，于是在这些乱七八糟的事情的驱动下，这个网站的想法就这样诞生的。NodeJS和Mongodb都是现学现卖的，至少能达到预期的效果了。
 
-# 数据源网站分析
+## 数据源网站分析
 
 由于活动要到5月份才结束，为了不必要的麻烦，就不打算暴露网址了。也请自行脑补一些图片吧。
 
@@ -29,13 +22,15 @@ reference:
 
 为了调试方便，将链接提取到电脑浏览器上，却提示 **需要在微信中打开**，最初想到是不是判断的UserAgent，于是找了一个Android微信浏览器的UserAgent试了一下，发现不行。这就纠结了，然后天二告诉说用iPhone的UserAgent是可以的，这...无语了...
 
-    Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12A365   MicroMessenger/5.4.1 NetType/WIFI
+```
+Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12A365   MicroMessenger/5.4.1 NetType/WIFI
+```
 
 打开网页之后，需要研究投票逻辑。简单看了JS代码之后，发现投票按钮根本啥事情也没有做，那票是怎么投上去的？经过一系列的猜想和实验之后，发现了一个惊天的结论：网页通过Cookie判断是否多次投票，而投票只需访问一下网页就可以了...就可以了...就可以了...
 
 ~~天二说，好想去创业呀...~~
 
-# Python抓取数据
+## Python抓取数据
 
 也好也好，网站简单程序也就简单了。一段投票+抓取数据的代码就这样诞生了：
 
@@ -89,23 +84,28 @@ $ crontab -e
 
 这句话的意思是 **每隔20分钟执行一次后面的命令**，其它写法可以查阅相关资料。貌似后台数据端准备完毕了。
 
-# Mongodb数据库构建
+## Mongodb数据库构建
 
 选择Mongodb的原因有两个：一是不想用MySql了，二是没用过Mongodb。首先果然还是从安装搭配环境开始吧。
 
 Windows下安装，首先到[https://www.mongodb.org/downloads](https://www.mongodb.org/downloads)来下载安装包，安装之后找到安装目录，运行命令 `mongod --dbpath "数据库路径" --logpath "日志路径\MongoDB.log" --install --serviceName "MongoDB"`，这样会以服务模式运行Mongodb数据库。
 
 Linux下安装，也需要到[https://www.mongodb.org/downloads](https://www.mongodb.org/downloads)来下载安装包，解压到`\usr\local\mongodb`目录下，创建配置文件mongodb.conf，配置开机启动。
-{% codeblock mongodb.conf %}
+
+mongodb.conf
+```
 dbpath=/usr/local/mongodb/db
 logpath=/usr/local/mongodb/logs/mongodb.log
 port=27017
 fork=true
 nohttpinterface=true
-{% endcodeblock %}{% codeblock 开机启动 %}
+```
+
+配置开机启动
+```
 vi /etc/rc.d/rc.local
 /usr/local/mongodb/bin/mongod --config /usr/local/mongodb/bin/mongodb.conf
-{% endcodeblock %}
+```
 
 Python可以使用`pymongo`来连接Mongodb数据库，Windows下可以下载模块安装包，Linux下用`pip`安装：
 
@@ -133,7 +133,7 @@ collection.find({}, {}, function (e, timedocs) {
 
 这里简单介绍了Mongodb的安装和连接方式。
 
-# NodeJS展示
+## NodeJS展示
 
 有了数据和数据库，就需要一个展示页面了。框架选定了Express，第一次用说一下了解的地方。
 
@@ -222,7 +222,7 @@ module.exports = app;
 
 **其它** 诸如如何书写页面，如何传参渲染，这些问题可以参考Express框架里的默认页面。
 
-# 服务器和域名
+## 服务器和域名
 
 服务器使用阿里云的服务器，将以上内容部署上去之后打算绑上一个域名，参考 _土豪_ 那篇文章，打算就使用Nginx做转发。
 
@@ -248,10 +248,16 @@ server {
 
 很顺利，不过遇到了一个问题，域名需要备案。算了，还是乖乖用IP访问吧。
 
-# 总结
+## 总结
 
 这次实现过程用了一天多的时间，其实主要的时间都用在研究图表插件的展示问题，这里没有提到这部分内容。
 
 整个实现的功能就是，Python每隔20分钟抓取一次数据存储到Mongodb数据库中，Express读取Mongodb展示出来。
 
 至此这部分内容可以告一段落了。
+
+## 参考内容
+
++ [CentOS6.4 安装MongoDB](http://www.cnblogs.com/kgdxpr/p/3519352.html)
++ [THE DEAD-SIMPLE STEP-BY-STEP GUIDE FOR FRONT-END DEVELOPERS TO GETTING UP AND RUNNING WITH NODE.JS, EXPRESS, JADE, AND MONGODB](http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/)
++ [买下 Steam 所有游戏要花多少钱？](http://steamtuhao.com/)

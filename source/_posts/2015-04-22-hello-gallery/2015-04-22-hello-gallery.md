@@ -6,13 +6,15 @@ categories:
   - 实验室
 tags:
   - 图片
-photos:
-  - 'http://7xipku.com1.z0.glb.clouddn.com/1.jpg'
-  - 'http://7xipku.com1.z0.glb.clouddn.com/2.jpg'
-  - 'http://7xipku.com1.z0.glb.clouddn.com/3.jpg'
-  - 'http://7xipku.com1.z0.glb.clouddn.com/4.jpg'
-  - 'http://7xipku.com1.z0.glb.clouddn.com/5.jpg'
 ---
+
+# 你好，画廊
+
+![1](./3997c3720024b6bb8e88229c5373ccbc.png)
+![2](./e27c8251737e4b1a8e4849550e6f54a9.png)
+![3](./3.jpg)
+![4](./4.jpg)
+![5](./5.jpg)
 
 **匆匆**
 
@@ -28,4 +30,4 @@ photos:
 
 　　你聪明的，告诉我，我们的日子为什么一去不复返呢？
 
-![匆匆](http://7xipku.com1.z0.glb.clouddn.com/congcong.jpg)
+![匆匆](./congcong.jpg)

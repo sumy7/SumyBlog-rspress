@@ -7,13 +7,11 @@ categories:
 tags:
   - 数学
   - 概率
-description: 概率统计学过去一年了，似乎都忘光了。。。果然还学要复习复习呀。
-reference:
-  - url: 'https://zh.wikipedia.org/wiki/泊松分布'
-    title: 泊松分布 - 维基百科
 ---
 
-# Poission分布（泊松分布）与极大似然估计
+# Poisson分布（泊松分布）与极大似然估计
+
+> 概率统计学过去一年了，似乎都忘光了。。。果然还学要复习复习呀。
 
 ## 泊松分布
 
@@ -44,3 +42,7 @@ $$ \frac{d}{dλ}L(λ)=0 \Leftrightarrow -n+(\sum_{i=1}^n k_i)\frac{1}{λ}=0 $$
 解得λ从而得到一个驻点：
 
 $$ λ_{MLE}=\frac{1}{n}\sum_{i=1}^n k_i $$
+
+## 参考内容
+
++ [泊松分布 - 维基百科](https://zh.wikipedia.org/wiki/泊松分布)
