@@ -6,17 +6,15 @@ categories:
   - 网站
 tags:
   - jekyll
-description: 用jekyll作为写作博客已经有半年多了，一直没有将搭建过程写出来。这几天正好想要给博客添加表格功能，本地环境却一直出错，遂决定重新搭建一下本地的博客环境。
-reference:
-  - title: jekyll本地环境搭建(Windows) - yevon
-    url: 'http://www.cnblogs.com/yevon/archive/2013/09/08/3308158.html'
-  - title: Jekyll在github上构建免费的Web应用 | 粉丝日志
-    url: 'http://blog.fens.me/jekyll-bootstarp-github/'
 ---
+
+# jekyll本地环境搭建
+
+> 用jekyll作为写作博客已经有半年多了，一直没有将搭建过程写出来。这几天正好想要给博客添加表格功能，本地环境却一直出错，遂决定重新搭建一下本地的博客环境。
 
 以下以 Windows 为例，说明一下本地测试环境搭建的过程。
 
-# 准备 Ruby 环境
+## 准备 Ruby 环境
 
 由于 [jekyll](http://jekyllrb.com/) 是用 ruby 语言写的一个静态网页生成工具，所以要搭建 jekyll 本地环境就需要先配置好 ruby 环境。鉴于本人对系统的配置也不是很熟，所以接下来的步骤能省则省。
 
@@ -41,7 +39,7 @@ D:\devkit>ruby dk.rb install
 
 经过上面的两个步骤，基本的 Ruby 环境就搭建起来了。
 
-# 安装 Jekyll
+## 安装 Jekyll
 
 在正式安装之前，建议先修改一下 Ruby 的镜像源，以加快速度。
 可以参考一下[http://ruby.taobao.org/](http://ruby.taobao.org/)的操作步骤。
@@ -116,3 +114,8 @@ $ jekyll
 ```
 
 至此，Jekyll 的本地环境搭建结束了。
+
+## 参考内容
+
++ [jekyll本地环境搭建(Windows) - yevon](http://www.cnblogs.com/yevon/archive/2013/09/08/3308158.html)
++ [Jekyll在github上构建免费的Web应用 | 粉丝日志](http://blog.fens.me/jekyll-bootstarp-github/)

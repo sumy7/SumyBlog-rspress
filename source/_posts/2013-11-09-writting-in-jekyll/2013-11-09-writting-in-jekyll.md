@@ -7,21 +7,18 @@ categories:
 tags:
   - jekyll
   - github
-description: >-
-  Jekyll 是一个简单的免费的 Blog 生成工具，类似 WordPress 。但是和 WordPress 又有很大的不同，它可以免费部署在 Github
-  上。相信喜欢 DIY 的你一定会喜欢上它的。
-reference:
-  - title: Jekyll在github上构建免费的Web应用 | 粉丝日志
-    url: 'http://blog.fens.me/jekyll-bootstarp-github/'
-  - title: 利用Jekyll搭建个人博客
-    url: 'http://www.mceiba.com/develop/jekyll-introduction.html'
 ---
+
+# 用Jekyll书写博客
+
+> Jekyll 是一个简单的免费的 Blog 生成工具，类似 WordPress 。但是和 WordPress 又有很大的不同，它可以免费部署在 Github
+  上。相信喜欢 DIY 的你一定会喜欢上它的。
 
 刚开始使用 Jekyll 也走了不少的弯路，查找各种资料，终于将自己的博客搭建起来了。之后就是向博客中添加自己喜欢的功能，包括语法高亮、 LaTex 公式还有各种评论功能，忙的不亦乐乎，也是通过它才学会简单的使用 github 的。最近才发现自己的博客越来越臃肿了，不过也算乐在其中吧。
 
 距离刚使用 Jekyll 有好长时间了，好多东西也记不太清了，所以下面写的也是参考网络上的一些文章回忆的。
 
-# What is Jekyll
+## What is Jekyll
 
 Jekyll 是一个静态站点生成器，它会根据网页源码生成静态文件。它提供了模板、变量、插件等功能，可以用来生成整个网站。
 
@@ -33,11 +30,11 @@ Jekyll官方文档：[http://jekyllrb.com/](http://jekyllrb.com/)
 
 你需要对 github 有一点了解，如果不是很熟的话请参考相关资料。
 
-# 起步：构建 Jekyll 模板
+## 起步：构建 Jekyll 模板
 
 Jekyll 的模板是基于 [bootstrap](http://jekyllbootstrap.com/) 的，下载jekyll-bootstrap的模板项目。
 
-## 从github下载模板
+### 从github下载模板
 
 ```
 Administrator@PC201304202140 /d/workspace/ruby
@@ -68,7 +65,7 @@ README.md         _includes    archive.html  changelog.md     sitemap.txt
 Rakefile          _layouts     assets        index.md         tags.html
 ```
 
-## 启动服务
+### 启动服务
 
 ```
 Administrator@PC201304202140 /d/workspace/ruby/jekyll
@@ -83,11 +80,11 @@ Configuration file: d:/workspace/ruby/jekyll/_config.yml
 
 打开浏览器访问网址 http://localhost:4000/ 就可以看到了。
 
-{% asset_img 1.png Jekyll 的本地浏览 %}
+![Jekyll 的本地浏览](./1.png)
 
 通过几条命令，就可以创建基于 boostrap 风格的网站。当然你也可以根据 jekyll 的语法自己来构建属于自己的模板。
 
-# 旅途：用 Mrakdown 书写文章
+## 旅途：用 Mrakdown 书写文章
 
 我们可以使用命令来创建空白的文章：
 
@@ -111,9 +108,9 @@ tags: []
 
 文件名就命名为 `年-月-日-文件名.md` 放到 `_post` 目录下面。文章要保存为 `UTF-8 无 BOM 格式编码`，可以使用 Notepad++ 转换一下。然后运行命令启动本地服务器浏览一下。
 
-{% asset_img 2.png 第一篇文章 %}
+![第一篇文章](./2.png)
 
-# 归宿：在 Github 上安家
+## 归宿：在 Github 上安家
 
 在开始这一步之前，请确保你有一个 github 的账号。我们需要创建一个新的版本库，库名为你的 github 账户名 + git的域名，假设为USERNAME.github.com 。创建版本库之后将版本库的内容下载下来。
 
@@ -128,9 +125,9 @@ $ git push origin master
 
 然后你就可以在这个目录下写文章，本地浏览，觉得不错的之后就可以 push 到 github 上与他人分享啦。这里就可以知道为什么要吧文章保存为 `UTF-8 无 BOM 格式编码` 的了，为防止 github 上生成的文章为乱码。如果文章中含有中文，一定要转换一下编码在 push 上去。 
 
-# 遇到的问题
+## 遇到的问题
 
-## 错误一
+### 错误一
 
 本地编译运行的时候你可能会遇到以下错误：
 
@@ -161,7 +158,7 @@ self.content = File.read_with_options(File.join(base, name), :encoding => "utf-8
 File.read_with_options(file, :encoding => "utf-8")
 ```
 
-## 错误二
+### 错误二
 
 这种错误也比较常见
 
@@ -196,3 +193,8 @@ Not creating a link for ref_id = "httpblogfensmejekyllbootstarpdoc".done.
 ```
 
 这种错误主要是 Mrakdown 语言的语法有错误。请注意一下方括号与尖括号的问题。修改之后一般就能编译了。
+
+## 参考内容
+
++ [Jekyll在github上构建免费的Web应用 | 粉丝日志](http://blog.fens.me/jekyll-bootstarp-github/)
++ [利用Jekyll搭建个人博客](http://www.mceiba.com/develop/jekyll-introduction.html)

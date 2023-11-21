@@ -8,14 +8,14 @@ tags:
   - jquery
   - 插件
   - 网站
-reference:
-  - url: 'http://terminal.jcubic.pl/'
-    title: JQueryTerminal
 ---
+
+# 体验JQuery Terminal Emulator插件
 
 自从看了[JetBrains](https://www.jetbrains.com/)主页上那个命令行模拟器，就一直想弄一个玩玩。今天谷歌了一下，果然有这样的插件。
 
-{% asset_img 1.png JetBrains首页的命令行模拟器 %}
+![JetBrains首页的命令行模拟器](./1.png)
+
 暂时选定了使用这个[http://terminal.jcubic.pl/](http://terminal.jcubic.pl/)：
 主页上的标题也感觉非常高大上：
 
@@ -30,7 +30,7 @@ reference:
 
 这一周就开始搞这个吧:-D。
 
-# 下载引用
+## 下载引用
 
 首先从官网下载需要压缩包文件，建议将以下文件引入到网页中：
 
@@ -128,7 +128,7 @@ jQuery(function($, undefined) {
 
 一个简单的右下角浮动shell就出现了。
 
-# 问题
+## 问题
 
 在我的博客上部署的时候很奇怪发现，命令行的一行只有35个字符，无法充满整个命令行。一直找不到是啥原因。
 于是去博客上询问了一下作者，并附上了一个简单的DEMO[http://jsfiddle.net/sumy/f7qdrp1y/](http://jsfiddle.net/sumy/f7qdrp1y/)。作者看了之后指出，要修改字体，需要将所有的`terminal`统一字体。
@@ -141,3 +141,7 @@ jQuery(function($, undefined) {
     font-family: fantasquesansmono !important;
 }
 ```
+
+## 参考内容
+
++ [JQueryTerminal](http://terminal.jcubic.pl/)

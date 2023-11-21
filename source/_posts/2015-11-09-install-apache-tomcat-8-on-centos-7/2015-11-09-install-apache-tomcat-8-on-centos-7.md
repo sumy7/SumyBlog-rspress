@@ -8,15 +8,13 @@ tags:
   - tomcat
   - apache
   - centos
-reference:
-  - url: >-
-      https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-centos-7
-    title: How To Install Apache Tomcat 8 on CentOS 7
 ---
+
+# 在CentOS 7上安装Tomcat 8
 
 `Apache Tomcat`是一个基于Java应用的网络服务器和servlet容器。Tomcat是一个实现了Java Servlet和JavaServer Pages技术的开源软件，它由Apache Software Foundation发行。要在CentOS下安装Tomcat，需要进行以下几个步骤。
 
-# 安装Java
+## 安装Java
 
 Tomcat需要服务端的Java运行环境，这样才能保证Java程序的正常运行。这里使用OpenJDK 8来代替JDK的安装。
 要安装OpenJDK8，需要运行以下的命令：
@@ -25,7 +23,7 @@ Tomcat需要服务端的Java运行环境，这样才能保证Java程序的正常
 $ sudo yum install java-1.8.0-openjdk-devel
 ```
 
-# 创建Tomcat用户
+## 创建Tomcat用户
 
 出于安全考虑，Tomcat需要运行在没有特权的用户上。需要创建一个新的用户和用户组来运行Tomcat服务。
 首先，要创建一个新的`tomcat`用户组：
@@ -40,11 +38,11 @@ $ sudo groupadd tomcat
 $ sudo useradd -M -s /bin/nologin -g tomcat -d /opt/tomcat tomcat
 ```
 
-# 安装Tomcat
+## 安装Tomcat
 
 最简单的方法就是安装Tomcat 8绿色版，下载最新的版本，并配置它。
 
-## 下载Tomcat
+### 下载Tomcat
 
 可以在[Tomcat8下载页面](http://tomcat.apache.org/download-80.cgi)找到Tomcat 8的最新版本。当前最新版本为8.0.28。在**Binary Distributions**分类里的**Core**找到"tar.gz"的下载链接，复制这个下载链接。
 将其下载到用户的主目录文件夹下：
@@ -61,7 +59,7 @@ $ sudo mkdir /opt/tomcat
 $ sudo tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
 ```
 
-## 设置权限
+### 设置权限
 
 要访问Tomcat的安装目录，`tomcat`需要有合适的权限。
 首先切换到Tomcat的安装目录：
@@ -84,7 +82,7 @@ $ sudo chmod g+r conf/*
 $ sudo chown -R tomcat work/ temp/ logs/
 ```
 
-## 设置systemd文件
+### 设置systemd文件
 
 要想让Tomcat作为服务启动，需要在配置Tomcat Systemd文件。
 创建并打开一个服务配置文件：
@@ -95,7 +93,8 @@ $ sudo vi /etc/systemd/system/tomcat.service
 
 将下列脚本粘贴到改文件中。可能需要修改`CATALINA_OPTS`来设置分配的内存大小。
 
-{% codeblock lang:bash /etc/systemd/system/tomcat.service %}
+/etc/systemd/system/tomcat.service
+```bash
 # Systemd unit file for tomcat
 [Unit]
 Description=Apache Tomcat Web Application Container
@@ -119,7 +118,7 @@ Group=tomcat
 
 [Install]
 WantedBy=multi-user.target
-{% endcodeblock %}
+```
 
 保存，退出。这个脚本告诉系统使用`tomcat`用户按照配置来启动Tomcat服务。
 
@@ -145,7 +144,7 @@ $ sudo systemctl enable tomcat
 
 > http://server_IP_address:8080
 
-# 配置Tomcat Web管理接口
+## 配置Tomcat Web管理接口
 
 为了使用Tomcat的管理界面，我们需要为Tomcat服务添加用户。编辑`tomcat-users.xml`文件：
 
@@ -156,11 +155,12 @@ $ sudo vi /opt/tomcat/conf/tomcat-users.xml
 在这个文件里可以看到一些被注释了的配置文件。
 如果想要添加一个可以访问`manager-gui`和`admin-gui`的用户，可以如下添加用户名和密码：
 
-{% codeblock tomcat-user.xml lang:xml %}
+tomcat-user.xml
+```xml
 <tomcat-users>
     <user username="admin" password="password" roles="manager-gui,admin-gui"/>
 </tomcat-users>
-{% endcodeblock %}
+```
 
 保存并退出tomcat-user.xml文件。要想使配置生效，需要重启Tomcat服务：
 
@@ -168,22 +168,29 @@ $ sudo vi /opt/tomcat/conf/tomcat-users.xml
 $ sudo systemctl restart tomcat
 ```
 
-# 访问网络接口
+## 访问网络接口
 
 访问以下地址就可以看到下面的图片：
 > http://server_IP_address:8080
 
-{% asset_img 1.png 默认主页 %}
+![默认主页](./1.png)
+
 可以看到有指向管理员界面的链接。
 
 点击 Manager App 链接或者访问
 > http://server_IP_address:8080/manager/html
 
-{% asset_img 2.png 管理界面 %}
+![管理界面](./2.png)
+
 在这个界面，可以管理Java网络应用。可以启动、停止、重新加载、部署或者不部署应用。也可以运行一些诊断程序。最后在页面的最下方可以看到服务器的一些信息。
 
 主机管理可以通过主页的链接或者访问
 > http://server_IP_address:8080/host-manager/html/
 
-{% asset_img 3.png 虚拟主机管理界面 %}
+![虚拟主机管理界面](./3.png)
+
 通过虚拟主机管理页面，可以为应用添加虚拟主机。
+
+## 参考内容
+
++ [How To Install Apache Tomcat 8 on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-8-on-centos-7)

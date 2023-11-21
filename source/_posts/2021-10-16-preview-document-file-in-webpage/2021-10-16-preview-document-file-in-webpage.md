@@ -16,13 +16,13 @@ tags: [doc, docx, image, pdf, video, 文件预览]
 
 这里使用了 [react-zoom-pan-pinch](https://github.com/prc5/react-zoom-pan-pinch) 来支持图片的缩放、画布拖动功能。
 
-![react-zoom-pan-pinch](./40ca774251fc4869adc17e77a3f07ae1.png)
+![react-zoom-pan-pinch](./6656c718bb397ad7ba5bf7e3456604a4.png)
 
 ## 视频文件
 
 跟图片文件同理，视频浏览器也有原生控件支持播放。借助组件 [react-player](https://github.com/cookpete/react-player) 实现了对原生播放器的控制，支持播放、暂停等功能。
 
-![react-player](./a1b5a87cdea04066874c3f8855f475e9.png)
+![react-player](./2715099020cc3011e2a796587d21052e.png)
 
 ## pdf文件
 
@@ -30,7 +30,7 @@ pdf是一个比较“规整”的文件格式。有插件能很好的支持pdf�
 
 大部分库都是基于 pdfjs 进行的封装，这里选用 [react-pdf](https://github.com/wojtekmaj/react-pdf) 进行pdf的渲染。
 
-![react-pdf](./59a30cc315f04ce6b1d0f541f5d486d5.png)
+![react-pdf](./ef36c39ac9b8a9a77b953e5390de12a4.png)
 
 ## docx文件
 
@@ -40,7 +40,7 @@ word文件基于 [mammoth](https://github.com/mwilliamson/mammoth.js/) 库进行
 
 这里有个[demo页面](https://jstool.gitlab.io/zh-cn/demo/mammoth-js-word-docx-preview-and-convert/)可以尝试一下转换效果。
 
-![快速试用mommoth.js转换](./53679014c0ea4061aaee1bf0c83312bc.png)
+![快速试用mommoth.js转换](./506d2eee93f3bba96e7142684d6bb27e.png)
 
 其它的x系文件，这里不再介绍（因为没有用到展示。
 
@@ -60,8 +60,8 @@ https://view.officeapps.live.com/op/embed.aspx?src=https%3A%2F%2Fgithub.com%2Fpl
 
 将这两个地址中的url替换为远程的文件链接嵌入就能够看到了。
 
-![谷歌预览服务](./f4d106fecd584f29bb3bb717e4f27f21.png)
+![谷歌预览服务](./3ebf6b136399c76799976977097c91c1.png)
 
-![微软预览服务](./5a26172a40324bf68183251e962aa92c.png)
+![微软预览服务](./14e021776a254f8e9b67886395d81f28.png)
 
 需要“科学上网”。

@@ -9,24 +9,21 @@ tags:
   - hexo
   - markdown
   - twemoji
-reference:
-  - url: 'https://ppxu.me/2015/12/24/enable-emoji-in-hexo/'
-    title: 让Hexo支持emoji表情
-  - url: 'https://markdown-it.github.io/'
-    title: markdown-it demo
 ---
+
+# 让Hexo支持emoji表情
 
 写博客的时候发现有些内容不能很好的通过文字表达出来，这时候就需要表情的支持了。所以就研究了一下怎么在博客中加入emoji表情。
 
 网上有很多支持emoji的插件，但是都需要在浏览器端进行处理，考虑到使用的JS库已经够多了，所以尽量还是让Hexo提前渲染为好。
 
-# 调研
+## 调研
 
 大多数有关Hexo和emoji提到的是`hexo-tag-emojis`[插件](https://github.com/sergiolepore/hexo-tag-emojis)，但是这个插件没有对Hexo 3.0提供支持，而且它使用的是`{%raw%}{%%}{%endraw%}`标签选项，这样写起来太麻烦，如果能像Github那样用`::`就好了。
 
 之后发现可以通过修改Hexo默认的Markdown渲染器来实现渲染emoji。
 
-# 修改渲染器
+## 修改渲染器
 
 Hexo默认的markdown渲染插件是[hexo-renderer-marked](https://github.com/hexojs/hexo-renderer-marked)，也就是marked渲染器的Hexo版本，这个渲染器不支持插件扩展。在PR中也提到了要支持emoji，但是却迟迟没有marge进来。然后就是另外一个markdown渲染器[hexo-renderer-markdown-it](https://github.com/celsomiranda/hexo-renderer-markdown-it)，这个渲染器支持插件配置可以使用[markdown-it-emoji](https://github.com/markdown-it/markdown-it-emoji)插件来支持emoji。我们要将原来的markdown渲染器换成这个。
 
@@ -67,7 +64,7 @@ markdown:
 
 这时候启动Hexo服务就生效了。输入`:smile: :smirk: :relieved:`，会渲染成 😄 😏 😌。
 
-# 使用图片表情
+## 使用图片表情
 
 Unicode字符表情有点看不清楚，考虑能不能换成图片样式的emoji表情？markdown-it-emoji[文档](https://github.com/markdown-it/markdown-it-emoji#change-output)中提到可以修改输出函数来改变输出样式。但是它是以附属插件加载的，无法通过配置文件修改，只好修改源代码了。
 
@@ -143,3 +140,8 @@ img.emoji {
     margin: 0;
 }
 ```
+
+## 参考内容
+
++ [让Hexo支持emoji表情](https://ppxu.me/2015/12/24/enable-emoji-in-hexo/)
++ [markdown-it demo](https://markdown-it.github.io/)

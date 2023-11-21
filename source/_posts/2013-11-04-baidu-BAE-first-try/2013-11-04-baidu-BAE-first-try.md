@@ -7,25 +7,13 @@ categories:
 tags:
   - bae
   - baidu
-description: >-
-  百度BAE类似于谷歌的网站应用发布，也具有托管网站的功能。今日突发奇想，就想把自己用J2EE写的一个小网站放到上面去，结果遇到各种问题。暂时算是解决了一些吧，将遇到的问题记录下来。
-reference:
-  - title: BAE使用笔记2-改造JFinal Demo部署到BAE上 - 土龙的个人空间
-    url: 'http://my.oschina.net/u/173975/blog/137423'
-  - title: docs/cplat/rt/demo - 百度开发者中心
-    url: 'http://developer.baidu.com/wiki/index.php?title=docs/cplat/rt/demo'
-  - title: 在GAE中使用struts2框架 - 明年我18
-    url: 'http://www.cnblogs.com/default/archive/2010/11/05/1870313.html'
-  - title: 'Struts 2 on GAE – Error: result ‘null’ not found'
-    url: >-
-      http://www.mkyong.com/google-app-engine/struts-2-on-gae-error-result-null-not-found/
-  - title: (BAE)jetty8+struts2導致 welcome-file-list 失效
-    url: 'http://rritw.com/a/JAVAbiancheng/Struts/20130914/424003.html'
-  - title: 'JAVA BAE 问题总结 - 记录走下的弯路, 让更多的人快捷到达终点 - 博客频道'
-    url: 'http://blog.csdn.net/ostrichmyself/article/details/8098119'
 ---
 
-# 使用的软件
+# 百度BAE初次尝试
+
+> 百度BAE类似于谷歌的网站应用发布，也具有托管网站的功能。今日突发奇想，就想把自己用J2EE写的一个小网站放到上面去，结果遇到各种问题。暂时算是解决了一些吧，将遇到的问题记录下来。
+
+## 使用的软件
 
 百度开发者平台（以下简称 BAE 平台）可以支持 PHP 、 Java 和 Python 代码的 Web APP 。BAE 有着自己一套 MySQL 数据库方法和代码托管方式。掌握好这些，对于今后写博客（不仅仅是写博客）找临时空间使用还是有好处的。
 
@@ -34,9 +22,9 @@ reference:
 1. SVN 软件就使用 TortoiseSVN ，可以去官网下载。
 2. 编程环境 BAE 官方推荐使用 eclipse ，因为 BAE 有着一套适用于 eclipse 的 bdt 插件，myeclipse 是无法安装的，当然你也可以用 myeclipse 写完，然后用记事本修改提交。当然 BAE 的在线编辑环境也是很赞的。
 
-# 适配的问题
+## 适配的问题
 
-## 环境搭建
+### 环境搭建
 
 BAE 提供了一个用于 eclipse 的插件来支持 BAE 开发，所以在 myeclipse 下暂时没法使用。可以考虑将需要移植到云平台特性的类单独写出来，然后重新书写一下。
 
@@ -44,7 +32,7 @@ BAE 支持标准的 eclipse 开发目录，所以只要把整个目录提交上�
 
 建议新建两个代码版本，一个用于发布网站，只将修改的可以发布的网站合并到该版本，另一个用于测试用。不然在一个版本里修改很无奈。
 
-## 配置文件
+### 配置文件
 
 BAE 需要单独的配置文件 `duapp-web.xml` ，这个文件要放到和 web.xml 同目录。
 
@@ -62,7 +50,7 @@ BAE 需要单独的配置文件 `duapp-web.xml` ，这个文件要放到和 web.
 </du-web-app>
 ```
 
-## 数据库连接
+### 数据库连接
 
 BAE 使用的是 mysql 云数据库，基本的数据库操作都能使用，就是在获取数据库用户名密码的时候不同，还有每次连接只能选择一次数据库。具体情况请参考 [帮助文档](http://developer.baidu.com/wiki/index.php?title=docs/cplat/rt/java/mysql)
 
@@ -123,7 +111,7 @@ try {
 }
 ```
 
-## 静态变量无法常驻内存
+### 静态变量无法常驻内存
 
 由于 BAE 使用的是分布式服务器，每次请求会随机落到一个服务器上，所有静态变量会重新初始化，即使是相同的客户端请求也不例外，所以无法保存，可以保存到 Cache 上或写到数据库里。
 
@@ -141,7 +129,7 @@ if (obj == null)
 }
 ```
 
-## Session 无法使用
+### Session 无法使用
 
 原因同上，基于 BAE 的分布式特性，Session 也不能被很好支持，也是考虑将其添加到 Cache 中。
 
@@ -215,7 +203,7 @@ public class SessionOperationAdapter {
 }
 ```
 
-## 用户日志
+### 用户日志
 
 在本地我们可以使用 System.out.println() 来打印用户日志，在云环境中要使用手动打印的方法来调试错误，具体可以参考[帮助文档](http://developer.baidu.com/wiki/index.php?title=docs/cplat/rt/java/log)
 
@@ -227,9 +215,9 @@ Logger logger = Logger. getLogger("name");
 logger.log(Level.INFO, " this is for notice log print ");
 ```
 
-# 遇到的问题
+## 遇到的问题
 
-## 问题1：默认分布式 Session 不开放
+### 问题1：默认分布式 Session 不开放
 
 **注意：** 本方法只是解决了 Session 无法使用的错误提示，而没有真正解决 Session 在分布式系统中无法使用的局面。
 
@@ -243,7 +231,7 @@ java.lang.RuntimeException: Session support is not enabled in duapp-web.xml. To 
 
 注意不要拼写错误，否则发布无法成功。
 
-## 问题2：HTTP ERROR 404
+### 问题2：HTTP ERROR 404
 
 登录的时候会出现
 
@@ -282,7 +270,7 @@ public class StrutsAppEngineAdapter implements ServletContextListener {
 </listener>
 ```
 
-## 问题3：访问域名出错（此方法适用于 jetty 服务器，经测试不适合 Tomcat 服务器）
+### 问题3：访问域名出错（此方法适用于 jetty 服务器，经测试不适合 Tomcat 服务器）
 
 错误信息：
 
@@ -336,11 +324,11 @@ There is no Action mapped for namespace [/] and action name [] associated with c
 </action>
 ```
 
-## 问题4：对数据库进行中文操作的时候出现 Incorrect string value: "\XXX\XXX\XXX\XXX\XXX" for column 'XXX' at row 1
+### 问题4：对数据库进行中文操作的时候出现 Incorrect string value: "\XXX\XXX\XXX\XXX\XXX" for column 'XXX' at row 1
 
 **解决方法：** 在连接 mysql 数据库的时候添加字符设置字段`?useUnicode=true&characterEncoding=UTF-8`。
 
-## 问题5：乱码导致 BAE 服务端发布失败
+### 问题5：乱码导致 BAE 服务端发布失败
 
 BAE 发布不成功，并且查看日志，出现下面的乱码。
 
@@ -350,8 +338,17 @@ BAE 发布不成功，并且查看日志，出现下面的乱码。
 
 一种方法是更改 eclipse 的默认编码为 UTF-8 格式。修改方法如下：
 
-{% asset_img 1.png eclipse设置 %}
+![eclipse设置](./1.png)
 
 修改完的时候，文本文件中中文部分将变成乱码，注意修改这些乱码。
 
 另一种方法是用 BAE 的云编辑环境修改乱码，重新保存来解决。
+
+## 参考内容
+
++ [BAE使用笔记2-改造JFinal Demo部署到BAE上 - 土龙的个人空间](http://my.oschina.net/u/173975/blog/137423)
++ [docs/cplat/rt/demo - 百度开发者中心](http://developer.baidu.com/wiki/index.php?title=docs/cplat/rt/demo)
++ [在GAE中使用struts2框架 - 明年我18](http://www.cnblogs.com/default/archive/2010/11/05/1870313.html)
++ [Struts 2 on GAE – Error: result ‘null’ not found](http://www.mkyong.com/google-app-engine/struts-2-on-gae-error-result-null-not-found/)
++ [(BAE)jetty8+struts2導致 welcome-file-list 失效](http://rritw.com/a/JAVAbiancheng/Struts/20130914/424003.html)
++ [JAVA BAE 问题总结 - 记录走下的弯路, 让更多的人快捷到达终点 - 博客频道](http://blog.csdn.net/ostrichmyself/article/details/8098119)

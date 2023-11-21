@@ -8,21 +8,13 @@ tags:
   - github
   - https
   - 域名
-reference:
-  - url: 'https://blog.github.com/2018-05-01-github-pages-custom-domains-https/'
-    title: Custom domains on GitHub Pages gain support for HTTPS
-  - url: >-
-      https://help.github.com/articles/securing-your-github-pages-site-with-https/
-    title: Securing your GitHub Pages site with HTTPS
-  - url: 'https://help.github.com/articles/using-a-custom-domain-with-github-pages/'
-    title: Using a custom domain with GitHub Pages
-  - url: 'https://help.github.com/articles/troubleshooting-custom-domains/'
-    title: Troubleshooting custom domains
 ---
+
+# 自定义域名在Github Pages中支持通过HTTPS访问
 
 最近[Github官方博客](https://blog.github.com/2018-05-01-github-pages-custom-domains-https/)上已经宣布自定义域名也支持通过HTTPS进行访问。之前也没想过要弄个HTTPS，借着这个机会就搞一搞HTTPS访问吧。不过都现在了，已经过了尝鲜期了。
 
-# 更新域名解析地址
+## 更新域名解析地址
 
 之前已经将域名访问指向了 `192.30.252.153` 和 `192.30.252.154`，这次要使用最新的HTTPS需要将域名记录指向新的IP地址，官方给出了四组IP地址：
 
@@ -33,11 +25,11 @@ reference:
 
 我用了顶级域名当做博客的域名，将顶级域名的A记录全部接卸到了以上四个IP地址上。解析规则如下：
 
-{% asset_img 1.png DNS解析配置 %}
+![DNS解析配置](./1.png)
 
 Github上给出了很详细的说明，可以参考一下[如何自定义域名](https://help.github.com/articles/using-a-custom-domain-with-github-pages/)。
 
-# 启用HTTPS域名跳转
+## 启用HTTPS域名跳转
 
 修改域名解析之后根据解析时间的长短，需要几个小时到1天不等的时间来同步DNS解析。这个时候可以去设置里看一看能不能行。
 
@@ -45,7 +37,7 @@ Github上给出了很详细的说明，可以参考一下[如何自定义域名]
 
 但大多数情况还是会出现 **Unavailable for your site because your domain is not properly configured to support HTTPS** 的提示：
 
-{% asset_img 2.png "GitHub Pages配置" %}
+![GitHub Pages配置](./2.png)
 
 这个时候需要先清空 **Custom Domain** 里的设置，保存后重新填入域名，触发一下Github生成页面的机制。如果这时候看到 **Not yet available for your site because the certificate has not finished being issued** 的提示，说明再等一段时间，等Github为你的域名签发证书就选中了。
 
@@ -72,9 +64,9 @@ sumygg.com. 6332 IN A 185.199.109.153
 
 可喜可贺，可喜可贺。
 
-{% asset_img 3.png 小绿锁 %}
+![小绿锁](./3.png)
 
-# 检查网站内容
+## 检查网站内容
 
 接下来要做的事情是让网站默认跳转到HTTPS，这里从网上 _借鉴_ 了一段代码代码就可以搞定了：
 
@@ -94,3 +86,10 @@ if theme.forcehttps == true
 由于HTTPS访问中不允许出现http和https链接混用的情况，需要检查你网站中的链接，想办法将http升级到https。
 
 其它的以后再说吧，我先去嘚瑟一下了。:sunglasses:
+
+## 参考内容
+
++ [Custom domains on GitHub Pages gain support for HTTPS](https://blog.github.com/2018-05-01-github-pages-custom-domains-https/)
++ [Securing your GitHub Pages site with HTTPS](https://help.github.com/articles/securing-your-github-pages-site-with-https/)
++ [Using a custom domain with GitHub Pages](https://help.github.com/articles/using-a-custom-domain-with-github-pages/)
++ [Troubleshooting custom domains](https://help.github.com/articles/troubleshooting-custom-domains/)
