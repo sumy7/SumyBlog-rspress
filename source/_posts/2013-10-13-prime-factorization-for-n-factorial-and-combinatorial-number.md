@@ -7,15 +7,13 @@ categories:
 tags:
   - 数论
   - 算法
-description: 阶乘和组合数的素因子分解不同于一般的素因子分解，不同之处就在于枚举的不是每个数的所有素因子，而是每个素因子包含哪些数。
-reference:
-  - title: FZU_1753 Another Easy Problem - Chris_Home
-    url: 'http://blog.csdn.net/ivan_zjj/article/details/7589163'
-  - title: 阶乘因式分解 （n的阶乘分解质因数中含m的个数） - 我们一直在努力
-    url: 'http://www.cnblogs.com/zhaoguanqin/archive/2011/07/30/2122026.html'
 ---
 
-# n!的素因子分解
+# n! 与组合数的素因子分解
+
+> 阶乘和组合数的素因子分解不同于一般的素因子分解，不同之处就在于枚举的不是每个数的所有素因子，而是每个素因子包含哪些数。
+
+## n!的素因子分解
 
 > 首先筛选出所有 [1,n] 的素数，然后对于一个素数 prime[i]，[1,n] 中有因子 prime[i] 的一定是形如：prime[i], 2 * prime[i] ,3 * prime[i] ,...第一轮我们得到的是 n/prime[i] 个因子，并且将 n 变成 n/prime[i]，这样一直到 n 等于 0 的时候就可以求出所有 n! 的 prime[i]的因子了。
 
@@ -69,13 +67,13 @@ int main()
 }
 ```
 
-# 组合数的素因子分解
+## 组合数的素因子分解
 
 根据组合数公式 $C( n , m ) = n! / ( n- m )! * m!$
 
 可以将三个阶乘的素因子组合起来，个数进行加减运算（乘加除减）。具体的实现还是参照下面的题目吧。（太懒了，不想写了。。。）
 
-# 题目
+## 题目
 
 下面以[FZU1753](http://acm.fzu.edu.cn/problem.php?pid=1753)为例：
 
@@ -178,3 +176,8 @@ int main()
     return 0;
 }
 ```
+
+## 参考内容
+
++ [FZU_1753 Another Easy Problem - Chris_Home](http://blog.csdn.net/ivan_zjj/article/details/7589163)
++ [阶乘因式分解 （n的阶乘分解质因数中含m的个数） - 我们一直在努力](http://www.cnblogs.com/zhaoguanqin/archive/2011/07/30/2122026.html)

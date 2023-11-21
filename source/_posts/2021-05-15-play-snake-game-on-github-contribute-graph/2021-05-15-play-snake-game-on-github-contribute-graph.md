@@ -4,45 +4,38 @@ title: 在Github上玩贪吃蛇游戏吧
 date: 2021-05-15 13:16:38
 categories: 游戏人生
 tags: [kolin, kotlin-js, github, snake, game, chrome-extension]
-reference:
-  - url: https://github.com/sumy7/gitsnackhub
-    title: "sumy7/gitsnackhub - Github"
-  - url: https://kotlinlang.org/docs/js-get-started.html
-    title: "Get started with Kotlin/JS for React"
-  - url: https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html
-    title: "【干货】Chrome插件(扩展)开发全攻略 - 我是小茗同学 - 博客园"
-  - url: https://chrome.google.com/webstore/detail/gitsnackhub/emngeeijijgenmejojhkdigiblicfdbe
-    title: Gitsnackhub - Chrome 网上应用店
 ---
+
+# 在Github上玩贪吃蛇游戏吧
 
 说好不想再挖坑的，结果还是没有控制住自己，结果又开了一个新坑，明明有那么多的坑已经填不完了。。。这次玩点不一样的内容，写一个贪吃蛇游戏吧。但是也不能仅仅是一个贪吃蛇游戏，还想在其中增加些不一样的内容。Kotlin跨平台开发出来好久了，这次就体验一下Kotlin2JS的能力。另一方面，只做一个贪吃蛇游戏没有什么意思，最近经常逛Github，看到贡献墙眼前一亮，为什么不在这里进行游戏呢？将自己的代码逻辑嵌入网站，还是做成一个扩展比较方便。于是就打算按照扩展的模式开发。
 
 本文的重点不在于贪吃蛇游戏逻辑的实现，在于感受Kotlin跨端开发的体验和最后扩展上线的流程。
 
-# 项目概览
+## 项目概览
 
 贪吃蛇游戏的名称叫 **gitsnackhub**，其实简单来说就是在github的中间插入了snack的英文。
 
 图标也是仿照Github贡献墙的配色，在其中画出贪吃蛇的形状。
 
-![gitsnackhub图标](./2-2.png)
+![gitsnackhub图标](./1-1.png)
 
 最终游戏的呈现方式，代码已开源到[Github](https://github.com/sumy7/gitsnackhub)，欢迎进行指导。
 
-![gitsnackhub](./2-1.png)
+![gitsnackhub](./1-2.png)
 
-# 创建跨平台项目
+## 创建跨平台项目
 
 使用IntelliJ IDEA可以创建Kotlin/JS类型的项目。
 
 1. 打开Intellij IDEA，新建一个新的项目。
 2. 项目类型选择 Kotlin。
 3. 输入项目名称后，选择 **Browser Application** 项目，点击下一步
-   ![新建项目](./1-1.png)
-4. 保持默认配置，选择完成项目。
-   ![配置项目模板](./1-2.png)
+![新建项目](./2-1.png)
+1. 保持默认配置，选择完成项目。
+![配置项目模板](./2-2.png)
 
-# 开发过程体验
+## 开发过程体验
 
 项目创建完成后，会出现 `build.gradle.kts` 配置文件，其中包含 `kotlin("js")` 的插件和其它依赖。
 
@@ -74,7 +67,7 @@ webpackTask {
 
 KotlinJS的构建过程是，先将kotlin代码转换成JavaScript代码，然后生成webpack配置，基于webpack构建和打包生成最后代码。
 
-## 类型安全
+### 类型安全
 
 使用Kotlin开发JavaScript最大的感受就是类型安全，虽然类型安全能够在编译阶段发现问题，但是相对于JavaScript这种动态语言来说，就丧失了很多动态性。
 
@@ -82,7 +75,7 @@ KotlinJS的构建过程是，先将kotlin代码转换成JavaScript代码，然�
 
 在JavaScript中，DOM对象作为一个普通的对象，可以以对象的方式在其中增加修改对象属性。但是在Kotlin中，一个对象中含有的属性是固定的，很难进行增加属性的操作。
 
-## 动态语言支持
+### 动态语言支持
 
 为了支持JavaScript的动态语言的特性，Kotlin在语言层面也做了一些改变。
 
@@ -90,7 +83,7 @@ KotlinJS的构建过程是，先将kotlin代码转换成JavaScript代码，然�
 
 还可以在Kotlin中直接书写JavaScript代码，使用`js()`函数可以以字符串方式执行一段JavaScript代码，类似于`eval()`函数。该函数的返回值类型也是`dynamic`类型的。
 
-# 扩展的基本结构
+## 扩展的基本结构
 
 扩展能够使用的表现模式有好多种：
 
@@ -122,12 +115,11 @@ gitsnackhub通过将脚本注入到github个人信息页的方式，实现操控
 
 `content_scripts` 的作用是会将其指定的css和js文件，在 **matches** 匹配后，插入到页面中。gitsnackhub只用到了js文件，并打算将其插入到github的域名中。
 
-# 上架扩展
+## 上架扩展
 
 为了让用户方便的下载到你的扩展，最好的方式就是上架到Chrome Web Store应用商店里。
 
 第一次上架需要消费5$激活开发者账号。打开[https://chrome.google.com/webstore/devconsole](https://chrome.google.com/webstore/devconsole)，第一次会提示以下内容：
-
 ![激活扩展](./4-1.png)
 
 这里的支付可以国内的visa信用卡，注意账单地址需要填写一个地图上真实的账单地址。
@@ -143,3 +135,10 @@ gitsnackhub通过将脚本注入到github个人信息页的方式，实现操控
 ~~截止目前，我的扩展还没有审核通过。审核频率大概1天1次。第一次因为扩展描述太随便而被驳回。重新修改提交审核即可。~~
 
 终于，扩展审核通过了，[Gitsnackhub - Chrome 网上应用店](https://chrome.google.com/webstore/detail/gitsnackhub/emngeeijijgenmejojhkdigiblicfdbe)。找了位勇士试用了一下，后面再慢慢把一些细节优化一下。
+
+## 参考内容
+
++ [sumy7/gitsnackhub - Github](https://github.com/sumy7/gitsnackhub)
++ [Get started with Kotlin/JS for React](https://kotlinlang.org/docs/js-get-started.html)
++ [【干货】Chrome插件(扩展)开发全攻略 - 我是小茗同学 - 博客园](https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html)
++ [Gitsnackhub - Chrome 网上应用店](https://chrome.google.com/webstore/detail/gitsnackhub/emngeeijijgenmejojhkdigiblicfdbe)

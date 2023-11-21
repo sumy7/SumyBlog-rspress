@@ -9,11 +9,9 @@ tags:
   - expression
   - 表达式
   - 沙箱
-reference:
-  - url: >-
-      https://github.com/vuejs/vue/blob/78c3ce0ce0c2230f657cb7772a84fc7aa7ce0825/src/core/instance/proxy.js#L9
-    title: proxy.js-vuejs-Github
 ---
+
+# 解析用户输入表达式的值，简易的JS沙箱
 
 有时候我们需要解析用户输入的表达式，用户输入的表达式千奇百怪，如何控制只能使用指定的函数，制作一个简易的沙箱环境？
 
@@ -91,3 +89,7 @@ errEval();
 + 如果访问的属性已经存在vm对象上，则 `has` 直接声明存在当前对象上
 + 如果属性不在vm对象上，但是在allowedGlobal中，则 `has` 声明变量不在该对象上，引擎会往外层作用域查找，最终找到window/global对象上的属性
 + 如果属性不在vm对象上，也不在allowedGlobal中，则 `has` 声明变量在该对象上，拦截引擎的外层作用域查找操作。后续通过 `get` 在当前对象返回属性值时只能获取到 **undefined**，达到拦截对window/global属性访问的目的
+
+## 参考内容
+
++ [proxy.js-vuejs-Github](https://github.com/vuejs/vue/blob/78c3ce0ce0c2230f657cb7772a84fc7aa7ce0825/src/core/instance/proxy.js#L9)

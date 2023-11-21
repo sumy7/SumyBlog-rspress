@@ -9,14 +9,13 @@ tags:
   - 粒子
   - 前端
   - javascript
-reference:
-  - url: 'http://blog.csdn.net/u014346301/article/details/53608055'
-    title: 'canvas动画之二 -- 创建动态粒子网格动画 - Sweet oDream '
 ---
+
+# 为网页添加一个网格粒子动画的背景
 
 好些日子之前，发现某乎的背景特别漂亮，在某些机缘巧合之下，又在好多地方发现了类似这种“网格粒子”的背景。一种“抄袭之魂”油然而生，对着一篇文章，按照自己的想法实现了一下。本来打算顺势改进一下“引擎”，但是整个做下来发现这个“引擎”改进的方向有点偏，导致好多地方很难看懂了。下面将大体的思路说明一下，具体细节可以参考代码或者【参考文献】中的文章。
 
-# 粒子运动
+## 粒子运动
 
 参考物理学的运动，这里每个粒子的运动是独立的，相互之间没有作用力的干扰。在初始化的时候需要给粒子设置初始位置、初始速度、初始速度方向，根据这几个值，就能计算出下一步粒子运动的行为。
 
@@ -77,7 +76,7 @@ ctx.fill();
 
 然后补充上模板代码，粒子基本的运动操作就完成了。
 
-# 划线连接
+## 划线连接
 
 上面粒子配置中提到了一个变量 `minDistance` ，如果两个粒子之间的距离小于该值，就在这两个粒子之间绘制一条连线。但是单纯绘制连线不太美观，最好根据距离，距离越近连线的颜色越深。
 
@@ -112,9 +111,13 @@ resize: function (width, height) {
 
 大概需要注意的地方就这么多了，我把自己实现的代码放到jsfiddle上，可以参考一下。
 
-{% jsfiddle otgn0am4 %}
+<iframe height="300" style="width: 100%;" scrolling="no" title="粒子背景" src="https://codepen.io/sumy7/embed/eYMpLKj?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/sumy7/pen/eYMpLKj">
+  粒子背景</a> by sumy (<a href="https://codepen.io/sumy7">@sumy7</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
-# 网页背景
+## 网页背景
 
 接下来就是要把这个canvas设置为背景的时候了，需要注意一下几点：
 
@@ -148,3 +151,7 @@ window.addEventListener("resize", function () {
 ```
 
 花了一下午的时间。至此，就为博客换上了一个Canvas背景:tada:。
+
+## 参考内容
+
++ [canvas动画之二 -- 创建动态粒子网格动画 - Sweet oDream](http://blog.csdn.net/u014346301/article/details/53608055)

@@ -7,39 +7,34 @@ categories:
 tags:
   - 算法
   - 计算几何
-description: 给定一个圆，使其能覆盖平面上最多的点。
-reference:
-  - title: 【转】HOJ2704 Phone Cell 计算几何_AekdyCoin的空间
-    url: 'http://hi.baidu.com/aekdycoin/item/4c864089e5011759840fabd6'
-  - title: 单位圆覆盖平面上点 - wujiawei@HIT
-    url: 'http://www.cppblog.com/wujiawei/archive/2010/08/21/124180.html'
-  - title: '北京邮电大学-北邮人论坛-北邮人的温馨家园 -- [模板]二维几何模板'
-    url: >-
-      http://bbs.byr.cn/wForum/disparticle.php?boardName=ACM_ICPC&ID=63442&start=0&listType=1
 ---
 
-# 题目模型
+# 给定半径圆覆盖点
+
+> 给定一个圆，使其能覆盖平面上最多的点。
+
+## 题目模型
 
 给平面上N个点的坐标 ( Xi,Yi )，给出圆半径 R ，求 R 能覆盖的最多的点数。
 
-# 题目分析
+## 题目分析
 
 > 最初的分析就是移动，保证点在圆周上，然后圆以这一点为轴转动360度，检查有多少个点能被圆覆盖。操作时，对于基点 i ，如果 dist(i, j)&lt;D 那么就以i点为轴转动圆周到 j 在圆周上。但是这么做的正确性没有仔细想过，但是实现起来就相当麻烦了。时间复杂度上是 O(N^2) 肯定是可以接受的。这种想法还有待于更深入的讨论。
-> {% asset_img 1.jpg 圆的旋转 %}
+> ![圆的旋转](./1.jpg)
 > 后来在网上发现一种做法，就是以每个点为圆心，以半径R画圆，然后统计每个区域重叠的次数，记录最大。
-> {% asset_img 2.jpg 圆的重叠 %}
+> ![圆的重叠](./2.jpg)
 > 但是，如果要表示一个区域，是几乎不可能的事情。区域是不规则的，最初我想将区域栅格化，但是时间复杂度和正确性上都是不能保证的。最后还是看了报告……
 > 仔细观察上图，虽然红色区域不能被表示，但是围成区域的边界却是能表示的。由于边界是圆弧，所以可以用这段弧对于x轴的极角表示，
-> {% asset_img 3.jpg 圆重叠范围的极角表示 %}
+> ![圆重叠范围的极角表示](./3.jpg)
 > 区域问题转化成了线段覆盖次数的问题了。然后就是把alpha1，alpha2映射到一个[0, 4pi]的区间，这里映射到[0, 4pi]而不是[0, 2pi]是由于alpha的范围是[-pi/2, 5pi/2]，而非[0, 2pi]，对于不在[0,4pi]范围内的点，直接加2pi不会影响结果。
 
 这里再说明一下这种方法：
 
 首先将重叠的弧的开始点和结束点标示出来（如开始点为 1 ，结束点为 0），那么将弧按极角排序之后，遇到开始点的时候计数器加 1 ，遇到结束点计数器减 1。统计这个期间计数器的最大值就是圆重叠的最大数。具体原理可以参考一下上面的图片。
 
-# 例题
+## 例题
 
-## hoj2704 Phone Cell
+### hoj2704 Phone Cell
 
 直接套用算法就可以解决。
 
@@ -127,13 +122,13 @@ reference:
     }
 ```
 
-## hoj1799 Circle and Points
+### hoj1799 Circle and Points
 
 这个问题与上一个问题类似，只不过半径固定为 1.0 。其它的没什么特殊的地方。
 
 题目链接：[http://acm.hit.edu.cn/hoj/problem/view?id=1799](http://acm.hit.edu.cn/hoj/problem/view?id=1799)
 
-## hoj2940 Pit Lord
+### hoj2940 Pit Lord
 
 这个问题每个点都有一个权值，可以考虑“进入”的时候增加的是点的权值，而“离开”的时候减去点的权值。
 
@@ -239,7 +234,7 @@ reference:
     }
 ```
 
-## ural1332 Genie Bomber
+### ural1332 Genie Bomber
 
 这个问题的特殊之处就在于每个点也有自己的半径，也就是用大圆 R 来覆盖若干小圆 r 。这里的处理方法是将 R-r 作为覆盖圆来使用。注意 R-r 为负值的时候要输出 0 。
 
@@ -341,3 +336,9 @@ reference:
         return 0;
     }
 ```
+
+## 参考内容
+
++ [【转】HOJ2704 Phone Cell 计算几何_AekdyCoin的空间](http://hi.baidu.com/aekdycoin/item/4c864089e5011759840fabd6)
++ [单位圆覆盖平面上点 - wujiawei@HIT](http://www.cppblog.com/wujiawei/archive/2010/08/21/124180.html)
++ [北京邮电大学-北邮人论坛-北邮人的温馨家园 -- [模板]二维几何模板](http://bbs.byr.cn/wForum/disparticle.php?boardName=ACM_ICPC&ID=63442&start=0&listType=1)

@@ -9,25 +9,13 @@ tags:
   - 饥荒
   - 服务器
   - centos
-reference:
-  - url: 'https://developer.valvesoftware.com/wiki/SteamCMD#Linux'
-    title: SteamCMD
-  - url: >-
-      http://dont-starve-game.wikia.com/wiki/Don%E2%80%99t_Starve_Together_Dedicated_Servers
-    title: Guides/Don’t Starve Together Dedicated Servers
-  - url: >-
-      https://www.linode.com/docs/applications/game-servers/dont-starve-together-on-ubuntu
-    title: Install and Configure Don’t Starve Together Server on Ubuntu 14.04
-  - url: >-
-      http://changshiban.com/2015/04/11/dont-starve-together-dedicated-server-create-on-linux/
-    title: 生存类游戏 Don't Starve Together（饥荒联机版）Linux 专用服务器的搭建
-  - url: 'http://www.lyun.me/lyun/427'
-    title: 饥荒联机版服务端MOD及更多设置
 ---
+
+# CentOS下安装和配置饥荒联机版服务器
 
 最近没啥好游戏玩了，所以就被同学拉着学习打饥荒。。。一起联机的话感觉太慢，正好有台限制的阿里云VPS，就拿来搭个饥荒服务器吧。
 
-# 前期准备
+## 前期准备
 
 服务器是1GB内存，应该可以供应得起十几个人的联机。
 
@@ -39,11 +27,11 @@ TheNet:GenerateServerToken()
 
 之后就可以在 `C:\Users\Sumy\Documents\Klei\DoNotStarveTogether` 目录下下生成server_token.txt文件，之后需要将此文件放到服务器上。
 
-# 服务器安装
+## 服务器安装
 
 要想安装游戏服务器，需要先安装SteamCMD工具，可以参考[SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD#Linux)的步骤来安装。这里简单说明一下。
 
-## 安装SteamCMD
+### 安装SteamCMD
 
 安装依赖（针对 CentOS 64位）
 
@@ -77,7 +65,7 @@ wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
 tar -xvzf steamcmd_linux.tar.gz
 ```
 
-## 下载饥荒服务器
+### 下载饥荒服务器
 
 解压完成后就可以使用了，下面通过steamcmd下载饥荒的服务器。
 
@@ -117,7 +105,7 @@ Steam>quit
 
 这一步可能比较慢，耐心等待一下，网络中断的话就重新下载一次。这里的`343050`是饥荒游戏的ID，如果要下载其它游戏，只需改成其它游戏的ID即可。
 
-# 服务器配置
+## 服务器配置
 
 和Windows的目录类似，游戏会被下载到 `/home/steam/Steam/steamapps/commom` ，可以去此目录找到SteamCMD下载的游戏。
 
@@ -196,7 +184,7 @@ autocompiler_enabled = true
 
 这时候去[http://my.jacklul.com/dstservers](http://my.jacklul.com/dstservers)看一看服务器列表上有没有你的服务器就行了。
 
-# MOD安装
+## MOD安装
 
 mod可以为服务器生存增加便利性和可玩性。加入mod的服务器无法通过直连方式（`c_connect`命令）连接了，需要通过在线列表搜索进入。
 
@@ -239,7 +227,7 @@ return {
 }
 ```
 
-# 脚本命令
+## 脚本命令
 
 可以创建一个启动脚本来启动，如果运行之后缺少`screen`命令，可以通过yum进行安装。
 
@@ -261,3 +249,11 @@ cd /home/steam/Steam/steamapps/common/Don\'t\ Starve\ Together\ Dedicated\ Serve
 > c_shutdown(true|false) true保存并关闭当前世界，false不保存直接关闭当前世界
 > TheNet:SetAllowIncomingConnections(true|false) true允许他人加入，false阻止任何人加入
 > c_rollback(count) 回档
+
+## 参考内容
+
++ [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD#Linux)
++ [Guides/Don’t Starve Together Dedicated Servers](http://dont-starve-game.wikia.com/wiki/Don%E2%80%99t_Starve_Together_Dedicated_Servers)
++ [Install and Configure Don’t Starve Together Server on Ubuntu 14.04](https://www.linode.com/docs/applications/game-servers/dont-starve-together-on-ubuntu)
++ [生存类游戏 Don't Starve Together（饥荒联机版）Linux 专用服务器的搭建](http://changshiban.com/2015/04/11/dont-starve-together-dedicated-server-create-on-linux/)
++ [饥荒联机版服务端MOD及更多设置](http://www.lyun.me/lyun/427)

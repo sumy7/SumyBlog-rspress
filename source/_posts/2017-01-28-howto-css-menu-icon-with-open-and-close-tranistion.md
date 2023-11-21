@@ -9,14 +9,13 @@ tags:
   - menu
   - icon
   - javascript
-reference:
-  - url: 'http://www.w3schools.com/howto/howto_css_menu_icon.asp'
-    title: How TO - Menu Icon
-description: >-
-  先祝大家鸡年大吉<del>吧</del>。看过NEXT模板主题的博客，很喜欢它目录放在侧边栏的样子，于是寻思着也给博客弄一个侧边栏目录。其中用到了如何用CSS和JavaScript实现一个带动画的菜单图标。
 ---
 
-# 静态菜单图标
+# 用CSS制作一个带有动画的菜单开关标识
+
+> 先祝大家鸡年大吉<del>吧</del>。看过NEXT模板主题的博客，很喜欢它目录放在侧边栏的样子，于是寻思着也给博客弄一个侧边栏目录。其中用到了如何用CSS和JavaScript实现一个带动画的菜单图标。
+
+## 静态菜单图标
 
 常见的菜单图标由三条黑线组成：
 
@@ -39,7 +38,7 @@ description: >-
 
 3条黑线并排在 `menu-icon-wrapper` 里，通过 `margin` 设置间隔，形成菜单图标。
 
-# 动画菜单图标
+## 动画菜单图标
 
 动态菜单图标是在静态菜单图标的基础上通过控制变形形成的。
 
@@ -120,4 +119,12 @@ function toggle(menu) {
 
 预览一下效果。
 
-{% jsfiddle dL0xpwj6%}
+<iframe height="300" style="width: 100%;" scrolling="no" title="menu icon" src="https://codepen.io/sumy7/embed/YzayvRx?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/sumy7/pen/YzayvRx">
+  menu icon</a> by sumy (<a href="https://codepen.io/sumy7">@sumy7</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+## 参考内容
+
++ [How TO - Menu Icon](http://www.w3schools.com/howto/howto_css_menu_icon.asp)

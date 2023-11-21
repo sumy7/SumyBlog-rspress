@@ -11,14 +11,9 @@ tags:
   - lower_bound
   - 算法
   - 二分
-reference:
-  - url: 'http://en.cppreference.com/w/cpp/algorithm/upper_bound'
-    title: 'std::upper_bound - cppreference.com'
-  - url: 'http://en.cppreference.com/w/cpp/algorithm/lower_bound'
-    title: 'std::lower_bound - cppreference.com'
-  - url: 'http://en.cppreference.com/w/cpp/algorithm/binary_search'
-    title: 'std::binary_search - cppreference.com'
 ---
+
+# 用Java实现C++::std中的upper_bound和lower_bound
 
 Cpp的Std标准库中包含了很多算法，以前写Cpp的时候受益于Std库，确实方便了不少，在Java语言下还是要慢慢适应Java语言的方式。
 
@@ -26,7 +21,7 @@ Java没有迭代器指针这个概念，所以很多内容与C++有所不同。J
 
 C++中也有相应的二分查找函数 `std::binary_search` 不过该函数返回一个 `bool` 型表示有没有找到目标值。相对于二分查找，还是更倾向于使用 `std::lower_bound` 和 `std::upper_boudn` 函数。
 
-# lower_bound
+## lower_bound
 
 `lower_bound`是找到第一个**大于等于**value的位置，比如 `[1, 2, 3, 3, 3, 4, 7, 8]` 查找 `3` 会返回下标为2的位置，查找 `6` 会返回下标为6的位置。如果未找到则返回数组的长度（C++中会返回end()迭代器的位置）。
 
@@ -95,7 +90,7 @@ public int lower_bound(int[] nums, int begin, int end, int value) {
 
 这样我们就得到了一个相对简单的 `lower_bound` 版本了。
 
-# upper_bound
+## upper_bound
 
 `upper_bound` 会去寻找**大于**value的位置，比如 `[1, 2, 3, 3, 3, 4, 7, 8]` 查找 `3` 会返回下标为5的位置，查找 `6` 会返回下标为6的位置。
 
@@ -162,8 +157,14 @@ public int upper_bound(int[] nums, int begin, int end, int value) {
 
 可以发现，这两个函数只有 `if` 判断那一句不同。
 
-# 总结
+## 总结
 
 `lower_bound` 和 `upper_bound` 的实现借助了 **二分查找** 的思想，二分查找很重要的一点就是对_二分区间的舍弃_。举个例子，`lower_bound`是找到第一个**大于等于**value的值，那么对于**小于等于**mid的值要果断舍弃，大于mid的值由于可能包含value，需要保守一点。
 
 这两个函数的实现到这里就结束了，而关于二分里的区间舍弃保留问题，有空学习一下，再水一篇吧。
+
+## 参考内容
+
++ [std::upper_bound - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/upper_bound)
++ [std::lower_bound - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/lower_bound)
++ [std::binary_search - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/binary_search)

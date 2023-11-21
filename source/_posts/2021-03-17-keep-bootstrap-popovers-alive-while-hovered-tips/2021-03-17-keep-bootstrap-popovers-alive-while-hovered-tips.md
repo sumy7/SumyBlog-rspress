@@ -8,13 +8,9 @@ tags:
   - bootstrap
   - jquery
   - popover
-reference:
-  - url: >-
-      https://stackoverflow.com/questions/15989591/how-can-i-keep-bootstrap-popovers-alive-while-being-hovered
-    title: >-
-      jquery - How can I keep Bootstrap popovers alive while being hovered? -
-      Stack Overflow
 ---
+
+# 使用Bootstrap的popovers时鼠标移动到tips也保持展示
 
 目的是需要制作一个点击可以打开OA进行聊天的链接，鼠标放置上去可以展示当前人的邮箱等联系方式。
 
@@ -59,5 +55,8 @@ $('.pop').popover({
   (<a href='https://codepen.io/sumy7'>@sumy7</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-
 直接使用的是Stack Overflow的栗子，可以进行适当改进，原理还是差不多的。如果有幸能找到以前的代码，会再修改完善一下。
+
+## 参考内容
+
++ [jquery - How can I keep Bootstrap popovers alive while being hovered? - Stack Overflow](https://stackoverflow.com/questions/15989591/how-can-i-keep-bootstrap-popovers-alive-while-being-hovered)

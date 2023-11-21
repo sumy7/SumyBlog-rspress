@@ -4,20 +4,15 @@ title: VueRouter4路由权重
 date: 2021-05-11 10:14:45
 categories: 果然还是前端
 tags: [vuerouter, 路由]
-reference:
-  - url: https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms
-    title: "Understanding Nginx Server and Location Block Selection Algorithms | DigitalOcean"
-  - url: https://reach.tech/router/ranking
-    title: "Reach Router - Path Ranking"
-  - url: https://paths.esm.dev/
-    title: "Vue Router Path Parser"
 ---
+
+# VueRouter4路由权重
 
 Vue3正式版发布也有一段时间了，各个相关组件也趋于稳定。前些天听了VueRouter4的一个分享会，了解到了新版的设计理念和一些主要的改动，其中一个改动就是舍弃了原来的路由顺序匹配，改为计算权重的方式。趁着这个上午，把其中的部分逻辑研究一下。
 
 <!-- more -->
 
-# 路由权重
+## 路由权重
 
 路由权重也不是一个新的概念，在nginx里就有类似的实现。nginx将路径匹配分为：精确匹配、普通字符匹配、正则匹配。location的书写顺序只会影响同类的匹配，nginx会按照一个特定的分类顺序进行匹配。总的来说nginx匹配的目标是精确、规则优先，最后才会考虑采用最长前缀匹配的方式。
 
@@ -25,7 +20,7 @@ Vue3正式版发布也有一段时间了，各个相关组件也趋于稳定。�
 
 这次vuerouter4舍弃了顺序匹配的方式，采用了计算路径权重（Path Ranking）的方式。相对于nginx的这种约定式的权重，vuerouter4采用了更加明确的量化路由权重。在多个路由满足匹配规则的情况下，优先选择权重高的路由。
 
-# 转换路径
+## 转换路径
 
 vuerouter4还是采用将路由转换成正则方式进行匹配，但是为了方便记录路由权重，没有再采用以前path-to-regexp库进行直接转换。
 
@@ -53,7 +48,7 @@ interface TokenParam {
 4. 可重复的会使用`((?:${re})(?:/(?:${re}))*)`（至少匹配一次路径表达式）来重新拼装正则表达式。
 5. 可选的会在最后拼接`?`（0个或1个）选项。
 
-# 计算权重
+## 计算权重
 
 转换正则表达式和计算得分的逻辑在`pathParserRanker.ts`文件中。首先看一下vuerouter4对得分的定义。
 
@@ -87,7 +82,7 @@ const enum PathScore {
 + 如果路径是重复或可选的，会对应扣除BonusRepeatable的-20分和BonusOptional的-8分，如`/:chapters+`是40+20-20=40分
 + 如果对路径设置了绝对匹配和不忽略大小写选项，会增加BonusStrict的0.7分（只针对最后一段路径有效）和BonusCaseSensitive的0.25分（对所有路径有效）
 
-# 路由匹配
+## 路由匹配
 
 在路由匹配之前，需要先对路由进行加权排序。前面提到对每段路径计算得分后，会得到一个分数列表，例如：
 
@@ -103,8 +98,15 @@ const enum PathScore {
 
 按照权重排好序后，在排序好的列表里就可以按照顺序来匹配路径和结果了。
 
-# 总结
+## 总结
 
 通过计算路由权重匹配的方式，可以让描述越精确的路由能够越先匹配到。相比上版本使用的顺序匹配，能够大大降低人为顺序对匹配结果的影响，减少出错几率。而且对动态路由来说，计算路径权重的方式也能使新增加的路由按照一致的逻辑处理，而不用考虑插入的顺序问题。
 
 以上vuerouter4路由解析的结果，可以通过[Vue Router Path Parser](https://paths.esm.dev/)进行查看，可以看到各个路径计算的得分，也支持将你的路由分享给其他人。
+
+
+## 参考内容
+
++ [Understanding Nginx Server and Location Block Selection Algorithms | DigitalOcean](https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms)
++ [Reach Router - Path Ranking](https://reach.tech/router/ranking)
++ [Vue Router Path Parser](https://paths.esm.dev/)

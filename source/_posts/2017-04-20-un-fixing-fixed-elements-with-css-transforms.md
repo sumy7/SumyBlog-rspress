@@ -8,10 +8,9 @@ tags:
   - css
   - fixed
   - transforms
-reference:
-  - url: 'http://www.qianxingzhem.com/post-1985.html'
-    title: Transform 属性会导致子元素的 fixed 属性失效 | 潜行者m
 ---
+
+# 博客添加渐变效果出现的fixed问题
 
 最近特别喜欢某些博客的渐变加载效果，于是就照着制作了一个，感觉还可以。
 
@@ -65,3 +64,7 @@ reference:
 在调试了一段时间后发现是 `transform` css属性的问题，在控制台中去掉该属性后文章目录的行为表现的很正常。查询博文发现这个问题很正常，主要是因为 `transform` 属性的动画行为会影响 `fixed` 的定位，使其不再基于 viewport 定位。
 
 在尝试了几个方法后，都没有很好的解决这个问题:disappointed:。只好出此下策，将 **文章目录** 整个弄到与 `#header,#layout,#footer` 同级，然后在模板里加入判断条件只有是 post 页面才渲染目录部分。也算解决了这个问题了:tada:。
+
+## 参考内容
+
++ [Transform 属性会导致子元素的 fixed 属性失效 | 潜行者m](http://www.qianxingzhem.com/post-1985.html)

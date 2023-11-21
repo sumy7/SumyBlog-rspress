@@ -6,13 +6,15 @@ categories: 游戏人生
 tags: [太鼓达人, 歌曲, 歌词]
 ---
 
+# 太鼓达人歌曲《タベテモタベテモ》
+
 最近玩太鼓的时候，发现了一首比较好听的歌曲——《タベテモタベテモ》。无奈日语为零的我不知道去哪里才能找到歌词。在求助网抑云无果后，从某个打字网站上找到了对应的歌词。
 
 <!-- more -->
 
 机器人代打视频
 
-{% iframe https://www.youtube.com/embed/bdEtfTXtcKE 560 315 %}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bdEtfTXtcKE" title="タベテモタベテモ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 然后就是歌词了，可惜没有中文翻译
 
