@@ -7,17 +7,13 @@ categories:
 tags:
   - git
   - git rebase
-reference:
-  - url: >-
-      https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/rebase
-    title: Rebase 代替合并
-  - url: 'https://www.jianshu.com/p/f23f72251abc'
-    title: git rebase 和 git merge 的区别
 ---
+
+# 使用git中的rebase简化commit提交历史
 
 Git作为“现代”开发中不可获取的一部分，平时的最常用的几个命令是 `init` `clone` `push` `pull` `origin`。但Git包含的功能却远远不止这些。说起命令，就想起之前面试官提到了`rebase`，然后就尝试了一下`rebase`这个命令，最后发现这完全是强迫症的福利。只要平时的开发流里再多几个简单操作，世界就能变得很美好，而且有了IDE的加持，用起来更加简单便捷了。然后，虽然这个前言感觉很唐突，天道好轮回，技术债也是要还的。
 
-# 合并的策略
+## 合并的策略
 
 合并从场景来说分为两种， *不同分支的合并* 和 *单个分支的合并* 。
 
@@ -26,7 +22,7 @@ Git作为“现代”开发中不可获取的一部分，平时的最常用的�
 
 同事们大多数都是commit后发现提交不上去，然后pull一下执行一次同分支合并。这样提交记录里就会华丽丽的看到很多分支自己merge自己的情况了，而这种提交记录是完全没有必要的。（忽略黑黑的打码）
 
-{% asset_img 1.png 包含很多的Merge %}
+![包含很多的Merge](./1.png)
 
 marge 特点：自动创建一个新的commit
 如果合并的时候遇到冲突，仅需要修改后重新commit
@@ -39,7 +35,7 @@ rebase 特点：会合并之前的commit历史
 
 __单分支__ 下，建议使用rebase将远程分支更新到本地。 __多分支__ 合并，使用merge策略合并分支。
 
-# rebase使用
+## rebase使用
 
 rebase的其它用法就不再介绍了（其实是暂时用不上，等用上了再说），只说明一下pull的时候的用法。
 
@@ -62,15 +58,15 @@ GUI以Intellij为例
 
 提交代码前先更新项目，使用rebase方式
 
-{% asset_img 2.png 更新项目 %}
+![更新项目](./2.png)
 
 遇到冲突时解决冲突，IDE会自动执行 --continue 命令。
 
-{% asset_img 3.png 解决冲突 %}
+![解决冲突](./3.png)
 
 与平时使用的merge真的很像。
 
-# 总结一下
+## 总结一下
 
 rebase的一些用法：
 1. 合并多个commit为一个完整的commit
@@ -81,3 +77,8 @@ rebase实质是丢弃一些现有的提交，然后相应地新建一些内容�
 **rebase会改写历史记录，永远不要在已经push了的commit上使用。**
 
 还是稍微吐槽一下 *变基* 这个名词吧，感觉很magic:star:
+
+## 参考内容
+
++ [Rebase 代替合并](https://www.git-tower.com/learn/git/ebook/cn/command-line/advanced-topics/rebase)
++ [git rebase 和 git merge 的区别](https://www.jianshu.com/p/f23f72251abc)

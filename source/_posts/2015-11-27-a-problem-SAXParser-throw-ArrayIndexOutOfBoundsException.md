@@ -9,9 +9,11 @@ tags:
   - xml
 ---
 
+# SAXParser解析XML时抛出ArrayIndexOutOfBoundsException异常
+
 今天在使用`SAXParser`解析XML时会抛出一个`ArrayIndexOutOfBoundsException`异常。只测试了在CDATA标签中，如果字符多余1033个就会出现异常。
 
-# 问题
+## 问题
 
 写了一个小的样例重现这个问题：
 
@@ -46,7 +48,8 @@ XML文件：
 ```
 几个测试类：
 
-{% codeblock lang:java DatabaseParserHandler.java %}
+DatabaseParserHandler.java
+```java
 package com.sumy.xmlwikimanager.dao;
 
 import com.sumy.xmlwikimanager.bean.WikiItem;
@@ -70,9 +73,10 @@ public class DatabaseParserHandler extends DefaultHandler {
         System.out.println(length);
     }
 }
-{% endcodeblock %}
+```
 
-{% codeblock lang:java XMLUtil.java %}
+XMLUtil.java
+```java
 package com.sumy.xmlwikimanager.dao;
 
 import org.xml.sax.SAXException;
@@ -108,7 +112,7 @@ public class XMLUtil {
 
     }
 }
-{% endcodeblock %}
+```
 
 运行之后抛出的异常：
 
@@ -132,7 +136,7 @@ java.lang.ArrayIndexOutOfBoundsException
 
 疑似是一个bug，暂时还没有找到解决方法。考虑换其它的XML解析引擎试一下。
 
-# 临时解决
+## 临时解决
 
 对于`javax.xml.parsers.SAXParser`有多重实现方式，应当避免选中`pull-parser-xx.jar`包下的实现方式，在工程中可以删除该包。确定当前的实现方式可以参考[stackoverflow.com/a/1804281/3215527](http://stackoverflow.com/a/1804281/3215527)上面的方法。
 

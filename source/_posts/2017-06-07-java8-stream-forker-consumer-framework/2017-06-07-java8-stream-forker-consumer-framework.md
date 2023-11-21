@@ -11,12 +11,9 @@ tags:
   - 流
   - futures
   - spliterator
-reference:
-  - url: null
-    title: 《Java8实战》附录C
-  - url: 'https://segmentfault.com/q/1010000007087438'
-    title: Java8里面的java.util.Spliterator接口有什么用？ - SegmentFault
 ---
+
+# 如何以并发方式在同一个流上执行多种操作
 
 最近看了《Java8实战》，了解了Java8 Stream的一些内容。在Java 8中，流的一个局限性在于，只能遍历一次，再次遍历的时候会出现异常：
 
@@ -24,11 +21,11 @@ reference:
 
 对于这种情况，《Java8实战》附录C给出了一种实现方式，通过 `Spliterator` 结合 `BlockingQueues` 和 `Futures` 来实现这个功能。
 
-# 主要思想
+## 主要思想
 
 首先创建一个StreamForker类对当前需要被Fork的Stream进行包装，向StreamForker类中添加的操作由索引来标识，之后可以通过索引来取到该操作的结果。
 
-{% asset_img 1.png StreamForker主要思想 %}
+![StreamForker主要思想](./1.png)
 
 StreamForker会遍历每个操作，并创建相应的副本，并行的在复制流上执行这些操作，并将最终的结果整合到一个Map中。 `Results` 结果定义如下，可以用来获取执行操作的结果。
 
@@ -40,7 +37,7 @@ public interface Results {
 
 下面，说明一下各个部分的实现。
 
-# 复制流
+## 复制流
 
 当我们向StreamForker中添加了N个操作之后，就需要将Stream复制N份，复制N份的操作由 `ForkingStreamConsumer` 完成。
 
@@ -88,7 +85,7 @@ public class ForkingStreamConsumer<T> implements Consumer<T>, Results {
 
 Results接口的get()方法会根据键值取到相应的Future来获取结果，解析并返回。
 
-# 应用操作
+## 应用操作
 
 ForkingStreamConsumer负责分发元素，还需要一个去处理BlockingQueue里的元素。这里使用 `Spliterator` 来完成这个而操作，通过 `StreamSupport.stream()` 和 `Spliterator` 的实现可以创建一个新的流。
 
@@ -151,7 +148,7 @@ Spliterator接口有四个方法需要实现。
 
 通过实现的BlockingQueueSpliterator的延迟绑定能力，处理流中的各个元素。
 
-# 框架
+## 框架
 
 上面两部分都已经实现，下面需要实现一个框架，可以包装Stream，为Stream添加fork操作，并获取操作结果。
 
@@ -221,7 +218,7 @@ StreamForker的构造方法接收一个流，表示需要被fork的流。通过 
 
 `getOperationResult()` 方法会创建一个新的 BlockingQueue，并将其添加到队列的列表。这个BlockingQueue用于存储分发的原始流中的元素，然后将队列绑定到BlockingQueueSpliterator上用来创建一个新的流，最后创建一个Future来执行需要在这个流上应用的操作。
 
-# 使用
+## 使用
 
 到此整个StreamForker就完成了，这里我们应用一下，同时求一个整数流的最大值、最小值和平均值。
 
@@ -258,3 +255,8 @@ public class Main {
 > Max Value: 10
 > Min Value: 1
 > Avg Value: 5.5
+
+## 参考内容
+
++ 《Java8实战》附录C
++ [ava8里面的java.util.Spliterator接口有什么用？ - SegmentFault](https://segmentfault.com/q/1010000007087438)

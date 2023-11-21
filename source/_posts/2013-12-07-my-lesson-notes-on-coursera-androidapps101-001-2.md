@@ -8,11 +8,11 @@ tags:
   - android
   - coursera
   - 笔记
-description: 《创新、严肃、好玩的android应用程序开发》第二周的视频放出来了，这次主要将的是安卓程序的创建、运行还有资源布局方面的内容。
-reference:
-  - title: Android Developers
-    url: 'http://developer.android.com/index.html'
 ---
+
+# 《创新、严肃、好玩的android应用程序开发》课程笔记②
+
+> 《创新、严肃、好玩的android应用程序开发》第二周的视频放出来了，这次主要将的是安卓程序的创建、运行还有资源布局方面的内容。
 
 课程地址：[https://class.coursera.org/androidapps101-001/class](https://class.coursera.org/androidapps101-001/class)
 
@@ -20,7 +20,7 @@ reference:
 
 打开 cmd 然后输入 `telnet towel.blinkenlights.nl 23` 就可以在命令提示符中看到用 ASCII 播放星球大战的电影。
 
-# 创建工程
+## 创建工程
 
 1. 打开 eclipse ，新建一个 android 项目， 【New】 -> 【Project】 -> 【New Android Application...】。
 2. 输入 Application Name ， Project Name 和 Package Name。Package Name 应该唯一。
@@ -28,7 +28,7 @@ reference:
 4. 可以在向导里创建简单的 ICON 图标，可以使用自定义图片，文字，图形等。
 5. 记得创建一个 Blank Activity。
 
-# 手机端
+## 手机端
 
 在 Windows 和 Linux 系统下，需要下载 Usb Drivers，可以使用 豌豆荚 等软件代劳。
 
@@ -36,7 +36,7 @@ reference:
 
 可以在【关于手机】中查看手机所使用的 Android 版本。
 
-# 工程运行（调试）
+## 工程运行（调试）
 
 右键点击工程，选择【Run As】->【Android Application】。在运行界面中可以选择是通过真实手机（如果已连接）运行，还是通过模拟器运行。
 
@@ -48,7 +48,7 @@ AndroidManifest.xml 中的 package 代表 android 应用包的名字，android:m
 
 修改文件的时候需要注意文件的格式。
 
-# 工程简单修改
+## 工程简单修改
 
 在目录结构 res -> layout -> activity_main.xml 下存放着工程的一个默认布局文件。通过修改布局文件可以修改引用改布局文件的 activity 的 UI 显示。
 
@@ -71,7 +71,7 @@ AndroidManifest.xml 中的 package 代表 android 应用包的名字，android:m
 
 在工程中，若不导入相应的包，就需要使用全名来引用包的内容。如上面的命令就需要写成 `android.util.Log.e()`。
 
-# 图片资源的操作
+## 图片资源的操作
 
 使用 eclipse 中的 File Explorer 视图可以查看连接手机的内部文件，包括系统文件和 SD Card 文件。可以通过方法将文件从手机复制出来然后添加到工程中。
 
@@ -87,10 +87,14 @@ AndroidManifest.xml 中的 package 代表 android 应用包的名字，android:m
 
 Properties 视图可以方便的修改各个资源的属性，这比直接修改 Layout 文件方便的多。
 
-# res目录下资源文件夹的命名
+## res目录下资源文件夹的命名
 
 资源文件夹通过不同的命名来适应不同的设备场景。 Android 会根据当前模拟器的情况自动寻找相应文件夹下的资源文件。
 
 场景布局资源文件夹。layout 适应与所有的布局场景，layout-land 适应于横屏场景，layout-port 是竖屏场景。
 
 通过不同的命名，使得一个应用可以根据不同的环境来读取不同的配置文件。具体可以参照 Android SDK 说明文档。
+
+## 参考内容
+
++ [Android Developers](http://developer.android.com/index.html)

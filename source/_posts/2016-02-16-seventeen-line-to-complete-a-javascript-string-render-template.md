@@ -7,12 +7,9 @@ categories:
 tags:
   - 模板
   - javascript
-reference:
-  - url: 'https://segmentfault.com/a/1190000004428305'
-    title: 17 行代码实现的简易 Javascript 字符串模板（SegmentFault）
-  - url: 'http://hsfzxjy.github.io/a-simple-javascript-template-language/'
-    title: 17 行代码实现的简易 Javascript 字符串模板（博客）
 ---
+
+# 17 行代码实现的简易 Javascript 字符串模板
 
 前几天在写博客模板的时候需要用 js 将 JSON 生成网页，当时很纠结怎样优雅的实现数据的填充，因为不太想用 `+` 连接数据和HTML代码。正当纠结的时候在微博上发现了这个JavaScript字符串模板，遂拿来用了用。至于其中的各方面原理，还需要等JS水平上来之后再慢慢分析吧。当前先照葫芦画瓢。
 
@@ -78,3 +75,8 @@ render('{ greeting }. \\{ This block will not be rendered }', {
 ```
 
 感谢博主提供的黑科技，有了这么方便的功能。
+
+## 参考内容
+
++ [17 行代码实现的简易 Javascript 字符串模板（SegmentFault）](https://segmentfault.com/a/1190000004428305)
++ [17 行代码实现的简易 Javascript 字符串模板（博客）](http://hsfzxjy.github.io/a-simple-javascript-template-language/)

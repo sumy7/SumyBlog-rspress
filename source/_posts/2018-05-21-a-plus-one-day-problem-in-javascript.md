@@ -7,11 +7,9 @@ categories:
 tags:
   - javascript
   - 日期时间
-reference:
-  - url: >-
-      https://stackoverflow.com/questions/25741647/new-date-set-to-31-december-2014-says-1st-december-instead
-    title: new Date() set to 31 december 2014 says 1st december instead
 ---
+
+# 一个处理JavaScript日期的时候出现的问题
 
 好久没写博客了，有半年之久了吧。今天就之前遇到的一个bug聊一聊在用JavaScript处理日期的时候出现的一个问题。
 
@@ -68,10 +66,18 @@ myDate.setMonth(startDate.split("-")[1] - 1); // 2017-11-31 日期非法，修�
 myDate.setDate(startDate.split("-")[2]); // 2017-12-11
 ```
 
-我写了一个jsfiddle小片段，可以用来单步调试一下上述问题的过程。
+我写了一个小片段，可以用来单步调试一下上述问题的过程。
 
-{% jsfiddle p9u16zfg html,js,result light %}
+<iframe height="300" style="width: 100%;" scrolling="no" title="一个日期处理问题" src="https://codepen.io/sumy7/embed/BaroMJr?default-tab=js%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/sumy7/pen/BaroMJr">
+  一个日期处理问题</a> by sumy (<a href="https://codepen.io/sumy7">@sumy7</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 解决方案也很简单，只要保证年月日一次赋值进去就可以了，最好直接的方法就是在构造函数里指定要赋值的年月日 `new Date(2017, 11, 11)` 。
 
 就这样又消灭了一个bug，世界再次和平了。。。:smile_cat:
+
+## 参考内容
+
++ [new Date() set to 31 december 2014 says 1st december instead](https://stackoverflow.com/questions/25741647/new-date-set-to-31-december-2014-says-1st-december-instead)

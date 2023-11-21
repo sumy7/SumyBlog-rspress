@@ -13,39 +13,41 @@ tags:
   - 新建文件夹
 ---
 
+# TSCTF2017线上初赛WriteUp
+
 本着互动娱乐的精神，我们三个人组成了【新建文件夹】队参加了这次TSCTF2017的比赛。比赛题目采用浮动分数值，题目起始分1000，解出的人数越多，题目的分值越低。比赛时长36小时，截止到比赛结束总共放出了30题，我们队解出了其中17题。
 
 下面说一下我们解出题目的解题思路。题目不是按照难度排列的。
 
-# 【MISC】签到
+## 【MISC】签到
 
 签到题，关注公众号，给公众号发送消息就可以拿到flag。
 
-{% asset_img image001.png 签到题 %}
+![签到题](./image001.png)
 
-# 【MISC】logo
+## 【MISC】logo
 
 图片本身是这次比赛主办方战队的logo。似乎有点图片幻想症，起初拿到这张图片后，习惯性的看了一下各种地方，一直没发现什么问题。最后扫了一眼图片二进制，原来flag根本就没藏在图片里。。。直接在图片最后找到了用Base64编码的flag，解码就好了。
 
-{% asset_img image003.png logo编码 %}
+![logo编码](./image003.png)
 
-# 【MISC】zipcrc
+## 【MISC】zipcrc
 
 看到题目大概就能想到大体的思路。先打开压缩包看了一下，发现里面有三个文件，crypto、key1、key2和key3。
 
-{% asset_img image005.png 压缩包内容 %}
+![压缩包内容](./image005.png)
 
-{% asset_img image007.png 压缩包文件详情 %}
+![压缩包文件详情](./image007.png)
 
 其中，key1、key2和key3都是4字节大小，考虑可以使用CRC碰撞，碰撞出文件的内容。碰撞脚本使用了github上一个开源的项目[https://github.com/kmyk/zip-crc-cracker](https://github.com/kmyk/zip-crc-cracker)。
 
-{% asset_img image009.png CRC碰撞 %}
+![CRC碰撞](./image009.png)
 
 拿到三个文件后，之后的思路陷入了一个误区，被卡住了。首先尝试了一下key1+key2+key3的组合作为压缩包的密码，无果后以为需要通过明文攻击解压缩包的密码key。于是寻找这方面的资料，找到 `pkcrack`，但是这种攻击方式至少需要**连续**12个字节的**单文件**，显然这样无法解决问题。到这里解题处于停滞状态，只好求助于客服。在说明了我们解出了key1、key2、key3文件的内容后，客服给出的回复是，你们已经解出来了。
 
 放弃了pkcrack的方向，我们转向了key的组合，发现key3+key2+key1才是正确的压缩包密码。赶紧打开crypto文件看了一下，很容易发现是Base64编码。
 
-{% asset_img image011.png crypto文件内容 %}
+![crypto文件内容](./image011.png)
 
 解密后是一段Python代码
 
@@ -98,19 +100,19 @@ def tsdecode(data, key=key, decode=base64.b64decode, salt_length=16):
 print tsdecode(ctMessage, key)
 ```
 
-{% asset_img image013.png 解密结果 %}
+![解密结果](./image013.png)
 
-# 【MISC】至尊宝
+## 【MISC】至尊宝
 
 这又是一张图片题。“我的意中人是一位盖世英雄,有一天他会身披金甲圣衣、驾着七彩祥云来娶我。哎，至尊宝，你的头箍呢？”看到题目描述一般的思路是想办法将“头箍”找到。
 
-{% asset_img image14.bmp 至尊宝 %}
+![至尊宝](./image14.bmp)
 
 可惜这个思路先被文件末尾的`rar`打断了，整个图片文件存在两个文件头，一个bmp文件头，一个rar文件头。我们把rar文件提取出来，却发现压缩包被加密了，无法打开。就这样被卡在这里了。
 
 后来听说有人把头箍找到了，感觉这道题又有了思路。通过查找bmp文件格式，找到了可以修改图片高度的地方，试过几次后把高度改到了最大的高度。得到了一张不明所以的图片。
 
-{% asset_img image016.png 带有“头箍”的至尊宝 %}
+![ 带有“头箍”的至尊宝](./image016.png)
 
 题目已经放出了一个提示“MD5”，猜测上面的颜色是否跟md5有关。将颜色转码
 
@@ -137,7 +139,7 @@ print tsdecode(ctMessage, key)
 
 之后的道路比较顺利，压缩包里有个pptx文件，改成zip文件解压，然后挨个文件翻阅，最后找到了flag。
 
-# 【MISC】easyCrypto
+## 【MISC】easyCrypto
 
 这道题是一个解码题，阅读代码，然后写出解码代码。解码代码在decode里。
 
@@ -199,11 +201,11 @@ for i in datas:
 print res
 ```
 
-# 【MISC】神秘的文件
+## 【MISC】神秘的文件
 
 这个题给了一个pcapng文件，用软件打开后开始分析。大概是一个ftp传输过程，由于传输协议未使用加密，泄露了传输文件的内容。传输的文件有两个，一个flag.zip还有一个txt文件。
 
-{% asset_img image058.png txt文件内容 %}
+![txt文件内容](./image058.png)
 
 看到txt文件内容后，写了个程序猜测一下明文是什么。
 
@@ -232,17 +234,17 @@ run()
 
 有了密码，dump出flag.zip文件，用密码解压缩。
 
-{% asset_img image060.png 压缩包文件 %}
+![压缩包文件](./image060.png)
 
 解压缩zip文件，拿到其中的文件，把其中的一段用Base64解码 `TSCTF{tsctf_revolution_2017_May}` 。
 
-# 【MISC】四维码
+## 【MISC】四维码
 
 四维码这个题目感觉还是很不错的，不过脑洞还是有点大，基本上就是一步步跟着HINT来的。
 
 首先题目给了一个gif，其中每一帧有一个二维码，将每一帧扫到的字母拼接起来，得到一个网址 `https://twitter.com/pinkotsctf` 这是一个twitter账号，账号里只有一条消息，有一张图片。
 
-{% asset_img image062.png 四维码twitter %}
+![四维码twitter](./image062.png)
 
 拿到图片后扫了一下二维码，取到 `NNSXSPLROJRW6ZDF` ，意味不明。这时候有了个HINT，提示用Base32解码，得到`key=qrcode` 。还是意味不明。
 
@@ -250,7 +252,7 @@ run()
 
 肯定是用的这个，看这个库的解密命令 `python matroschka.py -open -m <mac-password> -k <password> <image>` ， **password** 是`qrcode`， **mac-password** 是个啥？最后试了试，貌似随便的字符串都可以，对图片没有影响。
 
-{% asset_img image064.png 解密出来的二维码 %}
+![解密出来的二维码](./image064.png)
 
 解出来的图片不是很清晰，用ps稍微调整了一下，然后扫描一下拿到了一串数字 `000000000011010010000111101110101001110110010010011110110010111001010011000010011110100100110000101100100111011000010100101001100001101000111011000101110100001011001001110110010000100110101100100001111010010011000111010110000000000`。再次意味不明。。。
 
@@ -320,19 +322,19 @@ run()
 
 没有图片符合样子的，好奇怪。。。这道题卡了好久，抱着死马当活马医的心态加宽高度，作为条形码试试。。。
 
-{% asset_img image066.png 就是一个条形码 %}
+![就是一个条形码](./image066.png)
 
 解决了这道题，太好了。
 
-# 【WEB】Web
+## 【WEB】Web
 
 上来网页给了一个提示
 
-{% asset_img image020.png 首页提示 %}
+![首页提示](./image020.png)
 
 访问 **re.php** ，网页给出了该页的php代码。
 
-{% asset_img image022.png re.php %}
+![re.php](./image022.png)
 
 计大意是在 tmp 目录下生成一个随机字符的 php 名，写入了$shell=’’;的句子，然后输入的 shell 参数加入到单引号内，根据提示是要查看 flag.php。关键点是绕过 addslashes 这个函数。
 
@@ -366,55 +368,55 @@ TSCTF{h4pp9_enj0y_re93x_T0_3x3c__!!!}
 </html>
 ```
 
-# 【WEB】Simple Shop1
+## 【WEB】Simple Shop1
 
 首先查看网站首页，似乎没什么。
 
-{% asset_img image024.png 网站首页 %}
+![网站首页](./image024.png)
 
 注册了一个账号登陆进去看看。
 
-{% asset_img image026.png 注册账号 %}
+![注册账号](./image026.png)
 
-{% asset_img image028.png 登陆 %}
+![登陆](./image028.png)
 
 发现一个像是购物似的列表。有flag呀，但是买不到，因为没有钱。
 
-{% asset_img image030.png 购物列表 %}
+![购物列表](./image030.png)
 
 查看网页源代码，发现表单里有一个奇怪的字段 `sid`，推测可能购买的时候会以这个识别购买的用户，但是谁有钱呢？
 
-{% asset_img image032.png 购物列表 %}
+![网页源码](./image032.png)
 
 网站还有一个ChatRoom 功能，查看一下，貌似TOM童鞋非常有钱。。。下面的目标就是获取TOM童鞋的sid。
 
-{% asset_img image034.png ChatRoom %}
+![ChatRoom](./image034.png)
 
 整个网站没有查看用户名的地方，所以考虑使用reset功能，看看能不能reset一下密码
 
-{% asset_img image036.png reset密码 %}
+![reset密码](./image036.png)
 
 没有成功reset密码，但是请求里返回了一个sid，可能是TOM童鞋的
 
-{% asset_img image038.png 失败返回 %}
+![失败返回](./image038.png)
 
 用这个sid替换一下表单中的sid，成功买到flag
 
-{% asset_img image040.png flag入手 %}
+![flag入手](./image040.png)
 
-# 【WEB】Simple Shop2
+## 【WEB】Simple Shop2
 
 按照 **Simple Shop1** 的方法进入，购买列表里有个 **talk to manager** ，界面是这个样子。
 
-{% asset_img image042.png 给管理员留言 %}
+![给管理员留言](./image042.png)
 
 一时也没有什么切入点，就查看了一下源代码。
 
-{% asset_img image044.png 页面代码 %}
+![页面代码](./image044.png)
 
 里面 `get_md5.js` 代码是
 
-{% asset_img image046.png getmd5.js %}
+![getmd5.js](./image046.png)
 
 根据以往的经验判断，以为是要尽快算出md5的值，才有资格与管理员通信，于是写了个小程序想爆破一下。结果这个思路是错的，这里md5的作用仅仅是浪费时间，起到一个手动验证码的作用。
 
@@ -436,15 +438,15 @@ TSCTF{h4pp9_enj0y_re93x_T0_3x3c__!!!}
 
 将上面的信息作为消息提交，不一会儿就看到返回的消息，里面带有PHPSession内容。`PHPSESSID=fhrlr9dltmis8f00fa1taqmfi`，用这段cookie替换本地的cookie，成功拿到管理员权限进入后台。
 
-{% asset_img image048.png 后台页面 %}
+![后台页面](./image048.png)
 
 这里还是没有flag，查看网页源代码发现一个注释，`/aaasssddd/flag` 里面可能存放着flag。
 
-{% asset_img image052.png 后台页面网页 %}
+![后台页面网页](./image052.png)
 
 不管怎样先写点儿心路历程吧，请求里发送了一些内容。
 
-{% asset_img image050.png 一个心路历程 %}
+![一个心路历程](./image050.png)
 
 之前发送的请求都是json格式，这个请求居然是xml格式的，稍微学习了一下，**XXE** 攻击中，可以构建实体来获取指定文件的内容，好在这里没有多少阻碍，构造一个请求
 
@@ -456,11 +458,11 @@ TSCTF{h4pp9_enj0y_re93x_T0_3x3c__!!!}
 
 用postman发送到后台地址，成功拿到flag文件的内容
 
-{% asset_img image054.jpg 发送请求 %}
+![发送请求](./image054.jpg)
 
 Simple Shop虽然麻烦点，但是整个思路感觉还是很不错的。解出这两道题，很大程度上弥补了我们队在PWN上的不足。
 
-# 【Coding】小明的二进制
+## 【Coding】小明的二进制
 
 > 小明发现，有些整数，它们十进制表示的时候，数的每一位只能是0或者1。例如0，1，110，11001都是这样的数，而2，13，900不是，因为这些数的某些位还包含0、1以外的数。小明将这些各位只为1或者0的数，命名为“小明二进制”。 现每轮给出一个整数n，计算一下最少要用多少个“小明二进制”数相加才能得到n，总共50轮。 如13可以表示为13个1相加，也可以13=10+1+1+1，或者13=11+1+1，所以13最少需要3个“小明二进制”数相加才能得到。
 
@@ -518,7 +520,7 @@ public class Work {
 }
 ```
 
-# 【Coding】泽哥的算术
+## 【Coding】泽哥的算术
 
 > 泽哥的数学不是很好，有一天老师给泽哥布置了五十道数学题，要求他在10s内给出A的B次幂的后四位，你能算的出来吗？example input : 123 234 output : 6809
 
@@ -587,7 +589,7 @@ public class Work {
 }
 ```
 
-# 【Coding】Las Vegas
+## 【Coding】Las Vegas
 
 > 在Las Vegas，霸哥想跟我们玩个简单的取石子游戏，规则如下：游戏给出数字A B,双方轮流从A个石子中取走石子，每次不能超过B个，谁能取走最后一个石子谁就算赢。双方需要完成50轮游戏。
 
@@ -654,7 +656,7 @@ public class Work {
 }
 ```
 
-# 【Coding】修路
+## 【Coding】修路
 
 > 市政府决定在1000个村子(1,2,3,4....1000)间修些路来方便大家出行，市长决定在录用你之前进行一次考察，题目给出800条连通道路信息，再做1000次询问，要求给出村子A与B之间是否连通，是回答"yes"，否回答"no"。
 
@@ -748,41 +750,41 @@ public class Solution {
 }
 ```
 
-# 【REVERSE&APK】checkin
+## 【REVERSE&APK】checkin
 
 逆向题，判断输入是否符合期望。主要有两个校验的地方。
 
 第一个校验位数：
 
-{% asset_img image067.png checkin位数校验 %}
+![checkin位数校验](./image067.png)
 
 判断输入是否为32位长度。
 
 第二个是校验输入和期望值：
 
-{% asset_img image069.png checkin输入校验 %}
+![checkin输入校验](./image069.png)
 
 flag在程序中不是明文存放的，在之前将密文flag运算得到明文flag，与输入进行比对。所以可以从该位置dump出内存中的flag为 `TSCTF{0ops_Rev@zse_ls_sO_e4sY?!}` 。
 
-# 【REVERSE&APK】take it easy
+## 【REVERSE&APK】take it easy
 
 相比上一题，这一题是将输入运算到一个中间值与存储的值进行比对，内存中不再出现明文flag。
 
 主要有四个子过程：
 
-{% asset_img image071.png takeiteasy位数校验 %}
+![takeiteasy位数校验](./image071.png)
 
 第一还是检验输入长度是否为29位。
 
-{% asset_img image073.png takeiteasy互换 %}
+![takeiteasy互换](./image073.png)
 
 第二将每位的高6位与低2位互换。
 
-{% asset_img image075.png takeiteasy异或 %}
+![takeiteasy异或](./image075.png)
 
 第三将互换的结果与一个数组的数字取异或。
 
-{% asset_img image077.png takeiteasy比对 %}
+![takeiteasy比对](./image077.png)
 
 最后与另一个数组进行比对。
 
@@ -822,7 +824,7 @@ public class Solution {
 }
 ```
 
-# 【REVERSE&APK】baby_android
+## 【REVERSE&APK】baby_android
 
 把APK包丢到Bytecodeviewer里看了一下，一个简单的Android逆向题，验证逻辑都写在com.tsctf2017.myapplication.MainActivity.check();函数里。
 Check的反编译代码如下：

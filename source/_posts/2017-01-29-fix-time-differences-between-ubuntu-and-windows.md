@@ -8,13 +8,9 @@ tags:
   - windows
   - ubuntu
   - timezone
-reference:
-  - url: 'https://wiki.archlinux.org/index.php/Time'
-    title: Time - ArchWiki
-  - url: >-
-      http://ubuntuhandbook.org/index.php/2016/05/time-differences-ubuntu-1604-windows-10/
-    title: How to Fix Time Differences in Ubuntu 16.04 & Windows 10 Dual Boot
 ---
+
+# 修正双系统Windows和Ubuntu时间不同步
 
 每次使用Ubuntu的时候，回到Windows之后时间总会慢8个小时。原因是Ubuntu认为CMOS时间是**格林威治标准时间**，而Windows认为CMOS时间是当地时间，如果当地在+8区，时间相应的就会差8个小时。
 
@@ -27,3 +23,8 @@ reference:
 ```
 
 `timedatectl` 命令还有其它用途就不一一列举了，主要是解决了双系统时间不同步的问题。
+
+## 参考内容
+
++ [Time - ArchWiki](https://wiki.archlinux.org/index.php/Time)
++ [How to Fix Time Differences in Ubuntu 16.04 & Windows 10 Dual Boot](http://ubuntuhandbook.org/index.php/2016/05/time-differences-ubuntu-1604-windows-10/)

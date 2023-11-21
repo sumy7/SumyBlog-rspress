@@ -7,14 +7,13 @@ categories:
 tags:
   - linux
   - shell
-reference:
-  - url: 'http://blog.csdn.net/vagabon/article/details/5317156'
-    title: linux 统计当前目录下文件数
 ---
+
+# linux下统计目录中的文件个数
 
 在linux下使用以下命令可以简单的统计目录下文件的个数。
 
-# 命令
+## 命令
 
 **查看当前目录下文件的个数**
 
@@ -34,7 +33,7 @@ ls -lR| grep "^-" | wc -l
 ls -lR| grep "^d" | wc -l
 ```
 
-# 解释
+## 解释
 
 下面解释一下上面的命令：
 
@@ -54,3 +53,7 @@ drwxr-xr-x　3　user　group　102　Mar11　22:56　Filename
 `wc`命令用来统计字节数、字数、行数，并将统计结果显示输出。`-l`用来统计行数的。
 
 以上命令串起来，就是（递归）列出所有的目录和文件，找出其中的文件/文件夹的行，统计出行数就是对应的文件/文件夹的个数的。
+
+## 参考内容
+
++ [linux 统计当前目录下文件数](http://blog.csdn.net/vagabon/article/details/5317156)

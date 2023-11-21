@@ -8,12 +8,9 @@ tags:
   - ssh
   - shell
   - linux
-reference:
-  - url: 'http://dada.tw/2008/01/02/73/'
-    title: SSH Escape Character
-  - url: 'http://blogread.cn/it/article/6724'
-    title: 如何的退出无响应的 SSH 连接
 ---
+
+# SSH的转义字符
 
 SSH 有一个转义字符（Escape Character），今天在微博上看到如何结束无响应的SSH的时候才了解到了它。
 
@@ -44,3 +41,8 @@ Supported escape sequences:
 ```
 ssh -e "#" myhost.mydomain.com
 ```
+
+## 参考内容
+
++ [SSH Escape Character](http://dada.tw/2008/01/02/73/)
++ [如何的退出无响应的 SSH 连接](http://blogread.cn/it/article/6724)

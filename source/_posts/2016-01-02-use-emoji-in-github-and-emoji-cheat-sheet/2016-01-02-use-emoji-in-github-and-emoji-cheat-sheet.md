@@ -9,28 +9,21 @@ tags:
   - github
   - twitter
   - twemoji
-reference:
-  - url: 'http://www.emoji-cheat-sheet.com/'
-    title: EMOJI CHEAT SHEET
-  - url: 'https://github.com/arvida/emoji-cheat-sheet.com'
-    title: arvida/emoji-cheat-sheet.com
-  - url: 'http://www.cnblogs.com/Wayou/p/use_emoji_in_github.html'
-    title: 代码提交的时候可以插入表情了-GitHub表情的使用
-  - url: 'https://twitter.github.io/twemoji/'
-    title: twem❤ji
 ---
+
+# emoji在Github也在Twitter
 
 Github 是全球最大的“同性”交友网站`(￣ε(#￣)☆╰╮(￣▽￣///)`，不对不对，是最大的代码分享网站。就gayhub来说`(￣ε(#￣)☆╰╮(￣▽￣///)`，就网页版的github来说，有很多丰富的功能（快捷键啦、命令行跳转啦）。这里介绍一下github的emoji功能。
 
 # 效果
 
 github上的emoji可以用在几乎所有可以显示文字的地方。比如简介、README、提交说明、项目Wiki页等。具体能用在哪里大家可以自己尝试一下。
-{% asset_img 1.png 提交说明上的emoji %}
+![提交说明上的emoji](./1.png)
 
 # 使用
 
 使用emoji很简单。由于不能插入图片，所以需要通过一些特殊符号来插入。
-比如`:blush:`就会变成<img style="display: initial" src="http://www.emoji-cheat-sheet.com/graphics/emojis/blush.png">
+比如`:blush:`就会变成![blush](./2.png)
 
 在提交信息的时候可以
 
@@ -92,3 +85,10 @@ img.draggable;  // false
 ```
 
 具体怎么使用可以参考github上面的介绍。
+
+## 参考内容
+
++ [EMOJI CHEAT SHEET](http://www.emoji-cheat-sheet.com/)
++ [arvida/emoji-cheat-sheet.com](https://github.com/arvida/emoji-cheat-sheet.com)
++ [代码提交的时候可以插入表情了-GitHub表情的使用](http://www.cnblogs.com/Wayou/p/use_emoji_in_github.html)
++ [twem❤ji](https://twitter.github.io/twemoji/)
