@@ -9,13 +9,21 @@
   },
   "dependencies": {
     "@giscus/react": "^2.3.0",
+    "dayjs": "^1.11.10",
     "react": "^18.2.0",
-    "rspress": "^1.0.0"
+    "rspress": "^1.7.4"
   },
   "devDependencies": {
-    "@rspress/shared": "^1.6.2",
+    "@rspress/shared": "^1.7.4",
     "@types/node": "^16",
     "@types/react": "^18.2.37",
-    "hexo-util": "^3.1.0"
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0",
+    "eslint-plugin-mdx": "^2.2.0",
+    "eslint-plugin-react": "^7.33.2",
+    "gray-matter": "^4.0.3",
+    "hexo-util": "^3.1.0",
+    "prettier": "^3.1.0"
   }
 }
