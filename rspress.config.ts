@@ -7,14 +7,12 @@ export default defineConfig({
   root: path.join(__dirname, 'docs'),
   title: 'SumyBlog',
   description: "SumyGG's Blog",
-  // icon: "/rspress-icon.png",
-  // logo: {
-  //   light: "/rspress-light-logo.png",
-  //   dark: "/rspress-dark-logo.png",
-  // },
+  icon: '/favicon.ico',
   themeConfig: {
     socialLinks: [
       { icon: 'github', mode: 'link', content: 'https://github.com/sumy7/' },
+      { icon: 'weibo', mode: 'link', content: 'https://weibo.com/sumy7' },
+      { icon: 'twitter', mode: 'link', content: 'https://twitter.com/sumygg' },
     ],
     lastUpdated: true,
     lastUpdatedText: '最后更新时间',

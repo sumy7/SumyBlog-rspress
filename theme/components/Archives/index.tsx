@@ -5,7 +5,7 @@ import { PostInfo } from '../../../plugins/PostData'
 
 const Index = () => {
   const {
-    page: { frontmatter, posts },
+    page: { frontmatter, posts = [] },
   } = usePageData()
   // 将posts按照日期中年份进行分组，然后倒序排列
   const postsByYear = useMemo(() => {

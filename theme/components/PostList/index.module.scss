@@ -1,0 +1,21 @@
+.postList {
+  .postItem {
+    padding: 14px 0;
+  }
+
+  .postHeader {
+    .postTitle {
+      color: var(--rp-c-text-code);
+      transition: color 0.5s;
+      word-break: break-all;
+
+      &:hover {
+        color: var(--rp-c-brand);
+      }
+    }
+  }
+
+  .postInfo {
+    margin-top: 10px;
+  }
+}

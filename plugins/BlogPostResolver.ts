@@ -60,6 +60,10 @@ export function blogPostResolver(): RspressPlugin {
       if (pageData?.frontmatter.layout === 'archives') {
         pageData.posts = postInfos
       }
+      // 首页需要10篇文章列表
+      if (pageData?.frontmatter.layout === 'home') {
+        pageData.posts = postInfos.slice(0, 10)
+      }
     },
   }
 }
