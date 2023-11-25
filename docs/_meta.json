@@ -3,6 +3,11 @@
     "text": "引导页",
     "link": "/guide/",
     "activeMatch": "/guide/"
+  }, 
+  {
+    "text": "归档",
+    "link": "/blog/archives/",
+    "activeMatch": "/blog/archives/"
   },
   {
     "text": "关于我",

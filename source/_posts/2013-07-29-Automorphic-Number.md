@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 自守数（Automorphic Number）
+date: '2013-07-29 19:47:34'
 categories:
   - 姿势
 tags:

@@ -1,5 +1,5 @@
 ---
-titile: 从《Nintendo Switch Sports》导出表情贴纸
+title: 从《Nintendo Switch Sports》导出表情贴纸
 date: 2021-08-20 22:00:00
 tags: [Switch, Nintendo, Sports, 贴纸]
 categories: [游戏人生]

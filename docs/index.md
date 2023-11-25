@@ -3,7 +3,7 @@ pageType: home
 
 hero:
   name: SumyBlog
-  text: SumyGG\'s Blog
+  text: SumyGG's Blog
   tagline: SumyBlog tagline
   actions:
     - theme: brand
