@@ -33,11 +33,13 @@ jobs:
       - name: Build with Rspress
         run: |
           pnpm run build
+      - name: Archive files
+        run: zip -qq -r sumyblog.zip ./doc_build
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: sumyblog-artifact
-          path: ./doc_build/
+          path: ./sumyblog.zip
           if-no-files-found: error
   # Deployment job
   deploy:
@@ -49,7 +51,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: sumyblog-artifact
-          path: ./doc_build
+      - name: Unzip artifact
+        run: unzip -qq sumyblog.zip -d ./doc_build
       - name: Commit files
         run: |
           cd ./doc_build
@@ -57,6 +60,8 @@ jobs:
           git remote add origin git@github.com:sumy7/sumy7.github.io.git
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          git branch -m main
+          git add .
           git commit -a -m "site updated: $(date -u '+%Y-%m-%d %H:%M:%S')"
       - name: Push Docs
         uses: ad-m/github-push-action@master
