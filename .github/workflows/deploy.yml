@@ -52,7 +52,7 @@ jobs:
         with:
           name: sumyblog-artifact
       - name: Unzip artifact
-        run: unzip -qq sumyblog.zip -d ./doc_build
+        run: unzip -qq sumyblog.zip -d ./
       - name: Commit files
         run: |
           cd ./doc_build
