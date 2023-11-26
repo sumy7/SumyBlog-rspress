@@ -41,7 +41,8 @@ export default defineConfig({
     outlineTitle: '目录',
     editLink: {
       text: '📝 在 GitHub 上编辑此页',
-      docRepoBaseUrl: 'https://github.com/sumy7/SumyggBlog-rspresstree/main/',
+      docRepoBaseUrl:
+        'https://github.com/sumy7/SumyBlog-rspress/blob/main/source/',
     },
   },
   globalUIComponents: [
