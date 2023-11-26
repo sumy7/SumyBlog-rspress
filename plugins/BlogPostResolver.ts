@@ -64,6 +64,16 @@ export function blogPostResolver(): RspressPlugin {
       if (pageData?.frontmatter.layout === 'home') {
         pageData.posts = postInfos.slice(0, 10)
       }
+      // 前一篇、后一篇文章
+      if (pageData?.frontmatter.layout === 'post') {
+        const index = postInfos.findIndex(
+          (postInfo) => postInfo.route === pageData.routePath
+        )
+        if (index > -1) {
+          pageData.prevPost = postInfos[index + 1]
+          pageData.nextPost = postInfos[index - 1]
+        }
+      }
     },
   }
 }

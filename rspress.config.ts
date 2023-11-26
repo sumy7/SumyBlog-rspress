@@ -14,11 +14,35 @@ export default defineConfig({
       { icon: 'weibo', mode: 'link', content: 'https://weibo.com/sumy7' },
       { icon: 'twitter', mode: 'link', content: 'https://twitter.com/sumygg' },
     ],
+    // 关闭所有页面的左侧菜单栏
+    sidebar: {},
+    // 顶部导航栏
+    nav: [
+      {
+        text: '引导页',
+        link: '/guide/',
+        activeMatch: '/guide/',
+      },
+      {
+        text: '归档',
+        link: '/blog/archives/',
+        activeMatch: '/blog/archives/',
+      },
+      {
+        text: '关于我',
+        link: '/about/',
+        activeMatch: '/about/',
+      },
+    ],
     lastUpdated: true,
-    lastUpdatedText: '最后更新时间',
-    prevPageText: '上一页',
-    nextPageText: '下一页',
+    lastUpdatedText: '最后编辑时间',
+    prevPageText: '上一篇',
+    nextPageText: '下一篇',
     outlineTitle: '目录',
+    editLink: {
+      text: '📝 在 GitHub 上编辑此页',
+      docRepoBaseUrl: 'https://github.com/sumy7/SumyggBlog-rspresstree/main/',
+    },
   },
   globalUIComponents: [
     [
@@ -28,6 +52,9 @@ export default defineConfig({
       },
     ],
   ],
+  route: {
+    cleanUrls: false,
+  },
   mediumZoom: {
     selector: '.rspress-doc img',
   },

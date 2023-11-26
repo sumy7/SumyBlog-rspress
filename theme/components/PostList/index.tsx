@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './index.module.scss'
-import { usePageData } from 'rspress/runtime'
+import { usePageData, normalizeHrefInRuntime } from 'rspress/runtime'
 import { PostInfo } from '../../../plugins/PostData'
 
 const PostList = () => {
@@ -14,7 +14,7 @@ const PostList = () => {
           <div className={`${styles.postHeader}`}>
             <a
               className={`${styles.postTitle} text-xl font-bold text-center cursor-pointer`}
-              href={post.route}
+              href={normalizeHrefInRuntime(post.route)}
             >
               {post.title}
             </a>

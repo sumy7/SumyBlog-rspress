@@ -1,0 +1,5 @@
+.post-footer {
+  & > :not(:first-child) {
+    padding-top: 1.5rem;
+  }
+}

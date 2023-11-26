@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Hello World！
 date: '2013-04-22 00:00:00'
 categories:

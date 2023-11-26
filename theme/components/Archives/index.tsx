@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import styles from './index.module.scss'
-import { usePageData } from 'rspress/runtime'
+import { usePageData, normalizeHrefInRuntime } from 'rspress/runtime'
 import { PostInfo } from '../../../plugins/PostData'
 
 const Index = () => {
@@ -49,7 +49,10 @@ const Index = () => {
                   {(post.date || '').slice(0, 10)}
                 </span>
                 &nbsp;
-                <a href={post.route} className={styles.postLink}>
+                <a
+                  href={normalizeHrefInRuntime(post.route)}
+                  className={styles.postLink}
+                >
                   {post.title}
                 </a>
               </li>
