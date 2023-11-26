@@ -1,5 +1,5 @@
 import React from 'react'
-import Theme from 'rspress/theme'
+import Theme from '@rspress/theme-default'
 import PostFooter from './components/PostFooter'
 import Footer from './components/Footer'
 
@@ -14,4 +14,4 @@ export default {
   Layout,
 }
 
-export * from 'rspress/theme'
+export * from '@rspress/theme-default'

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: node下基于MySQL实现分布式锁
 date: '2022-09-20 00:00:00'
 categories:
