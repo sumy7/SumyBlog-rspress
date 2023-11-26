@@ -1,7 +1,9 @@
 import React from 'react'
-import styles from './index.module.scss'
+import { Link } from 'rspress/theme'
 import { usePageData, normalizeHrefInRuntime } from 'rspress/runtime'
 import { PostInfo } from '../../../plugins/PostData'
+
+import styles from './index.module.scss'
 
 const PostList = () => {
   const { page } = usePageData()
@@ -12,12 +14,12 @@ const PostList = () => {
       {posts.map((post, index) => (
         <div key={index} className={`${styles.postItem}`}>
           <div className={`${styles.postHeader}`}>
-            <a
-              className={`${styles.postTitle} text-xl font-bold text-center cursor-pointer`}
+            <Link
+              className={`${styles.postTitle} text-xl font-bold cursor-pointer`}
               href={normalizeHrefInRuntime(post.route)}
             >
               {post.title}
-            </a>
+            </Link>
           </div>
           <div className={`${styles.postInfo}`}>
             <div className={`${styles.postDate} text-sm`}>

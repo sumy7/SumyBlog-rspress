@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react'
-import styles from './index.module.scss'
+import { Link } from 'rspress/theme'
 import { usePageData, normalizeHrefInRuntime } from 'rspress/runtime'
 import { PostInfo } from '../../../plugins/PostData'
 
-const Index = () => {
+import styles from './index.module.scss'
+
+const Archives = () => {
   const {
     page: { frontmatter, posts = [] },
   } = usePageData()
@@ -49,12 +51,12 @@ const Index = () => {
                   {(post.date || '').slice(0, 10)}
                 </span>
                 &nbsp;
-                <a
+                <Link
                   href={normalizeHrefInRuntime(post.route)}
-                  className={styles.postLink}
+                  className={`${styles.postLink}`}
                 >
                   {post.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -64,4 +66,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default Archives
