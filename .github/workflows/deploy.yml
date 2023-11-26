@@ -33,12 +33,23 @@ jobs:
       - name: Build with Rspress
         run: |
           pnpm run build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: sumyblog-artifact
+          path: ./doc_build/
+          if-no-files-found: error
   # Deployment job
   deploy:
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: sumyblog-artifact
+          path: ./doc_build
       - name: Commit files
         run: |
           cd ./doc_build
