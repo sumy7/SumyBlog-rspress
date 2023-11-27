@@ -55,6 +55,9 @@ devDependencies:
   prettier:
     specifier: ^3.1.0
     version: registry.npmmirror.com/prettier@3.1.0
+  remark-gemoji:
+    specifier: ^8.0.0
+    version: registry.npmmirror.com/remark-gemoji@8.0.0
 
 packages:
 
@@ -3260,6 +3263,14 @@ packages:
     dependencies:
       '@types/unist': registry.npmmirror.com/@types/unist@2.0.10
 
+  registry.npmmirror.com/@types/mdast@4.0.3:
+    resolution: {integrity: sha512-LsjtqsyF+d2/yFOYaN22dHZI1Cpwkrj+g06G8+qtUKlhovPW89YhqSnfKtMbkgmEtYpH2gydRNULd6y8mciAFg==, tarball: https://registry.npmmirror.com/@types/mdast/-/mdast-4.0.3.tgz}
+    name: '@types/mdast'
+    version: 4.0.3
+    dependencies:
+      '@types/unist': registry.npmmirror.com/@types/unist@3.0.2
+    dev: true
+
   registry.npmmirror.com/@types/mdx@2.0.10:
     resolution: {integrity: sha512-Rllzc5KHk0Al5/WANwgSPl1/CwjqCy+AZrGd78zuK+jO9aDM6ffblZ+zIjgPNAaEBmlO0RYDvLNh7wD0zKVgEg==, tarball: https://registry.npmmirror.com/@types/mdx/-/mdx-2.0.10.tgz}
     name: '@types/mdx'
@@ -3391,6 +3402,12 @@ packages:
     resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==, tarball: https://registry.npmmirror.com/@types/unist/-/unist-2.0.10.tgz}
     name: '@types/unist'
     version: 2.0.10
+
+  registry.npmmirror.com/@types/unist@3.0.2:
+    resolution: {integrity: sha512-dqId9J8K/vGi5Zr7oo212BGii5m3q5Hxlkwy3WpYuKPklmBEvsbMYYyLxAQpSffdLl/gdW0XUpKWFvYmyoWCoQ==, tarball: https://registry.npmmirror.com/@types/unist/-/unist-3.0.2.tgz}
+    name: '@types/unist'
+    version: 3.0.2
+    dev: true
 
   registry.npmmirror.com/@typescript-eslint/eslint-plugin@6.12.0(@typescript-eslint/parser@6.12.0)(eslint@8.54.0)(typescript@5.3.2):
     resolution: {integrity: sha512-XOpZ3IyJUIV1b15M7HVOpgQxPPF7lGXgsfcEIu3yDxFPaf/xZKt7s9QO/pbk7vpWQyVulpJbu4E5LwpZiQo4kA==, tarball: https://registry.npmmirror.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-6.12.0.tgz}
@@ -5164,7 +5181,6 @@ packages:
     name: escape-string-regexp
     version: 5.0.0
     engines: {node: '>=12'}
-    dev: false
 
   registry.npmmirror.com/escodegen@2.1.0:
     resolution: {integrity: sha512-2NlIDTwUWJN0mRPQOdtQBzbUHvdGY2P1VXSyU83Q3xKxM7WHX2Ql8dKq782Q9TgQUNOLEzEYu9bzLNj1q88I5w==, tarball: https://registry.npmmirror.com/escodegen/-/escodegen-2.1.0.tgz}
@@ -5738,6 +5754,12 @@ packages:
     resolution: {integrity: sha512-xckBUXyTIqT97tq2x2AMb+g163b5JFysYk0x4qxNFwbfQkmNZoiRHb6sPzI9/QV33WeuvVYBUIiD4NzNIyqaRQ==, tarball: https://registry.npmmirror.com/functions-have-names/-/functions-have-names-1.2.3.tgz}
     name: functions-have-names
     version: 1.2.3
+    dev: true
+
+  registry.npmmirror.com/gemoji@8.1.0:
+    resolution: {integrity: sha512-HA4Gx59dw2+tn+UAa7XEV4ufUKI4fH1KgcbenVA9YKSj1QJTT0xh5Mwv5HMFNN3l2OtUe3ZIfuRwSyZS5pLIWw==, tarball: https://registry.npmmirror.com/gemoji/-/gemoji-8.1.0.tgz}
+    name: gemoji
+    version: 8.1.0
     dev: true
 
   registry.npmmirror.com/gensync@1.0.0-beta.2:
@@ -7252,6 +7274,17 @@ packages:
       unist-util-is: registry.npmmirror.com/unist-util-is@5.2.1
       unist-util-visit-parents: registry.npmmirror.com/unist-util-visit-parents@5.1.3
     dev: false
+
+  registry.npmmirror.com/mdast-util-find-and-replace@3.0.1:
+    resolution: {integrity: sha512-SG21kZHGC3XRTSUhtofZkBzZTJNM5ecCi0SK2IMKmSXR8vO3peL+kb1O0z7Zl83jKtutG4k5Wv/W7V3/YHvzPA==, tarball: https://registry.npmmirror.com/mdast-util-find-and-replace/-/mdast-util-find-and-replace-3.0.1.tgz}
+    name: mdast-util-find-and-replace
+    version: 3.0.1
+    dependencies:
+      '@types/mdast': registry.npmmirror.com/@types/mdast@4.0.3
+      escape-string-regexp: registry.npmmirror.com/escape-string-regexp@5.0.0
+      unist-util-is: registry.npmmirror.com/unist-util-is@6.0.0
+      unist-util-visit-parents: registry.npmmirror.com/unist-util-visit-parents@6.0.1
+    dev: true
 
   registry.npmmirror.com/mdast-util-from-markdown@0.8.5:
     resolution: {integrity: sha512-2hkTXtYYnr+NubD/g6KGBS/0mFmBcifAsI0yIWRiRo0PjVs6SSOSOdtzbp6kSGnShDN6G5aWZpKQ2lWRy27mWQ==, tarball: https://registry.npmmirror.com/mdast-util-from-markdown/-/mdast-util-from-markdown-0.8.5.tgz}
@@ -9004,6 +9037,16 @@ packages:
       unified: registry.npmmirror.com/unified@10.1.2
     dev: false
 
+  registry.npmmirror.com/remark-gemoji@8.0.0:
+    resolution: {integrity: sha512-/fL9rc72FYwFGtOKcT+QeQdx9Q9t5v4N6KLXSDOTEgaedzK85I9judBqB2eqz+g4b0ERMejlwSOuPK+wket6aA==, tarball: https://registry.npmmirror.com/remark-gemoji/-/remark-gemoji-8.0.0.tgz}
+    name: remark-gemoji
+    version: 8.0.0
+    dependencies:
+      '@types/mdast': registry.npmmirror.com/@types/mdast@4.0.3
+      gemoji: registry.npmmirror.com/gemoji@8.1.0
+      mdast-util-find-and-replace: registry.npmmirror.com/mdast-util-find-and-replace@3.0.1
+    dev: true
+
   registry.npmmirror.com/remark-gfm@3.0.1:
     resolution: {integrity: sha512-lEFDoi2PICJyNrACFOfDD3JlLkuSbOa5Wd8EPt06HUdptv8Gn0bxYTdbU/XXQ3swAPkEaGxxPN9cbnMHvVu1Ig==, tarball: https://registry.npmmirror.com/remark-gfm/-/remark-gfm-3.0.1.tgz}
     name: remark-gfm
@@ -10138,6 +10181,14 @@ packages:
     dependencies:
       '@types/unist': registry.npmmirror.com/@types/unist@2.0.10
 
+  registry.npmmirror.com/unist-util-is@6.0.0:
+    resolution: {integrity: sha512-2qCTHimwdxLfz+YzdGfkqNlH0tLi9xjTnHddPmJwtIG9MGsdbutfTc4P+haPD7l7Cjxf/WZj+we5qfVPvvxfYw==, tarball: https://registry.npmmirror.com/unist-util-is/-/unist-util-is-6.0.0.tgz}
+    name: unist-util-is
+    version: 6.0.0
+    dependencies:
+      '@types/unist': registry.npmmirror.com/@types/unist@3.0.2
+    dev: true
+
   registry.npmmirror.com/unist-util-position-from-estree@1.1.2:
     resolution: {integrity: sha512-poZa0eXpS+/XpoQwGwl79UUdea4ol2ZuCYguVaJS4qzIOMDzbqz8a3erUCOmubSZkaOuGamb3tX790iwOIROww==, tarball: https://registry.npmmirror.com/unist-util-position-from-estree/-/unist-util-position-from-estree-1.1.2.tgz}
     name: unist-util-position-from-estree
@@ -10191,6 +10242,15 @@ packages:
     dependencies:
       '@types/unist': registry.npmmirror.com/@types/unist@2.0.10
       unist-util-is: registry.npmmirror.com/unist-util-is@5.2.1
+
+  registry.npmmirror.com/unist-util-visit-parents@6.0.1:
+    resolution: {integrity: sha512-L/PqWzfTP9lzzEa6CKs0k2nARxTdZduw3zyh8d2NVBnsyvHjSX4TWse388YrrQKbvI8w20fGjGlhgT96WwKykw==, tarball: https://registry.npmmirror.com/unist-util-visit-parents/-/unist-util-visit-parents-6.0.1.tgz}
+    name: unist-util-visit-parents
+    version: 6.0.1
+    dependencies:
+      '@types/unist': registry.npmmirror.com/@types/unist@3.0.2
+      unist-util-is: registry.npmmirror.com/unist-util-is@6.0.0
+    dev: true
 
   registry.npmmirror.com/unist-util-visit@4.1.2:
     resolution: {integrity: sha512-MSd8OUGISqHdVvfY9TPhyK2VdUrPgxkUtWSuMHF6XAAFuL4LokseigBnZtPnJMu+FbynTkFNnFlyjxpVKujMRg==, tarball: https://registry.npmmirror.com/unist-util-visit/-/unist-util-visit-4.1.2.tgz}

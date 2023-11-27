@@ -1,6 +1,8 @@
 import * as path from 'path'
 import { defineConfig } from 'rspress/config'
 
+import remarkEmoji from 'remark-gemoji'
+
 import { blogPostResolver } from './plugins/BlogPostResolver'
 
 export default defineConfig({
@@ -62,6 +64,7 @@ export default defineConfig({
   markdown: {
     // 使用 JS 版本的 MDX 编译器
     mdxRs: false,
+    remarkPlugins: [remarkEmoji],
   },
   plugins: [blogPostResolver()],
 })
