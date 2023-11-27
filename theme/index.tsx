@@ -1,12 +1,24 @@
 import React from 'react'
 import Theme from '@rspress/theme-default'
+import { Helmet } from 'rspress/runtime'
 import PostFooter from './components/PostFooter'
 import Footer from './components/Footer'
 
 import './index.scss'
 
 const Layout = () => (
-  <Theme.Layout beforeDocFooter={<PostFooter />} bottom={<Footer />} />
+  <>
+    {/* katex css */}
+    <Helmet>
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
+        crossOrigin="anonymous"
+      />
+    </Helmet>
+    <Theme.Layout beforeDocFooter={<PostFooter />} bottom={<Footer />} />
+  </>
 )
 
 export default {

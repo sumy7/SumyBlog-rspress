@@ -7,8 +7,6 @@ categories:
 tags:
   - 测试
 ---
-import {HtmlCode, MathCode} from "./HtmlCode";
-
 # 博客功能插件测试
 
 > 用来测试一下博客的相关插件，主要是高亮插件和代码插件，表格样式还有公式的显示。
@@ -17,7 +15,16 @@ import {HtmlCode, MathCode} from "./HtmlCode";
 
 HTML样式代码
 
-<HtmlCode/>
+<pre class="prettyprint linenums">
+#include<iostream>;
+using namespace std;
+
+int main()
+{
+    cout<<"Hello World!"<<endl;
+    return 0;
+}
+</pre>
 
 Markdown样式代码
 
@@ -36,7 +43,9 @@ int main()
 
 测试一下数学公式能否正常显示。
 
-<MathCode/>
+$$
+e^x = \sum\_{n=0}^\infty \frac{x^n}{n!} = \lim\_{n\rightarrow\infty} (1+x/n)^n
+$$
 
 ## 表格测试
 

@@ -44,7 +44,7 @@ public class InfoClass {
     @Info(name = "var-name", author = { "sumy" }, comment = "username")
     private String name;
 
-    @Info(name = "<Aconstructor>", author = {}, comment = "constructor")
+    @Info(name = "<constructor>", author = {}, comment = "constructor")
     public InfoClass(String name) {
         this.name = name;
     }

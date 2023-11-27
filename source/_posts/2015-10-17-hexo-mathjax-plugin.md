@@ -46,10 +46,13 @@ $$\frac{\partial u}{\partial t}
 ```
 
 效果：
-$$\frac{\partial u}{\partial t}
+
+$$
+\frac{\partial u}{\partial t}
 = h^2 \left( \frac{\partial^2 u}{\partial x^2} +
 \frac{\partial^2 u}{\partial y^2} +
-\frac{\partial^2 u}{\partial z^2}\right)$$
+\frac{\partial^2 u}{\partial z^2}\right)
+$$
 
 ### 标签行内公式
 

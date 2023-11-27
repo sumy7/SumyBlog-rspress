@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.3.0
     version: registry.npmmirror.com/@giscus/react@2.3.0(react-dom@18.2.0)(react@18.2.0)
   '@rspress/theme-default':
-    specifier: ^1.7.4
-    version: registry.npmmirror.com/@rspress/theme-default@1.7.4(postcss@8.4.31)(webpack@5.89.0)
+    specifier: 1.7.5
+    version: registry.npmmirror.com/@rspress/theme-default@1.7.5(postcss@8.4.31)(webpack@5.89.0)
   dayjs:
     specifier: ^1.11.10
     version: registry.npmmirror.com/dayjs@1.11.10
@@ -18,13 +18,13 @@ dependencies:
     specifier: ^18.2.0
     version: registry.npmmirror.com/react@18.2.0
   rspress:
-    specifier: ^1.7.4
-    version: registry.npmmirror.com/rspress@1.7.4(typescript@5.3.2)(webpack@5.89.0)
+    specifier: 1.7.5
+    version: registry.npmmirror.com/rspress@1.7.5(typescript@5.3.2)(webpack@5.89.0)
 
 devDependencies:
   '@rspress/shared':
-    specifier: ^1.7.4
-    version: registry.npmmirror.com/@rspress/shared@1.7.4
+    specifier: 1.7.5
+    version: registry.npmmirror.com/@rspress/shared@1.7.5
   '@types/node':
     specifier: ^16
     version: registry.npmmirror.com/@types/node@16.18.65
@@ -55,9 +55,15 @@ devDependencies:
   prettier:
     specifier: ^3.1.0
     version: registry.npmmirror.com/prettier@3.1.0
+  rehype-katex:
+    specifier: ^6.0.3
+    version: registry.npmmirror.com/rehype-katex@6.0.3
   remark-gemoji:
     specifier: ^8.0.0
     version: registry.npmmirror.com/remark-gemoji@8.0.0
+  remark-math:
+    specifier: ^5.1.1
+    version: registry.npmmirror.com/remark-math@5.1.1
 
 packages:
 
@@ -2541,11 +2547,11 @@ packages:
       - webpack-plugin-serve
     dev: false
 
-  registry.npmmirror.com/@rspress/core@1.7.4(typescript@5.3.2)(webpack@5.89.0):
-    resolution: {integrity: sha512-Co8m9RphdMddqCl8GnxKlJYPDuDvEri7zAOvImMqHj5T46MAOsYkx0mE/vAXDlVF+6OYXbc9vSZxrF1y2QWFhw==, tarball: https://registry.npmmirror.com/@rspress/core/-/core-1.7.4.tgz}
-    id: registry.npmmirror.com/@rspress/core/1.7.4
+  registry.npmmirror.com/@rspress/core@1.7.5(typescript@5.3.2)(webpack@5.89.0):
+    resolution: {integrity: sha512-IVcMvVFqhazs4pj94flJnrOYyyC8BYSv3HMBNC/CLbHpkDBxPBfejdNDR4LfoxlgVMWqNaU0VNQJGMFgczqs7Q==, tarball: https://registry.npmmirror.com/@rspress/core/-/core-1.7.5.tgz}
+    id: registry.npmmirror.com/@rspress/core/1.7.5
     name: '@rspress/core'
-    version: 1.7.4
+    version: 1.7.5
     engines: {node: '>=14.17.6'}
     dependencies:
       '@loadable/component': registry.npmmirror.com/@loadable/component@5.15.2(react@18.2.0)
@@ -2557,13 +2563,13 @@ packages:
       '@rsbuild/plugin-react': registry.npmmirror.com/@rsbuild/plugin-react@0.1.0(webpack@5.89.0)
       '@rsbuild/plugin-svgr': registry.npmmirror.com/@rsbuild/plugin-svgr@0.1.0(typescript@5.3.2)(webpack@5.89.0)
       '@rspress/mdx-rs': registry.npmmirror.com/@rspress/mdx-rs@0.4.2
-      '@rspress/plugin-auto-nav-sidebar': registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar@1.7.4
-      '@rspress/plugin-container-syntax': registry.npmmirror.com/@rspress/plugin-container-syntax@1.7.4
-      '@rspress/plugin-last-updated': registry.npmmirror.com/@rspress/plugin-last-updated@1.7.4
-      '@rspress/plugin-medium-zoom': registry.npmmirror.com/@rspress/plugin-medium-zoom@1.7.4(@rspress/runtime@1.7.4)
-      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.7.4
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.4
-      '@rspress/theme-default': registry.npmmirror.com/@rspress/theme-default@1.7.4(postcss@8.4.21)(webpack@5.89.0)
+      '@rspress/plugin-auto-nav-sidebar': registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar@1.7.5
+      '@rspress/plugin-container-syntax': registry.npmmirror.com/@rspress/plugin-container-syntax@1.7.5
+      '@rspress/plugin-last-updated': registry.npmmirror.com/@rspress/plugin-last-updated@1.7.5
+      '@rspress/plugin-medium-zoom': registry.npmmirror.com/@rspress/plugin-medium-zoom@1.7.5(@rspress/runtime@1.7.5)
+      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.7.5
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.5
+      '@rspress/theme-default': registry.npmmirror.com/@rspress/theme-default@1.7.5(postcss@8.4.21)(webpack@5.89.0)
       '@types/compression': registry.npmmirror.com/@types/compression@1.7.5
       '@types/polka': registry.npmmirror.com/@types/polka@0.5.7
       autoprefixer: registry.npmmirror.com/autoprefixer@10.4.13(postcss@8.4.21)
@@ -2743,60 +2749,60 @@ packages:
       '@rspress/mdx-rs-win32-x64-msvc': registry.npmmirror.com/@rspress/mdx-rs-win32-x64-msvc@0.4.2
     dev: false
 
-  registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar@1.7.4:
-    resolution: {integrity: sha512-N3+9aq6sHGxWy1zPuD1F4WbDl6wNfzmUIJVn0NmUPmNsHrKewjSUfKOHtdDKcB4qDv2toWDFUe4qs4dUYFymhA==, tarball: https://registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar/-/plugin-auto-nav-sidebar-1.7.4.tgz}
+  registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar@1.7.5:
+    resolution: {integrity: sha512-Z5bGWrkkplF19eGmct9dzqCZlE6caTqkHV1UTuwfUF6tz3mp0wQRMUbrnWhneUxH2NooDvWR8JstMfgJE3Zqew==, tarball: https://registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar/-/plugin-auto-nav-sidebar-1.7.5.tgz}
     name: '@rspress/plugin-auto-nav-sidebar'
-    version: 1.7.4
+    version: 1.7.5
     engines: {node: '>=14.17.6'}
     dependencies:
       '@modern-js/utils': registry.npmmirror.com/@modern-js/utils@2.41.0
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.4
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.5
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
     dev: false
 
-  registry.npmmirror.com/@rspress/plugin-container-syntax@1.7.4:
-    resolution: {integrity: sha512-fG71SwPQT2Lp9boT+1ajlXUbGr1MbiRl60oUohVU9Ut8ZMPF/DbKKQcWActVyob4pVFaPhbU73NVID8BqvQsYA==, tarball: https://registry.npmmirror.com/@rspress/plugin-container-syntax/-/plugin-container-syntax-1.7.4.tgz}
+  registry.npmmirror.com/@rspress/plugin-container-syntax@1.7.5:
+    resolution: {integrity: sha512-w5fk/rLpHt+2lTcbb1ctq6nvz2ai3LYi6WEs4e5CkuFaiWK2fRY0edyb4ct8j51jThPxrjNTMg5qyq6u/Mm84A==, tarball: https://registry.npmmirror.com/@rspress/plugin-container-syntax/-/plugin-container-syntax-1.7.5.tgz}
     name: '@rspress/plugin-container-syntax'
-    version: 1.7.4
+    version: 1.7.5
     engines: {node: '>=14.17.6'}
     dependencies:
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.4
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.5
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
     dev: false
 
-  registry.npmmirror.com/@rspress/plugin-last-updated@1.7.4:
-    resolution: {integrity: sha512-R9NbAsE83VtfgLUS6OdOSl+vcskePrCrGXUTLWBgW5rdeCNTiVLC8icHFlVzf69e/fnD7Ocp30oIATsX7x55nA==, tarball: https://registry.npmmirror.com/@rspress/plugin-last-updated/-/plugin-last-updated-1.7.4.tgz}
+  registry.npmmirror.com/@rspress/plugin-last-updated@1.7.5:
+    resolution: {integrity: sha512-6v5JBKfYGFHr7yMFmXqobwkSHzXcy+9y+ESttZLD4KIrGQ00ZzD9IC9hwe5M2GWBPx47Uiu4ZM8PPBSjvH5aew==, tarball: https://registry.npmmirror.com/@rspress/plugin-last-updated/-/plugin-last-updated-1.7.5.tgz}
     name: '@rspress/plugin-last-updated'
-    version: 1.7.4
+    version: 1.7.5
     engines: {node: '>=14.17.6'}
     dependencies:
       '@modern-js/utils': registry.npmmirror.com/@modern-js/utils@2.41.0
     dev: false
 
-  registry.npmmirror.com/@rspress/plugin-medium-zoom@1.7.4(@rspress/runtime@1.7.4):
-    resolution: {integrity: sha512-SjhHC1WCI4gWe0qO5lLG6t1g8rOdChxUJ2itv3HgAirzRyeTU14hnxNOdF8ciouwt0v0jui3sbcVl6KQJtZmBQ==, tarball: https://registry.npmmirror.com/@rspress/plugin-medium-zoom/-/plugin-medium-zoom-1.7.4.tgz}
-    id: registry.npmmirror.com/@rspress/plugin-medium-zoom/1.7.4
+  registry.npmmirror.com/@rspress/plugin-medium-zoom@1.7.5(@rspress/runtime@1.7.5):
+    resolution: {integrity: sha512-ipfVfMbdsF+MErww9TNjkbdSX9eero+fCDrLepI/7yjlBsw4yLzW3B6Cgqzt4pFLVJUbjlycZYg7yd2P4tjjtg==, tarball: https://registry.npmmirror.com/@rspress/plugin-medium-zoom/-/plugin-medium-zoom-1.7.5.tgz}
+    id: registry.npmmirror.com/@rspress/plugin-medium-zoom/1.7.5
     name: '@rspress/plugin-medium-zoom'
-    version: 1.7.4
+    version: 1.7.5
     engines: {node: '>=14.17.6'}
     peerDependencies:
       '@rspress/runtime': ^1.0.2
     dependencies:
-      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.7.4
+      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.7.5
       medium-zoom: registry.npmmirror.com/medium-zoom@1.0.8
     dev: false
 
-  registry.npmmirror.com/@rspress/runtime@1.7.4:
-    resolution: {integrity: sha512-CINAw6/6RcTQsLYj2EIhYt5bLMbMgWNw8kLIL2B+k75elZ5xTCTEJYUJ8dzcnsfQs0Ukh2oFrpG1YCEZ5EYUBQ==, tarball: https://registry.npmmirror.com/@rspress/runtime/-/runtime-1.7.4.tgz}
+  registry.npmmirror.com/@rspress/runtime@1.7.5:
+    resolution: {integrity: sha512-1MiNXq6xBTFp7HLVQaILEpb2bHvGPA+CTJ9z2FoZ+JMYZA3D2B5/isVfHGnvzkLs9VlYdzvOU3x4e9tF0Vh6pQ==, tarball: https://registry.npmmirror.com/@rspress/runtime/-/runtime-1.7.5.tgz}
     name: '@rspress/runtime'
-    version: 1.7.4
+    version: 1.7.5
     engines: {node: '>=14.17.6'}
     dependencies:
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.4
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.5
       react: registry.npmmirror.com/react@18.2.0
       react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
       react-helmet-async: registry.npmmirror.com/react-helmet-async@1.3.0(react-dom@18.2.0)(react@18.2.0)
@@ -2806,10 +2812,10 @@ packages:
       - utf-8-validate
     dev: false
 
-  registry.npmmirror.com/@rspress/shared@1.7.4:
-    resolution: {integrity: sha512-n2G0iuzikPNVLAXQNiXlwkY3bmWDhkJRy0H6i31MHXYpXpI6ALHmStWi817ZJxY4C/UyPn3x3Mnlm3SVLMU2TQ==, tarball: https://registry.npmmirror.com/@rspress/shared/-/shared-1.7.4.tgz}
+  registry.npmmirror.com/@rspress/shared@1.7.5:
+    resolution: {integrity: sha512-qxvkBC3VpBuJkkMJ5cNiryw4syLFGX6In5l44+hYbTeXoQs6siQcYKw9FpQXkZ/ibWKsaZVBTMuo3ADoesr+QQ==, tarball: https://registry.npmmirror.com/@rspress/shared/-/shared-1.7.5.tgz}
     name: '@rspress/shared'
-    version: 1.7.4
+    version: 1.7.5
     dependencies:
       '@rsbuild/core': registry.npmmirror.com/@rsbuild/core@0.1.0
       chalk: registry.npmmirror.com/chalk@4.1.2
@@ -2819,16 +2825,16 @@ packages:
       - bufferutil
       - utf-8-validate
 
-  registry.npmmirror.com/@rspress/theme-default@1.7.4(postcss@8.4.21)(webpack@5.89.0):
-    resolution: {integrity: sha512-3QiSeDAaxFeg8Nh8xa55vi9LLXcOcz4K7WX6+xZD6YC10rYu+MHlWkzA/wTSeufZzd4WXXhFqCpBghmvb7xy5Q==, tarball: https://registry.npmmirror.com/@rspress/theme-default/-/theme-default-1.7.4.tgz}
-    id: registry.npmmirror.com/@rspress/theme-default/1.7.4
+  registry.npmmirror.com/@rspress/theme-default@1.7.5(postcss@8.4.21)(webpack@5.89.0):
+    resolution: {integrity: sha512-/Ct4yQEquT08JrfachxFXJiIeBLKb9/LpcOR8eVHexo0LBAzCTyHpBWXGTKxdgW5lF/COXgT8LSPYC8zIlsh3A==, tarball: https://registry.npmmirror.com/@rspress/theme-default/-/theme-default-1.7.5.tgz}
+    id: registry.npmmirror.com/@rspress/theme-default/1.7.5
     name: '@rspress/theme-default'
-    version: 1.7.4
+    version: 1.7.5
     engines: {node: '>=14.17.6'}
     dependencies:
       '@mdx-js/react': registry.npmmirror.com/@mdx-js/react@2.2.1(react@18.2.0)
-      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.7.4
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.4
+      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.7.5
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.5
       body-scroll-lock: registry.npmmirror.com/body-scroll-lock@4.0.0-beta.0
       copy-to-clipboard: registry.npmmirror.com/copy-to-clipboard@3.3.3
       flexsearch: registry.npmmirror.com/flexsearch@0.6.32
@@ -2858,16 +2864,16 @@ packages:
       - webpack
     dev: false
 
-  registry.npmmirror.com/@rspress/theme-default@1.7.4(postcss@8.4.31)(webpack@5.89.0):
-    resolution: {integrity: sha512-3QiSeDAaxFeg8Nh8xa55vi9LLXcOcz4K7WX6+xZD6YC10rYu+MHlWkzA/wTSeufZzd4WXXhFqCpBghmvb7xy5Q==, tarball: https://registry.npmmirror.com/@rspress/theme-default/-/theme-default-1.7.4.tgz}
-    id: registry.npmmirror.com/@rspress/theme-default/1.7.4
+  registry.npmmirror.com/@rspress/theme-default@1.7.5(postcss@8.4.31)(webpack@5.89.0):
+    resolution: {integrity: sha512-/Ct4yQEquT08JrfachxFXJiIeBLKb9/LpcOR8eVHexo0LBAzCTyHpBWXGTKxdgW5lF/COXgT8LSPYC8zIlsh3A==, tarball: https://registry.npmmirror.com/@rspress/theme-default/-/theme-default-1.7.5.tgz}
+    id: registry.npmmirror.com/@rspress/theme-default/1.7.5
     name: '@rspress/theme-default'
-    version: 1.7.4
+    version: 1.7.5
     engines: {node: '>=14.17.6'}
     dependencies:
       '@mdx-js/react': registry.npmmirror.com/@mdx-js/react@2.2.1(react@18.2.0)
-      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.7.4
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.4
+      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.7.5
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.5
       body-scroll-lock: registry.npmmirror.com/body-scroll-lock@4.0.0-beta.0
       copy-to-clipboard: registry.npmmirror.com/copy-to-clipboard@3.3.3
       flexsearch: registry.npmmirror.com/flexsearch@0.6.32
@@ -3255,6 +3261,18 @@ packages:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==, tarball: https://registry.npmmirror.com/@types/json-schema/-/json-schema-7.0.15.tgz}
     name: '@types/json-schema'
     version: 7.0.15
+
+  registry.npmmirror.com/@types/katex@0.14.0:
+    resolution: {integrity: sha512-+2FW2CcT0K3P+JMR8YG846bmDwplKUTsWgT2ENwdQ1UdVfRk3GQrh6Mi4sTopy30gI8Uau5CEqHTDZ6YvWIUPA==, tarball: https://registry.npmmirror.com/@types/katex/-/katex-0.14.0.tgz}
+    name: '@types/katex'
+    version: 0.14.0
+    dev: true
+
+  registry.npmmirror.com/@types/katex@0.16.7:
+    resolution: {integrity: sha512-HMwFiRujE5PjrgwHQ25+bsLJgowjGjm5Z8FVSf0N6PwgJrwxH0QxzHYDcKsTfV3wva0vzrpqMTJS2jXPr5BMEQ==, tarball: https://registry.npmmirror.com/@types/katex/-/katex-0.16.7.tgz}
+    name: '@types/katex'
+    version: 0.16.7
+    dev: true
 
   registry.npmmirror.com/@types/mdast@3.0.15:
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==, tarball: https://registry.npmmirror.com/@types/mdast/-/mdast-3.0.15.tgz}
@@ -3719,6 +3737,7 @@ packages:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==, tarball: https://registry.npmmirror.com/abab/-/abab-2.0.6.tgz}
     name: abab
     version: 2.0.6
+    deprecated: Use your platform's native atob() and btoa() methods instead
     dev: false
 
   registry.npmmirror.com/abbrev@2.0.0:
@@ -4440,7 +4459,6 @@ packages:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==, tarball: https://registry.npmmirror.com/comma-separated-tokens/-/comma-separated-tokens-2.0.3.tgz}
     name: comma-separated-tokens
     version: 2.0.3
-    dev: false
 
   registry.npmmirror.com/commander@2.20.3:
     resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==, tarball: https://registry.npmmirror.com/commander/-/commander-2.20.3.tgz}
@@ -4461,6 +4479,13 @@ packages:
     version: 7.2.0
     engines: {node: '>= 10'}
     dev: false
+
+  registry.npmmirror.com/commander@8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==, tarball: https://registry.npmmirror.com/commander/-/commander-8.3.0.tgz}
+    name: commander
+    version: 8.3.0
+    engines: {node: '>= 12'}
+    dev: true
 
   registry.npmmirror.com/common-path-prefix@3.0.0:
     resolution: {integrity: sha512-QE33hToZseCH3jS0qN96O/bSh3kaw/h+Tq7ngyY9eWDUnTlTNUyqfqvCXioLe5Na5jFsL78ra/wuBU4iuEgd4w==, tarball: https://registry.npmmirror.com/common-path-prefix/-/common-path-prefix-3.0.0.tgz}
@@ -4896,6 +4921,7 @@ packages:
     name: domexception
     version: 4.0.0
     engines: {node: '>=12'}
+    deprecated: Use your platform's native DOMException instead
     dependencies:
       webidl-conversions: registry.npmmirror.com/webidl-conversions@7.0.0
     dev: false
@@ -6003,6 +6029,26 @@ packages:
     dependencies:
       function-bind: registry.npmmirror.com/function-bind@1.1.2
 
+  registry.npmmirror.com/hast-util-from-dom@4.2.0:
+    resolution: {integrity: sha512-t1RJW/OpJbCAJQeKi3Qrj1cAOLA0+av/iPFori112+0X7R3wng+jxLA+kXec8K4szqPRGI8vPxbbpEYvvpwaeQ==, tarball: https://registry.npmmirror.com/hast-util-from-dom/-/hast-util-from-dom-4.2.0.tgz}
+    name: hast-util-from-dom
+    version: 4.2.0
+    dependencies:
+      hastscript: registry.npmmirror.com/hastscript@7.2.0
+      web-namespaces: registry.npmmirror.com/web-namespaces@2.0.1
+    dev: true
+
+  registry.npmmirror.com/hast-util-from-html-isomorphic@1.0.0:
+    resolution: {integrity: sha512-Yu480AKeOEN/+l5LA674a+7BmIvtDj24GvOt7MtQWuhzUwlaaRWdEPXAh3Qm5vhuthpAipFb2vTetKXWOjmTvw==, tarball: https://registry.npmmirror.com/hast-util-from-html-isomorphic/-/hast-util-from-html-isomorphic-1.0.0.tgz}
+    name: hast-util-from-html-isomorphic
+    version: 1.0.0
+    dependencies:
+      '@types/hast': registry.npmmirror.com/@types/hast@2.3.8
+      hast-util-from-dom: registry.npmmirror.com/hast-util-from-dom@4.2.0
+      hast-util-from-html: registry.npmmirror.com/hast-util-from-html@1.0.2
+      unist-util-remove-position: registry.npmmirror.com/unist-util-remove-position@4.0.2
+    dev: true
+
   registry.npmmirror.com/hast-util-from-html@1.0.2:
     resolution: {integrity: sha512-LhrTA2gfCbLOGJq2u/asp4kwuG0y6NhWTXiPKP+n0qNukKy7hc10whqqCFfyvIA1Q5U5d0sp9HhNim9gglEH4A==, tarball: https://registry.npmmirror.com/hast-util-from-html/-/hast-util-from-html-1.0.2.tgz}
     name: hast-util-from-html
@@ -6013,7 +6059,6 @@ packages:
       parse5: registry.npmmirror.com/parse5@7.1.2
       vfile: registry.npmmirror.com/vfile@5.3.7
       vfile-message: registry.npmmirror.com/vfile-message@3.1.4
-    dev: false
 
   registry.npmmirror.com/hast-util-from-parse5@7.1.2:
     resolution: {integrity: sha512-Nz7FfPBuljzsN3tCQ4kCBKqdNhQE2l0Tn+X1ubgKBPRoiDIu1mL08Cfw4k7q71+Duyaw7DXDN+VTAp4Vh3oCOw==, tarball: https://registry.npmmirror.com/hast-util-from-parse5/-/hast-util-from-parse5-7.1.2.tgz}
@@ -6027,7 +6072,6 @@ packages:
       vfile: registry.npmmirror.com/vfile@5.3.7
       vfile-location: registry.npmmirror.com/vfile-location@4.1.0
       web-namespaces: registry.npmmirror.com/web-namespaces@2.0.1
-    dev: false
 
   registry.npmmirror.com/hast-util-has-property@2.0.1:
     resolution: {integrity: sha512-X2+RwZIMTMKpXUzlotatPzWj8bspCymtXH3cfG3iQKV+wPF53Vgaqxi/eLqGck0wKq1kS9nvoB1wchbCPEL8sg==, tarball: https://registry.npmmirror.com/hast-util-has-property/-/hast-util-has-property-2.0.1.tgz}
@@ -6050,7 +6094,6 @@ packages:
     dependencies:
       '@types/hast': registry.npmmirror.com/@types/hast@2.3.8
       '@types/unist': registry.npmmirror.com/@types/unist@2.0.10
-    dev: false
 
   registry.npmmirror.com/hast-util-parse-selector@2.2.5:
     resolution: {integrity: sha512-7j6mrk/qqkSehsM92wQjdIgWM2/BW61u/53G6xmC8i1OmEdKLHbk419QKQUjz6LglWsfqoiHmyMRkP1BGjecNQ==, tarball: https://registry.npmmirror.com/hast-util-parse-selector/-/hast-util-parse-selector-2.2.5.tgz}
@@ -6064,7 +6107,6 @@ packages:
     version: 3.1.1
     dependencies:
       '@types/hast': registry.npmmirror.com/@types/hast@2.3.8
-    dev: false
 
   registry.npmmirror.com/hast-util-raw@7.2.3:
     resolution: {integrity: sha512-RujVQfVsOrxzPOPSzZFiwofMArbQke6DJjnFfceiEbFh7S05CbPt0cYN+A5YeD3pso0JQk6O1aHBnx9+Pm2uqg==, tarball: https://registry.npmmirror.com/hast-util-raw/-/hast-util-raw-7.2.3.tgz}
@@ -6155,6 +6197,17 @@ packages:
       '@types/hast': registry.npmmirror.com/@types/hast@2.3.8
     dev: false
 
+  registry.npmmirror.com/hast-util-to-text@3.1.2:
+    resolution: {integrity: sha512-tcllLfp23dJJ+ju5wCCZHVpzsQQ43+moJbqVX3jNWPB7z/KFC4FyZD6R7y94cHL6MQ33YtMZL8Z0aIXXI4XFTw==, tarball: https://registry.npmmirror.com/hast-util-to-text/-/hast-util-to-text-3.1.2.tgz}
+    name: hast-util-to-text
+    version: 3.1.2
+    dependencies:
+      '@types/hast': registry.npmmirror.com/@types/hast@2.3.8
+      '@types/unist': registry.npmmirror.com/@types/unist@2.0.10
+      hast-util-is-element: registry.npmmirror.com/hast-util-is-element@2.1.3
+      unist-util-find-after: registry.npmmirror.com/unist-util-find-after@4.0.1
+    dev: true
+
   registry.npmmirror.com/hast-util-whitespace@2.0.1:
     resolution: {integrity: sha512-nAxA0v8+vXSBDt3AnRUNjyRIQ0rD+ntpbAp4LnPkumc5M9yUbSMa4XDU9Q6etY4f1Wp4bNgvc1yjiZtsTTrSng==, tarball: https://registry.npmmirror.com/hast-util-whitespace/-/hast-util-whitespace-2.0.1.tgz}
     name: hast-util-whitespace
@@ -6183,7 +6236,6 @@ packages:
       hast-util-parse-selector: registry.npmmirror.com/hast-util-parse-selector@3.1.1
       property-information: registry.npmmirror.com/property-information@6.4.0
       space-separated-tokens: registry.npmmirror.com/space-separated-tokens@2.0.2
-    dev: false
 
   registry.npmmirror.com/hexo-util@3.1.0:
     resolution: {integrity: sha512-LmztAhkJHQ59VHqz6AnvwEKiNA0pCBBI0qW08cCzjhnpGoqZ8tlGDwElzy7oTxCvMChkiqg5V8VflhdI8tHsGg==, tarball: https://registry.npmmirror.com/hexo-util/-/hexo-util-3.1.0.tgz}
@@ -7015,6 +7067,15 @@ packages:
       object.values: registry.npmmirror.com/object.values@1.1.7
     dev: true
 
+  registry.npmmirror.com/katex@0.16.9:
+    resolution: {integrity: sha512-fsSYjWS0EEOwvy81j3vRA8TEAhQhKiqO+FQaKWp0m39qwOzHVBgAUBIXWj1pB+O2W3fIpNa6Y9KSKCVbfPhyAQ==, tarball: https://registry.npmmirror.com/katex/-/katex-0.16.9.tgz}
+    name: katex
+    version: 0.16.9
+    hasBin: true
+    dependencies:
+      commander: registry.npmmirror.com/commander@8.3.0
+    dev: true
+
   registry.npmmirror.com/keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==, tarball: https://registry.npmmirror.com/keyv/-/keyv-4.5.4.tgz}
     name: keyv
@@ -7388,6 +7449,16 @@ packages:
       - supports-color
     dev: false
 
+  registry.npmmirror.com/mdast-util-math@2.0.2:
+    resolution: {integrity: sha512-8gmkKVp9v6+Tgjtq6SYx9kGPpTf6FVYRa53/DLh479aldR9AyP48qeVOgNZ5X7QUK7nOy4yw7vg6mbiGcs9jWQ==, tarball: https://registry.npmmirror.com/mdast-util-math/-/mdast-util-math-2.0.2.tgz}
+    name: mdast-util-math
+    version: 2.0.2
+    dependencies:
+      '@types/mdast': registry.npmmirror.com/@types/mdast@3.0.15
+      longest-streak: registry.npmmirror.com/longest-streak@3.1.0
+      mdast-util-to-markdown: registry.npmmirror.com/mdast-util-to-markdown@1.5.0
+    dev: true
+
   registry.npmmirror.com/mdast-util-mdx-expression@1.3.2:
     resolution: {integrity: sha512-xIPmR5ReJDu/DHH1OoIT1HkuybIfRGYRywC+gJtI7qHjCJp/M9jrmBEJW22O8lskDWm562BX2W8TiAwRTb0rKA==, tarball: https://registry.npmmirror.com/mdast-util-mdx-expression/-/mdast-util-mdx-expression-1.3.2.tgz}
     name: mdast-util-mdx-expression
@@ -7633,6 +7704,20 @@ packages:
       micromark-util-combine-extensions: registry.npmmirror.com/micromark-util-combine-extensions@1.1.0
       micromark-util-types: registry.npmmirror.com/micromark-util-types@1.1.0
     dev: false
+
+  registry.npmmirror.com/micromark-extension-math@2.1.2:
+    resolution: {integrity: sha512-es0CcOV89VNS9wFmyn+wyFTKweXGW4CEvdaAca6SWRWPyYCbBisnjaHLjWO4Nszuiud84jCpkHsqAJoa768Pvg==, tarball: https://registry.npmmirror.com/micromark-extension-math/-/micromark-extension-math-2.1.2.tgz}
+    name: micromark-extension-math
+    version: 2.1.2
+    dependencies:
+      '@types/katex': registry.npmmirror.com/@types/katex@0.16.7
+      katex: registry.npmmirror.com/katex@0.16.9
+      micromark-factory-space: registry.npmmirror.com/micromark-factory-space@1.1.0
+      micromark-util-character: registry.npmmirror.com/micromark-util-character@1.2.0
+      micromark-util-symbol: registry.npmmirror.com/micromark-util-symbol@1.1.0
+      micromark-util-types: registry.npmmirror.com/micromark-util-types@1.1.0
+      uvu: registry.npmmirror.com/uvu@0.5.6
+    dev: true
 
   registry.npmmirror.com/micromark-extension-mdx-expression@1.0.8:
     resolution: {integrity: sha512-zZpeQtc5wfWKdzDsHRBY003H2Smg+PUi2REhqgIhdzAa5xonhP03FcXxqFSerFiNUr5AWmHpaNPQTBVOS4lrXw==, tarball: https://registry.npmmirror.com/micromark-extension-mdx-expression/-/micromark-extension-mdx-expression-1.0.8.tgz}
@@ -8387,7 +8472,6 @@ packages:
     version: 7.1.2
     dependencies:
       entities: registry.npmmirror.com/entities@4.5.0
-    dev: false
 
   registry.npmmirror.com/parseley@0.12.1:
     resolution: {integrity: sha512-e6qHKe3a9HWr0oMRVDTRhKce+bRO8VGQR3NyVwcjwrbhMmFCX9KszEV35+rn4AdilFAq9VPxP/Fe1wC9Qjd2lw==, tarball: https://registry.npmmirror.com/parseley/-/parseley-0.12.1.tgz}
@@ -8713,7 +8797,6 @@ packages:
     resolution: {integrity: sha512-9t5qARVofg2xQqKtytzt+lZ4d1Qvj8t5B8fEwXK6qOfgRLgH/b13QlgEyDh033NOS31nXeFbYv7CLUDG1CeifQ==, tarball: https://registry.npmmirror.com/property-information/-/property-information-6.4.0.tgz}
     name: property-information
     version: 6.4.0
-    dev: false
 
   registry.npmmirror.com/psl@1.9.0:
     resolution: {integrity: sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==, tarball: https://registry.npmmirror.com/psl/-/psl-1.9.0.tgz}
@@ -9013,6 +9096,19 @@ packages:
       unist-util-visit: registry.npmmirror.com/unist-util-visit@4.1.2
     dev: false
 
+  registry.npmmirror.com/rehype-katex@6.0.3:
+    resolution: {integrity: sha512-ByZlRwRUcWegNbF70CVRm2h/7xy7jQ3R9LaY4VVSvjnoVWwWVhNL60DiZsBpC5tSzYQOCvDbzncIpIjPZWodZA==, tarball: https://registry.npmmirror.com/rehype-katex/-/rehype-katex-6.0.3.tgz}
+    name: rehype-katex
+    version: 6.0.3
+    dependencies:
+      '@types/hast': registry.npmmirror.com/@types/hast@2.3.8
+      '@types/katex': registry.npmmirror.com/@types/katex@0.14.0
+      hast-util-from-html-isomorphic: registry.npmmirror.com/hast-util-from-html-isomorphic@1.0.0
+      hast-util-to-text: registry.npmmirror.com/hast-util-to-text@3.1.2
+      katex: registry.npmmirror.com/katex@0.16.9
+      unist-util-visit: registry.npmmirror.com/unist-util-visit@4.1.2
+    dev: true
+
   registry.npmmirror.com/rehype-slug@5.1.0:
     resolution: {integrity: sha512-Gf91dJoXneiorNEnn+Phx97CO7oRMrpi+6r155tTxzGuLtm+QrI4cTwCa9e1rtePdL4i9tSO58PeSS6HWfgsiw==, tarball: https://registry.npmmirror.com/rehype-slug/-/rehype-slug-5.1.0.tgz}
     name: rehype-slug
@@ -9071,6 +9167,17 @@ packages:
       mdast-util-to-hast: registry.npmmirror.com/mdast-util-to-hast@12.3.0
       unified: registry.npmmirror.com/unified@10.1.2
     dev: false
+
+  registry.npmmirror.com/remark-math@5.1.1:
+    resolution: {integrity: sha512-cE5T2R/xLVtfFI4cCePtiRn+e6jKMtFDR3P8V3qpv8wpKjwvHoBA4eJzvX+nVrnlNy0911bdGmuspCSwetfYHw==, tarball: https://registry.npmmirror.com/remark-math/-/remark-math-5.1.1.tgz}
+    name: remark-math
+    version: 5.1.1
+    dependencies:
+      '@types/mdast': registry.npmmirror.com/@types/mdast@3.0.15
+      mdast-util-math: registry.npmmirror.com/mdast-util-math@2.0.2
+      micromark-extension-math: registry.npmmirror.com/micromark-extension-math@2.1.2
+      unified: registry.npmmirror.com/unified@10.1.2
+    dev: true
 
   registry.npmmirror.com/remark-mdx@2.3.0:
     resolution: {integrity: sha512-g53hMkpM0I98MU266IzDFMrTD980gNF3BJnkyFcmN+dD873mQeD5rdMO3Y2X+x8umQfbSE0PcoEDl7ledSA+2g==, tarball: https://registry.npmmirror.com/remark-mdx/-/remark-mdx-2.3.0.tgz}
@@ -9199,16 +9306,16 @@ packages:
       fs-extra: registry.npmmirror.com/fs-extra@11.1.1
     dev: false
 
-  registry.npmmirror.com/rspress@1.7.4(typescript@5.3.2)(webpack@5.89.0):
-    resolution: {integrity: sha512-lrkFC5G6LEqPQ3busi8aYLYmGAHO6jF+4D11NQ5kPTSDJ3mN8XY1FY8Ga9CDv7yHb7VC2zBmChJT0vwBU9G5ag==, tarball: https://registry.npmmirror.com/rspress/-/rspress-1.7.4.tgz}
-    id: registry.npmmirror.com/rspress/1.7.4
+  registry.npmmirror.com/rspress@1.7.5(typescript@5.3.2)(webpack@5.89.0):
+    resolution: {integrity: sha512-veBehR7Z0/ypypgjoQHqNeE6L5Z/HYHPpgphEBelZDF4xIXhAb5POAffle0KYTXARn72eG991Okef21CxPnDvw==, tarball: https://registry.npmmirror.com/rspress/-/rspress-1.7.5.tgz}
+    id: registry.npmmirror.com/rspress/1.7.5
     name: rspress
-    version: 1.7.4
+    version: 1.7.5
     hasBin: true
     dependencies:
       '@modern-js/node-bundle-require': registry.npmmirror.com/@modern-js/node-bundle-require@2.41.0
-      '@rspress/core': registry.npmmirror.com/@rspress/core@1.7.4(typescript@5.3.2)(webpack@5.89.0)
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.4
+      '@rspress/core': registry.npmmirror.com/@rspress/core@1.7.5(typescript@5.3.2)(webpack@5.89.0)
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.7.5
       cac: registry.npmmirror.com/cac@6.7.14
       chalk: registry.npmmirror.com/chalk@5.3.0
       chokidar: registry.npmmirror.com/chokidar@3.5.3
@@ -9493,7 +9600,6 @@ packages:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==, tarball: https://registry.npmmirror.com/space-separated-tokens/-/space-separated-tokens-2.0.2.tgz}
     name: space-separated-tokens
     version: 2.0.2
-    dev: false
 
   registry.npmmirror.com/sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==, tarball: https://registry.npmmirror.com/sprintf-js/-/sprintf-js-1.0.3.tgz}
@@ -10160,6 +10266,15 @@ packages:
       trough: registry.npmmirror.com/trough@2.1.0
       vfile: registry.npmmirror.com/vfile@5.3.7
 
+  registry.npmmirror.com/unist-util-find-after@4.0.1:
+    resolution: {integrity: sha512-QO/PuPMm2ERxC6vFXEPtmAutOopy5PknD+Oq64gGwxKtk4xwo9Z97t9Av1obPmGU0IyTa6EKYUfTrK2QJS3Ozw==, tarball: https://registry.npmmirror.com/unist-util-find-after/-/unist-util-find-after-4.0.1.tgz}
+    name: unist-util-find-after
+    version: 4.0.1
+    dependencies:
+      '@types/unist': registry.npmmirror.com/@types/unist@2.0.10
+      unist-util-is: registry.npmmirror.com/unist-util-is@5.2.1
+    dev: true
+
   registry.npmmirror.com/unist-util-generated@2.0.1:
     resolution: {integrity: sha512-qF72kLmPxAw0oN2fwpWIqbXAVyEqUzDHMsbtPvOudIlUzXYFIeQIuxXQCRCFh22B7cixvU0MG7m3MW8FTq/S+A==, tarball: https://registry.npmmirror.com/unist-util-generated/-/unist-util-generated-2.0.1.tgz}
     name: unist-util-generated
@@ -10361,7 +10476,6 @@ packages:
     dependencies:
       '@types/unist': registry.npmmirror.com/@types/unist@2.0.10
       vfile: registry.npmmirror.com/vfile@5.3.7
-    dev: false
 
   registry.npmmirror.com/vfile-message@3.1.4:
     resolution: {integrity: sha512-fa0Z6P8HUrQN4BZaX05SIVXic+7kE3b05PWAtPuYP9QLHsLKYR7/AlLW3NtOrpXRLeawpDLMsVkmk5DG0NXgWw==, tarball: https://registry.npmmirror.com/vfile-message/-/vfile-message-3.1.4.tgz}
@@ -10436,7 +10550,7 @@ packages:
     engines: {node: '>=10.13.0'}
     dependencies:
       glob-to-regexp: registry.npmmirror.com/glob-to-regexp@0.4.1
-      graceful-fs: registry.npmmirror.com/graceful-fs@4.2.10
+      graceful-fs: registry.npmmirror.com/graceful-fs@4.2.11
 
   registry.npmmirror.com/wcwidth@1.0.1:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==, tarball: https://registry.npmmirror.com/wcwidth/-/wcwidth-1.0.1.tgz}
@@ -10450,7 +10564,6 @@ packages:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==, tarball: https://registry.npmmirror.com/web-namespaces/-/web-namespaces-2.0.1.tgz}
     name: web-namespaces
     version: 2.0.1
-    dev: false
 
   registry.npmmirror.com/web-streams-polyfill@3.2.1:
     resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==, tarball: https://registry.npmmirror.com/web-streams-polyfill/-/web-streams-polyfill-3.2.1.tgz}
