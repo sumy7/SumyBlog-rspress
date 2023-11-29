@@ -7,6 +7,9 @@
     "build": "rspress build",
     "preview": "rspress preview"
   },
+  "peerDependencies": {
+    "parse5": "^6.0.1"
+  },
   "dependencies": {
     "@giscus/react": "^2.3.0",
     "@rspress/theme-default": "1.7.5",
@@ -27,6 +30,7 @@
     "hexo-util": "^3.1.0",
     "prettier": "^3.1.0",
     "rehype-katex": "^6.0.3",
+    "rehype-raw": "^6.1.1",
     "remark-gemoji": "^8.0.0",
     "remark-math": "^5.1.1"
   }

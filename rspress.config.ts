@@ -1,8 +1,10 @@
 import * as path from 'path'
 import { defineConfig } from 'rspress/config'
 
-import remarkEmoji from 'remark-gemoji'
 import rehypeKatex from 'rehype-katex'
+import rehypeRaw from 'rehype-raw'
+
+import remarkEmoji from 'remark-gemoji'
 import remarkMath from 'remark-math'
 
 import { blogPostResolver } from './plugins/BlogPostResolver'
@@ -66,7 +68,21 @@ export default defineConfig({
   markdown: {
     // 使用 JS 版本的 MDX 编译器
     mdxRs: false,
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [
+      rehypeKatex,
+      [
+        rehypeRaw,
+        {
+          passThrough: [
+            'mdxFlowExpression',
+            'mdxJsxFlowElement',
+            'mdxJsxTextElement',
+            'mdxTextExpression',
+            'mdxjsEsm',
+          ],
+        },
+      ],
+    ],
     remarkPlugins: [remarkEmoji, remarkMath],
   },
   plugins: [blogPostResolver()],

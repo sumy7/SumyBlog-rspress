@@ -15,16 +15,16 @@ tags:
 
 HTML样式代码
 
-<pre class="prettyprint linenums">
-#include<iostream>;
-using namespace std;
-
-int main()
-{
-    cout<<"Hello World!"<<endl;
-    return 0;
-}
-</pre>
+    <pre class="prettyprint linenums">
+    #include<iostream>;
+    using namespace std;
+    
+    int main()
+    {
+        cout<<"Hello World!"<<endl;
+        return 0;
+    }
+    </pre>
 
 Markdown样式代码
 
