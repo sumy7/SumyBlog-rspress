@@ -32,7 +32,7 @@ jobs:
         run: pnpm install
       - name: Build with Rspress
         run: |
-          pnpm run build
+          DOC_DEBUG=true pnpm run build
       - name: Archive files
         run: zip -qq -r sumyblog.zip ./doc_build
       - name: Upload artifact
