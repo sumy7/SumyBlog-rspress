@@ -1,4 +1,4 @@
-import dayjs, { Dayjs } from 'dayjs'
+import dayjs from 'dayjs'
 import { Permalink } from 'hexo-util'
 import path from 'node:path'
 import grayMatter from 'gray-matter'

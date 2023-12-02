@@ -1,0 +1,20 @@
+.post-info-container {
+  margin-bottom: 20px;
+
+  .post-info-item {
+    padding: 0 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 10px 0 0 10px;
+    font-size: 13px;
+    line-height: 1.75rem;
+
+    .post-info-label {
+      display: inline-block;
+      width: 5em;
+    }
+    .post-info-content {
+    }
+  }
+}

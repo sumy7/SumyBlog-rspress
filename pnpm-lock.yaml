@@ -11,6 +11,9 @@ dependencies:
   '@rspress/theme-default':
     specifier: 1.7.5
     version: registry.npmmirror.com/@rspress/theme-default@1.7.5(postcss@8.4.31)(webpack@5.89.0)
+  busuanzi.pure.js:
+    specifier: ^1.0.3
+    version: registry.npmmirror.com/busuanzi.pure.js@1.0.3
   dayjs:
     specifier: ^1.11.10
     version: registry.npmmirror.com/dayjs@1.11.10
@@ -4241,6 +4244,12 @@ packages:
     dependencies:
       run-applescript: registry.npmmirror.com/run-applescript@5.0.0
     dev: true
+
+  registry.npmmirror.com/busuanzi.pure.js@1.0.3:
+    resolution: {integrity: sha512-tPULdyx+8NNb9geZYDpktKmHAYx9f2LEOBaHyWCaM7iPEMIa/43KgYAUluuU7YG9UFSOFpj4dO7Nj2Vlu3V9Rg==, tarball: https://registry.npmmirror.com/busuanzi.pure.js/-/busuanzi.pure.js-1.0.3.tgz}
+    name: busuanzi.pure.js
+    version: 1.0.3
+    dev: false
 
   registry.npmmirror.com/bytes@3.0.0:
     resolution: {integrity: sha512-pMhOfFDPiv9t5jjIXkHosWmkSyQbvsgEVNkz0ERHbuLh2T/7j4Mqqpz523Fe8MVY89KC6Sh/QfS2sM+SjgFDcw==, tarball: https://registry.npmmirror.com/bytes/-/bytes-3.0.0.tgz}

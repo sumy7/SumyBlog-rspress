@@ -2,6 +2,7 @@ import React from 'react'
 import Theme from '@rspress/theme-default'
 import { Helmet } from 'rspress/runtime'
 import PostFooter from './components/PostFooter'
+import PostInfo from './components/PostInfo'
 import Footer from './components/Footer'
 
 import './index.scss'
@@ -17,7 +18,11 @@ const Layout = () => (
         crossOrigin="anonymous"
       />
     </Helmet>
-    <Theme.Layout beforeDocFooter={<PostFooter />} bottom={<Footer />} />
+    <Theme.Layout
+      beforeDocFooter={<PostFooter />}
+      beforeOutline={<PostInfo />}
+      bottom={<Footer />}
+    />
   </>
 )
 
