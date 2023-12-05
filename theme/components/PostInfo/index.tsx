@@ -7,11 +7,9 @@ import styles from './index.module.scss'
 import { BaseRuntimePageInfo } from '@rspress/shared'
 
 export interface PostPageData extends BaseRuntimePageInfo {
-  frontmatter: {
-    categories?: string[]
-    tags?: string[]
-    date?: string
-  }
+  date?: string
+  categories?: string[]
+  tags?: string[]
   words?: number
   readingTime?: number
 }
@@ -21,7 +19,6 @@ const PostInfo = () => {
   const postInfo = useMemo(() => {
     return pageData.page as PostPageData
   }, [pageData])
-  console.log(pageData)
 
   return (
     <div className={styles.postInfoContainer}>
@@ -29,21 +26,19 @@ const PostInfo = () => {
       <div className={`${styles.postInfoItem} block`}>
         <span className={`${styles.postInfoLabel}`}>分类：</span>
         <span className={`${styles.postInfoContent}`}>
-          {(postInfo.frontmatter.categories || []).join(', ')}
+          {(postInfo.categories || []).join(', ')}
         </span>
       </div>
       <div className={`${styles.postInfoItem} block`}>
         <span className={`${styles.postInfoLabel}`}>标签：</span>
         <span className={`${styles.postInfoContent}`}>
-          {(postInfo.frontmatter.tags || []).join(', ')}
+          {(postInfo.tags || []).join(', ')}
         </span>
       </div>
       <div className={`${styles.postInfoItem} block`}>
         <span className={`${styles.postInfoLabel}`}>发表于：</span>
         <span className={`${styles.postInfoContent}`}>
-          {dayjs((postInfo.frontmatter.date as string) || Date.now()).format(
-            'YYYY-MM-DD'
-          )}
+          {dayjs((postInfo.date as string) || Date.now()).format('YYYY-MM-DD')}
         </span>
       </div>
       <div className={`${styles.postInfoItem} block`}>

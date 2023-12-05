@@ -64,15 +64,21 @@ export function blogPostResolver(): RspressPlugin {
       if (pageData?.frontmatter.layout === 'home') {
         pageData.posts = postInfos.slice(0, 10)
       }
-      // 前一篇、后一篇文章
+      // 混入文章信息
       if (pageData?.frontmatter.layout === 'post') {
         const index = postInfos.findIndex(
           (postInfo) => postInfo.route === pageData.routePath
         )
+        // 前一篇、后一篇文章
         if (index > -1) {
           pageData.prevPost = postInfos[index + 1]
           pageData.nextPost = postInfos[index - 1]
         }
+        // 日期、标签、分类
+        const postInfo = postInfos[index]
+        pageData.date = postInfo.date
+        pageData.category = postInfo.category
+        pageData.tags = postInfo.tags
       }
     },
   }
