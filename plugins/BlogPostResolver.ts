@@ -77,7 +77,7 @@ export function blogPostResolver(): RspressPlugin {
         // 日期、标签、分类
         const postInfo = postInfos[index]
         pageData.date = postInfo.date
-        pageData.category = postInfo.category
+        pageData.categories = postInfo.categories
         pageData.tags = postInfo.tags
       }
     },

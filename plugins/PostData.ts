@@ -13,7 +13,7 @@ export interface PostInfo {
   // 创建时间
   date: string
   // 分类
-  category: string
+  categories: string[]
   // 标签
   tags: string[]
 }
@@ -37,14 +37,14 @@ const formFileNamePermalink = new Permalink(configBlogFileName, {
 })
 const toRoutePathPermalink = new Permalink(permalinkPattern)
 
-function norminalizeCategory(category: string | string[]): string {
+function norminalizeCategory(category: string | string[]): string[] {
   if (!category) {
     return null
   }
   if (Array.isArray(category)) {
-    return category[0]
+    return category
   }
-  return category
+  return [category]
 }
 
 function norminalizeTags(tags: string | string[]): string[] {
@@ -90,7 +90,7 @@ export function getPostInfo(filepath: string): PostInfo | null {
     route: routePath,
     path: filepath,
     date: createTime.format('YYYY-MM-DD HH:mm:ss'),
-    category: norminalizeCategory(
+    categories: norminalizeCategory(
       frontmatter.category || frontmatter.categories
     ),
     tags: norminalizeTags(frontmatter.tag || frontmatter.tags),
