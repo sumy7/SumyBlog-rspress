@@ -17,6 +17,8 @@ tags: [node, dotenv, webpack, rspack]
 但是最好的方法还是建议使用dotenv加载，这里参考 [vite 的方式](https://cn.vitejs.dev/guide/env-and-mode.html)，
 根据环境变量加载不同的 dotenv 。 以下对该段代码进行了简化：
 
+https://gist.github.com/sumy7/2a1175947d831a4eee9e8cfb2df51686
+
 <iframe
 width="100%"
 height="1515"
