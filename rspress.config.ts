@@ -9,6 +9,7 @@ import remarkMath from 'remark-math'
 
 import { blogPostResolver } from './plugins/BlogPostResolver'
 import { postReadingInfoPlugin } from './plugins/PostReadingInfoPlugin'
+import { archivesPagePlugin } from './plugins/ArchivesPagePlugin'
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
@@ -86,5 +87,5 @@ export default defineConfig({
     ],
     remarkPlugins: [remarkEmoji, remarkMath],
   },
-  plugins: [blogPostResolver(), postReadingInfoPlugin()],
+  plugins: [blogPostResolver(), postReadingInfoPlugin(), archivesPagePlugin()],
 })

@@ -47,19 +47,10 @@ export function blogPostResolver(): RspressPlugin {
           filepath: postInfo.path,
         })
       })
-      // 添加归档页面
-      pages.push({
-        routePath: '/blog/archives/',
-        filepath: path.join(__dirname, '../source/archives.mdx'),
-      })
 
       return pages
     },
     extendPageData(pageData) {
-      // 归档页面添加文章列表
-      if (pageData?.frontmatter.layout === 'archives') {
-        pageData.posts = postInfos
-      }
       // 首页需要10篇文章列表
       if (pageData?.frontmatter.layout === 'home') {
         pageData.posts = postInfos.slice(0, 10)
