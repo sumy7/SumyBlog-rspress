@@ -56,7 +56,7 @@ export default defineConfig({
     [
       path.join(__dirname, './theme', 'GoogleAnalytics.tsx'),
       {
-        id: 'UA-69760423-1',
+        id: 'G-2NDCXW15G4',
       },
     ],
   ],
