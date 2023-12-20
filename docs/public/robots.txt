@@ -1,0 +1,6 @@
+Disallow: /blog/tags/*
+Disallow: /blog/categories/*
+Disallow: /blog/pages/*
+Disallow: /tags/*
+Disallow: /categories/*
+Disallow: /pages/*
