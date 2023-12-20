@@ -1,8 +1,7 @@
 import { AdditionalPage, RspressPlugin } from '@rspress/shared'
 import path from 'node:path'
 import fs, { PathLike } from 'node:fs'
-import { getPostInfo, postInfos } from './PostData'
-import dayjs from 'dayjs'
+import { addPost, getPostInfo, postInfos, sortPostInfos } from './PostData'
 
 // 遍历文件夹
 function traverseFolder(
@@ -32,11 +31,9 @@ export function blogPostResolver(): RspressPlugin {
         if (!postInfo) {
           return
         }
-        postInfos.push(postInfo)
+        addPost(postInfo)
       })
-      postInfos.sort((a, b) => {
-        return dayjs(b.date).unix() - dayjs(a.date).unix()
-      })
+      sortPostInfos()
     },
     addPages() {
       const pages: AdditionalPage[] = []

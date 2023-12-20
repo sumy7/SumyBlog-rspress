@@ -18,6 +18,15 @@ export interface PostInfo {
   tags: string[]
 }
 
+export interface PostTag {
+  // 标签名称
+  name: string
+  // 标签数量
+  count: number
+  // 文章
+  posts: PostInfo[]
+}
+
 const fileNamePattern = ':year-:month-:day-:title.md'
 const permalinkPattern = ':year/:month/:day/:title/'
 
@@ -59,6 +68,8 @@ function norminalizeTags(tags: string | string[]): string[] {
 
 export const postInfos: PostInfo[] = []
 
+export const postTags = new Map<string, PostTag>()
+
 /**
  * 解析文章信息
  * @param filepath 文章路径
@@ -95,4 +106,42 @@ export function getPostInfo(filepath: string): PostInfo | null {
     ),
     tags: norminalizeTags(frontmatter.tag || frontmatter.tags),
   }
+}
+
+/**
+ * 添加文章到数据库
+ * @param post
+ */
+export function addPost(post: PostInfo) {
+  postInfos.push(post)
+
+  // 添加标签
+  post.tags.forEach((tag) => {
+    const postTag = postTags.get(tag)
+    if (postTag) {
+      postTag.count++
+      postTag.posts.push(post)
+    } else {
+      postTags.set(tag, {
+        name: tag,
+        count: 1,
+        posts: [post],
+      })
+    }
+  })
+}
+
+/**
+ * 整理文章信息
+ */
+export function sortPostInfos() {
+  postInfos.sort((a, b) => {
+    return dayjs(b.date).unix() - dayjs(a.date).unix()
+  })
+  // 标签中的文章也需要排序
+  postTags.forEach((postTag) => {
+    postTag.posts.sort((a, b) => {
+      return dayjs(b.date).unix() - dayjs(a.date).unix()
+    })
+  })
 }

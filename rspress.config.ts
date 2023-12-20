@@ -10,6 +10,7 @@ import remarkMath from 'remark-math'
 import { blogPostResolver } from './plugins/BlogPostResolver'
 import { postReadingInfoPlugin } from './plugins/PostReadingInfoPlugin'
 import { archivesPagePlugin } from './plugins/ArchivesPagePlugin'
+import { tagsPagePlugin } from './plugins/TagsPagePlugin'
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
@@ -35,6 +36,11 @@ export default defineConfig({
         text: '归档',
         link: '/blog/archives/',
         activeMatch: '/blog/archives/',
+      },
+      {
+        text: '标签',
+        link: '/blog/tags/',
+        activeMatch: '/blog/tags/',
       },
       {
         text: '关于我',
@@ -87,5 +93,10 @@ export default defineConfig({
     ],
     remarkPlugins: [remarkEmoji, remarkMath],
   },
-  plugins: [blogPostResolver(), postReadingInfoPlugin(), archivesPagePlugin()],
+  plugins: [
+    blogPostResolver(),
+    postReadingInfoPlugin(),
+    archivesPagePlugin(),
+    tagsPagePlugin(),
+  ],
 })

@@ -2,7 +2,7 @@ import { RspressPlugin } from '@rspress/shared'
 import { postInfos } from './PostData'
 import path from 'node:path'
 
-const archivePluginPath = path.join(__dirname, '../theme/components/Archives')
+const archivePluginPath = path.join(__dirname, '../theme/pageLayout/Archives')
 
 // 归档页面
 export function archivesPagePlugin(): RspressPlugin {
