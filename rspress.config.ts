@@ -33,6 +33,11 @@ export default defineConfig({
         activeMatch: '/guide/',
       },
       {
+        text: '友情链接',
+        link: '/blog/flinks/',
+        activeMatch: '/blog/flinks/',
+      },
+      {
         text: '归档',
         link: '/blog/archives/',
         activeMatch: '/blog/archives/',
