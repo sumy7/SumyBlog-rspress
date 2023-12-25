@@ -16,7 +16,7 @@ export function tagsPagePlugin(): RspressPlugin {
           // language=mdx
           content: `---
 layout: tags
-title: 标签
+title: 标签云
 sidebar: false
 outline: false
 ---
@@ -25,40 +25,19 @@ import Tags from ${JSON.stringify(tagPluginPath)};
 <Tags />
 `,
         },
-        ...Array.from(postTags.values()).map((tagInfo) => {
-          return {
-            routePath: `/blog/tags/${tagInfo.name}/`,
-            // language=mdx
-            content: `---
-layout: tags
-title: ${tagInfo.name} - 标签
-sidebar: false
-outline: false
-tagName: ${tagInfo.name}
----
-import Archives from ${JSON.stringify(archivePluginPath)};
- 
-<Archives />
-`,
-          }
-        }),
       ]
     },
     extendPageData(pageData) {
       // 标签页面添加当前标签信息
       if (pageData?.frontmatter.layout === 'tags') {
-        // 展示标签下的文章
-        if (pageData?.frontmatter.tagName) {
-          const tagPostInfo = postTags.get(
-            pageData.frontmatter.tagName as string
-          )
-          pageData.posts = tagPostInfo?.posts || []
-        } else {
-          // 如果没有指定tagName，则展示标签云
-          pageData.tagCloud = Array.from(postTags.values())
-            .sort((a, b) => b.count - a.count)
-            .map((item) => ({ name: item.name, count: item.count }))
-        }
+        // 封装标签云数据
+        pageData.tagCloud = Array.from(postTags.values())
+          .sort((a, b) => b.count - a.count)
+          .map((item) => ({
+            name: item.name,
+            count: item.count,
+            posts: postTags.get(item.name)?.posts || [],
+          }))
       }
     },
   }

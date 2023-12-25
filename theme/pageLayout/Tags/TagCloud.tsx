@@ -1,6 +1,5 @@
 import React from 'react'
-import { normalizeHrefInRuntime } from 'rspress/runtime'
-import { Link } from '../../index'
+import { useSearchParams } from 'rspress/runtime'
 
 import styles from './index.module.scss'
 
@@ -12,17 +11,23 @@ const TagCloud = (props: {
 }) => {
   const { tagCloud = [] } = props
 
+  const [_, setSearchParams] = useSearchParams()
+
+  const onTagClick = (tag: string) => {
+    setSearchParams({ tag })
+  }
+
   return (
     <div className={styles.tagList}>
       {tagCloud.map((item) => (
-        <Link
+        <a
           key={item.name}
-          href={normalizeHrefInRuntime(`/blog/tags/${item.name}/index.html`)}
           className={styles.tagItem}
+          onClick={() => onTagClick(item.name)}
         >
           <span className={styles.tagName}>{item.name} </span>
           <span className={styles.tagPostCount}>{item.count}</span>
-        </Link>
+        </a>
       ))}
     </div>
   )

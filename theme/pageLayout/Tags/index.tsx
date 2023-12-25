@@ -1,6 +1,8 @@
-import React from 'react'
-import { usePageData } from 'rspress/runtime'
+import React, { useMemo } from 'react'
+import { usePageData, useSearchParams } from 'rspress/runtime'
 import TagCloud from './TagCloud'
+import { PostInfo } from '../../../plugins/PostData'
+import ArchivePostList from '../../components/ArchivePostList'
 
 interface PageData {
   page: {
@@ -8,6 +10,7 @@ interface PageData {
     tagCloud: {
       name: string
       count: number
+      posts: PostInfo[]
     }[]
   }
 }
@@ -17,9 +20,28 @@ const Tags = () => {
     page: { frontmatter, tagCloud = [] },
   } = usePageData() as unknown as PageData
 
+  const [searchParams] = useSearchParams()
+
+  const { name, posts } = useMemo(() => {
+    const tag = searchParams.get('tag')
+    if (tag) {
+      const tagInfo = tagCloud.find((item) => item.name === tag)
+      if (tagInfo) {
+        return tagInfo
+      }
+    }
+    return { name: '', posts: [] }
+  }, [searchParams.get('tag'), tagCloud])
+
   return (
     <div>
-      <TagCloud tagCloud={tagCloud} />
+      {!posts?.length && <TagCloud tagCloud={tagCloud} />}
+      {posts?.length && (
+        <ArchivePostList
+          posts={posts}
+          title={`${name} - 标签`}
+        ></ArchivePostList>
+      )}
     </div>
   )
 }
