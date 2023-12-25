@@ -1,6 +1,6 @@
-import React from 'react'
-import Theme from '@rspress/theme-default'
-import { Helmet, usePageData } from 'rspress/runtime'
+import React, { useEffect } from 'react'
+import Theme from 'rspress/theme'
+import { Helmet, useLocation, usePageData } from 'rspress/runtime'
 import PostFooter from './components/PostFooter'
 import PostInfo from './components/PostInfo'
 import Footer from './components/Footer'
@@ -9,6 +9,12 @@ import './index.scss'
 
 const Layout = () => {
   const pageData = usePageData()
+
+  const location = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
   return (
     <>
       {/* katex css */}
@@ -35,4 +41,4 @@ export default {
   Layout,
 }
 
-export * from '@rspress/theme-default'
+export * from 'rspress/theme'

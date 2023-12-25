@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from 'rspress/theme'
 import { normalizeHrefInRuntime } from 'rspress/runtime'
+import { Link } from '../../index'
 
 import styles from './index.module.scss'
 

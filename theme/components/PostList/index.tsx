@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'rspress/theme'
+import { Link } from '../../index'
 import { usePageData, normalizeHrefInRuntime } from 'rspress/runtime'
 import { PostInfo } from '../../../plugins/PostData'
 
