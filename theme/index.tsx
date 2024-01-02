@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
 import Theme from 'rspress/theme'
 import { Helmet, useLocation, usePageData } from 'rspress/runtime'
+import ReactGA from 'react-ga4'
 import PostFooter from './components/PostFooter'
 import PostInfo from './components/PostInfo'
 import Footer from './components/Footer'
 
 import './index.scss'
+
+ReactGA.initialize('G-2NDCXW15G4')
 
 const Layout = () => {
   const pageData = usePageData()
@@ -13,6 +16,10 @@ const Layout = () => {
   const location = useLocation()
   useEffect(() => {
     window.scrollTo(0, 0)
+  }, [location.pathname])
+
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: location.pathname })
   }, [location.pathname])
 
   return (
@@ -42,6 +49,7 @@ const Layout = () => {
     </>
   )
 }
+
 export default {
   ...Theme,
   Layout,

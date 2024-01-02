@@ -64,14 +64,7 @@ export default defineConfig({
         'https://github.com/sumy7/SumyBlog-rspress/blob/main/source/',
     },
   },
-  globalUIComponents: [
-    [
-      path.join(__dirname, './theme', 'GoogleAnalytics.tsx'),
-      {
-        id: 'G-2NDCXW15G4',
-      },
-    ],
-  ],
+  globalUIComponents: [],
   route: {
     cleanUrls: false,
   },
