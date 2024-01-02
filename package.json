@@ -16,10 +16,10 @@
     "dayjs": "^1.11.10",
     "react": "^18.2.0",
     "react-ga4": "^2.1.0",
-    "rspress": "1.8.4"
+    "rspress": "1.9.2"
   },
   "devDependencies": {
-    "@rspress/shared": "1.8.4",
+    "@rspress/shared": "1.9.2",
     "@types/node": "^16",
     "@types/react": "^18.2.37",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
