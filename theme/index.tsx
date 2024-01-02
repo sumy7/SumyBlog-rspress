@@ -17,8 +17,14 @@ const Layout = () => {
 
   return (
     <>
-      {/* katex css */}
       <Helmet>
+        {/* google adsense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3539958012242464"
+          crossOrigin="anonymous"
+        ></script>
+        {/* katex css */}
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"

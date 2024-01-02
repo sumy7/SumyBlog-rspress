@@ -20,6 +20,7 @@
     "react"
   ],
   "rules": {
+    "no-extra-semi": "off"
   },
   "settings": {
     "react": {
