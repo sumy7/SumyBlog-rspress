@@ -33,6 +33,7 @@
     "rehype-katex": "^6.0.3",
     "rehype-raw": "^6.1.1",
     "remark-gemoji": "^8.0.0",
-    "remark-math": "^5.1.1"
+    "remark-math": "^5.1.1",
+    "tailwindcss": "^3.4.0"
   }
 }
