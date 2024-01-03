@@ -1,6 +1,17 @@
 .postList {
   .postItem {
-    padding: 14px 0;
+    background: var(--rp-home-feature-bg);
+    border: 1px solid transparent;
+    transition: all 0.3s;
+
+    &:hover {
+      background: var(--rp-home-feature-hover-bg);
+      border: 1px solid var(--rp-c-brand);
+    }
+  }
+
+  .postCategories {
+    color: var(--rp-c-text-code);
   }
 
   .postHeader {

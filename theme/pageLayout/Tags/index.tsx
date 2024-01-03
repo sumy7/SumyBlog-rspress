@@ -35,8 +35,8 @@ const Tags = () => {
 
   return (
     <div>
-      {!posts?.length && <TagCloud tagCloud={tagCloud} />}
-      {posts?.length && (
+      {(posts?.length || 0) <= 0 && <TagCloud tagCloud={tagCloud} />}
+      {(posts?.length || 0) > 0 && (
         <ArchivePostList
           posts={posts}
           title={`${name} - 标签`}

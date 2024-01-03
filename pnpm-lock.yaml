@@ -11,6 +11,9 @@ dependencies:
   busuanzi.pure.js:
     specifier: ^1.0.3
     version: registry.npmmirror.com/busuanzi.pure.js@1.0.3
+  classnames:
+    specifier: ^2.5.1
+    version: registry.npmmirror.com/classnames@2.5.1
   dayjs:
     specifier: ^1.11.10
     version: registry.npmmirror.com/dayjs@1.11.10
@@ -4159,6 +4162,12 @@ packages:
     version: 3.9.0
     engines: {node: '>=8'}
     dev: true
+
+  registry.npmmirror.com/classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==, tarball: https://registry.npmmirror.com/classnames/-/classnames-2.5.1.tgz}
+    name: classnames
+    version: 2.5.1
+    dev: false
 
   registry.npmmirror.com/color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==, tarball: https://registry.npmmirror.com/color-convert/-/color-convert-1.9.3.tgz}

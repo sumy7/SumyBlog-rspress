@@ -50,7 +50,7 @@ export function blogPostResolver(): RspressPlugin {
     extendPageData(pageData) {
       // 首页需要10篇文章列表
       if (pageData?.frontmatter.layout === 'home') {
-        pageData.posts = postInfos.slice(0, 10)
+        pageData.posts = postInfos
       }
       // 混入文章信息
       if (pageData?.frontmatter.layout === 'post') {
