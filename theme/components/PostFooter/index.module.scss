@@ -1,5 +1,6 @@
 .post-footer {
   & > :not(:first-child) {
-    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
   }
 }
