@@ -36,7 +36,11 @@ const PostList = ({ posts = [] }: PostListProps) => {
             </div>
             <div className="mt-2">
               <Link
-                className={`${styles.postTitle} text-2xl font-bold text-gray-700`}
+                className={classnames(
+                  styles.postTitle,
+                  'text-2xl',
+                  'font-bold'
+                )}
                 href={normalizeHrefInRuntime(post.route)}
               >
                 {post.title}
