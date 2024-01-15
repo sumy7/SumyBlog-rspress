@@ -27,13 +27,13 @@ dependencies:
     specifier: ^2.1.0
     version: registry.npmmirror.com/react-ga4@2.1.0
   rspress:
-    specifier: 1.9.2
-    version: registry.npmmirror.com/rspress@1.9.2(typescript@5.3.3)(webpack@5.89.0)
+    specifier: 1.9.3
+    version: registry.npmmirror.com/rspress@1.9.3(typescript@5.3.3)(webpack@5.89.0)
 
 devDependencies:
   '@rspress/shared':
-    specifier: 1.9.2
-    version: registry.npmmirror.com/@rspress/shared@1.9.2
+    specifier: 1.9.3
+    version: registry.npmmirror.com/@rspress/shared@1.9.3
   '@types/node':
     specifier: ^16
     version: registry.npmmirror.com/@types/node@16.18.68
@@ -2199,20 +2199,20 @@ packages:
       react: registry.npmmirror.com/react@18.2.0
     dev: false
 
-  registry.npmmirror.com/@modern-js/node-bundle-require@2.44.0:
-    resolution: {integrity: sha512-q/Cpo6ZXadafnEUcRoQp2VKQX2B8zqs6k5HErQDIbeU17urNQg2wQb3iVGswle8yeEVoLHISEBbf8zA+hiVHTg==, tarball: https://registry.npmmirror.com/@modern-js/node-bundle-require/-/node-bundle-require-2.44.0.tgz}
+  registry.npmmirror.com/@modern-js/node-bundle-require@2.45.0:
+    resolution: {integrity: sha512-gtDt23DwY8OlNT850MvdNIjc5JMRRbeeLoexXlmNIK6b9Or0WX6eHpMGqjGAoZPFjNpc2nb0Xji6dE9beUkUEw==, tarball: https://registry.npmmirror.com/@modern-js/node-bundle-require/-/node-bundle-require-2.45.0.tgz}
     name: '@modern-js/node-bundle-require'
-    version: 2.44.0
+    version: 2.45.0
     dependencies:
-      '@modern-js/utils': registry.npmmirror.com/@modern-js/utils@2.44.0
+      '@modern-js/utils': registry.npmmirror.com/@modern-js/utils@2.45.0
       '@swc/helpers': registry.npmmirror.com/@swc/helpers@0.5.3
       esbuild: registry.npmmirror.com/esbuild@0.17.19
     dev: false
 
-  registry.npmmirror.com/@modern-js/utils@2.44.0:
-    resolution: {integrity: sha512-jzl9NS/cqkFWSI+SsoICzkc+NPpiMMcBpRI4BZBdOwcDpHcM/rntvULQq8XBvzYYo07CEv1vHMGyHiLqdZMbhA==, tarball: https://registry.npmmirror.com/@modern-js/utils/-/utils-2.44.0.tgz}
+  registry.npmmirror.com/@modern-js/utils@2.45.0:
+    resolution: {integrity: sha512-bsPzQ1B46+gqnQjqvo0BXH7RLTFWCTwQAm1G+ALvGIGdmLvgLWEOEiHtvvSLEDiZCfL4I/jHzn2lk96StMJYIA==, tarball: https://registry.npmmirror.com/@modern-js/utils/-/utils-2.45.0.tgz}
     name: '@modern-js/utils'
-    version: 2.44.0
+    version: 2.45.0
     dependencies:
       '@swc/helpers': registry.npmmirror.com/@swc/helpers@0.5.3
       caniuse-lite: registry.npmmirror.com/caniuse-lite@1.0.30001571
@@ -2499,29 +2499,29 @@ packages:
       react-refresh: registry.npmmirror.com/react-refresh@0.14.0
     dev: false
 
-  registry.npmmirror.com/@rspress/core@1.9.2(typescript@5.3.3)(webpack@5.89.0):
-    resolution: {integrity: sha512-XU4apPz3k/iTRLQ3AAuH6UG2TVTLwL4addP0BCcrVK1fnwLM6BoUu/h3iCJKcTClCi1uJHZMecgNqEP0XIMbGA==, tarball: https://registry.npmmirror.com/@rspress/core/-/core-1.9.2.tgz}
-    id: registry.npmmirror.com/@rspress/core/1.9.2
+  registry.npmmirror.com/@rspress/core@1.9.3(typescript@5.3.3)(webpack@5.89.0):
+    resolution: {integrity: sha512-HJGuCxM/Cpa4jFw560m85O/VWf76v2oYb99Dzs8gOisQlSSBYVzhtV6G1rzcUvQccWmtsTB6WzC/e9v9DHKdjw==, tarball: https://registry.npmmirror.com/@rspress/core/-/core-1.9.3.tgz}
+    id: registry.npmmirror.com/@rspress/core/1.9.3
     name: '@rspress/core'
-    version: 1.9.2
+    version: 1.9.3
     engines: {node: '>=14.17.6'}
     dependencies:
       '@loadable/component': registry.npmmirror.com/@loadable/component@5.15.2(react@18.2.0)
       '@mdx-js/loader': registry.npmmirror.com/@mdx-js/loader@2.2.1(webpack@5.89.0)
       '@mdx-js/mdx': registry.npmmirror.com/@mdx-js/mdx@2.2.1
       '@mdx-js/react': registry.npmmirror.com/@mdx-js/react@2.2.1(react@18.2.0)
-      '@modern-js/utils': registry.npmmirror.com/@modern-js/utils@2.44.0
+      '@modern-js/utils': registry.npmmirror.com/@modern-js/utils@2.45.0
       '@rsbuild/core': registry.npmmirror.com/@rsbuild/core@0.2.1
       '@rsbuild/plugin-react': registry.npmmirror.com/@rsbuild/plugin-react@0.2.1
       '@rsbuild/plugin-svgr': registry.npmmirror.com/@rsbuild/plugin-svgr@0.2.1(typescript@5.3.3)(webpack@5.89.0)
       '@rspress/mdx-rs': registry.npmmirror.com/@rspress/mdx-rs@0.4.3
-      '@rspress/plugin-auto-nav-sidebar': registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar@1.9.2
-      '@rspress/plugin-container-syntax': registry.npmmirror.com/@rspress/plugin-container-syntax@1.9.2
-      '@rspress/plugin-last-updated': registry.npmmirror.com/@rspress/plugin-last-updated@1.9.2
-      '@rspress/plugin-medium-zoom': registry.npmmirror.com/@rspress/plugin-medium-zoom@1.9.2(@rspress/runtime@1.9.2)
-      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.9.2
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.2
-      '@rspress/theme-default': registry.npmmirror.com/@rspress/theme-default@1.9.2(webpack@5.89.0)
+      '@rspress/plugin-auto-nav-sidebar': registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar@1.9.3
+      '@rspress/plugin-container-syntax': registry.npmmirror.com/@rspress/plugin-container-syntax@1.9.3
+      '@rspress/plugin-last-updated': registry.npmmirror.com/@rspress/plugin-last-updated@1.9.3
+      '@rspress/plugin-medium-zoom': registry.npmmirror.com/@rspress/plugin-medium-zoom@1.9.3(@rspress/runtime@1.9.3)
+      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.9.3
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.3
+      '@rspress/theme-default': registry.npmmirror.com/@rspress/theme-default@1.9.3(webpack@5.89.0)
       '@types/compression': registry.npmmirror.com/@types/compression@1.7.5
       '@types/polka': registry.npmmirror.com/@types/polka@0.5.7
       body-scroll-lock: registry.npmmirror.com/body-scroll-lock@4.0.0-beta.0
@@ -2685,63 +2685,63 @@ packages:
       '@rspress/mdx-rs-win32-x64-msvc': registry.npmmirror.com/@rspress/mdx-rs-win32-x64-msvc@0.4.3
     dev: false
 
-  registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar@1.9.2:
-    resolution: {integrity: sha512-14vUTXIlCQY9+405Ur19Uqn0MsPnLJjDX7l82SZDWSTkOdCmwFBWk0XdZvonmo3b7V8MKSVWDIp4J2PdDBt1WQ==, tarball: https://registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar/-/plugin-auto-nav-sidebar-1.9.2.tgz}
+  registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar@1.9.3:
+    resolution: {integrity: sha512-NApL/o3/HNjFMpEFivxkHjVDBuETsPseX3ErSrovhBtz7HrJVFQdtolf21K8Ku/iqItNZkkj2ivt+hpA+owZnw==, tarball: https://registry.npmmirror.com/@rspress/plugin-auto-nav-sidebar/-/plugin-auto-nav-sidebar-1.9.3.tgz}
     name: '@rspress/plugin-auto-nav-sidebar'
-    version: 1.9.2
+    version: 1.9.3
     engines: {node: '>=14.17.6'}
     dependencies:
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.2
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.3
     dev: false
 
-  registry.npmmirror.com/@rspress/plugin-container-syntax@1.9.2:
-    resolution: {integrity: sha512-LcqKNlHvLGd0/CUggqhAkQ0lnetq8IRgcYRAR8M7/Ulwdpzu631PfCg5rgVOj91SVhBRbjZlnV/UJMIhulj1zA==, tarball: https://registry.npmmirror.com/@rspress/plugin-container-syntax/-/plugin-container-syntax-1.9.2.tgz}
+  registry.npmmirror.com/@rspress/plugin-container-syntax@1.9.3:
+    resolution: {integrity: sha512-38Q3xSK8pVBeWMReGrNE2CPeHlWaCiIVJwdKp8uuW3AQGsujPAaiYUtA56S5SAJKEQ5hrdBi6KTSsloE6zRbfQ==, tarball: https://registry.npmmirror.com/@rspress/plugin-container-syntax/-/plugin-container-syntax-1.9.3.tgz}
     name: '@rspress/plugin-container-syntax'
-    version: 1.9.2
+    version: 1.9.3
     engines: {node: '>=14.17.6'}
     dependencies:
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.2
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.3
     dev: false
 
-  registry.npmmirror.com/@rspress/plugin-last-updated@1.9.2:
-    resolution: {integrity: sha512-37vFaMKyT6dPQZeivDFV5k1RqZmlQmGhL7GpEHtQnyOIqzM46BnMwF0xvHlGKIE3b22IOFenO0jYk+cSm+K0kQ==, tarball: https://registry.npmmirror.com/@rspress/plugin-last-updated/-/plugin-last-updated-1.9.2.tgz}
+  registry.npmmirror.com/@rspress/plugin-last-updated@1.9.3:
+    resolution: {integrity: sha512-64UICEzGew1wRLr8WXKgxvUUwXKBCVq4cW4OEJRndO20OIeXSlAWjSWICROKy6u7eDJveVy+ftN/3eHQpxXFRA==, tarball: https://registry.npmmirror.com/@rspress/plugin-last-updated/-/plugin-last-updated-1.9.3.tgz}
     name: '@rspress/plugin-last-updated'
-    version: 1.9.2
+    version: 1.9.3
     engines: {node: '>=14.17.6'}
     dependencies:
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.2
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.3
     dev: false
 
-  registry.npmmirror.com/@rspress/plugin-medium-zoom@1.9.2(@rspress/runtime@1.9.2):
-    resolution: {integrity: sha512-kiR/Ptv4kYli2hrFbDmmUGKMZwzaKiMBoNAD4ep7q+FxxgKCSy/K7bNAuTtynDRnJK2yEp1vNBCMlc6crioh5w==, tarball: https://registry.npmmirror.com/@rspress/plugin-medium-zoom/-/plugin-medium-zoom-1.9.2.tgz}
-    id: registry.npmmirror.com/@rspress/plugin-medium-zoom/1.9.2
+  registry.npmmirror.com/@rspress/plugin-medium-zoom@1.9.3(@rspress/runtime@1.9.3):
+    resolution: {integrity: sha512-4sQIAsxIUy39Hm1KBTcjJFCpGr0ErqUOLFC+4kqbdtuFb52ZYlDC8dDMeT+DEt4E1NstGIADABe+m/7T7kVqng==, tarball: https://registry.npmmirror.com/@rspress/plugin-medium-zoom/-/plugin-medium-zoom-1.9.3.tgz}
+    id: registry.npmmirror.com/@rspress/plugin-medium-zoom/1.9.3
     name: '@rspress/plugin-medium-zoom'
-    version: 1.9.2
+    version: 1.9.3
     engines: {node: '>=14.17.6'}
     peerDependencies:
       '@rspress/runtime': ^1.0.2
     dependencies:
-      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.9.2
+      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.9.3
       medium-zoom: registry.npmmirror.com/medium-zoom@1.0.8
     dev: false
 
-  registry.npmmirror.com/@rspress/runtime@1.9.2:
-    resolution: {integrity: sha512-khuQ537WIt/zsPUDRpNn8jOMbQRCANE+hcXW2pmNXGxwqLS8c7y5xfUYgWP1mLelgrtx1bjMG7qfBzU6z/mHJA==, tarball: https://registry.npmmirror.com/@rspress/runtime/-/runtime-1.9.2.tgz}
+  registry.npmmirror.com/@rspress/runtime@1.9.3:
+    resolution: {integrity: sha512-SraABK4XzNfHzdi2/dwxVnPhmPriwlZuI4AFZhFq6tP7jVjPePH+D91p25aA7CokfuslFZQ6pOAwCvtsHAcFIA==, tarball: https://registry.npmmirror.com/@rspress/runtime/-/runtime-1.9.3.tgz}
     name: '@rspress/runtime'
-    version: 1.9.2
+    version: 1.9.3
     engines: {node: '>=14.17.6'}
     dependencies:
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.2
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.3
       react: registry.npmmirror.com/react@18.2.0
       react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
       react-helmet-async: registry.npmmirror.com/react-helmet-async@1.3.0(react-dom@18.2.0)(react@18.2.0)
       react-router-dom: registry.npmmirror.com/react-router-dom@6.21.1(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
-  registry.npmmirror.com/@rspress/shared@1.9.2:
-    resolution: {integrity: sha512-69d5sN+fEMdXHBViPOYorwy/mpoHgABlTTyenxvrjII0+NPAInR3ffJNFHiKtdhwk08XPdk2qsUYdzh4O9NlZQ==, tarball: https://registry.npmmirror.com/@rspress/shared/-/shared-1.9.2.tgz}
+  registry.npmmirror.com/@rspress/shared@1.9.3:
+    resolution: {integrity: sha512-wo1CNQUbNAkVMu9bE8TdfPqYyFS2UYMpnz0rge1aVACApLJIapiLxVlZffKhWOm59QE2BHP5VvcENYtLOY+4Rg==, tarball: https://registry.npmmirror.com/@rspress/shared/-/shared-1.9.3.tgz}
     name: '@rspress/shared'
-    version: 1.9.2
+    version: 1.9.3
     dependencies:
       '@rsbuild/core': registry.npmmirror.com/@rsbuild/core@0.2.1
       chalk: registry.npmmirror.com/chalk@4.1.2
@@ -2751,16 +2751,16 @@ packages:
       rslog: registry.npmmirror.com/rslog@1.1.2
       unified: registry.npmmirror.com/unified@10.1.2
 
-  registry.npmmirror.com/@rspress/theme-default@1.9.2(webpack@5.89.0):
-    resolution: {integrity: sha512-H0/s5NDxUlkHNy31EgXcEBGi1kB8GvD4EIiY9hvBIab/lGz3X+jPQhBW+z3/djW58x/YSMRrJkgkKmL/V5s86A==, tarball: https://registry.npmmirror.com/@rspress/theme-default/-/theme-default-1.9.2.tgz}
-    id: registry.npmmirror.com/@rspress/theme-default/1.9.2
+  registry.npmmirror.com/@rspress/theme-default@1.9.3(webpack@5.89.0):
+    resolution: {integrity: sha512-zTna9BjOOZPhiGLqJTgs8ydWmsItvdsTMpZVNAOjgaR0Yo5TIHM8ntH2VgMwbMPZe/dGFLx3pgTqutWXpmtgCw==, tarball: https://registry.npmmirror.com/@rspress/theme-default/-/theme-default-1.9.3.tgz}
+    id: registry.npmmirror.com/@rspress/theme-default/1.9.3
     name: '@rspress/theme-default'
-    version: 1.9.2
+    version: 1.9.3
     engines: {node: '>=14.17.6'}
     dependencies:
       '@mdx-js/react': registry.npmmirror.com/@mdx-js/react@2.2.1(react@18.2.0)
-      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.9.2
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.2
+      '@rspress/runtime': registry.npmmirror.com/@rspress/runtime@1.9.3
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.3
       body-scroll-lock: registry.npmmirror.com/body-scroll-lock@4.0.0-beta.0
       copy-to-clipboard: registry.npmmirror.com/copy-to-clipboard@3.3.3
       flexsearch: registry.npmmirror.com/flexsearch@0.6.32
@@ -8648,16 +8648,16 @@ packages:
       fs-extra: registry.npmmirror.com/fs-extra@11.2.0
     dev: false
 
-  registry.npmmirror.com/rspress@1.9.2(typescript@5.3.3)(webpack@5.89.0):
-    resolution: {integrity: sha512-xC61UChaeLoEsYgm6u7EvgSDtDkkRQcrN8RPpjMiq5A/zRP/lldNkCVBalRr+Rc1+ZaGxi2Nt6mQLxsokr1M7Q==, tarball: https://registry.npmmirror.com/rspress/-/rspress-1.9.2.tgz}
-    id: registry.npmmirror.com/rspress/1.9.2
+  registry.npmmirror.com/rspress@1.9.3(typescript@5.3.3)(webpack@5.89.0):
+    resolution: {integrity: sha512-kntsuxZcUuOHCHnxa6Kp4bP9zj54RAC1TDAnvgrDrFfFrT72nlsRCGhUwtwgi2Y0ZLBrYbR5DNwgPwhSxs31VA==, tarball: https://registry.npmmirror.com/rspress/-/rspress-1.9.3.tgz}
+    id: registry.npmmirror.com/rspress/1.9.3
     name: rspress
-    version: 1.9.2
+    version: 1.9.3
     hasBin: true
     dependencies:
-      '@modern-js/node-bundle-require': registry.npmmirror.com/@modern-js/node-bundle-require@2.44.0
-      '@rspress/core': registry.npmmirror.com/@rspress/core@1.9.2(typescript@5.3.3)(webpack@5.89.0)
-      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.2
+      '@modern-js/node-bundle-require': registry.npmmirror.com/@modern-js/node-bundle-require@2.45.0
+      '@rspress/core': registry.npmmirror.com/@rspress/core@1.9.3(typescript@5.3.3)(webpack@5.89.0)
+      '@rspress/shared': registry.npmmirror.com/@rspress/shared@1.9.3
       cac: registry.npmmirror.com/cac@6.7.14
       chalk: registry.npmmirror.com/chalk@5.3.0
       chokidar: registry.npmmirror.com/chokidar@3.5.3
