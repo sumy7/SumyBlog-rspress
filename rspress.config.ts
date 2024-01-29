@@ -17,6 +17,16 @@ export default defineConfig({
   title: 'SumyBlog',
   description: "SumyGG's Blog",
   icon: '/favicon.ico',
+  builderConfig: {
+    source: {
+      alias: {
+        '@docs': path.join(__dirname, 'docs'),
+        '@plugins': path.join(__dirname, 'plugins'),
+        '@source': path.join(__dirname, 'source'),
+        '@theme': path.join(__dirname, 'theme'),
+      },
+    },
+  },
   themeConfig: {
     socialLinks: [
       { icon: 'github', mode: 'link', content: 'https://github.com/sumy7/' },

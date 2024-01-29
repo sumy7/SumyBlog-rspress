@@ -1,7 +1,7 @@
 import React from 'react'
-import GiscusComments from '../../GiscusComments'
-import PrevNextPage from '../PrevNextPage'
-import GoogleAds from '../../GoogleAds'
+import GiscusComments from '@theme/GiscusComments'
+import PrevNextPage from '@theme/components/PrevNextPage'
+import GoogleAds from '@theme/GoogleAds'
 
 import styles from './index.module.scss'
 

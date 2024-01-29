@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
-import { Link } from '../../index'
+import { Link } from '@theme/index'
 import { normalizeHrefInRuntime } from 'rspress/runtime'
-import { PostInfo } from '../../../plugins/PostData'
+import { PostInfo } from '@plugins/PostData'
 
 import styles from './index.module.scss'
 

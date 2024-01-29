@@ -1,7 +1,7 @@
 import React from 'react'
 import { normalizeHrefInRuntime } from 'rspress/runtime'
-import { Link } from '../../index'
-import { PostInfo } from '../../../plugins/PostData'
+import { Link } from '@theme/index'
+import { PostInfo } from '@plugins/PostData'
 
 import styles from './index.module.scss'
 import classnames from 'classnames'

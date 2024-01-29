@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react'
-import PostList from '../PostList'
+import PostList from '@theme/components/PostList'
 import styles from './index.module.scss'
 import { usePageData, useSearchParams } from 'rspress/runtime'
-import { PostInfo } from '../../../plugins/PostData'
-import Pagination from '../Pagination'
+import { PostInfo } from '@plugins/PostData'
+import Pagination from '@theme/components/Pagination'
 
 const HomeLayout = () => {
   const { page } = usePageData()

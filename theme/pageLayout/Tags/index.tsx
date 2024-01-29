@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
 import { usePageData, useSearchParams } from 'rspress/runtime'
 import TagCloud from './TagCloud'
-import { PostInfo } from '../../../plugins/PostData'
-import ArchivePostList from '../../components/ArchivePostList'
+import { PostInfo } from '@plugins/PostData'
+import ArchivePostList from '@theme/components/ArchivePostList'
 
 interface PageData {
   page: {

@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './index.module.scss'
 import { Link, useLocaleSiteData } from 'rspress/theme'
 import { usePageData, normalizeHrefInRuntime } from 'rspress/runtime'
-import { PostInfo } from '../../../plugins/PostData'
+import { PostInfo } from '@plugins/PostData'
 
 const PrevNextPage = () => {
   const { prevPageText = 'Previous Page', nextPageText = 'Next page' } =

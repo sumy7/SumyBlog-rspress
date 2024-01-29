@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "@docs/*": ["docs/*"],
+      "@source/*": ["source/*"],
+      "@plugins/*": ["plugins/*"],
+      "@theme/*": ["theme/*"],
+    }
   }
 }

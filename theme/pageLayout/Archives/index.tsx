@@ -1,8 +1,8 @@
 import React from 'react'
 import { usePageData } from 'rspress/runtime'
-import { PostInfo } from '../../../plugins/PostData'
+import { PostInfo } from '@plugins/PostData'
 
-import ArchivePostList from '../../components/ArchivePostList'
+import ArchivePostList from '@theme/components/ArchivePostList'
 
 const Archives = () => {
   const {
