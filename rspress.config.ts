@@ -73,6 +73,7 @@ export default defineConfig({
       docRepoBaseUrl:
         'https://github.com/sumy7/SumyBlog-rspress/blob/main/source/',
     },
+    searchPlaceholderText: '搜索...',
   },
   globalUIComponents: [],
   route: {
