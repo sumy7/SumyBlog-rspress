@@ -1,0 +1,23 @@
+.postDate {
+  display: inline-block;
+  width: 100px;
+}
+
+.postItem {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-top: 8px;
+  color: var(--rp-c-text-code);
+  word-break: break-all;
+  transition: color 0.5s ease 0s;
+}
+
+.postItem:hover {
+  transition: color 0.5s;
+  color: var(--rp-c-brand-dark);
+}
+
+.postLink {
+  display: inline-block;
+}
