@@ -1,13 +1,13 @@
 {
+  "extends": "@modern-js/tsconfig/base",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "esModuleInterop": true,
+    "target": "ES2019",
+    "declaration": true,
+    "outDir": "./dist",
+    "jsx": "preserve",
     "baseUrl": "./",
-    "paths": {
-      "@docs/*": ["docs/*"],
-      "@source/*": ["source/*"],
-      "@plugins/*": ["plugins/*"],
-      "@theme/*": ["theme/*"],
-    }
-  }
+    "isolatedModules": true,
+    "paths": {}
+  },
+  "include": []
 }

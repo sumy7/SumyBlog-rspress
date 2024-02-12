@@ -1,40 +1,38 @@
 {
-  "name": "sumy-blog-rspress",
+  "name": "sumyblog",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "rspress dev",
-    "build": "rspress build",
-    "preview": "rspress preview"
+    "new": "modern new",
+    "prepare": "npm run build && husky install",
+    "build": "cross-env NX_DAEMON=false NX_REJECT_UNKNOWN_LOCAL_CACHE=0 nx run-many -t build --exclude @sumyblog/rspress-blog",
+    "dev:blog": "cross-env NX_DAEMON=false NX_REJECT_UNKNOWN_LOCAL_CACHE=0 nx run @sumyblog/rspress-blog:dev",
+    "build:blog": "cross-env NX_DAEMON=false NX_REJECT_UNKNOWN_LOCAL_CACHE=0 nx run @sumyblog/rspress-blog:build"
   },
-  "peerDependencies": {
-    "parse5": "^6.0.1"
-  },
-  "dependencies": {
-    "@giscus/react": "^2.3.0",
-    "busuanzi.pure.js": "^1.0.3",
-    "classnames": "^2.5.1",
-    "dayjs": "^1.11.10",
-    "react": "^18.2.0",
-    "react-ga4": "^2.1.0",
-    "rspress": "1.11.2"
+  "workspaces": {
+    "packages": [
+      "blog",
+      "packages/*"
+    ]
   },
   "devDependencies": {
-    "@rspress/shared": "1.11.2",
-    "@types/node": "^16",
-    "@types/react": "^18.2.37",
-    "@typescript-eslint/eslint-plugin": "^6.12.0",
-    "@typescript-eslint/parser": "^6.12.0",
-    "eslint": "^8.54.0",
-    "eslint-plugin-mdx": "^2.2.0",
-    "eslint-plugin-react": "^7.33.2",
-    "gray-matter": "^4.0.3",
-    "hexo-util": "^3.1.0",
-    "prettier": "^3.1.0",
-    "rehype-katex": "^6.0.3",
-    "rehype-raw": "^6.1.1",
-    "remark-gemoji": "^8.0.0",
-    "remark-math": "^5.1.1",
-    "tailwindcss": "^3.4.0"
+    "@modern-js-app/eslint-config": "2.46.1",
+    "@modern-js/eslint-config": "2.46.1",
+    "@modern-js/generator-utils": "3.3.8",
+    "@modern-js/module-tools": "2.46.1",
+    "@modern-js/monorepo-tools": "2.46.1",
+    "@modern-js/plugin-tailwindcss": "^2.46.1",
+    "@modern-js/tsconfig": "2.46.1",
+    "cross-env": "^7.0.3",
+    "husky": "^8.0.0",
+    "nx": "17.0.2",
+    "prettier": "~2.8.1",
+    "rimraf": "~3.0.2",
+    "tailwindcss": "^3.4.0",
+    "typescript": "~5.0.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

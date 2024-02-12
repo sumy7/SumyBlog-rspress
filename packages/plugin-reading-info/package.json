@@ -1,0 +1,24 @@
+{
+  "name": "@sumyblog/rspress-plugin-reading-info",
+  "version": "0.1.0",
+  "types": "./dist/types/index.d.ts",
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.js",
+  "scripts": {
+    "dev": "modern build -w",
+    "build": "modern build",
+    "new": "modern new",
+    "upgrade": "modern upgrade"
+  },
+  "dependencies": {
+    "@rspress/shared": "1.11.2"
+  },
+  "devDependencies": {
+    "@types/node": "~16.11.7"
+  },
+  "sideEffects": [],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

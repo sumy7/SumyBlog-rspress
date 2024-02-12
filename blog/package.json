@@ -1,0 +1,44 @@
+{
+  "name": "@sumyblog/rspress-blog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "rspress dev",
+    "build": "rspress build",
+    "preview": "rspress preview"
+  },
+  "peerDependencies": {
+    "parse5": "^6.0.1"
+  },
+  "dependencies": {
+    "@giscus/react": "^2.3.0",
+    "busuanzi.pure.js": "^1.0.3",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.10",
+    "react": "^18.2.0",
+    "react-ga4": "^2.1.0",
+    "rspress": "1.11.2"
+  },
+  "devDependencies": {
+    "@rspress/shared": "1.11.2",
+    "@types/node": "^16",
+    "@types/react": "^18.2.37",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "eslint": "^8.54.0",
+    "eslint-plugin-mdx": "^2.2.0",
+    "eslint-plugin-react": "^7.33.2",
+    "gray-matter": "^4.0.3",
+    "hexo-util": "^3.1.0",
+    "prettier": "^3.1.0",
+    "rehype-katex": "^6.0.3",
+    "rehype-raw": "^6.1.1",
+    "remark-gemoji": "^8.0.0",
+    "remark-math": "^5.1.1",
+    "tailwindcss": "^3.4.0",
+    "@sumyblog/rspress-plugin-post-resolver": "workspace:*",
+    "@sumyblog/rspress-plugin-reading-info": "workspace:*",
+    "@sumyblog/rspress-plugin-post-archives": "workspace:*",
+    "@sumyblog/rspress-plugin-post-tags": "workspace:*"
+  }
+}
