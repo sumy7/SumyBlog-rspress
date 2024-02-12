@@ -33,9 +33,9 @@ jobs:
         run: pnpm install
       - name: Build with Rspress
         run: |
-          pnpm run build
+          pnpm run build:blog
       - name: Archive files
-        run: zip -qq -r sumyblog.zip ./doc_build
+        run: zip -qq -r sumyblog.zip ./blog/doc_build
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -56,7 +56,7 @@ jobs:
         run: unzip -qq sumyblog.zip -d ./
       - name: Commit files
         run: |
-          cd ./doc_build
+          cd ./blog/doc_build
           git init
           git remote add origin git@github.com:sumy7/sumy7.github.io.git
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -70,5 +70,5 @@ jobs:
           github_token: ${{ secrets.DEPLOY_TOKENS }}
           repository: sumy7/sumy7.github.io
           branch: main
-          directory: ./doc_build
+          directory: ./blog/doc_build
           force: true
