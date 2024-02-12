@@ -10,6 +10,7 @@ import remarkMath from 'remark-math'
 import { blogPostResolver } from '@sumyblog/rspress-plugin-post-resolver'
 import { postReadingInfoPlugin } from '@sumyblog/rspress-plugin-reading-info'
 import { archivesPagePlugin } from '@sumyblog/rspress-plugin-post-archives'
+import { categoriesPagePlugin } from '@sumyblog/rspress-plugin-post-categories'
 import { tagsPagePlugin } from '@sumyblog/rspress-plugin-post-tags'
 
 export default defineConfig({
@@ -51,6 +52,11 @@ export default defineConfig({
         text: '归档',
         link: '/blog/archives/',
         activeMatch: '/blog/archives/',
+      },
+      {
+        text: '分类',
+        link: '/blog/categories/',
+        activeMatch: '/blog/categories/',
       },
       {
         text: '标签',
@@ -106,9 +112,9 @@ export default defineConfig({
     blogPostResolver({
       postsDir: path.join(__dirname, 'source/_posts'),
     }),
-    // blogPostResolver(),
     postReadingInfoPlugin(),
     archivesPagePlugin(),
+    categoriesPagePlugin(),
     tagsPagePlugin(),
   ],
 })

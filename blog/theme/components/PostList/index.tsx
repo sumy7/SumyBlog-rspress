@@ -25,14 +25,17 @@ const PostList = ({ posts = [] }: PostListProps) => {
               <span className="font-light text-gray-600">
                 {(post.date || '').slice(0, 10)}
               </span>
-              <span
+              <Link
                 className={classnames(
                   styles.postCategories,
                   'px-2 py-1 text-gray-100'
                 )}
+                href={`/blog/categories/index.html?category=${encodeURIComponent(
+                  post.categories?.join('/') || ''
+                )}`}
               >
                 # {(post.categories || []).join(' / ')}
-              </span>
+              </Link>
             </div>
             <div className="mt-2">
               <Link

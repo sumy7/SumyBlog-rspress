@@ -2,7 +2,7 @@ import path from 'node:path'
 import dayjs from 'dayjs'
 import { Permalink } from 'hexo-util'
 import grayMatter from 'gray-matter'
-import { PostInfo, PostTag } from '@/types'
+import { PostCategory, PostInfo, PostTag } from '@/types'
 
 const fileNamePattern = ':year-:month-:day-:title.md'
 const permalinkPattern = ':year/:month/:day/:title/'
@@ -43,8 +43,13 @@ function norminalizeTags(tags: string | string[]): string[] {
   return tags.split(',')
 }
 
+// 所有的文章列表
 export const postInfos: PostInfo[] = []
 
+// 文章分类，树形结构
+export const postCategories = new Map<string, PostCategory>()
+
+// 文章标签
 export const postTags = new Map<string, PostTag>()
 
 /**
@@ -92,6 +97,31 @@ export function getPostInfo(filepath: string): PostInfo | null {
 export function addPost(post: PostInfo) {
   postInfos.push(post)
 
+  // 添加分类
+  let currentCategories = postCategories
+  let currentCategory: PostCategory | undefined
+  post.categories.forEach((category) => {
+    const postCategory = currentCategories.get(category)
+    if (postCategory) {
+      currentCategories = postCategory.children
+      currentCategory = postCategory
+    } else {
+      const newCategory: PostCategory = {
+        name: category,
+        count: 0,
+        children: new Map(),
+        posts: [],
+      }
+      currentCategories.set(category, newCategory)
+      currentCategories = newCategory.children
+      currentCategory = newCategory
+    }
+  })
+  if (currentCategory) {
+    currentCategory.count++
+    currentCategory.posts.push(post)
+  }
+
   // 添加标签
   post.tags.forEach((tag) => {
     const postTag = postTags.get(tag)
@@ -115,6 +145,18 @@ export function sortPostInfos() {
   postInfos.sort((a, b) => {
     return dayjs(b.date).unix() - dayjs(a.date).unix()
   })
+
+  // 分类中的文章也顺便排一下
+  const sortPostCategories = (categories: Map<string, PostCategory>) => {
+    categories.forEach((postCategory) => {
+      postCategory.posts.sort((a, b) => {
+        return dayjs(b.date).unix() - dayjs(a.date).unix()
+      })
+      sortPostCategories(postCategory.children)
+    })
+  }
+  sortPostCategories(postCategories)
+
   // 标签中的文章也需要排序
   postTags.forEach((postTag) => {
     postTag.posts.sort((a, b) => {

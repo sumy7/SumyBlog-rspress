@@ -1,0 +1,29 @@
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+
+  .tagItem {
+    display: inline-flex;
+    gap: .5em;
+
+    padding: 4px 16px;
+    margin: 6px 8px;
+
+    font-weight: 500;
+    background-color: var(--rp-c-bg-soft);
+    cursor: pointer;
+    color: var(--rp-c-text-1);
+    border-radius: 12px;
+
+    &:hover {
+      color: var(--rp-c-brand-dark);
+    }
+
+    .tag-name {
+
+    }
+    .tag-post-count {
+
+    }
+  }
+}

@@ -84,6 +84,9 @@ importers:
       '@sumyblog/rspress-plugin-post-archives':
         specifier: workspace:*
         version: link:../packages/plugin-post-archives
+      '@sumyblog/rspress-plugin-post-categories':
+        specifier: workspace:*
+        version: link:../packages/plugin-post-categories
       '@sumyblog/rspress-plugin-post-resolver':
         specifier: workspace:*
         version: link:../packages/plugin-post-resolver
@@ -140,6 +143,37 @@ importers:
         version: 3.4.0
 
   packages/plugin-post-archives:
+    dependencies:
+      '@rspress/runtime':
+        specifier: 1.11.2
+        version: 1.11.2
+      '@rspress/shared':
+        specifier: 1.11.2
+        version: 1.11.2
+    devDependencies:
+      '@sumyblog/rspress-plugin-post-resolver':
+        specifier: workspace:*
+        version: link:../plugin-post-resolver
+      '@types/node':
+        specifier: ~16.11.7
+        version: 16.11.68
+      '@types/react':
+        specifier: ^18
+        version: 18.2.45
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.2.19
+      react:
+        specifier: ^18
+        version: 18.2.0
+      react-dom:
+        specifier: ^18
+        version: 18.2.0(react@18.2.0)
+      react-router-dom:
+        specifier: ^6.8.1
+        version: 6.21.1(react-dom@18.2.0)(react@18.2.0)
+
+  packages/plugin-post-categories:
     dependencies:
       '@rspress/runtime':
         specifier: 1.11.2

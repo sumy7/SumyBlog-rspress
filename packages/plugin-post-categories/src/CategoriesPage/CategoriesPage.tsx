@@ -10,7 +10,7 @@ import './index.less'
 interface PageData {
   page: {
     frontmatter: Record<string, unknown>
-    tagCloud: {
+    categoriesData: {
       name: string
       count: number
       posts: PostInfo[]
@@ -20,27 +20,27 @@ interface PageData {
 
 const Tags = () => {
   const {
-    page: { tagCloud = [] },
+    page: { categoriesData = [] },
   } = usePageData() as unknown as PageData
 
   const [searchParams] = useSearchParams()
 
   const { name, posts } = useMemo(() => {
-    const tag = searchParams.get('tag')
-    if (tag) {
-      const tagInfo = tagCloud.find((item) => item.name === tag)
-      if (tagInfo) {
-        return tagInfo
+    const category = searchParams.get('category')
+    if (category) {
+      const categoryInfo = categoriesData.find((item) => item.name === category)
+      if (categoryInfo) {
+        return categoryInfo
       }
     }
     return { name: '', posts: [] }
-  }, [searchParams.get('tag'), tagCloud])
+  }, [searchParams.get('category'), categoriesData])
 
   return (
     <div>
-      {(posts?.length || 0) <= 0 && <TagCloud tagCloud={tagCloud} />}
+      {(posts?.length || 0) <= 0 && <TagCloud tagCloud={categoriesData} />}
       {(posts?.length || 0) > 0 && (
-        <ArchivePostList posts={posts} title={`${name} - 标签`} />
+        <ArchivePostList posts={posts} title={`${name} - 分类`} />
       )}
     </div>
   )

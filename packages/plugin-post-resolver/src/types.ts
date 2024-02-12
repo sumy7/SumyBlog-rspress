@@ -1,8 +1,14 @@
+/**
+ * 插件选项
+ */
 export interface PluginOptions {
   // 文章目录
   postsDir?: string
 }
 
+/**
+ * 文章信息
+ */
 export interface PostInfo {
   // 文章标题
   title: string
@@ -18,11 +24,28 @@ export interface PostInfo {
   tags: string[]
 }
 
+/**
+ * 文章标签
+ */
 export interface PostTag {
   // 标签名称
   name: string
-  // 标签数量
+  // 标签文章数量
   count: number
+  // 文章
+  posts: PostInfo[]
+}
+
+/**
+ * 文章分类
+ */
+export interface PostCategory {
+  // 分类名称
+  name: string
+  // 分类文章数量
+  count: number
+  // 子分类
+  children: Map<string, PostCategory>
   // 文章
   posts: PostInfo[]
 }

@@ -1,0 +1,38 @@
+{
+  "name": "@sumyblog/rspress-plugin-post-categories",
+  "version": "0.1.0",
+  "jsnext:source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "scripts": {
+    "dev": "modern build -w",
+    "build": "modern build",
+    "new": "modern new",
+    "upgrade": "modern upgrade"
+  },
+  "dependencies": {
+    "@rspress/runtime": "1.11.2",
+    "@rspress/shared": "1.11.2"
+  },
+  "devDependencies": {
+    "@sumyblog/rspress-plugin-post-resolver": "workspace:*",
+    "@types/node": "~16.11.7",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-router-dom": "^6.8.1"
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "dist/"
+  ],
+  "sideEffects": [],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
