@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import classnames from 'classnames'
 
 import styles from './index.module.scss'
@@ -10,13 +10,6 @@ interface PaginationProps {
 }
 
 const Pagination = ({ currentPage, totalPage, onChange }: PaginationProps) => {
-  const handlePrev = () => {
-    onChange(currentPage - 1)
-  }
-  const handleNext = () => {
-    onChange(currentPage + 1)
-  }
-
   const neighboursNumber = 1
 
   const paginationItems = useMemo(() => {
@@ -101,7 +94,7 @@ const Pagination = ({ currentPage, totalPage, onChange }: PaginationProps) => {
           )}
           onClick={() => {
             if (!item.disabled) {
-              onChange(item.page)
+              onChange(item.page as number)
             }
           }}
         >

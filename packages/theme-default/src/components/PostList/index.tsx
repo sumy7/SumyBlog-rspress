@@ -1,9 +1,7 @@
-import React from 'react'
-import { normalizeHrefInRuntime } from 'rspress/runtime'
-import { Link } from '@theme/index'
+import { normalizeHrefInRuntime } from '@rspress/runtime'
 import { PostInfo } from '@sumyblog/rspress-plugin-post-resolver'
 import classnames from 'classnames'
-
+import { Link } from '@rspress/theme-default'
 import styles from './index.module.scss'
 
 interface PostListProps {

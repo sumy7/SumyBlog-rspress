@@ -1,7 +1,7 @@
-.post-info-container {
+.postInfoContainer {
   margin-bottom: 20px;
 
-  .post-info-item {
+  .postInfoItem {
     padding: 0 12px;
     white-space: nowrap;
     overflow: hidden;
@@ -10,11 +10,11 @@
     font-size: 13px;
     line-height: 1.75rem;
 
-    .post-info-label {
+    .postInfoLabel {
       display: inline-block;
       width: 5em;
     }
-    .post-info-content {
+    .postInfoContent {
     }
   }
 }

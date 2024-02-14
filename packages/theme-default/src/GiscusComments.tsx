@@ -1,6 +1,5 @@
-import React from 'react'
 import Giscus from '@giscus/react'
-import { useLocation } from 'rspress/runtime'
+import { useLocation } from '@rspress/runtime'
 
 export default function Comments() {
   const location = useLocation()

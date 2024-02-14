@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import dayjs from 'dayjs'
-import { usePageData } from 'rspress/runtime'
+import { usePageData } from '@rspress/runtime'
 import { BaseRuntimePageInfo } from '@rspress/shared'
 import Busuanzi from './Busuanzi'
 

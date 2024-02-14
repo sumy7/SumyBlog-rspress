@@ -1,9 +1,8 @@
-import React from 'react'
-import GiscusComments from '@theme/GiscusComments'
-import PrevNextPage from '@theme/components/PrevNextPage'
-import GoogleAds from '@theme/GoogleAds'
-
 import styles from './index.module.scss'
+
+import GiscusComments from '@/GiscusComments'
+import PrevNextPage from '@/components/PrevNextPage'
+import GoogleAds from '@/GoogleAds'
 
 const PostFooter = () => {
   return (

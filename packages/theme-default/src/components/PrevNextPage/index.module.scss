@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.pager-link {
+.pagerLink {
   display: block;
   border: 1px solid var(--rp-c-divider-light) !important;
   border-radius: 24px;
@@ -16,15 +16,15 @@
   transition: border-color 0.25s;
 }
 
-.pager-link:hover {
+.pagerLink:hover {
   border-color: var(--rp-c-brand) !important;
 }
 
-.pager-link:hover .title {
+.pagerLink:hover .title {
   color: var(--rp-c-brand-dark);
 }
 
-.pager-link.next {
+.pagerLink.next {
   margin-left: auto;
   text-align: right;
 }

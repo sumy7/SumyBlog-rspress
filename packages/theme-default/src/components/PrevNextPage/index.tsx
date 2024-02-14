@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link, useLocaleSiteData } from 'rspress/theme'
-import { usePageData, normalizeHrefInRuntime } from 'rspress/runtime'
+import { usePageData, normalizeHrefInRuntime } from '@rspress/runtime'
 import { PostInfo } from '@sumyblog/rspress-plugin-post-resolver'
+
+import { Link, useLocaleSiteData } from '@rspress/theme-default'
 
 import styles from './index.module.scss'
 

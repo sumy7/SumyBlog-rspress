@@ -1,0 +1,77 @@
+import { useEffect } from 'react'
+import Theme from '@rspress/theme-default'
+import { Helmet, useLocation, usePageData } from '@rspress/runtime'
+import { getLayout } from './layout'
+import Footer from '@/components/Footer'
+
+import './index.scss'
+
+const Layout = () => {
+  const { siteData, page } = usePageData()
+  const { pageType, lang: currentLang, title: articleTitle, frontmatter } = page
+  // const defaultLang = siteData.lang || ''
+  const mainTitle = siteData.title
+
+  const location = useLocation()
+
+  let title = (frontmatter?.title as string) ?? articleTitle
+  if (title && pageType === 'doc') {
+    title = `${title} - ${mainTitle}`
+  } else {
+    title = mainTitle
+  }
+  const description =
+    (frontmatter?.description as string) || siteData.description
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
+  // 页面切换时上报页面浏览事件
+  useEffect(() => {
+    setTimeout(() => {
+      // @ts-expect-error
+      window.dataLayer.push({
+        event: 'pageview',
+        page: {
+          url: location.pathname + location.search,
+        },
+      })
+    })
+  }, [location.pathname, location.search])
+
+  return (
+    <div>
+      <Helmet
+        htmlAttributes={{
+          lang: currentLang || 'en',
+        }}
+      >
+        {title ? <title>{title}</title> : null}
+        {description ? <meta name="description" content={description} /> : null}
+        {/* google adsense */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3539958012242464"
+          crossOrigin="anonymous"
+        ></script>
+        {/* katex css */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+          integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
+          crossOrigin="anonymous"
+        />
+      </Helmet>
+      {getLayout(pageType, (page.frontmatter?.layout as string) || '')}
+      <Footer />
+    </div>
+  )
+}
+
+export default {
+  ...Theme,
+  Layout,
+}
+
+export * from '@rspress/theme-default'
