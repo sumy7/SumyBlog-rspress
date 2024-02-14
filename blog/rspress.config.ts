@@ -12,6 +12,7 @@ import { postReadingInfoPlugin } from '@sumyblog/rspress-plugin-reading-info'
 import { archivesPagePlugin } from '@sumyblog/rspress-plugin-post-archives'
 import { categoriesPagePlugin } from '@sumyblog/rspress-plugin-post-categories'
 import { tagsPagePlugin } from '@sumyblog/rspress-plugin-post-tags'
+import { googleAnalyticsPlugin } from '@sumyblog/rspress-plugin-google-analytics'
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
@@ -22,30 +23,9 @@ export default defineConfig({
     source: {
       alias: {
         '@docs': path.join(__dirname, 'docs'),
-        '@plugins': path.join(__dirname, 'plugins'),
         '@source': path.join(__dirname, 'source'),
         '@theme': path.join(__dirname, 'theme'),
       },
-    },
-    html: {
-      tags: [
-        // Configure Google Analytics
-        {
-          tag: 'script',
-          attrs: {
-            async: true,
-            src: 'https://www.googletagmanager.com/gtag/js?id=G-2NDCXW15G4',
-          },
-        },
-        {
-          tag: 'script',
-          children: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-2NDCXW15G4');`,
-        },
-      ],
     },
   },
   themeConfig: {
@@ -136,5 +116,8 @@ gtag('config', 'G-2NDCXW15G4');`,
     archivesPagePlugin(),
     categoriesPagePlugin(),
     tagsPagePlugin(),
+    googleAnalyticsPlugin({
+      gid: 'G-2NDCXW15G4',
+    }),
   ],
 })

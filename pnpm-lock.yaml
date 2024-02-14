@@ -72,6 +72,9 @@ importers:
       '@rspress/shared':
         specifier: 1.11.2
         version: 1.11.2
+      '@sumyblog/rspress-plugin-google-analytics':
+        specifier: workspace:*
+        version: link:../packages/plugin-google-analytics
       '@sumyblog/rspress-plugin-post-archives':
         specifier: workspace:*
         version: link:../packages/plugin-post-archives
@@ -129,6 +132,16 @@ importers:
       tailwindcss:
         specifier: ^3.4.0
         version: 3.4.0
+
+  packages/plugin-google-analytics:
+    dependencies:
+      '@rspress/shared':
+        specifier: 1.11.2
+        version: 1.11.2
+    devDependencies:
+      '@types/node':
+        specifier: ~16.11.7
+        version: 16.11.68
 
   packages/plugin-post-archives:
     dependencies:

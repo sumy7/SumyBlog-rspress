@@ -6,7 +6,6 @@
     "paths": {
       "@docs/*": ["docs/*"],
       "@source/*": ["source/*"],
-      "@plugins/*": ["plugins/*"],
       "@theme/*": ["theme/*"],
     }
   }

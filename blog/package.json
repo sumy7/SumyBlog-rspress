@@ -36,6 +36,7 @@
     "@sumyblog/rspress-plugin-post-archives": "workspace:*",
     "@sumyblog/rspress-plugin-post-tags": "workspace:*",
     "@sumyblog/rspress-plugin-post-categories": "workspace:*",
-    "@sumyblog/rspress-theme-default": "workspace:*"
+    "@sumyblog/rspress-theme-default": "workspace:*",
+    "@sumyblog/rspress-plugin-google-analytics": "workspace:*"
   }
 }
