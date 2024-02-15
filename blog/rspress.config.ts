@@ -1,18 +1,13 @@
 import * as path from 'path'
 import { defineConfig } from 'rspress/config'
 
-import rehypeKatex from 'rehype-katex'
-import rehypeRaw from 'rehype-raw'
-
-import remarkEmoji from 'remark-gemoji'
-import remarkMath from 'remark-math'
-
 import { blogPostResolver } from '@sumyblog/rspress-plugin-post-resolver'
 import { postReadingInfoPlugin } from '@sumyblog/rspress-plugin-reading-info'
 import { archivesPagePlugin } from '@sumyblog/rspress-plugin-post-archives'
 import { categoriesPagePlugin } from '@sumyblog/rspress-plugin-post-categories'
 import { tagsPagePlugin } from '@sumyblog/rspress-plugin-post-tags'
 import { googleAnalyticsPlugin } from '@sumyblog/rspress-plugin-google-analytics'
+import { markdownPresetsPlugin } from '@sumyblog/rspress-plugin-markdown-presets'
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
@@ -88,26 +83,6 @@ export default defineConfig({
   mediumZoom: {
     selector: '.rspress-doc img',
   },
-  markdown: {
-    // 使用 JS 版本的 MDX 编译器
-    mdxRs: false,
-    rehypePlugins: [
-      rehypeKatex,
-      [
-        rehypeRaw,
-        {
-          passThrough: [
-            'mdxFlowExpression',
-            'mdxJsxFlowElement',
-            'mdxJsxTextElement',
-            'mdxTextExpression',
-            'mdxjsEsm',
-          ],
-        },
-      ],
-    ],
-    remarkPlugins: [remarkEmoji, remarkMath],
-  },
   plugins: [
     blogPostResolver({
       postsDir: path.join(__dirname, 'source/_posts'),
@@ -119,5 +94,6 @@ export default defineConfig({
     googleAnalyticsPlugin({
       gid: 'G-2NDCXW15G4',
     }),
+    markdownPresetsPlugin(),
   ],
 })

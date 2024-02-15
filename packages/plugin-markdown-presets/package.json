@@ -1,0 +1,39 @@
+{
+  "name": "@sumyblog/rspress-plugin-markdown-presets",
+  "version": "0.1.0",
+  "type": "module",
+  "jsnext:source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "scripts": {
+    "dev": "modern build -w",
+    "build": "modern build",
+    "new": "modern new",
+    "upgrade": "modern upgrade"
+  },
+  "peerDependencies": {
+    "parse5": "^6.0.1"
+  },
+  "dependencies": {
+    "@rspress/shared": "1.11.2",
+    "rehype-katex": "^6.0.3",
+    "rehype-raw": "^6.1.1",
+    "remark-gemoji": "^8.0.0",
+    "remark-math": "^5.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "~16.11.7"
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "dist/"
+  ],
+  "sideEffects": [],
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
