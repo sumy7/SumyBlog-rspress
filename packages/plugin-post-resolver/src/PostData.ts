@@ -2,7 +2,7 @@ import path from 'node:path'
 import dayjs from 'dayjs'
 import { Permalink } from 'hexo-util'
 import grayMatter from 'gray-matter'
-import { PostCategory, PostInfo, PostTag } from '@/types'
+import { PostCategory, InternalPostCategory, PostInfo, PostTag } from '@/types'
 
 const fileNamePattern = ':year-:month-:day-:title.md'
 const permalinkPattern = ':year/:month/:day/:title/'
@@ -47,7 +47,7 @@ function norminalizeTags(tags: string | string[]): string[] {
 export const postInfos: PostInfo[] = []
 
 // 文章分类，树形结构
-export const postCategories = new Map<string, PostCategory>()
+export const postCategories = new Map<string, InternalPostCategory>()
 
 // 文章标签
 export const postTags = new Map<string, PostTag>()
@@ -99,14 +99,14 @@ export function addPost(post: PostInfo) {
 
   // 添加分类
   let currentCategories = postCategories
-  let currentCategory: PostCategory | undefined
+  let currentCategory: InternalPostCategory | undefined
   post.categories.forEach((category) => {
     const postCategory = currentCategories.get(category)
     if (postCategory) {
       currentCategories = postCategory.children
       currentCategory = postCategory
     } else {
-      const newCategory: PostCategory = {
+      const newCategory: InternalPostCategory = {
         name: category,
         count: 0,
         children: new Map(),
@@ -147,7 +147,9 @@ export function sortPostInfos() {
   })
 
   // 分类中的文章也顺便排一下
-  const sortPostCategories = (categories: Map<string, PostCategory>) => {
+  const sortPostCategories = (
+    categories: Map<string, InternalPostCategory>
+  ) => {
     categories.forEach((postCategory) => {
       postCategory.posts.sort((a, b) => {
         return dayjs(b.date).unix() - dayjs(a.date).unix()
@@ -163,4 +165,27 @@ export function sortPostInfos() {
       return dayjs(b.date).unix() - dayjs(a.date).unix()
     })
   })
+}
+
+/**
+ * 获取数组格式的分类，递归进行转换
+ */
+export function getCategoriesArray(
+  categories: Map<string, InternalPostCategory> = postCategories
+): PostCategory[] {
+  const result: PostCategory[] = []
+  categories.forEach((postCategory) => {
+    result.push({
+      ...postCategory,
+      children: getCategoriesArray(postCategory.children),
+    } as PostCategory)
+  })
+  return result
+}
+
+/**
+ * 获取数组格式的标签
+ */
+export function getTagsArray(): PostTag[] {
+  return Array.from(postTags.values())
 }

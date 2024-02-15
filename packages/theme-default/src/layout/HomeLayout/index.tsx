@@ -1,14 +1,12 @@
 import { useMemo } from 'react'
-import { usePageData, useSearchParams } from '@rspress/runtime'
-import { PostInfo } from '@sumyblog/rspress-plugin-post-resolver'
-import { Nav } from '@rspress/theme-default'
-import styles from './index.module.scss'
+import { useSearchParams } from '@rspress/runtime'
+import { postInfos } from 'virtual-post-data'
 import Pagination from '@/components/Pagination'
 import PostList from '@/components/PostList'
+import BaseLayout from '@/layout/BaseLayout'
 
 const HomeLayout = () => {
-  const { page } = usePageData()
-  const posts = (page.posts || []) as PostInfo[]
+  const posts = postInfos || []
 
   const [searchParams, setSearchParams] = useSearchParams()
 
@@ -31,18 +29,15 @@ const HomeLayout = () => {
   }, [currentPage])
 
   return (
-    <div>
-      <Nav />
-      <div className={`${styles.homeLayout} container mx-auto sm:px-16 px-5`}>
-        <PostList posts={currentPageData} />
-        <div className="mt-5"></div>
-        <Pagination
-          currentPage={currentPage}
-          totalPage={totalPage}
-          onChange={(number) => setSearchParams({ page: `${number}` })}
-        />
-      </div>
-    </div>
+    <BaseLayout>
+      <PostList posts={currentPageData} />
+      <div className="mt-5"></div>
+      <Pagination
+        currentPage={currentPage}
+        totalPage={totalPage}
+        onChange={(number) => setSearchParams({ page: `${number}` })}
+      />
+    </BaseLayout>
   )
 }
 

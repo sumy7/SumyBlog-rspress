@@ -3,9 +3,6 @@ import { defineConfig } from 'rspress/config'
 
 import { blogPostResolver } from '@sumyblog/rspress-plugin-post-resolver'
 import { postReadingInfoPlugin } from '@sumyblog/rspress-plugin-reading-info'
-import { archivesPagePlugin } from '@sumyblog/rspress-plugin-post-archives'
-import { categoriesPagePlugin } from '@sumyblog/rspress-plugin-post-categories'
-import { tagsPagePlugin } from '@sumyblog/rspress-plugin-post-tags'
 import { googleAnalyticsPlugin } from '@sumyblog/rspress-plugin-google-analytics'
 import { markdownPresetsPlugin } from '@sumyblog/rspress-plugin-markdown-presets'
 
@@ -88,9 +85,6 @@ export default defineConfig({
       postsDir: path.join(__dirname, 'source/_posts'),
     }),
     postReadingInfoPlugin(),
-    archivesPagePlugin(),
-    categoriesPagePlugin(),
-    tagsPagePlugin(),
     googleAnalyticsPlugin({
       gid: 'G-2NDCXW15G4',
     }),

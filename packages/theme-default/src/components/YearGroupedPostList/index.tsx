@@ -4,15 +4,14 @@ import { normalizeHrefInRuntime } from '@rspress/runtime'
 
 import { PostInfo } from '@sumyblog/rspress-plugin-post-resolver'
 
-import styles from './archive-post-list.module.scss'
+import styles from './index.module.scss'
 
-interface ArchivePostListProps {
-  title?: string
+interface YearGroupedPostListProps {
   posts: PostInfo[]
 }
 
-const ArchivePostList = (props: ArchivePostListProps) => {
-  const { title = '', posts = [] } = props
+const YearGroupedPostList = (props: YearGroupedPostListProps) => {
+  const { posts = [] } = props
 
   // 将posts按照日期中年份进行分组，然后倒序排列
   const postsByYear = useMemo(() => {
@@ -40,12 +39,7 @@ const ArchivePostList = (props: ArchivePostListProps) => {
   }, [posts])
 
   return (
-    <div className="overview-index mx-auto px-8">
-      <div className="flex items-center justify-between">
-        <h1 className="text-3xl leading-10 tracking-tight">
-          {title || 'Archives'}
-        </h1>
-      </div>
+    <div>
       {postsByYear.map((year) => (
         <div key={year.year} className={styles.year}>
           <h2 className={styles.yearTitle}>{year.year}</h2>
@@ -71,4 +65,4 @@ const ArchivePostList = (props: ArchivePostListProps) => {
   )
 }
 
-export default ArchivePostList
+export default YearGroupedPostList

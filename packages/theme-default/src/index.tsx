@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import Theme from '@rspress/theme-default'
 import { Helmet, useLocation, usePageData } from '@rspress/runtime'
 import { getLayout } from './layout'
-import Footer from '@/components/Footer'
 
 import './index.scss'
 
@@ -57,7 +56,6 @@ const Layout = () => {
         ></script>
       </Helmet>
       {getLayout(pageType, (page.frontmatter?.layout as string) || '')}
-      <Footer />
     </div>
   )
 }

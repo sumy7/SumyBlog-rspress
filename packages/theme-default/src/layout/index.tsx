@@ -2,6 +2,9 @@ import { Layout } from '@rspress/theme-default'
 import HomeLayout from './HomeLayout'
 import PostLayout from './PostLayout'
 import DefaultLayout from '@/layout/DefaultLayout'
+import ArchivesLayout from '@/layout/ArchivesLayout'
+import CategoriesLayout from '@/layout/CategoriesLayout'
+import TagsLayout from '@/layout/TagsLayout'
 
 /**
  * 获取页面布局
@@ -13,6 +16,12 @@ export const getLayout = (pageType: string, postType: string) => {
     return <Layout />
   } else if (postType === 'home') {
     return <HomeLayout />
+  } else if (postType === 'archives') {
+    return <ArchivesLayout />
+  } else if (postType === 'categories') {
+    return <CategoriesLayout />
+  } else if (postType === 'tags') {
+    return <TagsLayout />
   } else if (postType === 'post') {
     return <PostLayout />
   } else {

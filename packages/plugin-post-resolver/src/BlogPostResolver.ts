@@ -1,7 +1,14 @@
 import path from 'node:path'
 import fs, { PathLike } from 'node:fs'
 import { AdditionalPage, RspressPlugin } from '@rspress/shared'
-import { addPost, getPostInfo, postInfos, sortPostInfos } from './PostData'
+import {
+  addPost,
+  getCategoriesArray,
+  getPostInfo,
+  getTagsArray,
+  postInfos,
+  sortPostInfos,
+} from './PostData'
 import { PluginOptions } from '@/types'
 
 // 遍历文件夹
@@ -48,10 +55,6 @@ export function blogPostResolver(options?: PluginOptions): RspressPlugin {
       return pages
     },
     extendPageData(pageData) {
-      // 首页需要10篇文章列表
-      if (pageData?.frontmatter.layout === 'home') {
-        pageData.posts = postInfos
-      }
       // 混入文章信息
       if (pageData?.frontmatter.layout === 'post') {
         const index = postInfos.findIndex(
@@ -67,6 +70,19 @@ export function blogPostResolver(options?: PluginOptions): RspressPlugin {
         pageData.date = postInfo.date
         pageData.categories = postInfo.categories
         pageData.tags = postInfo.tags
+      }
+    },
+    addRuntimeModules() {
+      return {
+        'virtual-post-data': `
+          export const postInfos = ${JSON.stringify(postInfos)}
+        `,
+        'virtual-post-categories': `
+          export const postCategories = ${JSON.stringify(getCategoriesArray())}
+        `,
+        'virtual-post-tags': `
+          export const postTags = ${JSON.stringify(getTagsArray())}
+        `,
       }
     },
   }

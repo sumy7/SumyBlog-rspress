@@ -27,7 +27,7 @@ src/
 
 modern.config.*
 jest.config.js
-.eslintrc.js
+src/.eslintrc.cjs
 .eslintrc
 tsconfig.json
 CHANGELOG.md

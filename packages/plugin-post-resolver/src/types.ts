@@ -39,13 +39,32 @@ export interface PostTag {
 /**
  * 文章分类
  */
-export interface PostCategory {
+export interface InternalPostCategory {
   // 分类名称
   name: string
   // 分类文章数量
   count: number
   // 子分类
-  children: Map<string, PostCategory>
+  children: Map<string, InternalPostCategory>
   // 文章
   posts: PostInfo[]
+}
+
+export type PostCategory = InternalPostCategory & {
+  children: PostCategory[]
+}
+
+// @ts-expect-error
+declare module 'virtual-post-data' {
+  export const postInfos: PostInfo[]
+}
+
+// @ts-expect-error
+declare module 'virtual-post-categories' {
+  export const postCategories: PostCategory[]
+}
+
+// @ts-expect-error
+declare module 'virtual-post-tags' {
+  export const postTags: PostTag[]
 }

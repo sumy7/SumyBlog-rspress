@@ -1,20 +1,13 @@
-import { useSearchParams } from '@rspress/runtime'
-
-import styles from './tags-cloud.module.scss'
+import styles from './index.module.scss'
 
 const TagCloud = (props: {
   tagCloud: {
     name: string
     count: number
   }[]
+  onTagClick: (tag: string) => void
 }) => {
-  const { tagCloud = [] } = props
-
-  const [_, setSearchParams] = useSearchParams()
-
-  const onCategoryClick = (category: string) => {
-    setSearchParams({ category })
-  }
+  const { tagCloud = [], onTagClick = () => {} } = props
 
   return (
     <div className={styles.tagList}>
@@ -22,7 +15,7 @@ const TagCloud = (props: {
         <a
           key={item.name}
           className={styles.tagItem}
-          onClick={() => onCategoryClick(item.name)}
+          onClick={() => onTagClick(item.name)}
         >
           <span className={styles.tagName}>{item.name} </span>
           <span className={styles.tagPostCount}>{item.count}</span>
