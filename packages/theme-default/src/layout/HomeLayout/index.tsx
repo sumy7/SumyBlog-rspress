@@ -1,9 +1,13 @@
 import { useMemo } from 'react'
 import { useSearchParams } from '@rspress/runtime'
 import { postInfos } from 'virtual-post-data'
+import classnames from 'classnames'
 import Pagination from '@/components/Pagination'
 import PostList from '@/components/PostList'
 import BaseLayout from '@/layout/BaseLayout'
+import RecentPostsWidget from '@/widget/RecentPosts'
+import TagCloudWidget from '@/widget/TagCloud'
+import CategoriesWidget from '@/widget/Categories'
 
 const HomeLayout = () => {
   const posts = postInfos || []
@@ -29,7 +33,15 @@ const HomeLayout = () => {
   }, [currentPage])
 
   return (
-    <BaseLayout>
+    <BaseLayout
+      outline={
+        <div className={classnames('flex', 'flex-col', 'gap-3')}>
+          <CategoriesWidget />
+          <RecentPostsWidget />
+          <TagCloudWidget />
+        </div>
+      }
+    >
       <PostList posts={currentPageData} />
       <div className="mt-5"></div>
       <Pagination

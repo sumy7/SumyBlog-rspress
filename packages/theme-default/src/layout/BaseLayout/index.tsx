@@ -13,19 +13,35 @@ const BaseLayout = (props: BaseLayoutProps) => {
   return (
     <div>
       <Nav />
-      <div className={classnames(styles.docLayout, 'pt-0')}>
+      <div
+        className={classnames(
+          'mx-auto',
+          'max-w-screen-sm',
+          'lg:max-w-screen-xl',
+          'xl:p-9',
+          'p-6',
+          'flex',
+          'flex-col',
+          'lg:flex-row',
+          'gap-6'
+        )}
+      >
         <div
           className={classnames(
-            styles.content,
             'rspress-doc-container',
-            'flex',
-            'flex-shrink-0',
-            'mx-auto'
+            'flex-1',
+            'min-h-screen'
           )}
         >
-          <div className="w-full">{children}</div>
-          {outline && <div className={styles.asideContainer}>{outline}</div>}
+          {children}
         </div>
+        {outline && (
+          <div className={classnames('block', 'w-full', 'lg:w-80')}>
+            <div className={classnames(styles.asideContainer, 'sticky')}>
+              {outline}
+            </div>
+          </div>
+        )}
       </div>
       <Footer />
     </div>

@@ -12,7 +12,7 @@ const PostList = ({ posts = [] }: PostListProps) => {
   return (
     <div className={`${styles.postList}`}>
       {posts.map((post, index) => (
-        <div key={index} className={classnames('mt-6')}>
+        <div key={index} className={classnames('mb-6')}>
           <div
             className={classnames(
               styles.postItem,
