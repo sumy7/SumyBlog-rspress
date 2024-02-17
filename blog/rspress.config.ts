@@ -112,8 +112,6 @@ export default defineConfig({
       gid: 'G-2NDCXW15G4',
     }),
     markdownPresetsPlugin(),
-    googleAdsPlugin({
-      adClient: 'ca-pub-3539958012242464',
-    }),
+    googleAdsPlugin(),
   ],
 } as UserConfig<DefaultThemeConfig>)

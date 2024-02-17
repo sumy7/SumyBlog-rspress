@@ -10,7 +10,7 @@ const COMMON_EXTERNALS = [
   'react-router-dom',
   'react-ga4',
   '@giscus/react',
-  '@sumyblog/rspress-plugin-post-resolver',
+  /@sumyblog\/.*/,
 ]
 
 export default defineConfig({

@@ -1,13 +1,7 @@
 import { RspressPlugin } from '@rspress/shared'
 
-export interface GoogleAdsPluginOptions {
-  adClient: string
-}
-
 // google 广告
-export function googleAdsPlugin(
-  options: GoogleAdsPluginOptions
-): RspressPlugin {
+export function googleAdsPlugin(): RspressPlugin {
   return {
     name: '@sumyblog/rspress-plugin-google-ads',
     builderConfig: {
@@ -18,8 +12,8 @@ export function googleAdsPlugin(
             tag: 'script',
             attrs: {
               async: true,
-              crossorigin: 'anonymous',
-              src: `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${options.adClient}`,
+              src: `https://cdn.ampproject.org/v0/amp-ad-0.1.js`,
+              'custom-element': 'amp-ad',
             },
           },
         ],
