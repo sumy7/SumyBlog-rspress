@@ -14,7 +14,7 @@ export default defineConfig({
       dts: {
         respectExternal: false,
       },
-      externals: [/rehype-.*/, /remark-.*/],
+      externals: [/rehype-.*/, /remark-.*/, /@rspress\/.*/],
     },
   ],
 })

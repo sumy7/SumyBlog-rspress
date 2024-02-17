@@ -15,6 +15,7 @@
     "parse5": "^6.0.1"
   },
   "dependencies": {
+    "@rspress/plugin-shiki": "^1.11.2",
     "@rspress/shared": "1.11.2",
     "rehype-katex": "^6.0.3",
     "rehype-raw": "^6.1.1",

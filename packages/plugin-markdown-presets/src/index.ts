@@ -1,4 +1,5 @@
 import { RspressPlugin } from '@rspress/shared'
+import { pluginShiki } from '@rspress/plugin-shiki'
 
 import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
@@ -27,6 +28,7 @@ export function markdownPresetsPlugin(): RspressPlugin {
       },
     },
     config: (config) => {
+      config.plugins = [...(config.plugins || []), pluginShiki()]
       return {
         ...config,
         markdown: {
