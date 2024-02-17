@@ -6,6 +6,7 @@ import { blogPostResolver } from '@sumyblog/rspress-plugin-post-resolver'
 import { postReadingInfoPlugin } from '@sumyblog/rspress-plugin-reading-info'
 import { googleAnalyticsPlugin } from '@sumyblog/rspress-plugin-google-analytics'
 import { markdownPresetsPlugin } from '@sumyblog/rspress-plugin-markdown-presets'
+import { googleAdsPlugin } from '@sumyblog/rspress-plugin-google-ads'
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
@@ -36,6 +37,13 @@ export default defineConfig({
         link: 'https://miyehn.me/blog/',
       },
     ],
+    googleAds: {
+      adClient: 'ca-pub-3539958012242464',
+      adSlot: {
+        sidebarWidget: '3173509936',
+        articleFooter: '7247705093',
+      },
+    },
     socialLinks: [
       { icon: 'github', mode: 'link', content: 'https://github.com/sumy7/' },
       { icon: 'weibo', mode: 'link', content: 'https://weibo.com/sumy7' },
@@ -104,5 +112,8 @@ export default defineConfig({
       gid: 'G-2NDCXW15G4',
     }),
     markdownPresetsPlugin(),
+    googleAdsPlugin({
+      adClient: 'ca-pub-3539958012242464',
+    }),
   ],
 } as UserConfig<DefaultThemeConfig>)

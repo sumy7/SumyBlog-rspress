@@ -11,6 +11,7 @@ const RecentPostsWidget = () => {
       <div className={classnames('m-5')}>
         {postInfos.slice(0, 5).map((post, index) => (
           <div
+            key={index}
             className={classnames(
               'mb-1',
               'overflow-hidden',

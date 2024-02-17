@@ -1,14 +1,36 @@
+import { usePageData } from '@rspress/runtime'
+import { useMemo } from 'react'
+import GoogleAds from '@sumyblog/rspress-plugin-google-ads/dist/GoogleAds'
 import styles from './index.module.scss'
 
 import GiscusComments from '@/GiscusComments'
 import PrevNextPage from '@/components/PrevNextPage'
-import GoogleAds from '@/GoogleAds'
 
 const PostFooter = () => {
+  const { siteData } = usePageData()
+
+  const articleFooterAd = useMemo(() => {
+    if (!siteData?.themeConfig?.googleAds) {
+      return false
+    }
+    if (!siteData?.themeConfig?.googleAds?.adSlot?.articleFooter) {
+      return false
+    }
+    return {
+      adClient: siteData.themeConfig.googleAds.adClient,
+      adSlot: siteData.themeConfig.googleAds.adSlot.articleFooter,
+    }
+  }, [])
+
   return (
     <div className={`${styles.postFooter} flex flex-col`}>
       <PrevNextPage />
-      <GoogleAds dataAdSlot={'7247705093'} />
+      {articleFooterAd && (
+        <GoogleAds
+          dataAdClient={articleFooterAd.adClient}
+          dataAdSlot={articleFooterAd.adSlot}
+        />
+      )}
       <GiscusComments />
     </div>
   )

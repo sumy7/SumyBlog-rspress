@@ -1,7 +1,6 @@
 {
-  "name": "@sumyblog/rspress-theme-default",
+  "name": "@sumyblog/rspress-plugin-google-ads",
   "version": "0.1.0",
-  "type": "module",
   "jsnext:source": "./src/index.ts",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
@@ -12,17 +11,10 @@
     "upgrade": "modern upgrade"
   },
   "dependencies": {
-    "@giscus/react": "^2.3.0",
     "@rspress/runtime": "1.11.2",
-    "@rspress/shared": "1.11.2",
-    "@rspress/theme-default": "1.11.2",
-    "classnames": "^2.5.1",
-    "dayjs": "^1.11.10",
-    "fetch-jsonp": "^1.3.0"
+    "@rspress/shared": "1.11.2"
   },
   "devDependencies": {
-    "@sumyblog/rspress-plugin-google-ads": "workspace:*",
-    "@sumyblog/rspress-plugin-post-resolver": "workspace:*",
     "@types/node": "~16.11.7",
     "@types/react": "^18",
     "@types/react-dom": "^18",

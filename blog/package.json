@@ -28,6 +28,7 @@
     "@sumyblog/rspress-plugin-reading-info": "workspace:*",
     "@sumyblog/rspress-theme-default": "workspace:*",
     "@sumyblog/rspress-plugin-google-analytics": "workspace:*",
-    "@sumyblog/rspress-plugin-markdown-presets": "workspace:*"
+    "@sumyblog/rspress-plugin-markdown-presets": "workspace:*",
+    "@sumyblog/rspress-plugin-google-ads": "workspace:*"
   }
 }
