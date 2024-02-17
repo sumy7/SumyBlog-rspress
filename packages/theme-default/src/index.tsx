@@ -66,3 +66,4 @@ export default {
 }
 
 export * from '@rspress/theme-default'
+export * from './ThemeConfig'

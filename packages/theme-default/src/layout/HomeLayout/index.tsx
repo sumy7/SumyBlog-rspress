@@ -8,6 +8,7 @@ import BaseLayout from '@/layout/BaseLayout'
 import RecentPostsWidget from '@/widget/RecentPosts'
 import TagCloudWidget from '@/widget/TagCloud'
 import CategoriesWidget from '@/widget/Categories'
+import FriendLinkWidget from '@/widget/FriendLink'
 
 const HomeLayout = () => {
   const posts = postInfos || []
@@ -39,6 +40,7 @@ const HomeLayout = () => {
           <CategoriesWidget />
           <RecentPostsWidget />
           <TagCloudWidget />
+          <FriendLinkWidget />
         </div>
       }
     >

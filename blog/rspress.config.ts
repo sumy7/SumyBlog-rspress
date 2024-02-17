@@ -1,5 +1,6 @@
 import * as path from 'path'
-import { defineConfig } from 'rspress/config'
+import { defineConfig, UserConfig } from 'rspress/config'
+import { DefaultThemeConfig } from '@rspress/shared'
 
 import { blogPostResolver } from '@sumyblog/rspress-plugin-post-resolver'
 import { postReadingInfoPlugin } from '@sumyblog/rspress-plugin-reading-info'
@@ -21,6 +22,20 @@ export default defineConfig({
     },
   },
   themeConfig: {
+    friendLinks: [
+      {
+        name: '笔良文昌 - noclyt',
+        link: 'https://noclyt.com/',
+      },
+      {
+        name: '无火的余灰 - AShen One',
+        link: 'https://ashenone.cn/',
+      },
+      {
+        name: '槽 - 雨rain',
+        link: 'https://miyehn.me/blog/',
+      },
+    ],
     socialLinks: [
       { icon: 'github', mode: 'link', content: 'https://github.com/sumy7/' },
       { icon: 'weibo', mode: 'link', content: 'https://weibo.com/sumy7' },
@@ -90,4 +105,4 @@ export default defineConfig({
     }),
     markdownPresetsPlugin(),
   ],
-})
+} as UserConfig<DefaultThemeConfig>)
