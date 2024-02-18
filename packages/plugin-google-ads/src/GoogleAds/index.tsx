@@ -21,7 +21,7 @@ const GoogleAds: React.FC<GoogleAdsProps> = ({
         style={{ display: 'block' }}
         data-ad-client={dataAdClient}
         data-ad-slot={dataAdSlot}
-        data-adtest="on"
+        // data-adtest="on"
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
