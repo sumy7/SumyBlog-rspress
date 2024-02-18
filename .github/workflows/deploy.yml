@@ -18,14 +18,14 @@ jobs:
       TZ: Asia/Shanghai
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Not needed if lastUpdated is not enabled
-      - uses: pnpm/action-setup@v2 # pnpm is optional but recommended, you can also use npm / yarn
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v3
         with:
           version: 8
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: pnpm
@@ -37,7 +37,7 @@ jobs:
       - name: Archive files
         run: zip -qq -r sumyblog.zip ./blog/doc_build
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: sumyblog-artifact
           path: ./sumyblog.zip
@@ -49,7 +49,7 @@ jobs:
     name: Deploy
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: sumyblog-artifact
       - name: Unzip artifact
