@@ -7,6 +7,13 @@ export function googleAdsPlugin(): RspressPlugin {
     builderConfig: {
       html: {
         tags: [
+          {
+            tag: 'script',
+            attrs: {
+              async: true,
+              src: `https://cdn.ampproject.org/v0.js`,
+            },
+          },
           // Configure Google Ads
           {
             tag: 'script',
