@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 export interface GoogleAdsProps {
   dataAdClient: string
   dataAdSlot: string
@@ -7,22 +9,22 @@ const GoogleAds: React.FC<GoogleAdsProps> = ({
   dataAdClient,
   dataAdSlot,
 }: GoogleAdsProps) => {
+  useEffect(() => {
+    // @ts-expect-error
+    ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+  }, [])
+
   return (
     <>
-      {/* @ts-expect-error */}
-      <amp-ad
-        width="100vw"
-        height="320"
-        type="adsense"
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
         data-ad-client={dataAdClient}
         data-ad-slot={dataAdSlot}
-        data-auto-format="rspv"
-        data-full-width=""
-      >
-        {/* @ts-expect-error */}
-        <div overflow=""></div>
-        {/* @ts-expect-error */}
-      </amp-ad>
+        data-adtest="on"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
     </>
   )
 }
