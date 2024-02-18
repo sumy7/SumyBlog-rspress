@@ -1,32 +1,12 @@
-import { useEffect } from 'react'
+import { NoSSR } from '@rspress/runtime'
+import GoogleAds, { type GoogleAdsProps } from '@/GoogleAds/GoogleAds'
 
-export interface GoogleAdsProps {
-  dataAdClient: string
-  dataAdSlot: string
-}
-
-const GoogleAds: React.FC<GoogleAdsProps> = ({
-  dataAdClient,
-  dataAdSlot,
-}: GoogleAdsProps) => {
-  useEffect(() => {
-    // @ts-expect-error
-    ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-  }, [])
-
+const GoogleAdsIndex: React.FC<GoogleAdsProps> = (props: GoogleAdsProps) => {
   return (
-    <>
-      <ins
-        className="adsbygoogle"
-        style={{ display: 'block' }}
-        data-ad-client={dataAdClient}
-        data-ad-slot={dataAdSlot}
-        // data-adtest="on"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
-    </>
+    <NoSSR>
+      <GoogleAds {...props} />
+    </NoSSR>
   )
 }
 
-export default GoogleAds
+export default GoogleAdsIndex
