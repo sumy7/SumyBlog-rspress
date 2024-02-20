@@ -126,6 +126,9 @@ importers:
       '@rspress/shared':
         specifier: 1.11.2
         version: 1.11.2
+      '@sumyblog/rspress-plugin-post-resolver':
+        specifier: workspace:*
+        version: link:../plugin-post-resolver
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
@@ -133,9 +136,6 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2
     devDependencies:
-      '@sumyblog/rspress-plugin-post-resolver':
-        specifier: workspace:*
-        version: link:../plugin-post-resolver
       '@types/node':
         specifier: ~16.11.7
         version: 16.11.68
