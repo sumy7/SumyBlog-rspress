@@ -7,6 +7,7 @@ import { postReadingInfoPlugin } from '@sumyblog/rspress-plugin-reading-info'
 import { googleAnalyticsPlugin } from '@sumyblog/rspress-plugin-google-analytics'
 import { markdownPresetsPlugin } from '@sumyblog/rspress-plugin-markdown-presets'
 import { googleAdsPlugin } from '@sumyblog/rspress-plugin-google-ads'
+import { feedRssPlugin } from '@sumyblog/rspress-plugin-feed-rss'
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
@@ -113,5 +114,8 @@ export default defineConfig({
     }),
     markdownPresetsPlugin(),
     googleAdsPlugin(),
+    feedRssPlugin({
+      baseUrl: 'https://sumygg.com',
+    }),
   ],
 } as UserConfig<DefaultThemeConfig>)

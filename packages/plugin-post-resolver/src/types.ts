@@ -22,6 +22,8 @@ export interface PostInfo {
   categories: string[]
   // 标签
   tags: string[]
+  // 文章摘要
+  excerpt: string
 }
 
 /**

@@ -43,6 +43,31 @@ function norminalizeTags(tags: string | string[]): string[] {
   return tags.split(',')
 }
 
+const excerptSeparator = /<!-- ?more ?-->/i
+
+const excerptFilter = (_input: unknown): any => {
+  const input = _input as { content: string; excerpt: string }
+  const { content } = input
+  if (excerptSeparator.test(content)) {
+    // 根据分隔符分隔
+    const index = content.search(excerptSeparator)
+    input.excerpt = content.substring(0, index)
+  } else {
+    // 没有分隔符，取前150个字符或者5行
+    let brIndex = 0
+    for (let i = 0; i < 5; i++) {
+      brIndex = content.indexOf('\n', brIndex + 1)
+      if (brIndex === -1 || brIndex > 150) {
+        break
+      }
+    }
+    if (brIndex === -1) {
+      brIndex = 150
+    }
+    input.excerpt = content.substring(0, brIndex)
+  }
+}
+
 // 所有的文章列表
 export const postInfos: PostInfo[] = []
 
@@ -74,7 +99,9 @@ export function getPostInfo(filepath: string): PostInfo | null {
     routePath = `/${toRoutePathPermalink.stringify(data)}`
   }
   // 解析文章的frontmatter
-  const { data: frontmatter } = grayMatter.read(filepath)
+  const { data: frontmatter, excerpt } = grayMatter.read(filepath, {
+    excerpt: excerptFilter,
+  })
 
   const createTime = dayjs(frontmatter.date) || dayjs()
 
@@ -87,6 +114,7 @@ export function getPostInfo(filepath: string): PostInfo | null {
       frontmatter.category || frontmatter.categories
     ),
     tags: norminalizeTags(frontmatter.tag || frontmatter.tags),
+    excerpt: frontmatter.description || excerpt,
   }
 }
 
