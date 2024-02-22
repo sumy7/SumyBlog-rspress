@@ -50,6 +50,12 @@ export default defineConfig({
       { icon: 'weibo', mode: 'link', content: 'https://weibo.com/sumy7' },
       { icon: 'twitter', mode: 'link', content: 'https://twitter.com/sumygg' },
     ],
+    giscus: {
+      repo: 'sumy7/sumy7.github.io',
+      repoId: 'MDEwOlJlcG9zaXRvcnkzNDExMDEyOQ==',
+      category: 'Announcements',
+      categoryId: 'DIC_kwDOAgh6sc4Ca7BZ',
+    },
     // 关闭所有页面的左侧菜单栏
     sidebar: {},
     // 顶部导航栏

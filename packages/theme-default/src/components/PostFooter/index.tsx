@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import GoogleAds from '@sumyblog/rspress-plugin-google-ads/dist/GoogleAds'
 import styles from './index.module.scss'
 
-import GiscusComments from '@/GiscusComments'
+import GiscusComments from '@/components/PostWidget/GiscusComments'
 import PrevNextPage from '@/components/PrevNextPage'
 
 const PostFooter = () => {
@@ -31,7 +31,7 @@ const PostFooter = () => {
           dataAdSlot={articleFooterAd.adSlot}
         />
       )}
-      <GiscusComments />
+      {siteData?.themeConfig?.giscus && <GiscusComments />}
     </div>
   )
 }
