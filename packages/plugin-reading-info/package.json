@@ -11,7 +11,7 @@
     "upgrade": "modern upgrade"
   },
   "dependencies": {
-    "@rspress/shared": "1.12.0"
+    "@rspress/shared": "1.12.2"
   },
   "devDependencies": {
     "@types/node": "~16.11.7"
