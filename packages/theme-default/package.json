@@ -15,9 +15,9 @@
     "@giscus/react": "^2.3.0",
     "@iconify/icons-bi": "^1.2.19",
     "@iconify/react": "^4.1.1",
-    "@rspress/runtime": "1.12.2",
-    "@rspress/shared": "1.12.2",
-    "@rspress/theme-default": "1.12.2",
+    "@rspress/runtime": "1.13.1",
+    "@rspress/shared": "1.13.1",
+    "@rspress/theme-default": "1.13.1",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "fetch-jsonp": "^1.3.0"
