@@ -7,30 +7,31 @@ const workspaces = ['./blog', './packages']
 
 // 遍历blog和packages下的所有目录，找到package.json文件，然后更新包版本
 async function run(basePath: string, newVersion: string) {
-  glob.sync(`${basePath}/**/package.json`).forEach((pkgPath) => {
-    if (pkgPath.includes('node_modules')) {
-      return
-    }
-    console.log('process', pkgPath)
-    const pkgObj = fs.readFileSync(pkgPath, 'utf-8')
-    const pkg = JSON.parse(pkgObj)
-    if (pkg.dependencies) {
-      for (const dep of Object.keys(pkg.dependencies)) {
-        if (dep.startsWith('@rspress') || dep == 'rspress') {
-          pkg.dependencies[dep] = newVersion
+  glob
+    .sync(`${basePath}/**/package.json`, {
+      ignore: ['**/node_modules/**'],
+    })
+    .forEach((pkgPath) => {
+      console.log('process', pkgPath)
+      const pkgObj = fs.readFileSync(pkgPath, 'utf-8')
+      const pkg = JSON.parse(pkgObj)
+      if (pkg.dependencies) {
+        for (const dep of Object.keys(pkg.dependencies)) {
+          if (dep.startsWith('@rspress') || dep === 'rspress') {
+            pkg.dependencies[dep] = newVersion
+          }
         }
       }
-    }
-    if (pkg.devDependencies) {
-      for (const dep of Object.keys(pkg.devDependencies)) {
-        if (dep.startsWith('@rspress') || dep == 'rspress') {
-          pkg.devDependencies[dep] = newVersion
+      if (pkg.devDependencies) {
+        for (const dep of Object.keys(pkg.devDependencies)) {
+          if (dep.startsWith('@rspress') || dep === 'rspress') {
+            pkg.devDependencies[dep] = newVersion
+          }
         }
       }
-    }
 
-    fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
-  })
+      fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
+    })
 }
 
 async function updateRspressVersion(newVersion: string) {
