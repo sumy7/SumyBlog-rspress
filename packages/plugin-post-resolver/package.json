@@ -11,7 +11,7 @@
     "upgrade": "modern upgrade"
   },
   "dependencies": {
-    "@rspress/shared": "1.13.1",
+    "@rspress/shared": "1.14.0",
     "dayjs": "^1.11.10",
     "gray-matter": "^4.0.3",
     "hexo-util": "^3.1.0"

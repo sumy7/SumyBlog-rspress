@@ -11,8 +11,8 @@
     "upgrade": "modern upgrade"
   },
   "dependencies": {
-    "@rspress/runtime": "1.13.1",
-    "@rspress/shared": "1.13.1",
+    "@rspress/runtime": "1.14.0",
+    "@rspress/shared": "1.14.0",
     "@sumyblog/rspress-plugin-post-resolver": "workspace:*",
     "dayjs": "^1.11.10",
     "feed": "^4.2.2"
