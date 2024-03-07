@@ -9,6 +9,8 @@
     "build": "cross-env NX_DAEMON=false NX_REJECT_UNKNOWN_LOCAL_CACHE=0 nx run-many -t build --exclude @sumyblog/rspress-blog",
     "dev:blog": "cross-env NX_DAEMON=false NX_REJECT_UNKNOWN_LOCAL_CACHE=0 nx run @sumyblog/rspress-blog:dev",
     "build:blog": "cross-env NX_DAEMON=false NX_REJECT_UNKNOWN_LOCAL_CACHE=0 nx run @sumyblog/rspress-blog:build",
+    "lint": "biome lint . --diagnostic-level=warn",
+    "format": "biome format --write ./packages",
     "update:version": "ts-node scripts/update-version.ts"
   },
   "workspaces": {
@@ -18,8 +20,7 @@
     ]
   },
   "devDependencies": {
-    "@modern-js-app/eslint-config": "2.48.0",
-    "@modern-js/eslint-config": "2.48.0",
+    "@biomejs/biome": "1.5.3",
     "@modern-js/module-tools": "2.48.0",
     "@modern-js/monorepo-tools": "2.48.0",
     "@modern-js/plugin-tailwindcss": "2.48.0",

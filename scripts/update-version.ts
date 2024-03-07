@@ -33,7 +33,6 @@ async function fetchPackageVersion(packageName: string) {
     return versionMap.get(packageName)
   }
   console.log(`fetching ${packageName} version...`)
-  // @ts-expect-error
   const { stdout } = await execa('pnpm', ['info', packageName, 'version'])
   const version = stdout.trim()
   versionMap.set(packageName, version)
