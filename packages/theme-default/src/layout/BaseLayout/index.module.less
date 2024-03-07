@@ -1,3 +1,15 @@
+.pageContainer {
+  @apply mx-auto max-w-screen-sm lg:max-w-screen-xl xl:p-9 p-6 flex flex-col lg:flex-row gap-6;
+
+  .pageContent {
+    @apply flex-1 min-h-screen;
+  }
+
+  .rightContent {
+    @apply block w-full lg:w-80;
+  }
+}
+
 .asideContainer {
   position: sticky;
   top: calc(var(--rp-nav-height) + 32px);

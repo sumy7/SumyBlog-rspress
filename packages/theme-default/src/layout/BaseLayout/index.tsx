@@ -1,7 +1,8 @@
 import { Nav } from '@rspress/theme-default'
 import classnames from 'classnames'
-import styles from './index.module.less'
 import Footer from '@/components/Footer'
+
+import styles from './index.module.less'
 
 export interface BaseLayoutProps {
   children?: React.ReactNode
@@ -13,30 +14,14 @@ const BaseLayout = (props: BaseLayoutProps) => {
   return (
     <div>
       <Nav />
-      <div
-        className={classnames(
-          'mx-auto',
-          'max-w-screen-sm',
-          'lg:max-w-screen-xl',
-          'xl:p-9',
-          'p-6',
-          'flex',
-          'flex-col',
-          'lg:flex-row',
-          'gap-6'
-        )}
-      >
+      <div className={classnames(styles.pageContainer)}>
         <div
-          className={classnames(
-            'rspress-doc-container',
-            'flex-1',
-            'min-h-screen'
-          )}
+          className={classnames('rspress-doc-container', styles.pageContent)}
         >
           {children}
         </div>
         {outline && (
-          <div className={classnames('block', 'w-full', 'lg:w-80')}>
+          <div className={classnames(styles.rightContent)}>
             <div className={classnames(styles.asideContainer, 'sticky')}>
               {outline}
             </div>
