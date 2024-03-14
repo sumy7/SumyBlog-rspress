@@ -33,7 +33,12 @@ async function fetchPackageVersion(packageName: string) {
     return versionMap.get(packageName)
   }
   console.log(`fetching ${packageName} version...`)
-  const { stdout } = await execa('pnpm', ['info', packageName, 'version'])
+  const { stdout } = await execa('pnpm', [
+    'info',
+    packageName,
+    'version',
+    '--registry=https://registry.npmjs.org/',
+  ])
   const version = stdout.trim()
   versionMap.set(packageName, version)
   console.log(`fetched ${packageName} version: ${version}`)
