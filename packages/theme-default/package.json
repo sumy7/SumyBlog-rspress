@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@giscus/react": "^2.3.0",
-    "@iconify/icons-bi": "^1.2.19",
-    "@iconify/react": "^4.1.1",
+    "@iconify-icon/react": "^2.0.1",
+    "@iconify-icons/bi": "^1.2.19",
     "@rspress/runtime": "1.15.0",
     "@rspress/shared": "1.15.0",
     "@rspress/theme-default": "1.15.0",

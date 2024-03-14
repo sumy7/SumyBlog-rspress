@@ -3,8 +3,17 @@ import dayjs from 'dayjs'
 import { usePageData } from '@rspress/runtime'
 import { BaseRuntimePageInfo } from '@rspress/shared'
 import Busuanzi from './Busuanzi'
+import ClickFill from '@iconify-icons/bi/clock-fill'
+import CalendarFill from '@iconify-icons/bi/calendar-fill'
+import EyeFill from '@iconify-icons/bi/eye-fill'
+import FileEarmarkWordFill from '@iconify-icons/bi/file-earmark-word-fill'
+import FolderFill from '@iconify-icons/bi/folder-fill'
+import TagFill from '@iconify-icons/bi/tag-fill'
+import { Icon } from '@iconify-icon/react'
 
 import styles from './index.module.scss'
+import classnames from 'classnames'
+import { Link } from '@rspress/theme-default'
 
 export interface PostPageData extends BaseRuntimePageInfo {
   date?: string
@@ -18,51 +27,41 @@ const PostInfo = () => {
   const pageData = usePageData()
   const postInfo = useMemo(() => {
     return pageData.page as PostPageData
-  }, [pageData])
+  }, [pageData.page])
 
   return (
-    <div className={styles.postInfoContainer}>
-      <div className="leading-7 block text-sm font-semibold pl-3">文章信息</div>
-      <div className={`${styles.postInfoItem} block`}>
-        <span className={`${styles.postInfoLabel}`}>分类：</span>
-        <span className={`${styles.postInfoContent}`}>
-          {(postInfo.categories || []).join(', ')}
+    <div className={classnames(styles.postInfoContainer, '-mt-5', 'mb-8')}>
+      <span className={styles.postInfoMetaItem}>
+        <Icon icon={CalendarFill} inline />{' '}
+        {dayjs(postInfo.date || Date.now()).format('YYYY-MM-DD')}
+      </span>
+      <span className={styles.postInfoMetaItem}>
+        <Icon icon={FolderFill} inline />{' '}
+        <Link
+          href={`/blog/categories/index.html?category=${encodeURIComponent(
+            postInfo.categories?.join('/') || ''
+          )}`}
+        >
+          {postInfo.categories?.join('/') || '未分类'}
+        </Link>
+      </span>
+      {(postInfo.tags || []).map((tag) => (
+        <span className={styles.postInfoMetaItem}>
+          <Icon icon={TagFill} inline />{' '}
+          <Link href={`/blog/tags/index.html?tag=${encodeURIComponent(tag)}`}>
+            {tag}
+          </Link>
         </span>
-      </div>
-      <div className={`${styles.postInfoItem} block`}>
-        <span className={`${styles.postInfoLabel}`}>标签：</span>
-        <span className={`${styles.postInfoContent}`}>
-          {(postInfo.tags || []).join(', ')}
-        </span>
-      </div>
-      <div className={`${styles.postInfoItem} block`}>
-        <span className={`${styles.postInfoLabel}`}>发表于：</span>
-        <span className={`${styles.postInfoContent}`}>
-          {dayjs(postInfo.date || Date.now()).format('YYYY-MM-DD')}
-        </span>
-      </div>
-      {postInfo.words && (
-        <div className={`${styles.postInfoItem} block`}>
-          <span className={`${styles.postInfoLabel}`}>字数统计：</span>
-          <span className={`${styles.postInfoContent}`}>
-            {postInfo.words} 字
-          </span>
-        </div>
-      )}
-      {postInfo.readingTime && (
-        <div className={`${styles.postInfoItem} block`}>
-          <span className={`${styles.postInfoLabel}`}>阅读时长：</span>
-          <span className={`${styles.postInfoContent}`}>
-            {postInfo.readingTime} 分钟
-          </span>
-        </div>
-      )}
-      <div className={`${styles.postInfoItem} block`}>
-        <span className={`${styles.postInfoLabel}`}>阅读量：</span>
-        <span className={`${styles.postInfoContent}`}>
-          <Busuanzi />
-        </span>
-      </div>
+      ))}
+      <span className={styles.postInfoMetaItem}>
+        <Icon icon={FileEarmarkWordFill} inline /> {postInfo.words || 'NaN'} 字
+      </span>
+      <span className={styles.postInfoMetaItem}>
+        <Icon icon={ClickFill} inline /> {postInfo.readingTime || 'NaN'} 分钟
+      </span>
+      <span className={styles.postInfoMetaItem}>
+        <Icon icon={EyeFill} inline /> <Busuanzi />
+      </span>
     </div>
   )
 }
