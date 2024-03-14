@@ -17,7 +17,7 @@ const CategoriesLayout = () => {
       }
     }
     return { name: '', posts: [] }
-  }, [searchParams.get('category'), postCategories])
+  }, [searchParams])
 
   return (
     <BaseLayout>

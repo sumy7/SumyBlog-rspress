@@ -29,6 +29,8 @@ const PostFooter = () => {
         <GoogleAds
           dataAdClient={articleFooterAd.adClient}
           dataAdSlot={articleFooterAd.adSlot}
+          dataAdFormat="auto"
+          dataFullWidthResponsive="true"
         />
       )}
       {siteData?.themeConfig?.giscus && <GiscusComments />}

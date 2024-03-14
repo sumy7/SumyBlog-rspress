@@ -26,6 +26,8 @@ const GoogleAdWidget = () => {
           <GoogleAds
             dataAdClient={sidebarWidgetAd.adClient}
             dataAdSlot={sidebarWidgetAd.adSlot}
+            dataAdFormat="auto"
+            dataFullWidthResponsive="true"
           />
         </WidgetContainer>
       )}

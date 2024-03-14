@@ -28,14 +28,16 @@ const PostLayout = () => {
         <div>
           {beforeOutlineAd && (
             <GoogleAds
+              dataAdClient={beforeOutlineAd.adClient}
+              dataAdSlot={beforeOutlineAd.adSlot}
+              dataAdFormat={undefined}
+              dataFullWidthResponsive={undefined}
               style={{
                 display: 'inline-block',
                 width: '268px',
                 height: '100px',
                 marginBottom: '1.25rem',
               }}
-              dataAdClient={beforeOutlineAd.adClient}
-              dataAdSlot={beforeOutlineAd.adSlot}
             />
           )}
         </div>
