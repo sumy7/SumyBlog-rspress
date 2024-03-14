@@ -7,6 +7,7 @@ import {
   getPostInfo,
   getTagsArray,
   postInfos,
+  resetPostInfo,
   sortPostInfos,
 } from './PostData'
 import { PluginOptions } from '@/types'
@@ -33,6 +34,9 @@ export function blogPostResolver(options?: PluginOptions): RspressPlugin {
   return {
     name: '@sumyblog/rspress-plugin-post-resolver',
     beforeBuild() {
+      // 重置文章信息
+      resetPostInfo()
+
       // 遍历soruce/_posts目录，获取mdx、md、html文件，生成路由
       traverseFolder(postsDir, (itemPath) => {
         const postInfo = getPostInfo(itemPath as string)

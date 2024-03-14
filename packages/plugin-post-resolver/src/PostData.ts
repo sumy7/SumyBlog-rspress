@@ -78,6 +78,15 @@ export const postCategories = new Map<string, InternalPostCategory>()
 export const postTags = new Map<string, PostTag>()
 
 /**
+ * 重置文章信息
+ */
+export function resetPostInfo() {
+  postTags.clear()
+  postCategories.clear()
+  postInfos.length = 0
+}
+
+/**
  * 解析文章信息
  * @param filepath 文章路径
  * @returns
