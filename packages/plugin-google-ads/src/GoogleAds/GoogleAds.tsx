@@ -3,11 +3,13 @@ import { useEffect } from 'react'
 export interface GoogleAdsProps {
   dataAdClient: string
   dataAdSlot: string
+  style?: React.CSSProperties
 }
 
 const GoogleAds: React.FC<GoogleAdsProps> = ({
   dataAdClient,
   dataAdSlot,
+  style,
 }: GoogleAdsProps) => {
   useEffect(() => {
     // @ts-expect-error
@@ -18,7 +20,7 @@ const GoogleAds: React.FC<GoogleAdsProps> = ({
     <>
       <ins
         className="adsbygoogle"
-        style={{ display: 'block' }}
+        style={style || { display: 'block' }}
         data-ad-client={dataAdClient}
         data-ad-slot={dataAdSlot}
         // data-adtest="on"

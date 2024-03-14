@@ -10,6 +10,7 @@ export interface GoogleAds {
   adSlot: {
     sidebarWidget?: string | false
     articleFooter?: string | false
+    beforeOutline?: string | false
   }
 }
 

@@ -43,6 +43,7 @@ export default defineConfig({
       adSlot: {
         sidebarWidget: '3173509936',
         articleFooter: '7247705093',
+        beforeOutline: '2645015996',
       },
     },
     socialLinks: [
