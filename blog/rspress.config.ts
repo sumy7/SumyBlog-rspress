@@ -37,6 +37,10 @@ export default defineConfig({
         name: '槽 - 雨rain',
         link: 'https://miyehn.me/blog/',
       },
+      {
+        name: 'NAS日志 - steven',
+        link: 'https://irunningm.top/',
+      },
     ],
     googleAds: {
       adClient: 'ca-pub-3539958012242464',
