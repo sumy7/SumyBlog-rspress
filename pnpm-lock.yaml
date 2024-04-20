@@ -12,17 +12,17 @@ importers:
         specifier: 1.5.3
         version: 1.5.3
       '@modern-js/module-tools':
-        specifier: 2.48.6
-        version: 2.48.6(typescript@5.0.4)
+        specifier: 2.49.0
+        version: 2.49.0(typescript@5.0.4)
       '@modern-js/monorepo-tools':
-        specifier: 2.48.6
-        version: 2.48.6(@types/node@16.11.68)
+        specifier: 2.49.0
+        version: 2.49.0(@types/node@16.11.68)
       '@modern-js/plugin-tailwindcss':
-        specifier: 2.48.1
-        version: 2.48.1(tailwindcss@3.4.0)
+        specifier: 2.49.0
+        version: 2.49.0(tailwindcss@3.4.0)
       '@modern-js/tsconfig':
-        specifier: 2.48.6
-        version: 2.48.6
+        specifier: 2.49.0
+        version: 2.49.0
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -66,12 +66,12 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
       rspress:
-        specifier: 1.18.1
-        version: 1.18.1(@swc/helpers@0.5.3)(webpack@5.89.0)
+        specifier: 1.18.2
+        version: 1.18.2(@swc/helpers@0.5.3)(webpack@5.89.0)
     devDependencies:
       '@rspress/shared':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
       '@sumyblog/rspress-plugin-feed-rss':
         specifier: workspace:*
         version: link:../packages/plugin-feed-rss
@@ -124,8 +124,8 @@ importers:
   packages/plugin-deployer-git:
     dependencies:
       '@rspress/shared':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
@@ -143,11 +143,11 @@ importers:
   packages/plugin-feed-rss:
     dependencies:
       '@rspress/runtime':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
       '@rspress/shared':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
       '@sumyblog/rspress-plugin-post-resolver':
         specifier: workspace:*
         version: link:../plugin-post-resolver
@@ -180,11 +180,11 @@ importers:
   packages/plugin-google-ads:
     dependencies:
       '@rspress/runtime':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
       '@rspress/shared':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
     devDependencies:
       '@types/node':
         specifier: ~16.11.7
@@ -208,8 +208,8 @@ importers:
   packages/plugin-google-analytics:
     dependencies:
       '@rspress/shared':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
     devDependencies:
       '@types/node':
         specifier: ~16.11.7
@@ -218,11 +218,11 @@ importers:
   packages/plugin-markdown-presets:
     dependencies:
       '@rspress/plugin-shiki':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
       '@rspress/shared':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
       parse5:
         specifier: ^6.0.1
         version: 6.0.1
@@ -246,8 +246,8 @@ importers:
   packages/plugin-post-resolver:
     dependencies:
       '@rspress/shared':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
@@ -265,8 +265,8 @@ importers:
   packages/plugin-reading-info:
     dependencies:
       '@rspress/shared':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
     devDependencies:
       '@types/node':
         specifier: ~16.11.7
@@ -284,14 +284,14 @@ importers:
         specifier: ^1.2.19
         version: 1.2.19
       '@rspress/runtime':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
       '@rspress/shared':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
       '@rspress/theme-default':
-        specifier: 1.18.1
-        version: 1.18.1
+        specifier: 1.18.2
+        version: 1.18.2
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -1580,17 +1580,17 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@modern-js/core@2.48.6:
-    resolution: {integrity: sha512-QOGtZ1OTonYaA+pTv/SKI47QKUlupeQtHz/ZOboGOE+MoEEeKnvSP9rZ5uD+kLL02jUdBlK5t3Ru9fSq2dATBQ==}
+  /@modern-js/core@2.49.0:
+    resolution: {integrity: sha512-Z9WJ3ideFLVflkCvRAQLd5rp87aVyqJSlv4C8R3+GL2C8ry86dqVFyFfgIDGz5RnOKVSwK5ZEYB0BRtgHEUZ5g==}
     dependencies:
-      '@modern-js/node-bundle-require': 2.48.6
-      '@modern-js/plugin': 2.48.6
-      '@modern-js/utils': 2.48.6
+      '@modern-js/node-bundle-require': 2.49.0
+      '@modern-js/plugin': 2.49.0
+      '@modern-js/utils': 2.49.0
       '@swc/helpers': 0.5.3
     dev: true
 
-  /@modern-js/module-tools@2.48.6(typescript@5.0.4):
-    resolution: {integrity: sha512-UHeCBZFhyVpiYfgwsCGiAci9VugnaCCydP9qomzEdSbA41X7G5tjpe/yb3Xi0tliigGWfab5D3kp3J7FwdsoNQ==}
+  /@modern-js/module-tools@2.49.0(typescript@5.0.4):
+    resolution: {integrity: sha512-nQRqww8cN7vaioVCjK+pRmOZfp+8Hb0rBkv14k7TL4lbkRxt6Tgtq+egNYUQXSVD4aBpERlnSKSyMziAxT2lZw==}
     engines: {node: '>=16.0.0'}
     hasBin: true
     peerDependencies:
@@ -1603,22 +1603,22 @@ packages:
       '@ast-grep/napi': 0.16.0
       '@babel/core': 7.23.6
       '@babel/types': 7.23.6
-      '@modern-js/core': 2.48.6
-      '@modern-js/plugin': 2.48.6
-      '@modern-js/plugin-changeset': 2.48.6
-      '@modern-js/plugin-i18n': 2.48.6
-      '@modern-js/plugin-lint': 2.48.6
+      '@modern-js/core': 2.49.0
+      '@modern-js/plugin': 2.49.0
+      '@modern-js/plugin-changeset': 2.49.0
+      '@modern-js/plugin-i18n': 2.49.0
+      '@modern-js/plugin-lint': 2.49.0
       '@modern-js/swc-plugins': 0.6.6(@swc/helpers@0.5.3)
-      '@modern-js/types': 2.48.6
-      '@modern-js/utils': 2.48.6
+      '@modern-js/types': 2.49.0
+      '@modern-js/utils': 2.49.0
       '@rollup/pluginutils': 4.1.1
       '@swc/helpers': 0.5.3
       convert-source-map: 1.8.0
       enhanced-resolve: 5.12.0
       esbuild: 0.19.2
       magic-string: 0.30.5
-      postcss: 8.4.35
-      postcss-modules: 4.3.0(postcss@8.4.35)
+      postcss: 8.4.38
+      postcss-modules: 4.3.0(postcss@8.4.38)
       safe-identifier: 0.4.2
       source-map: 0.7.4
       style-inject: 0.3.0
@@ -1633,16 +1633,16 @@ packages:
       - supports-color
     dev: true
 
-  /@modern-js/monorepo-tools@2.48.6(@types/node@16.11.68):
-    resolution: {integrity: sha512-tT4uO9TslWw3EtaqgVkZmNid8TXTHeduhMPz/IesLfCp8sac123L9F/Svqq6SoZ+t1atCMXw6saARsD+4wTBOA==}
+  /@modern-js/monorepo-tools@2.49.0(@types/node@16.11.68):
+    resolution: {integrity: sha512-WJFYUXX0yNk39ZErLimAow7oPzZqRmaq6q77TnXYWncpXzI5VQOT+pH5Vu1j2bTPdqD1vNTRg0LxhDqRHkzjkw==}
     hasBin: true
     dependencies:
-      '@modern-js/core': 2.48.6
-      '@modern-js/plugin': 2.48.6
-      '@modern-js/plugin-changeset': 2.48.6
-      '@modern-js/plugin-i18n': 2.48.6
-      '@modern-js/plugin-lint': 2.48.6
-      '@modern-js/utils': 2.48.6
+      '@modern-js/core': 2.49.0
+      '@modern-js/plugin': 2.49.0
+      '@modern-js/plugin-changeset': 2.49.0
+      '@modern-js/plugin-i18n': 2.49.0
+      '@modern-js/plugin-lint': 2.49.0
+      '@modern-js/utils': 2.49.0
       '@rushstack/node-core-library': 3.66.0(@types/node@16.11.68)
       '@rushstack/package-deps-hash': 3.2.67
       '@swc/helpers': 0.5.3
@@ -1655,30 +1655,22 @@ packages:
       - eslint
     dev: true
 
-  /@modern-js/node-bundle-require@2.48.1:
-    resolution: {integrity: sha512-tp/ecbViVdwlbat0NJXlCD3QM/o409HGFK4SeXlFtfb7owunfaNGlUe6Hx1ScBpmOOKvLQspe0ZjB+sYzFT8iw==}
+  /@modern-js/node-bundle-require@2.49.0:
+    resolution: {integrity: sha512-LV1IUugNgC2HtRouvifADFXR2nN5xNbkvzFQG/btCzE5PSS2GoRtn9v7bgch3er6DBGhU3bFLbMHGQDwsj+iAA==}
     dependencies:
-      '@modern-js/utils': 2.48.1
+      '@modern-js/utils': 2.49.0
       '@swc/helpers': 0.5.3
       esbuild: 0.17.19
     dev: true
 
-  /@modern-js/node-bundle-require@2.48.6:
-    resolution: {integrity: sha512-m3mpCRljrPSTNA+ETu4LOezfLjrbfcqMLcA/iDKSPcjA65cCPxB3/KSHRDQvmQjyA0QvODa7rv6LIr/U83jb4A==}
-    dependencies:
-      '@modern-js/utils': 2.48.6
-      '@swc/helpers': 0.5.3
-      esbuild: 0.17.19
-    dev: true
-
-  /@modern-js/plugin-changeset@2.48.6:
-    resolution: {integrity: sha512-CiRkjLjcvOBz6WOJEbjnk2Jqiizz+57wkXKIRqdXEQLTnPpWVvh9OsmCSD0wwyuSjVq9mE6lVTjbLIgfq8MIWQ==}
+  /@modern-js/plugin-changeset@2.49.0:
+    resolution: {integrity: sha512-2fGNUObzxxcKn/8Zy9fnelX1KjbhIJ1FWpHatNKaPfCUNgtWSYXUxrSIFitdpsqpzXbzoUlFErrdC5SaKsBueg==}
     dependencies:
       '@changesets/cli': 2.27.1
       '@changesets/git': 2.0.0
       '@changesets/read': 0.5.9
-      '@modern-js/plugin-i18n': 2.48.6
-      '@modern-js/utils': 2.48.6
+      '@modern-js/plugin-i18n': 2.49.0
+      '@modern-js/utils': 2.49.0
       '@swc/helpers': 0.5.3
       axios: 1.6.7
       resolve-from: 5.0.0
@@ -1686,49 +1678,49 @@ packages:
       - debug
     dev: true
 
-  /@modern-js/plugin-i18n@2.48.6:
-    resolution: {integrity: sha512-T0fOPqMIDl7fWBFpWin/PD5fv2SsDLHWoS+uE6Jx7Oc7O+cenxNkUmG/rQe3NCaixdLeK7YWRD4gqhtUo6zG6Q==}
+  /@modern-js/plugin-i18n@2.49.0:
+    resolution: {integrity: sha512-j+SAMIIGOMDyIchf3QkkOHysfrW0/bFob9duyS7FSM3DMUCXfK89kQFt7UnPGMnfUYMcQ4GkUZRLDwgjmI+EAA==}
     dependencies:
-      '@modern-js/utils': 2.48.6
+      '@modern-js/utils': 2.49.0
       '@swc/helpers': 0.5.3
     dev: true
 
-  /@modern-js/plugin-lint@2.48.6:
-    resolution: {integrity: sha512-OYKg/xuwVhmzDnDtfrjo79gVvfkp+2+JsHS2MShfLwc2vmUwI7Q0dbcMGaddlT/i7e9OiUnj7gdQfm2fEbvPdg==}
+  /@modern-js/plugin-lint@2.49.0:
+    resolution: {integrity: sha512-wegrAekq7Yj/b76rEs47w9rZ/e2w3SWbkP5gRMtRRVK7Xnp+RWxV8iiziglKl8x6I2T0IhQ879COKapgzr7zjg==}
     peerDependencies:
       eslint: ^8.28.0
     peerDependenciesMeta:
       eslint:
         optional: true
     dependencies:
-      '@modern-js/tsconfig': 2.48.6
-      '@modern-js/utils': 2.48.6
+      '@modern-js/tsconfig': 2.49.0
+      '@modern-js/utils': 2.49.0
       '@swc/helpers': 0.5.3
       cross-spawn: 7.0.3
       husky: 8.0.3
     dev: true
 
-  /@modern-js/plugin-tailwindcss@2.48.1(tailwindcss@3.4.0):
-    resolution: {integrity: sha512-ZNVq/Fb9h18uoAbRdmS3FCj0G3/2azRd5zoc3YgM635fZAdhg+SmHtKAbXNfADvTWhASHjekaMup87V5KkD6ow==}
+  /@modern-js/plugin-tailwindcss@2.49.0(tailwindcss@3.4.0):
+    resolution: {integrity: sha512-1a/HWHSQijwJMFusjkE/PdMssdCJgilfTjgUW8gelhB3wouSSqAw5lyjiNne9WeGrrVy+fYItcZ998nO9TB60w==}
     peerDependencies:
-      '@modern-js/runtime': ^2.48.1
+      '@modern-js/runtime': ^2.49.0
       tailwindcss: '>= 2.0.0 || >= 3.0.0'
     peerDependenciesMeta:
       '@modern-js/runtime':
         optional: true
     dependencies:
-      '@modern-js/node-bundle-require': 2.48.1
-      '@modern-js/utils': 2.48.1
+      '@modern-js/node-bundle-require': 2.49.0
+      '@modern-js/utils': 2.49.0
       '@swc/helpers': 0.5.3
       babel-plugin-macros: 3.1.0
       hoist-non-react-statics: 3.3.2
       tailwindcss: 3.4.0(ts-node@10.9.2)
     dev: true
 
-  /@modern-js/plugin@2.48.6:
-    resolution: {integrity: sha512-MK2OOcSwB7AQpc7jCK2mgcCDCVbIDXa9T0OFEnC4dQ/oqP3Y8MLxhyv+mkZlsYf37qmXSlUcO0C2lMO4Su4w+A==}
+  /@modern-js/plugin@2.49.0:
+    resolution: {integrity: sha512-njT50f4HR0e90vKm64R6pB1Y0Dr4pnRdn1RGteXGZyudy3zRiylsms3nGKjd+tNTrvpSrcnriyTTRYQamc+rSA==}
     dependencies:
-      '@modern-js/utils': 2.48.6
+      '@modern-js/utils': 2.49.0
       '@swc/helpers': 0.5.3
     dev: true
 
@@ -1822,40 +1814,21 @@ packages:
       '@modern-js/swc-plugins-win32-x64-msvc': 0.6.6
     dev: true
 
-  /@modern-js/tsconfig@2.48.6:
-    resolution: {integrity: sha512-rhFqGan+rNGOK760lAHZnqvxtE28S/SPjDiHACu3Q4DEYxZef56RzmbcV/LOWaivp6/bmkqfAsD+ETxojlSrlw==}
+  /@modern-js/tsconfig@2.49.0:
+    resolution: {integrity: sha512-ooLutIWQDKq1SB8WYXnngBWzcfWMhaDXP8DFM3lBo37ZoLkRL6IbBPi3nYQZwKULDRpi/kkOkWC0ZCEmaTnf6Q==}
     dev: true
 
-  /@modern-js/types@2.48.6:
-    resolution: {integrity: sha512-itydIGhbki02g1dBaUAbuE6K9IoxYfUbCYFXPpgYTmBFQtP0adl9rodUHBKRtJNYOU9CfHWMoTVBXAbJp8jQUQ==}
+  /@modern-js/types@2.49.0:
+    resolution: {integrity: sha512-pmHXdsCGxs0OJfJ4DNBwT963z6txdwPFHptMwY8OnJ3O46D3xIHClBzD2zUHVgSYJwXPv8gipbewnEBk0TUnJA==}
     dev: true
 
-  /@modern-js/utils@2.48.1:
-    resolution: {integrity: sha512-acQ1NRKPMfz0AvlDZrw0MzF5OWnONWTFBhecEzELPo+cqZejw5dNV9OQYwntZVuFjMHIbQpR1wtoOqHdNnbTFQ==}
+  /@modern-js/utils@2.49.0:
+    resolution: {integrity: sha512-WatsnUK7mp8PwkQKjApfoKTGJSzN66GKPJ9CujKrL8sJDSPHAWDKoDgmXvVZ09OWs7Vgcf8lq4bHL1NQ75Bh1g==}
     dependencies:
       '@swc/helpers': 0.5.3
-      caniuse-lite: 1.0.30001585
+      caniuse-lite: 1.0.30001610
       lodash: 4.17.21
       rslog: 1.1.2
-    dev: true
-
-  /@modern-js/utils@2.48.5:
-    resolution: {integrity: sha512-VNeB15CI41sxO0vNBDWA/Q9+JqoGOwVudhIq5YxaPHGVMoM22piafT+f4ofXiafMyCFWz1/9eiJGlMPTpk8AYQ==}
-    dependencies:
-      '@swc/helpers': 0.5.3
-      caniuse-lite: 1.0.30001585
-      lodash: 4.17.21
-      rslog: 1.1.2
-    dev: false
-
-  /@modern-js/utils@2.48.6:
-    resolution: {integrity: sha512-ixbF3PclHwvMne2pqMS6F5fYA3nJCxZHSoRpSeZ05BQ8FfkuUQQhT6Jp/xH+eg18hGOy+PDjcqUJEP0d2ID3kQ==}
-    dependencies:
-      '@swc/helpers': 0.5.3
-      caniuse-lite: 1.0.30001585
-      lodash: 4.17.21
-      rslog: 1.1.2
-    dev: true
 
   /@module-federation/runtime-tools@0.0.8:
     resolution: {integrity: sha512-tqx3wlVHnpWLk+vn22c0x9Nv1BqdZnoS6vdMb53IsVpbQIFP70nhhvymHUyFuPkoLzMFidS7GpG58DYT/4lvCw==}
@@ -2210,25 +2183,25 @@ packages:
       react-refresh: 0.14.0
     dev: false
 
-  /@rspress/core@1.18.1(@swc/helpers@0.5.3)(webpack@5.89.0):
-    resolution: {integrity: sha512-GW6TbpVY1Dd2VrLjhOMhZFhhNy04LjLcE52KV2S3v4YCYHD/kUV+4AeFCu4pbONp/IoBCbTK71lzsKV3ImjSfw==}
+  /@rspress/core@1.18.2(@swc/helpers@0.5.3)(webpack@5.89.0):
+    resolution: {integrity: sha512-9y/mRFXk6gEszTJxV89yJ7awxaL2AgtbWa2eJUDd3uB1X4xiN8eilWJoj5qg7S8u/BumGv1uR/HkNupS3ohqNg==}
     engines: {node: '>=14.17.6'}
     dependencies:
       '@loadable/component': 5.15.2(react@18.2.0)
       '@mdx-js/loader': 2.3.0(webpack@5.89.0)
       '@mdx-js/mdx': 2.3.0
       '@mdx-js/react': 2.3.0(react@18.2.0)
-      '@modern-js/utils': 2.48.5
+      '@modern-js/utils': 2.49.0
       '@rsbuild/core': 0.6.1
       '@rsbuild/plugin-react': 0.6.1(@rsbuild/core@0.6.1)(@swc/helpers@0.5.3)
       '@rspress/mdx-rs': 0.5.1
-      '@rspress/plugin-auto-nav-sidebar': 1.18.1
-      '@rspress/plugin-container-syntax': 1.18.1
-      '@rspress/plugin-last-updated': 1.18.1
-      '@rspress/plugin-medium-zoom': 1.18.1(@rspress/runtime@1.18.1)
-      '@rspress/runtime': 1.18.1
-      '@rspress/shared': 1.18.1
-      '@rspress/theme-default': 1.18.1
+      '@rspress/plugin-auto-nav-sidebar': 1.18.2
+      '@rspress/plugin-container-syntax': 1.18.2
+      '@rspress/plugin-last-updated': 1.18.2
+      '@rspress/plugin-medium-zoom': 1.18.2(@rspress/runtime@1.18.2)
+      '@rspress/runtime': 1.18.2
+      '@rspress/shared': 1.18.2
+      '@rspress/theme-default': 1.18.2
       body-scroll-lock: 4.0.0-beta.0
       copy-to-clipboard: 3.3.3
       enhanced-resolve: 5.16.0
@@ -2355,60 +2328,60 @@ packages:
       '@rspress/mdx-rs-win32-x64-msvc': 0.5.1
     dev: false
 
-  /@rspress/plugin-auto-nav-sidebar@1.18.1:
-    resolution: {integrity: sha512-DhuOKSHO8TLyAo33mXH7oaNQgBqoJzJyHAGhZhHSVQLIpz7k1HyjyTzf0vaTHgfxmEpyQBSjYa0WqrCsNLwZoA==}
+  /@rspress/plugin-auto-nav-sidebar@1.18.2:
+    resolution: {integrity: sha512-DwpA3rSXUDVvI6+ruaGlwDgVDP5yB5j8KgihOfyzo469L8XJDIYxuagSMkY1n+3KA9cMjIuSimNRJoKQ5PFOEQ==}
     engines: {node: '>=14.17.6'}
     dependencies:
-      '@rspress/shared': 1.18.1
+      '@rspress/shared': 1.18.2
     dev: false
 
-  /@rspress/plugin-container-syntax@1.18.1:
-    resolution: {integrity: sha512-Z+SOTo1o2kMydXQ3AxsGSI4tHTpvVMW2xEvHLHT9HCw8IzlPvbyfjZBmmwx28wRTm/PdejarFaw/Ab/alX2fgw==}
+  /@rspress/plugin-container-syntax@1.18.2:
+    resolution: {integrity: sha512-8FQJLk1dNFQuoYyYWPxKYjs2hLxe5LI4WBPn1t3OFyCaVGgJaA7cisAhcPA9jW4swIie4BfGoqccKI33GYNgCw==}
     engines: {node: '>=14.17.6'}
     dependencies:
-      '@rspress/shared': 1.18.1
+      '@rspress/shared': 1.18.2
     dev: false
 
-  /@rspress/plugin-last-updated@1.18.1:
-    resolution: {integrity: sha512-pDd7MkxRqi8H/dvM04cDgeuZDAzgdzlEDRYImLe0MnuTFsVc7ZgzqF1Nmamf8yhioPvJyu0b/zxkA3P4SWNAwQ==}
+  /@rspress/plugin-last-updated@1.18.2:
+    resolution: {integrity: sha512-KyCzUWmxOw8b58myFzl9TkOcWy0mbvMJ7zGxUPxJNl0r9PkbXb7qNsjDIqHsiObLgnLmGFLFLB9lHaN88cTtuw==}
     engines: {node: '>=14.17.6'}
     dependencies:
-      '@rspress/shared': 1.18.1
+      '@rspress/shared': 1.18.2
     dev: false
 
-  /@rspress/plugin-medium-zoom@1.18.1(@rspress/runtime@1.18.1):
-    resolution: {integrity: sha512-c96hCAADOs/2BBkGxOPVcsXr9WEpmI5QZx466DaDybG3iBjOky3VGewbkkjYwHMYUDFqBU3Eo0PMohq2w4cBkQ==}
+  /@rspress/plugin-medium-zoom@1.18.2(@rspress/runtime@1.18.2):
+    resolution: {integrity: sha512-t8IEXGJgT7SbiPje3bewbC3Pg5tb+ozltFMhGNeoLMy1A5ECHqBs5YpzuAstmoeUubg8/LZ49NkEIu2H3Mti4w==}
     engines: {node: '>=14.17.6'}
     peerDependencies:
       '@rspress/runtime': ^1.0.2
     dependencies:
-      '@rspress/runtime': 1.18.1
+      '@rspress/runtime': 1.18.2
       medium-zoom: 1.0.8
     dev: false
 
-  /@rspress/plugin-shiki@1.18.1:
-    resolution: {integrity: sha512-b8bqE4t40zf90KHC3ffoMGGJKV7fGzbiti3tnC03Bu8DvMlxskuNEdDHRaFssZOEqBpAo90TEcOJ7D0DDqWgjw==}
+  /@rspress/plugin-shiki@1.18.2:
+    resolution: {integrity: sha512-OD5MOYw0r0/MYmYqRuxsEWu2QHQ1v1tU2j0gte9h8jea6Wp3FSXOkOYoNeEPpRiRLYiJoPaHBfX+Q9HAVzkhDQ==}
     engines: {node: '>=14.17.6'}
     dependencies:
-      '@rspress/shared': 1.18.1
+      '@rspress/shared': 1.18.2
       hast-util-from-html: 2.0.1
       shiki: 0.14.5
       unist-util-visit: 5.0.0
     dev: false
 
-  /@rspress/runtime@1.18.1:
-    resolution: {integrity: sha512-r7rqp7zc6qjlw5k0KGCNTqHL5/vqrU/rlH5M3ZktLvTje5SPA+1kvzUtQio6JVGWht4AAAYAbH31dqmGmH+szg==}
+  /@rspress/runtime@1.18.2:
+    resolution: {integrity: sha512-2lAG7i1AEe+uClTxrJKG079ZjCa6jSAEimLRvSZO3t4G9BbY71j9ODl8XwC4rTc8JzHONdX1UYv4sKN3BQYRvw==}
     engines: {node: '>=14.17.6'}
     dependencies:
-      '@rspress/shared': 1.18.1
+      '@rspress/shared': 1.18.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-helmet-async: 1.3.0(react-dom@18.2.0)(react@18.2.0)
       react-router-dom: 6.21.1(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
-  /@rspress/shared@1.18.1:
-    resolution: {integrity: sha512-dX089rS0G1xwDebemI4aICfXX25yi6OqntWXg0Ls/4Iw8/fSrbGkGI86t1my8/tdRuI/V5xaDt0QNa2NwgxXKA==}
+  /@rspress/shared@1.18.2:
+    resolution: {integrity: sha512-/siTFxmA5Aj9x6dXpZSrY7lAqd3aAvI5gZiQZ+HnfDuLBJDPndf073jRFJcAILLupWrSUnrIDUsuGIqDUAZu+w==}
     dependencies:
       '@rsbuild/core': 0.6.1
       chalk: 4.1.2
@@ -2417,13 +2390,13 @@ packages:
       gray-matter: 4.0.3
       unified: 10.1.2
 
-  /@rspress/theme-default@1.18.1:
-    resolution: {integrity: sha512-zhqIWcB0amrcq0rSRi4+amCunkGhu2U0QB3ufi3ZP3R62EBJIXtz+92/Jy+bJkEZuyjEpZjMBuNnomlf6BQDsQ==}
+  /@rspress/theme-default@1.18.2:
+    resolution: {integrity: sha512-CEPqkWqASLpxUevhf89aqgK0u++EItWIDGMHO8aYquxFbv9iMPVEnjd9xUKiUwBlpueELyRmrHxH1GTz+nTctQ==}
     engines: {node: '>=14.17.6'}
     dependencies:
       '@mdx-js/react': 2.3.0(react@18.2.0)
-      '@rspress/runtime': 1.18.1
-      '@rspress/shared': 1.18.1
+      '@rspress/runtime': 1.18.2
+      '@rspress/shared': 1.18.2
       body-scroll-lock: 4.0.0-beta.0
       copy-to-clipboard: 3.3.3
       flexsearch: 0.6.32
@@ -3250,7 +3223,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001585
+      caniuse-lite: 1.0.30001610
       electron-to-chromium: 1.4.616
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
@@ -3315,9 +3288,6 @@ packages:
     resolution: {integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==}
     engines: {node: '>=6'}
     dev: true
-
-  /caniuse-lite@1.0.30001585:
-    resolution: {integrity: sha512-yr2BWR1yLXQ8fMpdS/4ZZXpseBgE7o4g41x3a6AJOqZuOi+iE/WdJYAuZ6Y95i4Ohd2Y+9MzIWRR+uGABH4s3Q==}
 
   /caniuse-lite@1.0.30001610:
     resolution: {integrity: sha512-QFutAY4NgaelojVMjY63o6XlZyORPaLfyMnsl3HgnWdJUcX6K0oaJymHjH8PT5Gk7sTm8rvC/c5COUQKXqmOMA==}
@@ -3890,21 +3860,12 @@ packages:
       graceful-fs: 4.2.11
       tapable: 2.2.1
 
-  /enhanced-resolve@5.15.0:
-    resolution: {integrity: sha512-LXYT42KJ7lpIKECr2mAXIaMldcNCh/7E0KBKOu4KSfkHmP+mZmSs+8V5gBAqisWBy0OO4W5Oyys0GO1Y8KtdKg==}
-    engines: {node: '>=10.13.0'}
-    dependencies:
-      graceful-fs: 4.2.11
-      tapable: 2.2.1
-    dev: true
-
   /enhanced-resolve@5.16.0:
     resolution: {integrity: sha512-O+QWCviPNSSLAD9Ucn8Awv+poAkqn3T1XY5/N7kR7rQO9yfSGWkYZDwpJ+iKF7B8rxaQKWngSqACpgzeapSyoA==}
     engines: {node: '>=10.13.0'}
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.2.1
-    dev: false
 
   /enquirer@2.3.6:
     resolution: {integrity: sha512-yjNnPr315/FjS4zIsUxYguYUPP2e1NK4d7E7ZOLiyYCcbFBiTMyID+2wvm2w6+pZ/odMA7cRkjhsPbltwBOrLg==}
@@ -5213,13 +5174,13 @@ packages:
     resolution: {integrity: sha512-chIaY3Vh2mh2Q3RGXttaDIzeiPvaVXJ+C4DAh/w3c37SKZ/U6PGMmuicR2EQQp9bKG8zLMCl7I+PtIoOOPp8Gg==}
     dev: true
 
-  /icss-utils@5.1.0(postcss@8.4.35):
+  /icss-utils@5.1.0(postcss@8.4.38):
     resolution: {integrity: sha512-soFhflCVWLfRNOPU3iv5Z9VUdT44xFRbzjLsEzSr5AQmgqPMTHdU3PMT1Cf1ssx8fLNJDA1juftYl+PUcv3MqA==}
     engines: {node: ^10 || ^12 || >= 14}
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      postcss: 8.4.35
+      postcss: 8.4.38
     dev: true
 
   /ieee754@1.2.1:
@@ -7106,48 +7067,48 @@ packages:
       yaml: 2.3.4
     dev: true
 
-  /postcss-modules-extract-imports@3.0.0(postcss@8.4.35):
+  /postcss-modules-extract-imports@3.0.0(postcss@8.4.38):
     resolution: {integrity: sha512-bdHleFnP3kZ4NYDhuGlVK+CMrQ/pqUm8bx/oGL93K6gVwiclvX5x0n76fYMKuIGKzlABOy13zsvqjb0f92TEXw==}
     engines: {node: ^10 || ^12 || >= 14}
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      postcss: 8.4.35
+      postcss: 8.4.38
     dev: true
 
-  /postcss-modules-local-by-default@4.0.4(postcss@8.4.35):
+  /postcss-modules-local-by-default@4.0.4(postcss@8.4.38):
     resolution: {integrity: sha512-L4QzMnOdVwRm1Qb8m4x8jsZzKAaPAgrUF1r/hjDR2Xj7R+8Zsf97jAlSQzWtKx5YNiNGN8QxmPFIc/sh+RQl+Q==}
     engines: {node: ^10 || ^12 || >= 14}
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      icss-utils: 5.1.0(postcss@8.4.35)
-      postcss: 8.4.35
+      icss-utils: 5.1.0(postcss@8.4.38)
+      postcss: 8.4.38
       postcss-selector-parser: 6.0.15
       postcss-value-parser: 4.2.0
     dev: true
 
-  /postcss-modules-scope@3.1.1(postcss@8.4.35):
+  /postcss-modules-scope@3.1.1(postcss@8.4.38):
     resolution: {integrity: sha512-uZgqzdTleelWjzJY+Fhti6F3C9iF1JR/dODLs/JDefozYcKTBCdD8BIl6nNPbTbcLnGrk56hzwZC2DaGNvYjzA==}
     engines: {node: ^10 || ^12 || >= 14}
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      postcss: 8.4.35
+      postcss: 8.4.38
       postcss-selector-parser: 6.0.15
     dev: true
 
-  /postcss-modules-values@4.0.0(postcss@8.4.35):
+  /postcss-modules-values@4.0.0(postcss@8.4.38):
     resolution: {integrity: sha512-RDxHkAiEGI78gS2ofyvCsu7iycRv7oqw5xMWn9iMoR0N/7mf9D50ecQqUo5BZ9Zh2vH4bCUR/ktCqbB9m8vJjQ==}
     engines: {node: ^10 || ^12 || >= 14}
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      icss-utils: 5.1.0(postcss@8.4.35)
-      postcss: 8.4.35
+      icss-utils: 5.1.0(postcss@8.4.38)
+      postcss: 8.4.38
     dev: true
 
-  /postcss-modules@4.3.0(postcss@8.4.35):
+  /postcss-modules@4.3.0(postcss@8.4.38):
     resolution: {integrity: sha512-zoUttLDSsbWDinJM9jH37o7hulLRyEgH6fZm2PchxN7AZ8rkdWiALyNhnQ7+jg7cX9f10m6y5VhHsrjO0Mf/DA==}
     peerDependencies:
       postcss: ^8.0.0
@@ -7155,11 +7116,11 @@ packages:
       generic-names: 4.0.0
       icss-replace-symbols: 1.1.0
       lodash.camelcase: 4.3.0
-      postcss: 8.4.35
-      postcss-modules-extract-imports: 3.0.0(postcss@8.4.35)
-      postcss-modules-local-by-default: 4.0.4(postcss@8.4.35)
-      postcss-modules-scope: 3.1.1(postcss@8.4.35)
-      postcss-modules-values: 4.0.0(postcss@8.4.35)
+      postcss: 8.4.38
+      postcss-modules-extract-imports: 3.0.0(postcss@8.4.38)
+      postcss-modules-local-by-default: 4.0.4(postcss@8.4.38)
+      postcss-modules-scope: 3.1.1(postcss@8.4.38)
+      postcss-modules-values: 4.0.0(postcss@8.4.38)
       string-hash: 1.1.3
     dev: true
 
@@ -7191,7 +7152,7 @@ packages:
     dependencies:
       nanoid: 3.3.7
       picocolors: 1.0.0
-      source-map-js: 1.0.2
+      source-map-js: 1.2.0
     dev: false
 
   /postcss@8.4.35:
@@ -7694,13 +7655,13 @@ packages:
       fs-extra: 11.2.0
     dev: false
 
-  /rspress@1.18.1(@swc/helpers@0.5.3)(webpack@5.89.0):
-    resolution: {integrity: sha512-WBJmNx0Qqi9d365iraNv5Af5Gf+J5cwCvUDv2WnTnTkFurDpRquAvi48559SwYuH4yk8KvpkNs8RCeDfaiwaiQ==}
+  /rspress@1.18.2(@swc/helpers@0.5.3)(webpack@5.89.0):
+    resolution: {integrity: sha512-fzAR0m8A1n7D3pPRblGEsws7J9XSgzDf6PXUH5CRKr0sVgGF80SxMF79V1AEiI3cgCzumqqBoXDzHWpQQU3AKg==}
     hasBin: true
     dependencies:
       '@rsbuild/core': 0.6.1
-      '@rspress/core': 1.18.1(@swc/helpers@0.5.3)(webpack@5.89.0)
-      '@rspress/shared': 1.18.1
+      '@rspress/core': 1.18.2(@swc/helpers@0.5.3)(webpack@5.89.0)
+      '@rspress/shared': 1.18.2
       cac: 6.7.14
       chalk: 5.3.0
       chokidar: 3.6.0
@@ -7926,6 +7887,7 @@ packages:
   /source-map-js@1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
@@ -8412,7 +8374,7 @@ packages:
     engines: {node: '>=10.13.0'}
     dependencies:
       chalk: 4.1.2
-      enhanced-resolve: 5.15.0
+      enhanced-resolve: 5.16.0
       tsconfig-paths: 4.2.0
     dev: true
 
