@@ -31,11 +31,11 @@ const PostInfo = () => {
 
   return (
     <div className={classnames(styles.postInfoContainer, '-mt-5', 'mb-8')}>
-      <span className={styles.postInfoMetaItem}>
+      <span key="info-date" className={styles.postInfoMetaItem}>
         <Icon icon={CalendarFill} inline />{' '}
         {dayjs(postInfo.date || Date.now()).format('YYYY-MM-DD')}
       </span>
-      <span className={styles.postInfoMetaItem}>
+      <span key="info-category" className={styles.postInfoMetaItem}>
         <Icon icon={FolderFill} inline />{' '}
         <Link
           href={`/blog/categories/index.html?category=${encodeURIComponent(
@@ -46,20 +46,20 @@ const PostInfo = () => {
         </Link>
       </span>
       {(postInfo.tags || []).map((tag) => (
-        <span className={styles.postInfoMetaItem}>
+        <span key={`info-tag-${tag}`} className={styles.postInfoMetaItem}>
           <Icon icon={TagFill} inline />{' '}
           <Link href={`/blog/tags/index.html?tag=${encodeURIComponent(tag)}`}>
             {tag}
           </Link>
         </span>
       ))}
-      <span className={styles.postInfoMetaItem}>
+      <span key="info-word-count" className={styles.postInfoMetaItem}>
         <Icon icon={FileEarmarkWordFill} inline /> {postInfo.words || 'NaN'} 字
       </span>
-      <span className={styles.postInfoMetaItem}>
+      <span key="info-reading-time" className={styles.postInfoMetaItem}>
         <Icon icon={ClickFill} inline /> {postInfo.readingTime || 'NaN'} 分钟
       </span>
-      <span className={styles.postInfoMetaItem}>
+      <span key="info-viewer-count" className={styles.postInfoMetaItem}>
         <Icon icon={EyeFill} inline /> <Busuanzi />
       </span>
     </div>
