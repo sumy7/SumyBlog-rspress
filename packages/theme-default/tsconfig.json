@@ -1,7 +1,7 @@
 {
-  "extends": "@modern-js/tsconfig/base",
+  "extends": "../../tsconfig.extend.json",
   "compilerOptions": {
-    "declaration": false,
+    "composite": true,
     "module": "ESNext",
     "target": "ESNext",
     "jsx": "react-jsx",
@@ -14,6 +14,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["src", "index.d.ts", "modern.config.ts", "tailwind.config.ts"],
+  "include": ["src", "rslib.config.ts"],
   "exclude": ["node_modules", "dist"]
 }

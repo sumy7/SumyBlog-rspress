@@ -41,10 +41,6 @@ log/
 
 .pnpm-store/
 
-modern.config.local.ts
-modern.config.local.js
-modern.config.local.mjs
-
 doc_build/
 .nx/
 .nx-cache/

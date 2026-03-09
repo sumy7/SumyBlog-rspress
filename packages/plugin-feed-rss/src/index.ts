@@ -5,11 +5,6 @@ import { postInfos } from '@sumyblog/rspress-plugin-post-resolver'
 import { Feed, FeedOptions } from 'feed'
 import dayjs from 'dayjs'
 
-const feedsAnnotationsComponent = path.resolve(
-  __dirname,
-  '../dist/FeedsAnnotations.js'
-)
-
 export type UserFeedOptions = Partial<
   Omit<FeedOptions, 'title' | 'copyright' | 'id'>
 >
@@ -34,7 +29,7 @@ export function feedRssPlugin({
     name: '@sumyblog/rspress-plugin-feed-rss',
     globalUIComponents: [
       [
-        feedsAnnotationsComponent,
+        '@sumyblog/rspress-plugin-feed-rss/FeedsAnnotations',
         {
           href: `${baseUrl}${rssPublicPath}${rssFileName}.rss`,
         },

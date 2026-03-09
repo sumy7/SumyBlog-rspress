@@ -1,31 +1,38 @@
 {
   "name": "@sumyblog/rspress-plugin-google-ads",
   "version": "0.1.0",
-  "jsnext:source": "./src/index.ts",
-  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./GoogleAds": {
+      "types": "./dist/GoogleAds.d.ts",
+      "default": "./dist/GoogleAds.js"
+    }
+  },
   "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "modern build -w",
-    "build": "modern build",
-    "new": "modern new",
-    "upgrade": "modern upgrade"
+    "build": "rslib build",
+    "dev": "rslib build -w"
   },
   "dependencies": {
     "@rspress/runtime": "1.22.0",
     "@rspress/shared": "1.22.0"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.57.6",
+    "@rslib/core": "0.19.6",
     "@types/node": "~16.11.7",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "react": "^18",
     "react-dom": "^18",
-    "react-router-dom": "^6.8.1"
+    "typescript": "^5.8.2"
   },
-  "eslintIgnore": [
-    "node_modules/",
-    "dist/"
-  ],
   "sideEffects": [],
   "files": [
     "dist"

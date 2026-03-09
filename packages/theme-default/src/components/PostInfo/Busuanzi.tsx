@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Helmet, useLocation, usePageData } from '@rspress/runtime'
+import { Helmet, useLocation } from '@rspress/runtime'
 import fetchJsonp from 'fetch-jsonp'
 
 // busuanzi网站统计数据

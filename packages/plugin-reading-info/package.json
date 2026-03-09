@@ -1,22 +1,33 @@
 {
   "name": "@sumyblog/rspress-plugin-reading-info",
   "version": "0.1.0",
-  "types": "./dist/types/index.d.ts",
-  "main": "./dist/lib/index.js",
-  "module": "./dist/es/index.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "modern build -w",
-    "build": "modern build",
-    "new": "modern new",
-    "upgrade": "modern upgrade"
+    "build": "rslib build",
+    "dev": "rslib build -w"
   },
   "dependencies": {
     "@rspress/shared": "1.22.0"
   },
   "devDependencies": {
-    "@types/node": "~16.11.7"
+    "@microsoft/api-extractor": "^7.57.6",
+    "@rslib/core": "0.19.6",
+    "@types/node": "~16.11.7",
+    "typescript": "^5.8.2"
   },
   "sideEffects": [],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

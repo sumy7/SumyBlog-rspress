@@ -2,14 +2,18 @@
   "name": "@sumyblog/rspress-plugin-markdown-presets",
   "version": "0.1.0",
   "type": "module",
-  "jsnext:source": "./src/index.ts",
-  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "dev": "modern build -w",
-    "build": "modern build",
-    "new": "modern new",
-    "upgrade": "modern upgrade"
+    "build": "rslib build",
+    "dev": "rslib build -w"
   },
   "peerDependencies": {
     "parse5": "^6.0.1"
@@ -23,7 +27,10 @@
     "remark-math": "^5.1.1"
   },
   "devDependencies": {
-    "@types/node": "~16.11.7"
+    "@microsoft/api-extractor": "^7.57.6",
+    "@rslib/core": "0.19.6",
+    "@types/node": "~16.11.7",
+    "typescript": "^5.8.2"
   },
   "eslintIgnore": [
     "node_modules/",

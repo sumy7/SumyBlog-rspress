@@ -1,5 +1,6 @@
 import path from 'node:path'
 import fs, { PathLike } from 'node:fs'
+import { cwd } from 'node:process'
 import { AdditionalPage, RspressPlugin } from '@rspress/shared'
 import {
   addPost,
@@ -10,7 +11,7 @@ import {
   resetPostInfo,
   sortPostInfos,
 } from './PostData'
-import { PluginOptions } from '@/types'
+import { PluginOptions } from './types'
 
 // 遍历文件夹
 function traverseFolder(
@@ -30,7 +31,8 @@ function traverseFolder(
 }
 
 export function blogPostResolver(options?: PluginOptions): RspressPlugin {
-  const { postsDir = process.cwd() } = options || {}
+  const postsDir = options?.postsDir || cwd()
+
   return {
     name: '@sumyblog/rspress-plugin-post-resolver',
     beforeBuild() {

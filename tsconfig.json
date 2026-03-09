@@ -1,13 +1,8 @@
 {
-  "extends": "@modern-js/tsconfig/base",
+  "extends": "./tsconfig.extend.json",
   "compilerOptions": {
-    "target": "ES2019",
     "declaration": true,
-    "outDir": "./dist",
-    "jsx": "preserve",
-    "baseUrl": "./",
-    "isolatedModules": true,
-    "paths": {}
+    "baseUrl": "./"
   },
   "include": ["scripts/**/*.ts"]
 }

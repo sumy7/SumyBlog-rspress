@@ -1,30 +1,15 @@
-# Modern.js Package
+# @sumyblog/rspress-plugin-google-ads
 
-## Get Started
+Google Ads plugin and `GoogleAds` component for Rspress.
 
-Run and debug the module:
+## Scripts
 
 ```bash
 pnpm run dev
-```
-
-Run test cases:
-
-```bash
-pnpm run test
-```
-
-Build the module for production:
-
-```bash
 pnpm run build
 ```
 
-Enable optional features:
+## Exports
 
-```bash
-pnpm run new
-```
-
-
-For more information, see the [Modern.js Module documentation](https://modernjs.dev/module-tools/en).
+- `@sumyblog/rspress-plugin-google-ads`
+- `@sumyblog/rspress-plugin-google-ads/GoogleAds`

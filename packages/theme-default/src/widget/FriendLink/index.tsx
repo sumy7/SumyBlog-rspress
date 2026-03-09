@@ -13,7 +13,7 @@ const FriendLinkWidget = () => {
       {siteData.themeConfig.friendLinks && (
         <WidgetContainer title="友情链接">
           <div className={classnames('m-5')}>
-            {siteData.themeConfig.friendLinks?.map((link, index) => (
+            {siteData.themeConfig.friendLinks?.map((link) => (
               <div
                 key={link.link + link.name}
                 className={classnames(
