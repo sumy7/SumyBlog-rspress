@@ -6,7 +6,6 @@ import { blogPostResolver } from '@sumyblog/rspress-plugin-post-resolver'
 import { postReadingInfoPlugin } from '@sumyblog/rspress-plugin-reading-info'
 import { googleAnalyticsPlugin } from '@sumyblog/rspress-plugin-google-analytics'
 import { markdownPresetsPlugin } from '@sumyblog/rspress-plugin-markdown-presets'
-import { googleAdsPlugin } from '@sumyblog/rspress-plugin-google-ads'
 import { feedRssPlugin } from '@sumyblog/rspress-plugin-feed-rss'
 
 export default defineConfig({
@@ -40,6 +39,10 @@ export default defineConfig({
       {
         name: 'NAS日志 - steven',
         link: 'https://irunningm.top/',
+      },
+      {
+        name: '乌漆嘛黑',
+        link: 'https://www.chengzila.com/',
       },
     ],
     googleAds: {
@@ -126,7 +129,6 @@ export default defineConfig({
       gid: 'G-2NDCXW15G4',
     }),
     markdownPresetsPlugin(),
-    googleAdsPlugin(),
     feedRssPlugin({
       baseUrl: 'https://sumygg.com',
     }),
