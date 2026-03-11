@@ -1,5 +1,5 @@
 import { postTags } from 'virtual-post-tags'
-import { useSearchParams } from '@rspress/runtime'
+import { useSearchParams } from '@rspress/core/runtime'
 import { useMemo } from 'react'
 import YearGroupedPostList from '@/components/YearGroupedPostList'
 import TagCloud from '@/components/TagCloud'

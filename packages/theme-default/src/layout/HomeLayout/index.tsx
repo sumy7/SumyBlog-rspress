@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useSearchParams } from '@rspress/runtime'
+import { useSearchParams } from '@rspress/core/runtime'
 import { postInfos } from 'virtual-post-data'
 import classnames from 'classnames'
 import Pagination from '@/components/Pagination'

@@ -23,7 +23,7 @@ const formFileNamePermalink = new Permalink(configBlogFileName, {
 })
 const toRoutePathPermalink = new Permalink(permalinkPattern)
 
-function norminalizeCategory(category: string | string[]): string[] {
+function normalizeCategory(category: string | string[]): string[] {
   if (!category) {
     return []
   }
@@ -33,7 +33,7 @@ function norminalizeCategory(category: string | string[]): string[] {
   return [category]
 }
 
-function norminalizeTags(tags: string | string[]): string[] {
+function normalizeTags(tags: string | string[]): string[] {
   if (!tags) {
     return []
   }
@@ -119,10 +119,10 @@ export function getPostInfo(filepath: string): PostInfo | null {
     route: routePath,
     path: filepath,
     date: createTime.format('YYYY-MM-DD HH:mm:ss'),
-    categories: norminalizeCategory(
+    categories: normalizeCategory(
       frontmatter.category || frontmatter.categories
     ),
-    tags: norminalizeTags(frontmatter.tag || frontmatter.tags),
+    tags: normalizeTags(frontmatter.tag || frontmatter.tags),
     excerpt: frontmatter.description || excerpt,
   }
 }

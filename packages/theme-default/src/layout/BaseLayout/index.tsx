@@ -1,4 +1,4 @@
-import { Nav } from '@rspress/theme-default'
+import { Nav } from '@rspress/core/theme-original'
 import classnames from 'classnames'
 import Footer from '@/components/Footer'
 

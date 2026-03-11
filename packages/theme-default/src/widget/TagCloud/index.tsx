@@ -1,6 +1,6 @@
 import { postTags } from 'virtual-post-tags'
 import { useMemo } from 'react'
-import { useNavigate } from '@rspress/runtime'
+import { useNavigate } from '@rspress/core/runtime'
 import WidgetContainer from '@/widget/WidgetContainer'
 import TagCloud from '@/components/TagCloud'
 

@@ -1,7 +1,6 @@
 import { useEffect, Fragment } from 'react'
-import Theme from '@rspress/theme-default'
-import { getCustomMDXComponent as getRspressMDXComponent } from '@rspress/theme-default'
-import { Helmet, useLocation, usePageData } from '@rspress/runtime'
+import { getCustomMDXComponent as getRspressMDXComponent } from '@rspress/core/theme-original'
+import { Head, useLocation, usePageData } from '@rspress/core/runtime'
 import { getLayout } from './layout'
 import PostInfo from '@/components/PostInfo'
 
@@ -17,7 +16,7 @@ dayjs.tz.setDefault('Asia/Shanghai')
 
 const Layout = () => {
   const { siteData, page } = usePageData()
-  const { pageType, lang: currentLang, title: articleTitle, frontmatter } = page
+  const { pageType, title: articleTitle, frontmatter } = page
   // const defaultLang = siteData.lang || ''
   const mainTitle = siteData.title
 
@@ -51,23 +50,16 @@ const Layout = () => {
 
   return (
     <div>
-      <Helmet
-        htmlAttributes={{
-          lang: currentLang || 'en',
-        }}
-      >
+      <Head>
         {title ? <title>{title}</title> : null}
         {description ? <meta name="description" content={description} /> : null}
-      </Helmet>
+      </Head>
       {getLayout(pageType, (page.frontmatter?.layout as string) || '')}
     </div>
   )
 }
 
-export default {
-  ...Theme,
-  Layout,
-}
+export { Layout }
 
 // 覆写h1，支持在h1下方插入文章的基本信息
 export const getCustomMDXComponent = (): any => {
@@ -88,5 +80,5 @@ export const getCustomMDXComponent = (): any => {
   }
 }
 
-export * from '@rspress/theme-default'
+export * from '@rspress/core/theme-original'
 export * from './ThemeConfig'

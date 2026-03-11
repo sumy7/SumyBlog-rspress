@@ -1,4 +1,4 @@
-import { RspressPlugin } from '@rspress/shared'
+import { RspressPlugin } from '@rspress/core'
 
 declare global {
   interface Window {

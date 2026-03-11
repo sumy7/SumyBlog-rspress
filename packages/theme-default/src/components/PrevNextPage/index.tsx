@@ -1,13 +1,16 @@
-import { usePageData, normalizeHrefInRuntime } from '@rspress/runtime'
+import {
+  usePageData,
+  normalizeHrefInRuntime,
+  useI18n,
+} from '@rspress/core/runtime'
 import { PostInfo } from '@sumyblog/rspress-plugin-post-resolver'
 
-import { Link, useLocaleSiteData } from '@rspress/theme-default'
+import { Link } from '@rspress/core/theme-original'
 
 import styles from './index.module.scss'
 
 const PrevNextPage = () => {
-  const { prevPageText = 'Previous Page', nextPageText = 'Next page' } =
-    useLocaleSiteData()
+  const t = useI18n()
   const { page } = usePageData()
   const prevPost = page.prevPost as PostInfo
   const nextPost = page.nextPost as PostInfo
@@ -20,7 +23,7 @@ const PrevNextPage = () => {
             href={normalizeHrefInRuntime(prevPost.route)}
             className={styles.pagerLink}
           >
-            <span className={styles.desc}>{prevPageText}</span>
+            <span className={styles.desc}>{t('prevPageText')}</span>
             <span className={styles.title}>{prevPost.title}</span>
           </Link>
         ) : null}
@@ -31,7 +34,7 @@ const PrevNextPage = () => {
             href={normalizeHrefInRuntime(nextPost.route)}
             className={`${styles.pagerLink} ${styles.next}`}
           >
-            <span className={styles.desc}>{nextPageText}</span>
+            <span className={styles.desc}>{t('nextPageText')}</span>
             <span className={styles.title}>{nextPost.title}</span>
           </Link>
         ) : null}

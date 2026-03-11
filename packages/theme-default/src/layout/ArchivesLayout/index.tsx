@@ -1,5 +1,5 @@
 import { postInfos } from 'virtual-post-data'
-import { usePageData } from '@rspress/runtime'
+import { usePageData } from '@rspress/core/runtime'
 import YearGroupedPostList from '@/components/YearGroupedPostList'
 import BaseLayout from '@/layout/BaseLayout'
 

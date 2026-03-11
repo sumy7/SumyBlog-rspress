@@ -1,5 +1,5 @@
 import { postCategories } from 'virtual-post-categories'
-import { useSearchParams } from '@rspress/runtime'
+import { useSearchParams } from '@rspress/core/runtime'
 import { useMemo } from 'react'
 import YearGroupedPostList from '@/components/YearGroupedPostList'
 import TagCloud from '@/components/TagCloud'

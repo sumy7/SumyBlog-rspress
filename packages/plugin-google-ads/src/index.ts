@@ -1,4 +1,4 @@
-import { RspressPlugin } from '@rspress/shared'
+import { RspressPlugin } from '@rspress/core'
 
 // google 广告
 export function googleAdsPlugin(): RspressPlugin {

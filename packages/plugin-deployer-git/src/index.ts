@@ -1,4 +1,4 @@
-import { RspressPlugin } from '@rspress/shared'
+import { RspressPlugin } from '@rspress/core'
 import { DeployerContext, push, setup } from './deploy'
 import { cwd } from 'node:process'
 import { join } from 'node:path'

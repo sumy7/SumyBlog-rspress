@@ -1,5 +1,5 @@
 import { postInfos } from 'virtual-post-data'
-import { getCustomMDXComponent } from '@rspress/theme-default'
+import { getCustomMDXComponent } from '@rspress/core/theme-original'
 import classnames from 'classnames'
 import WidgetContainer from '@/widget/WidgetContainer'
 

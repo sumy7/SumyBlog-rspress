@@ -1,4 +1,4 @@
-import { NoSSR } from '@rspress/runtime'
+import { NoSSR } from '@rspress/core/runtime'
 import GoogleAds, { type GoogleAdsProps } from '@/GoogleAds/GoogleAds'
 
 const GoogleAdsIndex: React.FC<GoogleAdsProps> = (props: GoogleAdsProps) => {

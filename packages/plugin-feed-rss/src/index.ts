@@ -1,6 +1,6 @@
 import path from 'node:path'
 import { mkdir, writeFile } from 'node:fs/promises'
-import { RspressPlugin } from '@rspress/shared'
+import { RspressPlugin } from '@rspress/core'
 import { postInfos } from '@sumyblog/rspress-plugin-post-resolver'
 import { Feed, FeedOptions } from 'feed'
 import dayjs from 'dayjs'

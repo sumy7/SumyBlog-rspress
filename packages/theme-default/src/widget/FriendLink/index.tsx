@@ -1,19 +1,20 @@
-import { getCustomMDXComponent } from '@rspress/theme-default'
+import { getCustomMDXComponent } from '@rspress/core/theme-original'
 import classnames from 'classnames'
-import { usePageData } from '@rspress/runtime'
+import { usePageData } from '@rspress/core/runtime'
 import WidgetContainer from '@/widget/WidgetContainer'
 
 const { a: CustomA } = getCustomMDXComponent()
 
 const FriendLinkWidget = () => {
   const { siteData } = usePageData()
+  const themeConfig = siteData.themeConfig as any
 
   return (
     <>
-      {siteData.themeConfig.friendLinks && (
+      {themeConfig.friendLinks && (
         <WidgetContainer title="友情链接">
           <div className={classnames('m-5')}>
-            {siteData.themeConfig.friendLinks?.map((link) => (
+            {themeConfig.friendLinks?.map((link: any) => (
               <div
                 key={link.link + link.name}
                 className={classnames(

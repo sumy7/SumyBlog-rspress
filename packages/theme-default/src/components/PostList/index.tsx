@@ -1,7 +1,7 @@
-import { normalizeHrefInRuntime } from '@rspress/runtime'
+import { normalizeHrefInRuntime } from '@rspress/core/runtime'
 import { PostInfo } from '@sumyblog/rspress-plugin-post-resolver'
 import classnames from 'classnames'
-import { Link } from '@rspress/theme-default'
+import { Link } from '@rspress/core/theme-original'
 import styles from './index.module.scss'
 
 interface PostListProps {

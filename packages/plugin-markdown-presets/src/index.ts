@@ -1,5 +1,4 @@
-import { RspressPlugin } from '@rspress/shared'
-import { pluginShiki } from '@rspress/plugin-shiki'
+import { RspressPlugin } from '@rspress/core'
 
 import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
@@ -28,14 +27,11 @@ export function markdownPresetsPlugin(): RspressPlugin {
       },
     },
     config: (config) => {
-      config.plugins = [...(config.plugins || []), pluginShiki()]
       return {
         ...config,
         markdown: {
-          // 使用 JS 版本的 MDX 编译器
-          mdxRs: false,
           rehypePlugins: [
-            rehypeKatex,
+            rehypeKatex as any,
             [
               rehypeRaw,
               {
@@ -49,7 +45,7 @@ export function markdownPresetsPlugin(): RspressPlugin {
               },
             ],
           ],
-          remarkPlugins: [remarkEmoji, remarkMath],
+          remarkPlugins: [remarkEmoji, remarkMath as any],
         },
       }
     },

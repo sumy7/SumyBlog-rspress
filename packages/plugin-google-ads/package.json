@@ -1,6 +1,6 @@
 {
   "name": "@sumyblog/rspress-plugin-google-ads",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "type": "module",
   "exports": {
     ".": {
@@ -19,19 +19,21 @@
     "build": "rslib build",
     "dev": "rslib build -w"
   },
-  "dependencies": {
-    "@rspress/runtime": "1.22.0",
-    "@rspress/shared": "1.22.0"
-  },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.57.6",
     "@rslib/core": "0.19.6",
+    "@rspress/core": "^2.0.0",
     "@types/node": "~16.11.7",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "react": "^18",
     "react-dom": "^18",
     "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "@rspress/core": "^2.0.0",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "sideEffects": [],
   "files": [

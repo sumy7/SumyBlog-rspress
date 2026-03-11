@@ -1,5 +1,5 @@
 import Giscus, { GiscusProps } from '@giscus/react'
-import { useLocation, usePageData, useDark } from '@rspress/runtime'
+import { useLocation, usePageData, useDark } from '@rspress/core/runtime'
 import { useMemo } from 'react'
 
 const defaultGiscusOptions = {
@@ -17,15 +17,16 @@ const defaultGiscusOptions = {
 export default function GiscusComments() {
   const location = useLocation()
   const { siteData } = usePageData()
+  const themeConfig = siteData?.themeConfig as any
   const isDark = useDark()
 
   const giscusOptions = useMemo(() => {
-    if (!siteData?.themeConfig?.giscus) {
+    if (!themeConfig?.giscus) {
       return false
     }
     return {
       ...defaultGiscusOptions,
-      ...siteData.themeConfig.giscus,
+      ...themeConfig.giscus,
     } as GiscusProps
   }, [])
 
