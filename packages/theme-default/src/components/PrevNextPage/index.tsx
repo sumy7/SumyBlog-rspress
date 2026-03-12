@@ -1,8 +1,4 @@
-import {
-  usePageData,
-  normalizeHrefInRuntime,
-  useI18n,
-} from '@rspress/core/runtime'
+import { normalizeHrefInRuntime, useI18n, usePage } from '@rspress/core/runtime'
 import { PostInfo } from '@sumyblog/rspress-plugin-post-resolver'
 
 import { Link } from '@rspress/core/theme-original'
@@ -11,7 +7,7 @@ import styles from './index.module.scss'
 
 const PrevNextPage = () => {
   const t = useI18n()
-  const { page } = usePageData()
+  const { page } = usePage()
   const prevPost = page.prevPost as PostInfo
   const nextPost = page.nextPost as PostInfo
 

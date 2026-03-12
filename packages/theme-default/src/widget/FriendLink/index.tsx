@@ -1,13 +1,13 @@
 import { getCustomMDXComponent } from '@rspress/core/theme-original'
 import classnames from 'classnames'
-import { usePageData } from '@rspress/core/runtime'
+import { useSite } from '@rspress/core/runtime'
 import WidgetContainer from '@/widget/WidgetContainer'
 
 const { a: CustomA } = getCustomMDXComponent()
 
 const FriendLinkWidget = () => {
-  const { siteData } = usePageData()
-  const themeConfig = siteData.themeConfig as any
+  const { site } = useSite()
+  const themeConfig = site?.themeConfig as any
 
   return (
     <>

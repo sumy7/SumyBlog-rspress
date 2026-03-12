@@ -1,6 +1,6 @@
 import { useEffect, Fragment } from 'react'
 import { getCustomMDXComponent as getRspressMDXComponent } from '@rspress/core/theme-original'
-import { Head, useLocation, usePageData } from '@rspress/core/runtime'
+import { Head, useLocation, usePage, useSite } from '@rspress/core/runtime'
 import { getLayout } from './layout'
 import PostInfo from '@/components/PostInfo'
 
@@ -15,10 +15,11 @@ dayjs.extend(timezone)
 dayjs.tz.setDefault('Asia/Shanghai')
 
 const Layout = () => {
-  const { siteData, page } = usePageData()
+  const { site } = useSite()
+  const { page } = usePage()
   const { pageType, title: articleTitle, frontmatter } = page
   // const defaultLang = siteData.lang || ''
-  const mainTitle = siteData.title
+  const mainTitle = site.title
 
   const location = useLocation()
 
@@ -28,8 +29,7 @@ const Layout = () => {
   } else {
     title = mainTitle
   }
-  const description =
-    (frontmatter?.description as string) || siteData.description
+  const description = (frontmatter?.description as string) || site.description
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -68,7 +68,7 @@ export const getCustomMDXComponent = (): any => {
   return {
     ...CustomMDXComponent,
     h1: (props: any) => {
-      const { page } = usePageData()
+      const { page } = usePage()
       const { frontmatter } = page
       return (
         <Fragment>

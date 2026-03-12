@@ -7,6 +7,7 @@ categories:
 tags:
   - 测试
 ---
+
 # 博客功能插件测试
 
 > 用来测试一下博客的相关插件，主要是高亮插件和代码插件，表格样式还有公式的显示。
@@ -18,7 +19,7 @@ HTML样式代码
     <pre class="prettyprint linenums">
     #include<iostream>;
     using namespace std;
-    
+
     int main()
     {
         cout<<"Hello World!"<<endl;
@@ -49,7 +50,7 @@ $$
 
 ## 表格测试
 
-|head1 head1 head1|head2 head2 head2|head3 head3 head3|head4 head4 head4|
-|---|:---|:---:|---:|
-|row1text1|row1text3|row1text3|row1text4|
-|row2text1|row2text3|row2text3|row2text4|
+| head1 head1 head1 | head2 head2 head2 | head3 head3 head3 | head4 head4 head4 |
+| ----------------- | :---------------- | :---------------: | ----------------: |
+| row1text1         | row1text3         |     row1text3     |         row1text4 |
+| row2text1         | row2text3         |     row2text3     |         row2text4 |

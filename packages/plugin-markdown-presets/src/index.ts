@@ -30,6 +30,13 @@ export function markdownPresetsPlugin(): RspressPlugin {
       return {
         ...config,
         markdown: {
+          shiki: {
+            fallbackLanguage: 'text',
+            langAlias: {
+              // TODO math to render latex
+              math: 'text',
+            },
+          },
           rehypePlugins: [
             rehypeKatex as any,
             [

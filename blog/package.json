@@ -25,6 +25,7 @@
     "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.1.0",
     "tailwindcss": "^3.4.0",
+    "@rspress/plugin-sitemap": "2.0.5",
     "@sumyblog/rspress-plugin-post-resolver": "workspace:*",
     "@sumyblog/rspress-plugin-reading-info": "workspace:*",
     "@sumyblog/rspress-theme-default": "workspace:*",

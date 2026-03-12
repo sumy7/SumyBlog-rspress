@@ -1,5 +1,6 @@
 import * as path from 'path'
 import { defineConfig, UserConfig } from '@rspress/core'
+import { pluginSitemap } from '@rspress/plugin-sitemap'
 
 import { blogPostResolver } from '@sumyblog/rspress-plugin-post-resolver'
 import { postReadingInfoPlugin } from '@sumyblog/rspress-plugin-reading-info'
@@ -141,6 +142,9 @@ export default defineConfig({
     selector: '.rspress-doc img',
   },
   plugins: [
+    pluginSitemap({
+      siteUrl: 'https://sumygg.com',
+    }),
     blogPostResolver({
       postsDir: path.join(__dirname, 'source/_posts'),
     }),
