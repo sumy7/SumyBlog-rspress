@@ -1,29 +1,50 @@
 .tagList {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.25rem;
 
   .tagItem {
     display: inline-flex;
-    gap: .5em;
-
-    padding: 4px 16px;
-    margin: 6px 8px;
-
+    align-items: center;
+    gap: 0.35em;
+    padding: 0.25rem 0.65rem;
+    background: var(--rp-c-bg-soft);
+    color: var(--rp-c-text-2);
+    border-radius: 9999px;
+    font-size: 0.75rem;
     font-weight: 500;
-    background-color: var(--rp-c-bg-soft);
     cursor: pointer;
-    color: var(--rp-c-text-1);
-    border-radius: 12px;
+    transition:
+      background 0.2s,
+      color 0.2s;
+    border: 1px solid transparent;
+
+    .tagName {
+      line-height: 1;
+    }
+
+    .tagPostCount {
+      font-size: 0.65rem;
+      opacity: 0.65;
+      background: var(--rp-c-text-2);
+      color: var(--rp-c-bg);
+      border-radius: 9999px;
+      padding: 0 0.3em;
+      line-height: 1.5;
+      min-width: 1.2em;
+      text-align: center;
+      transition: background 0.2s;
+    }
 
     &:hover {
-      color: var(--rp-c-brand-dark);
-    }
+      background: var(--rp-c-brand-soft, var(--rp-c-bg-soft));
+      color: var(--rp-c-brand);
+      border-color: var(--rp-c-brand-light);
 
-    .tag-name {
-
-    }
-    .tag-post-count {
-
+      .tagPostCount {
+        background: var(--rp-c-brand);
+      }
     }
   }
 }

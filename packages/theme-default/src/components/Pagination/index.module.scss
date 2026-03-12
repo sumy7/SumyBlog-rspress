@@ -1,26 +1,45 @@
 .paginationItem {
+  @apply cursor-pointer select-none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+  margin: 0 0.15rem;
+  font-size: 0.85rem;
   font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  color: var(--rp-c-text-2);
+  background: transparent;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    border-color 0.15s;
 
-  @apply cursor-pointer text-sm font-medium mx-1.5 px-3 py-2 flex items-center;
-
-  &:hover{
-    background-color: var(--rp-c-bg-soft);
-    cursor: pointer;
-    color: var(--rp-c-brand-dark);
-    border-radius: 12px;
+  &:hover {
+    background: var(--rp-c-bg-soft);
+    color: var(--rp-c-text-1);
+    border-color: var(--rp-c-bg-soft);
   }
 
   &.active {
-    background-color: var(--rp-c-bg-soft);
-    cursor: pointer;
-    color: var(--rp-c-brand-dark);
-    border-radius: 12px;
+    background: var(--rp-c-brand);
+    color: #fff;
+    border-color: var(--rp-c-brand);
+    cursor: default;
+
+    &:hover {
+      background: var(--rp-c-brand-dark);
+      border-color: var(--rp-c-brand-dark);
+    }
   }
 
   &.disabled {
     cursor: not-allowed;
-    color: rgba(0, 0, 0, 0.25);
-    background-color: transparent;
-    border: none;
+    opacity: 0.35;
+    pointer-events: none;
   }
 }

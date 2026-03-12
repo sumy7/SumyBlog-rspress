@@ -1,6 +1,5 @@
 import { normalizeHrefInRuntime } from '@rspress/core/runtime'
 import { PostInfo } from '@sumyblog/rspress-plugin-post-resolver'
-import classnames from 'classnames'
 import { Link } from '@rspress/core/theme-original'
 import styles from './index.module.scss'
 
@@ -10,46 +9,47 @@ interface PostListProps {
 
 const PostList = ({ posts = [] }: PostListProps) => {
   return (
-    <div className={`${styles.postList}`}>
+    <div className={styles.postList}>
       {posts.map((post, index) => (
-        <div key={index} className={classnames('mb-6')}>
-          <div
-            className={classnames(
-              styles.postItem,
-              'max-w-4xl px-10 py-6 mx-auto rounded-lg'
-            )}
-          >
-            <div className="flex items-center justify-between">
-              <span className="font-light text-gray-600">
-                {(post.date || '').slice(0, 10)}
-              </span>
+        <article key={index} className={styles.postItem}>
+          <div className={styles.postMeta}>
+            <span className={styles.postDate}>
+              {(post.date || '').slice(0, 10)}
+            </span>
+            {(post.categories || []).length > 0 && (
               <Link
-                className={classnames(
-                  styles.postCategories,
-                  'px-2 py-1 text-gray-100'
-                )}
+                className={styles.postCategory}
                 href={`/blog/categories/index.html?category=${encodeURIComponent(
                   post.categories?.join('/') || ''
                 )}`}
               >
-                # {(post.categories || []).join(' / ')}
+                {(post.categories || []).join(' / ')}
               </Link>
-            </div>
-            <div className="mt-2">
-              <Link
-                className={classnames(
-                  styles.postTitle,
-                  'text-2xl',
-                  'font-bold'
-                )}
-                href={normalizeHrefInRuntime(post.route)}
-              >
-                {post.title}
-              </Link>
-              <p className="mt-2 text-gray-600"></p>
-            </div>
+            )}
           </div>
-        </div>
+          <Link
+            className={styles.postTitle}
+            href={normalizeHrefInRuntime(post.route)}
+          >
+            {post.title}
+          </Link>
+          {post.excerpt && <p className={styles.postExcerpt}>{post.excerpt}</p>}
+          <div className={styles.postFooter}>
+            <div className={styles.postTags}>
+              {(post.tags || []).slice(0, 4).map((tag) => (
+                <span key={tag} className={styles.postTag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <Link
+              className={styles.readMore}
+              href={normalizeHrefInRuntime(post.route)}
+            >
+              阅读全文 →
+            </Link>
+          </div>
+        </article>
       ))}
     </div>
   )

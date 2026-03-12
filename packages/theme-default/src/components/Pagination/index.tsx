@@ -67,7 +67,10 @@ const Pagination = ({ currentPage, totalPage, onChange }: PaginationProps) => {
   }, [currentPage, totalPage])
 
   return (
-    <div className="flex justify-center items-center">
+    <nav
+      className="flex justify-center items-center gap-0.5 py-2"
+      aria-label="pagination"
+    >
       <span
         className={classnames(styles.paginationItem, {
           [styles.disabled]: currentPage === 1,
@@ -78,7 +81,7 @@ const Pagination = ({ currentPage, totalPage, onChange }: PaginationProps) => {
           }
         }}
       >
-        上一页
+        ← 上一页
       </span>
       {paginationItems.map((item, index) => (
         <span
@@ -111,9 +114,9 @@ const Pagination = ({ currentPage, totalPage, onChange }: PaginationProps) => {
           }
         }}
       >
-        下一页
+        下一页 →
       </span>
-    </div>
+    </nav>
   )
 }
 
