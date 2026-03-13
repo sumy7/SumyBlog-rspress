@@ -16,10 +16,13 @@
     "dev": "rslib build -w"
   },
   "dependencies": {
+    "katex": "^0.16.38",
     "rehype-katex": "^7.0.0",
-    "rehype-raw": "^7.0.0",
+    "remark-math": "^6.0.0",
+    "rspress-plugin-mermaid": "1.0.1",
+    "rspress-plugin-katex": "1.0.0",
     "remark-gemoji": "^8.0.0",
-    "remark-math": "^6.0.0"
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.57.6",

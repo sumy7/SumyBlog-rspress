@@ -2,7 +2,7 @@ import { defineConfig } from '@rslib/core'
 import { pluginLess } from '@rsbuild/plugin-less'
 import { pluginSass } from '@rsbuild/plugin-sass'
 import { pluginReact } from '@rsbuild/plugin-react'
-import tailwindcss from 'tailwindcss'
+import tailwindcss from '@tailwindcss/postcss'
 
 const COMMON_EXTERNALS = [
   /virtual-.*/,
@@ -41,11 +41,7 @@ export default defineConfig({
   tools: {
     postcss: {
       postcssOptions: {
-        plugins: [
-          tailwindcss({
-            content: ['./src/**/*.{html,js,ts,jsx,tsx}'],
-          }),
-        ],
+        plugins: [tailwindcss()],
       },
     },
   },

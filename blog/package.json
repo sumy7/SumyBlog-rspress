@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@rspress/core": "^2.0.0",
+    "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^16",
     "@types/react": "^18.2.37",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
@@ -24,7 +25,7 @@
     "eslint-plugin-mdx": "^2.2.0",
     "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.1.0",
-    "tailwindcss": "^3.4.0",
+    "tailwindcss": "^4.1.13",
     "@rspress/plugin-sitemap": "2.0.5",
     "@sumyblog/rspress-plugin-post-resolver": "workspace:*",
     "@sumyblog/rspress-plugin-reading-info": "workspace:*",

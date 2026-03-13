@@ -44,6 +44,12 @@ int main()
 
 测试一下数学公式能否正常显示。
 
+When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are
+
+$$
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
+$$
+
 $$
 e^x = \sum\_{n=0}^\infty \frac{x^n}{n!} = \lim\_{n\rightarrow\infty} (1+x/n)^n
 $$

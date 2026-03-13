@@ -1,60 +1,52 @@
 import { RspressPlugin } from '@rspress/core'
+import { visit } from 'unist-util-visit'
+import { resolve } from 'path'
 
-import rehypeKatex from 'rehype-katex'
-import rehypeRaw from 'rehype-raw'
 import remarkEmoji from 'remark-gemoji'
 import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+// import rspressPluginKatex from 'rspress-plugin-katex'
+import rspressPluginMermaid from 'rspress-plugin-mermaid'
+
+const katexCssPath = resolve(
+  __dirname,
+  '../node_modules/katex/dist/katex.min.css'
+)
+
+const remarkCodeBlockToMath = () => {
+  return (tree: any) => {
+    visit(tree, 'math', (node: any) => {
+      node.data = node.data || {}
+      node.data.hName = 'div'
+      delete node.lang
+      delete node.meta
+    })
+    visit(tree, 'code', (node: any) => {
+      if (node.lang === 'math') {
+        node.data = {
+          hName: 'div',
+          hProperties: { className: ['math', 'math-display'] },
+        }
+        delete node.lang
+        delete node.meta
+      }
+    })
+  }
+}
 
 // markdown 插件集合
 export function markdownPresetsPlugin(): RspressPlugin {
   return {
     name: '@sumyblog/rspress-plugin-markdown-presets',
-    builderConfig: {
-      html: {
-        tags: [
-          // katex css
-          {
-            tag: 'link',
-            attrs: {
-              href: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css',
-              rel: 'stylesheet',
-              integrity:
-                'sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV',
-              crossOrigin: 'anonymous',
-            },
-          },
-        ],
-      },
+    globalStyles: katexCssPath,
+    config: (config, { addPlugin }) => {
+      // addPlugin(rspressPluginKatex())
+      addPlugin(rspressPluginMermaid())
+      return config
     },
-    config: (config) => {
-      return {
-        ...config,
-        markdown: {
-          shiki: {
-            fallbackLanguage: 'text',
-            langAlias: {
-              // TODO math to render latex
-              math: 'text',
-            },
-          },
-          rehypePlugins: [
-            rehypeKatex as any,
-            [
-              rehypeRaw,
-              {
-                passThrough: [
-                  'mdxFlowExpression',
-                  'mdxJsxFlowElement',
-                  'mdxJsxTextElement',
-                  'mdxTextExpression',
-                  'mdxjsEsm',
-                ],
-              },
-            ],
-          ],
-          remarkPlugins: [remarkEmoji, remarkMath as any],
-        },
-      }
+    markdown: {
+      remarkPlugins: [[remarkMath, {}], remarkCodeBlockToMath, remarkEmoji],
+      rehypePlugins: [rehypeKatex],
     },
   }
 }
