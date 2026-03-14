@@ -16,6 +16,8 @@
     "dev": "rslib build -w"
   },
   "dependencies": {
+    "radix-ui": "1.4.3",
+    "lucide-react": "^0.577.0",
     "@giscus/react": "^2.3.0",
     "@iconify-icon/react": "^2.0.1",
     "@iconify-icons/bi": "^1.2.19",

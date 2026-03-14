@@ -42,6 +42,19 @@ export function markdownPresetsPlugin(): RspressPlugin {
     config: (config, { addPlugin }) => {
       // addPlugin(rspressPluginKatex())
       addPlugin(rspressPluginMermaid())
+
+      config.markdown = config.markdown || {}
+      config.markdown.link = { checkDeadLinks: false }
+      config.markdown.shiki = config.markdown.shiki || {}
+      config.markdown.shiki.defaultLanguage = 'text'
+      config.markdown.shiki.langAlias = {
+        mysql: 'text',
+        basic: 'text',
+        smali: 'text',
+        brainfuck: 'text',
+        delphi: 'text',
+      }
+
       return config
     },
     markdown: {

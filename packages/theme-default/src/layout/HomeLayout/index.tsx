@@ -2,9 +2,9 @@ import { useMemo } from 'react'
 import { useSearchParams } from '@rspress/core/runtime'
 import { postInfos } from 'virtual-post-data'
 import classnames from 'classnames'
-import Pagination from '@/components/Pagination'
 import PostList from '@/components/PostList'
 import BaseLayout from '@/layout/BaseLayout'
+import { Pagination } from '@/ui/pagination'
 import RecentPostsWidget from '@/widget/RecentPosts'
 import TagCloudWidget from '@/widget/TagCloud'
 import CategoriesWidget from '@/widget/Categories'
@@ -45,7 +45,6 @@ const HomeLayout = () => {
       }
     >
       <PostList posts={currentPageData} />
-      <div className="mt-5"></div>
       <Pagination
         currentPage={currentPage}
         totalPage={totalPage}
