@@ -10,7 +10,12 @@ const WidgetContainer = (props: WidgetContainerProps) => {
 
   return (
     <div className={styles.widgetContainer}>
-      {title && <div className={styles.title}>{title}</div>}
+      {title && (
+        <div className={styles.headerRow}>
+          <div className={styles.indicator} />
+          <div className={styles.title}>{title}</div>
+        </div>
+      )}
       <div className={styles.content}>{children}</div>
     </div>
   )

@@ -1,7 +1,8 @@
 import path from 'node:path'
 import fs, { PathLike } from 'node:fs'
 import { cwd } from 'node:process'
-import { AdditionalPage, RspressPlugin } from '@rspress/shared'
+import { RspressPlugin } from '@rspress/core'
+import { pluginVirtualModule } from 'rsbuild-plugin-virtual-module'
 import {
   addPost,
   getCategoriesArray,
@@ -33,24 +34,42 @@ function traverseFolder(
 export function blogPostResolver(options?: PluginOptions): RspressPlugin {
   const postsDir = options?.postsDir || cwd()
 
+  const internalGetPostInfo = () => {
+    // 重置文章信息
+    resetPostInfo()
+
+    // 遍历source/_posts目录，获取mdx、md、html文件，生成路由
+    traverseFolder(postsDir, (itemPath) => {
+      const postInfo = getPostInfo(itemPath as string)
+      if (!postInfo) {
+        return
+      }
+      addPost(postInfo)
+    })
+    sortPostInfos()
+  }
+
   return {
     name: '@sumyblog/rspress-plugin-post-resolver',
-    beforeBuild() {
-      // 重置文章信息
-      resetPostInfo()
-
-      // 遍历soruce/_posts目录，获取mdx、md、html文件，生成路由
-      traverseFolder(postsDir, (itemPath) => {
-        const postInfo = getPostInfo(itemPath as string)
-        if (!postInfo) {
-          return
-        }
-        addPost(postInfo)
-      })
-      sortPostInfos()
+    beforeBuild(config) {
+      config.builderConfig = config.builderConfig || {}
+      config.builderConfig.plugins = [
+        ...(config.builderConfig.plugins || []),
+        pluginVirtualModule({
+          virtualModules: {
+            'virtual-post-data': () =>
+              `export const postInfos = ${JSON.stringify(postInfos)}`,
+            'virtual-post-categories': () =>
+              `export const postCategories = ${JSON.stringify(getCategoriesArray())}`,
+            'virtual-post-tags': () =>
+              `export const postTags = ${JSON.stringify(getTagsArray())}`,
+          },
+        }),
+      ]
     },
     addPages() {
-      const pages: AdditionalPage[] = []
+      internalGetPostInfo()
+      const pages: any[] = []
       // 添加文章路由
       postInfos.forEach((postInfo) => {
         pages.push({
@@ -60,7 +79,7 @@ export function blogPostResolver(options?: PluginOptions): RspressPlugin {
       })
       return pages
     },
-    extendPageData(pageData) {
+    extendPageData(pageData: any) {
       // 混入文章信息
       if (pageData?.frontmatter.layout === 'post') {
         const index = postInfos.findIndex(
@@ -77,18 +96,9 @@ export function blogPostResolver(options?: PluginOptions): RspressPlugin {
         pageData.categories = postInfo.categories
         pageData.tags = postInfo.tags
       }
-    },
-    addRuntimeModules() {
-      return {
-        'virtual-post-data': `
-          export const postInfos = ${JSON.stringify(postInfos)}
-        `,
-        'virtual-post-categories': `
-          export const postCategories = ${JSON.stringify(getCategoriesArray())}
-        `,
-        'virtual-post-tags': `
-          export const postTags = ${JSON.stringify(getTagsArray())}
-        `,
+
+      if (pageData?.frontmatter) {
+        pageData.frontmatter.sidebar = false
       }
     },
   }

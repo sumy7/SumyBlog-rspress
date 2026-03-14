@@ -1,57 +1,65 @@
-import { RspressPlugin } from '@rspress/shared'
-import { pluginShiki } from '@rspress/plugin-shiki'
+import { RspressPlugin } from '@rspress/core'
+import { visit } from 'unist-util-visit'
+import { resolve } from 'path'
 
-import rehypeKatex from 'rehype-katex'
-import rehypeRaw from 'rehype-raw'
 import remarkEmoji from 'remark-gemoji'
 import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+// import rspressPluginKatex from 'rspress-plugin-katex'
+import rspressPluginMermaid from 'rspress-plugin-mermaid'
+
+const katexCssPath = resolve(
+  __dirname,
+  '../node_modules/katex/dist/katex.min.css'
+)
+
+const remarkCodeBlockToMath = () => {
+  return (tree: any) => {
+    visit(tree, 'math', (node: any) => {
+      node.data = node.data || {}
+      node.data.hName = 'div'
+      delete node.lang
+      delete node.meta
+    })
+    visit(tree, 'code', (node: any) => {
+      if (node.lang === 'math') {
+        node.data = {
+          hName: 'div',
+          hProperties: { className: ['math', 'math-display'] },
+        }
+        delete node.lang
+        delete node.meta
+      }
+    })
+  }
+}
 
 // markdown 插件集合
 export function markdownPresetsPlugin(): RspressPlugin {
   return {
     name: '@sumyblog/rspress-plugin-markdown-presets',
-    builderConfig: {
-      html: {
-        tags: [
-          // katex css
-          {
-            tag: 'link',
-            attrs: {
-              href: 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css',
-              rel: 'stylesheet',
-              integrity:
-                'sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV',
-              crossOrigin: 'anonymous',
-            },
-          },
-        ],
-      },
-    },
-    config: (config) => {
-      config.plugins = [...(config.plugins || []), pluginShiki()]
-      return {
-        ...config,
-        markdown: {
-          // 使用 JS 版本的 MDX 编译器
-          mdxRs: false,
-          rehypePlugins: [
-            rehypeKatex,
-            [
-              rehypeRaw,
-              {
-                passThrough: [
-                  'mdxFlowExpression',
-                  'mdxJsxFlowElement',
-                  'mdxJsxTextElement',
-                  'mdxTextExpression',
-                  'mdxjsEsm',
-                ],
-              },
-            ],
-          ],
-          remarkPlugins: [remarkEmoji, remarkMath],
-        },
+    globalStyles: katexCssPath,
+    config: (config, { addPlugin }) => {
+      // addPlugin(rspressPluginKatex())
+      addPlugin(rspressPluginMermaid())
+
+      config.markdown = config.markdown || {}
+      config.markdown.link = { checkDeadLinks: false }
+      config.markdown.shiki = config.markdown.shiki || {}
+      config.markdown.shiki.defaultLanguage = 'text'
+      config.markdown.shiki.langAlias = {
+        mysql: 'text',
+        basic: 'text',
+        smali: 'text',
+        brainfuck: 'text',
+        delphi: 'text',
       }
+
+      return config
+    },
+    markdown: {
+      remarkPlugins: [[remarkMath, {}], remarkCodeBlockToMath, remarkEmoji],
+      rehypePlugins: [rehypeKatex],
     },
   }
 }

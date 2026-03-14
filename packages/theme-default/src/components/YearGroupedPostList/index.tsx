@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import { normalizeHrefInRuntime } from '@rspress/runtime'
+import { normalizeHrefInRuntime } from '@rspress/core/runtime'
 
 import { PostInfo } from '@sumyblog/rspress-plugin-post-resolver'
 

@@ -1,4 +1,4 @@
-import { useNavigate } from '@rspress/runtime'
+import { useNavigate } from '@rspress/core/runtime'
 import { postCategories } from 'virtual-post-categories'
 import { useMemo } from 'react'
 import WidgetContainer from '@/widget/WidgetContainer'

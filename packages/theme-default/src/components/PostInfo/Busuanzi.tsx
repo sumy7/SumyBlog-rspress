@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Helmet, useLocation } from '@rspress/runtime'
+import { Head, useLocation } from '@rspress/core/runtime'
 import fetchJsonp from 'fetch-jsonp'
 
 // busuanzi网站统计数据
@@ -59,9 +59,9 @@ const Busuanzi = () => {
 
   return (
     <>
-      <Helmet>
+      <Head>
         <meta name="referrer" content="no-referrer-when-downgrade" />
-      </Helmet>
+      </Head>
       {!loading && (
         <span id="busuanzi_container_page_pv">
           <span id="busuanzi_value_page_pv">{pageView}</span> 次

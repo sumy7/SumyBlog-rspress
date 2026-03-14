@@ -1,4 +1,4 @@
-import { Layout } from '@rspress/theme-default'
+import { Layout } from '@rspress/core/theme-original'
 import PostFooter from '@/components/PostFooter'
 import Footer from '@/components/Footer'
 

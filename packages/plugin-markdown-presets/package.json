@@ -1,6 +1,6 @@
 {
   "name": "@sumyblog/rspress-plugin-markdown-presets",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "type": "module",
   "exports": {
     ".": {
@@ -15,27 +15,25 @@
     "build": "rslib build",
     "dev": "rslib build -w"
   },
-  "peerDependencies": {
-    "parse5": "^6.0.1"
-  },
   "dependencies": {
-    "@rspress/plugin-shiki": "1.22.0",
-    "@rspress/shared": "1.22.0",
-    "rehype-katex": "^6.0.3",
-    "rehype-raw": "^6.1.1",
+    "katex": "^0.16.38",
+    "rehype-katex": "^7.0.0",
+    "remark-math": "^6.0.0",
+    "rspress-plugin-mermaid": "1.0.1",
+    "rspress-plugin-katex": "1.0.0",
     "remark-gemoji": "^8.0.0",
-    "remark-math": "^5.1.1"
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.57.6",
     "@rslib/core": "0.19.6",
+    "@rspress/core": "^2.0.0",
     "@types/node": "~16.11.7",
     "typescript": "^5.8.2"
   },
-  "eslintIgnore": [
-    "node_modules/",
-    "dist/"
-  ],
+  "peerDependencies": {
+    "@rspress/core": "^2.0.0"
+  },
   "sideEffects": [],
   "files": [
     "dist"

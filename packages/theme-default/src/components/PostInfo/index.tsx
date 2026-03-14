@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
 import dayjs from 'dayjs'
-import { usePageData } from '@rspress/runtime'
-import { BaseRuntimePageInfo } from '@rspress/shared'
+import { usePage } from '@rspress/core/runtime'
 import Busuanzi from './Busuanzi'
 import ClickFill from '@iconify-icons/bi/clock-fill'
 import CalendarFill from '@iconify-icons/bi/calendar-fill'
@@ -13,9 +12,9 @@ import { Icon } from '@iconify-icon/react'
 
 import styles from './index.module.scss'
 import classnames from 'classnames'
-import { Link } from '@rspress/theme-default'
+import { Link } from '@rspress/core/theme-original'
 
-export interface PostPageData extends BaseRuntimePageInfo {
+export interface PostPageData {
   date?: string
   categories?: string[]
   tags?: string[]
@@ -24,10 +23,10 @@ export interface PostPageData extends BaseRuntimePageInfo {
 }
 
 const PostInfo = () => {
-  const pageData = usePageData()
+  const { page } = usePage()
   const postInfo = useMemo(() => {
-    return pageData.page as PostPageData
-  }, [pageData.page])
+    return page as PostPageData
+  }, [page])
 
   return (
     <div className={classnames(styles.postInfoContainer, '-mt-5', 'mb-8')}>

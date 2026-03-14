@@ -1,23 +1,21 @@
 {
   "name": "@sumyblog/rspress-plugin-feed-rss",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "type": "module",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
+      "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
     "./FeedsAnnotations": "./static/global-components/FeedsAnnotations.tsx"
   },
   "module": "./dist/index.js",
-  "types": "./index.d.ts",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rslib build",
     "dev": "rslib build -w"
   },
   "dependencies": {
-    "@rspress/runtime": "1.22.0",
-    "@rspress/shared": "1.22.0",
     "@sumyblog/rspress-plugin-post-resolver": "workspace:*",
     "dayjs": "^1.11.10",
     "feed": "^4.2.2"
@@ -25,6 +23,7 @@
   "devDependencies": {
     "@microsoft/api-extractor": "^7.57.6",
     "@rslib/core": "0.19.6",
+    "@rspress/core": "^2.0.0",
     "@types/node": "~16.11.7",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -32,6 +31,11 @@
     "react-dom": "^18",
     "react-router-dom": "^6.8.1",
     "typescript": "^5.8.2"
+  },
+  "peerDependencies": {
+    "@rspress/core": "^2.0.0",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "sideEffects": [],
   "files": [

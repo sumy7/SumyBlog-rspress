@@ -7,6 +7,7 @@ categories:
 tags:
   - 测试
 ---
+
 # 博客功能插件测试
 
 > 用来测试一下博客的相关插件，主要是高亮插件和代码插件，表格样式还有公式的显示。
@@ -18,7 +19,7 @@ HTML样式代码
     <pre class="prettyprint linenums">
     #include<iostream>;
     using namespace std;
-    
+
     int main()
     {
         cout<<"Hello World!"<<endl;
@@ -43,13 +44,19 @@ int main()
 
 测试一下数学公式能否正常显示。
 
+When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are
+
+$$
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
+$$
+
 $$
 e^x = \sum\_{n=0}^\infty \frac{x^n}{n!} = \lim\_{n\rightarrow\infty} (1+x/n)^n
 $$
 
 ## 表格测试
 
-|head1 head1 head1|head2 head2 head2|head3 head3 head3|head4 head4 head4|
-|---|:---|:---:|---:|
-|row1text1|row1text3|row1text3|row1text4|
-|row2text1|row2text3|row2text3|row2text4|
+| head1 head1 head1 | head2 head2 head2 | head3 head3 head3 | head4 head4 head4 |
+| ----------------- | :---------------- | :---------------: | ----------------: |
+| row1text1         | row1text3         |     row1text3     |         row1text4 |
+| row2text1         | row2text3         |     row2text3     |         row2text4 |

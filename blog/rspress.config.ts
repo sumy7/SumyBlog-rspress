@@ -1,6 +1,6 @@
 import * as path from 'path'
-import { defineConfig, UserConfig } from 'rspress/config'
-import { DefaultThemeConfig } from '@rspress/shared'
+import { defineConfig, UserConfig } from '@rspress/core'
+import { pluginSitemap } from '@rspress/plugin-sitemap'
 
 import { blogPostResolver } from '@sumyblog/rspress-plugin-post-resolver'
 import { postReadingInfoPlugin } from '@sumyblog/rspress-plugin-reading-info'
@@ -102,16 +102,37 @@ export default defineConfig({
       },
     ],
     lastUpdated: true,
-    lastUpdatedText: '最后编辑时间',
-    prevPageText: '上一篇',
-    nextPageText: '下一篇',
-    outlineTitle: '目录',
     editLink: {
-      text: '📝 在 GitHub 上编辑此页',
       docRepoBaseUrl:
-        'https://github.com/sumy7/SumyBlog-rspress/blob/main/source/',
+        'https://github.com/sumy7/SumyBlog-rspress/blob/main/blog/source/',
     },
-    searchPlaceholderText: '搜索...',
+  },
+  lang: 'zh',
+  i18nSource: {
+    prevPageText: {
+      en: 'Previous Page',
+      zh: '上一篇',
+    },
+    nextPageText: {
+      en: 'Next Page',
+      zh: '下一篇',
+    },
+    outlineTitle: {
+      en: 'Outline',
+      zh: '目录',
+    },
+    editLinkText: {
+      en: '📝 Edit this page on GitHub',
+      zh: '📝 在 GitHub 上编辑此页',
+    },
+    lastUpdatedText: {
+      en: 'Last Updated',
+      zh: '最后编辑时间',
+    },
+    searchPlaceholderText: {
+      en: 'Search...',
+      zh: '搜索...',
+    },
   },
   globalUIComponents: [],
   route: {
@@ -121,6 +142,9 @@ export default defineConfig({
     selector: '.rspress-doc img',
   },
   plugins: [
+    pluginSitemap({
+      siteUrl: 'https://sumygg.com',
+    }),
     blogPostResolver({
       postsDir: path.join(__dirname, 'source/_posts'),
     }),
@@ -133,4 +157,4 @@ export default defineConfig({
       baseUrl: 'https://sumygg.com',
     }),
   ],
-} as UserConfig<DefaultThemeConfig>)
+} as UserConfig)

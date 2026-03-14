@@ -1,12 +1,12 @@
 import { postInfos } from 'virtual-post-data'
-import { usePageData } from '@rspress/runtime'
+import { usePage } from '@rspress/core/runtime'
 import YearGroupedPostList from '@/components/YearGroupedPostList'
 import BaseLayout from '@/layout/BaseLayout'
 
 const ArchivesLayout = () => {
   const {
     page: { frontmatter },
-  } = usePageData()
+  } = usePage()
 
   return (
     <BaseLayout>

@@ -1,4 +1,4 @@
-import { Layout } from '@rspress/theme-default'
+import { Layout } from '@rspress/core/theme-original'
 import HomeLayout from './HomeLayout'
 import PostLayout from './PostLayout'
 import DefaultLayout from '@/layout/DefaultLayout'

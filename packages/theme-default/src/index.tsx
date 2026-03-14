@@ -1,7 +1,6 @@
 import { useEffect, Fragment } from 'react'
-import Theme from '@rspress/theme-default'
-import { getCustomMDXComponent as getRspressMDXComponent } from '@rspress/theme-default'
-import { Helmet, useLocation, usePageData } from '@rspress/runtime'
+import { getCustomMDXComponent as getRspressMDXComponent } from '@rspress/core/theme-original'
+import { Head, useLocation, usePage, useSite } from '@rspress/core/runtime'
 import { getLayout } from './layout'
 import PostInfo from '@/components/PostInfo'
 
@@ -16,10 +15,11 @@ dayjs.extend(timezone)
 dayjs.tz.setDefault('Asia/Shanghai')
 
 const Layout = () => {
-  const { siteData, page } = usePageData()
-  const { pageType, lang: currentLang, title: articleTitle, frontmatter } = page
+  const { site } = useSite()
+  const { page } = usePage()
+  const { pageType, title: articleTitle, frontmatter } = page
   // const defaultLang = siteData.lang || ''
-  const mainTitle = siteData.title
+  const mainTitle = site.title
 
   const location = useLocation()
 
@@ -29,8 +29,7 @@ const Layout = () => {
   } else {
     title = mainTitle
   }
-  const description =
-    (frontmatter?.description as string) || siteData.description
+  const description = (frontmatter?.description as string) || site.description
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -51,23 +50,16 @@ const Layout = () => {
 
   return (
     <div>
-      <Helmet
-        htmlAttributes={{
-          lang: currentLang || 'en',
-        }}
-      >
+      <Head>
         {title ? <title>{title}</title> : null}
         {description ? <meta name="description" content={description} /> : null}
-      </Helmet>
+      </Head>
       {getLayout(pageType, (page.frontmatter?.layout as string) || '')}
     </div>
   )
 }
 
-export default {
-  ...Theme,
-  Layout,
-}
+export { Layout }
 
 // 覆写h1，支持在h1下方插入文章的基本信息
 export const getCustomMDXComponent = (): any => {
@@ -76,7 +68,7 @@ export const getCustomMDXComponent = (): any => {
   return {
     ...CustomMDXComponent,
     h1: (props: any) => {
-      const { page } = usePageData()
+      const { page } = usePage()
       const { frontmatter } = page
       return (
         <Fragment>
@@ -88,5 +80,7 @@ export const getCustomMDXComponent = (): any => {
   }
 }
 
-export * from '@rspress/theme-default'
+export * from '@rspress/core/theme-original'
 export * from './ThemeConfig'
+// export * from './ui/button'
+// export * from './ui/pagination'

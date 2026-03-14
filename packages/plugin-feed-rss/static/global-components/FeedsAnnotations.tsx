@@ -1,4 +1,4 @@
-import { Helmet } from '@rspress/runtime'
+import { Head } from '@rspress/core/runtime'
 
 export interface FeedsAnnotationsProps {
   href: string
@@ -8,9 +8,9 @@ const FeedsAnnotations: React.FC<FeedsAnnotationsProps> = ({
   href,
 }: FeedsAnnotationsProps) => {
   return (
-    <Helmet>
+    <Head>
       <link rel="alternate" type="application/rss+xml" href={href} />
-    </Helmet>
+    </Head>
   )
 }
 

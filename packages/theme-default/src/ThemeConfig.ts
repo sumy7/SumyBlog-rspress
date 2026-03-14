@@ -16,7 +16,7 @@ export interface GoogleAds {
 
 export type GiscusOptions = GiscusProps
 
-declare module '@rspress/shared' {
+declare module '@rspress/core' {
   interface DefaultThemeConfig {
     friendLinks?: FriendLink[]
     googleAds?: GoogleAds | false
