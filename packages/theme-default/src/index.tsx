@@ -82,5 +82,6 @@ export const getCustomMDXComponent = (): any => {
 
 export * from '@rspress/core/theme-original'
 export * from './ThemeConfig'
+export * from './doc_components'
 // export * from './ui/button'
 // export * from './ui/pagination'

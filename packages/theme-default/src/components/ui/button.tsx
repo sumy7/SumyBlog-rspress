@@ -54,6 +54,7 @@ function Button({
   const Comp = asChild ? Slot.Root : 'button'
 
   return (
+    // @ts-expect-error
     <Comp
       data-slot="button"
       data-variant={variant}
