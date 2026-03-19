@@ -14,9 +14,17 @@ const BaseLayout = (props: BaseLayoutProps) => {
   return (
     <div>
       <Nav />
-      <div className={classnames(styles.pageContainer)}>
+      <div
+        className={classnames(
+          'mx-auto max-w-7xl flex justify-center px-6 py-12',
+          styles.pageContainer
+        )}
+      >
         <div
-          className={classnames('rspress-doc-container', styles.pageContent)}
+          className={classnames(
+            'rspress-doc-container max-w-4xl',
+            styles.pageContent
+          )}
         >
           {children}
         </div>
