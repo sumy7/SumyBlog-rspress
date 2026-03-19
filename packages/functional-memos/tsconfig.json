@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.extend.json",
+  "compilerOptions": {
+    "composite": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "rootDir": ".",
+    "lib": ["ESNext", "DOM"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["src", "rslib.config.ts"],
+  "exclude": ["node_modules", "dist"]
+}

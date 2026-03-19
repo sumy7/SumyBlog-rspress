@@ -1,4 +1,3 @@
-import { Layout } from '@rspress/core/theme-original'
 import HomeLayout from './HomeLayout'
 import PostLayout from './PostLayout'
 import DefaultLayout from '@/layout/DefaultLayout'
@@ -13,7 +12,7 @@ import TagsLayout from '@/layout/TagsLayout'
  */
 export const getLayout = (pageType: string, postType: string) => {
   if (pageType === '404' || pageType === 'custom' || pageType === 'blank') {
-    return <Layout />
+    return <DefaultLayout />
   } else if (postType === 'home') {
     return <HomeLayout />
   } else if (postType === 'archives') {

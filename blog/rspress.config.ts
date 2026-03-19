@@ -81,6 +81,11 @@ export default defineConfig({
         activeMatch: '/blog/flinks/',
       },
       {
+        text: '碎碎念',
+        link: '/memos/',
+        activeMatch: '/memos/',
+      },
+      {
         text: '归档',
         link: '/blog/archives/',
         activeMatch: '/blog/archives/',
