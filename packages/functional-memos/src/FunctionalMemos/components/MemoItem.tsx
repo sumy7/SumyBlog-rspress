@@ -9,6 +9,25 @@ type MemoItemProps = {
   dateFormat: string
 }
 
+export function MemoItemSkeleton() {
+  return (
+    <div className="border-b border-border py-5">
+      <div className="flex flex-col gap-3">
+        <div className="h-3 w-24 animate-pulse rounded bg-muted" />
+        <div className="space-y-2">
+          <div className="h-4 w-full animate-pulse rounded bg-muted" />
+          <div className="h-4 w-3/4 animate-pulse rounded bg-muted" />
+        </div>
+        <div className="flex gap-2">
+          <div className="h-5 w-12 animate-pulse rounded bg-muted" />
+          <div className="h-5 w-14 animate-pulse rounded bg-muted" />
+          <div className="h-5 w-10 animate-pulse rounded bg-muted" />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function resolveDisplayTime(item: FunctionalMemoItem): string {
   return item.displayTime ?? item.createTime ?? item.updateTime ?? ''
 }

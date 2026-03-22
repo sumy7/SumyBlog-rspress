@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-query'
 import './styles.css'
 import { MemoItem } from './components/MemoItem'
-import { MemoList } from './components/MemoList'
+import { MemoList, MemoListSkeleton } from './components/MemoList'
 import type {
   FunctionalMemoItem,
   FunctionalMemosIndexResponse,
@@ -37,7 +37,6 @@ function FunctionalMemosInner(props: FunctionalMemosProps) {
   const {
     indexUrl = DEFAULT_INDEX_URL,
     className,
-    loadingText = 'Loading...',
     emptyText = 'No memos yet.',
     errorText = 'Failed to load memos.',
     loadMoreText = 'Load more',
@@ -83,7 +82,7 @@ function FunctionalMemosInner(props: FunctionalMemosProps) {
   const items = memosQuery.data?.pages.flat() ?? []
 
   if (indexQuery.isPending || memosQuery.isPending) {
-    return <p className={className}>{loadingText}</p>
+    return <MemoListSkeleton className={className} />
   }
 
   if (indexQuery.isError || memosQuery.isError) {

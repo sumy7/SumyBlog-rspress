@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { Button } from '@/components/ui/button'
 import type { FunctionalMemoItem } from '../types'
+import { MemoItemSkeleton } from './MemoItem'
 
 type MemoListProps = {
   items: FunctionalMemoItem[]
@@ -12,6 +13,23 @@ type MemoListProps = {
   onLoadMore: () => void
   getItemKey?: (item: FunctionalMemoItem, index: number) => string | number
   renderItem: (item: FunctionalMemoItem, index: number) => ReactNode
+}
+
+export function MemoListSkeleton({ className }: { className?: string }) {
+  return (
+    <section
+      className={['mx-auto max-w-4xl px-6 py-12', className]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      <h2 className="mb-3 text-sm font-semibold">Memos</h2>
+      <div className="m-0 list-none p-0">
+        {Array.from({ length: 3 }, (_, i) => (
+          <MemoItemSkeleton key={i} />
+        ))}
+      </div>
+    </section>
+  )
 }
 
 export function MemoList(props: MemoListProps) {
