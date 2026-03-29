@@ -3,6 +3,7 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Badge } from '@/components/ui/badge'
 import type { FunctionalMemoItem } from '../types'
+import { useState } from 'react'
 
 type MemoItemProps = {
   item: FunctionalMemoItem
@@ -40,6 +41,16 @@ export function MemoItem({ item, dateFormat }: MemoItemProps) {
   const content = item.content ?? item.snippet ?? ''
   const tags = Array.isArray(item.tags) ? item.tags : []
 
+  // 过滤图片附件
+  const imageAttachments = Array.isArray(item.attachments)
+    ? item.attachments.filter(
+        (att) => att.type && att.type.startsWith('image/')
+      )
+    : []
+
+  // 图片预览弹窗
+  const [previewImg, setPreviewImg] = useState<string | null>(null)
+
   return (
     <article className="group border-b border-border py-5 transition-all duration-500 animate-in fade-in slide-in-from-bottom-3">
       <div className="flex flex-col gap-3">
@@ -50,6 +61,22 @@ export function MemoItem({ item, dateFormat }: MemoItemProps) {
         <div className="text-sm leading-7 text-foreground max-sm:text-[13px] max-sm:leading-[1.65] [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-2 [&_code]:rounded-md [&_code]:border [&_code]:border-border [&_code]:bg-muted [&_code]:px-1.5 [&_code]:py-px [&_code]:text-xs [&_p]:my-2 [&_p:first-child]:mt-0 [&_p:last-child]:mb-0 [&_pre]:my-2.5 [&_pre]:overflow-auto [&_pre]:rounded-md [&_pre]:border [&_pre]:border-border [&_pre]:bg-muted [&_pre]:p-3 [&_pre_code]:border-0 [&_pre_code]:bg-transparent [&_pre_code]:p-0">
           <Markdown remarkPlugins={[remarkGfm]}>{content}</Markdown>
         </div>
+
+        {/* 图片附件缩略图展示 */}
+        {imageAttachments.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-2">
+            {imageAttachments.map((att, idx) => (
+              <img
+                key={att.name + att.filename + idx}
+                src={att._resolvedUrl}
+                alt={att.filename || 'attachment'}
+                className="w-20 h-20 object-cover rounded cursor-pointer border border-border hover:scale-105 transition-transform duration-200"
+                onClick={() => setPreviewImg(att._resolvedUrl)}
+                loading="lazy"
+              />
+            ))}
+          </div>
+        )}
 
         {tags.length > 0 ? (
           <ul
@@ -68,6 +95,27 @@ export function MemoItem({ item, dateFormat }: MemoItemProps) {
             ))}
           </ul>
         ) : null}
+        {/* 图片预览弹窗 */}
+        {previewImg && (
+          <div
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+            onClick={() => setPreviewImg(null)}
+          >
+            <img
+              src={previewImg}
+              alt="preview"
+              className="max-w-[90vw] max-h-[90vh] rounded shadow-lg border border-border bg-white"
+              onClick={(e) => e.stopPropagation()}
+            />
+            <button
+              className="absolute top-6 right-8 text-white text-3xl font-bold bg-black/40 rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/70 transition"
+              onClick={() => setPreviewImg(null)}
+              aria-label="关闭图片预览"
+            >
+              ×
+            </button>
+          </div>
+        )}
       </div>
     </article>
   )

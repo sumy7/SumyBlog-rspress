@@ -14,7 +14,8 @@ import type {
   FunctionalMemosProps,
 } from './types'
 
-const DEFAULT_INDEX_URL = 'https://jsondata.sumygg.com/memos/index.json'
+const BASE_URL = 'https://jsondata.sumygg.com/memos/'
+const DEFAULT_INDEX_URL = `${BASE_URL}index.json`
 
 async function fetchJson<T>(url: string, signal?: AbortSignal): Promise<T> {
   const response = await fetch(url, {
@@ -71,7 +72,19 @@ function FunctionalMemosInner(props: FunctionalMemosProps) {
       }
 
       const memoUrl = resolveMemoListUrl(indexUrl, file.fileName)
-      return fetchJson<FunctionalMemoItem[]>(memoUrl, signal)
+      return fetchJson<FunctionalMemoItem[]>(memoUrl, signal).then((data) => {
+        data.forEach((item) => {
+          item?.attachments?.forEach((att) => {
+            if (att.type && att.type.startsWith('image/')) {
+              att._resolvedUrl = resolveMemoListUrl(
+                indexUrl,
+                `file/${att.name}/${att.filename}`
+              )
+            }
+          })
+        })
+        return data
+      })
     },
     getNextPageParam: (_lastPage, allPages) => {
       const nextIndex = allPages.length

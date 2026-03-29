@@ -1,5 +1,17 @@
 import type { ReactNode } from 'react'
 
+export type FunctionalMemoItemAttachemnt = {
+  name: string
+  createTime: string
+  filename: string
+  content: string
+  externalLink: string
+  type: string
+  size: number
+  memo: string
+  _resolvedUrl?: string
+}
+
 export type FunctionalMemoItem = {
   id?: string | number
   content?: string
@@ -8,6 +20,7 @@ export type FunctionalMemoItem = {
   createTime?: string
   updateTime?: string
   tags?: string[]
+  attachments?: FunctionalMemoItemAttachemnt[]
   [key: string]: unknown
 }
 
