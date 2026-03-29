@@ -2,8 +2,8 @@
 layout: post
 title: 模块中默认导出和命名导出的区别
 date: 2023-12-28 12:00:00
-categories: [果然还是前端]
-tags: [javascript, es6, module, export, default]
+categories: [前端开发]
+tags: [JavaScript, ES Module, Webpack]
 ---
 
 # 模块中默认导出和命名导出的区别

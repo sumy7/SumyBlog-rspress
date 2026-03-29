@@ -2,8 +2,8 @@
 layout: post
 title: "上传splatoon3对战记录到stat.ink"
 date: 2024-03-11 20:00:00
-categories: [ 游戏人生 ]
-tags: [ splatoon, 对战记录, stat-ink, s3s ]
+categories: [工具效率]
+tags: [Splatoon3, stat.ink, s3s, Docker, NAS]
 ---
 
 # 上传splatoon3对战记录到stat.ink
