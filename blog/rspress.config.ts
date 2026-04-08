@@ -44,6 +44,10 @@ export default defineConfig({
         name: '乌漆嘛黑',
         link: 'https://www.chengzila.com/',
       },
+      {
+        name: '口袋分享记',
+        link: 'https://111620.xyz/',
+      },
     ],
     googleAds: {
       adClient: 'ca-pub-3539958012242464',
